@@ -25,7 +25,7 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Test"));
+        addItem(new DummyItem("1", "Graham"));
         addItem(new DummyItem("2", "Item 2"));
         addItem(new DummyItem("3", "Item 3"));
     }
