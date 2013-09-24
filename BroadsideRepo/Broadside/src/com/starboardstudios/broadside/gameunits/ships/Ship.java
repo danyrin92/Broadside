@@ -2,6 +2,8 @@ package com.starboardstudios.broadside.gameunits.ships;
 
 import java.util.ArrayList;
 
+import android.content.Context;
+
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
@@ -10,6 +12,12 @@ public abstract class Ship {
 	private ArrayList<Turret> turrets;
 	protected int x;
 	protected int y;
+	protected Context context;
+	
+	public Ship(Context c)
+	{
+		this.context=c;
+	}
 	
 	
 	ArrayList<Turret> getTurrets(){
