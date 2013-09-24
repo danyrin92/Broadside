@@ -1,7 +1,9 @@
-package com.starboardstudios.broadside.structures;
+package com.starboardstudios.broadside.gameunits.ships;
 
 import java.util.ArrayList;
-import com.starboardstudios.broadside.structures.turrets.Turret;
+
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public abstract class Ship {
 

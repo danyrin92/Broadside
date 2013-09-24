@@ -1,4 +1,4 @@
-package com.starboardstudios.broadside.structures.turrets;
+package com.starboardstudios.broadside.gameunits.turrets;
 
 public abstract class Turret {
 

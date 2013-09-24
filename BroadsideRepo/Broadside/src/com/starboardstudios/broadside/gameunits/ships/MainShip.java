@@ -1,7 +1,11 @@
-package com.starboardstudios.broadside.structures;
+package com.starboardstudios.broadside.gameunits.ships;
 
 import java.util.ArrayList;
 import java.math.*;
+
+import com.starboardstudios.broadside.gameunits.Crew;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 public class MainShip extends Ship{
 	private ArrayList<Section> sections;
