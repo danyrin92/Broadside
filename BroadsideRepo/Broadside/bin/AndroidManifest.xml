@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.starboardstudios.broadside"
-    android:versionCode="1"
-    android:versionName="1.0" >
-
-    <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="18" />
-
-    <application>
-        <activity android:name=".controller.TestController"></activity>
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+          package="com.starboardstudios.broadside"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="18"/>
+    <application android:label="@string/app_name" android:icon="@drawable/testship">
+        <activity android:name=".controller.TestController"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>

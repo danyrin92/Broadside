@@ -3,4 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Ship"
+            android:id="@+id/addShip" android:layout_x="112dp" android:layout_y="51dp" android:onClick="addShip"/>
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="342dp" android:layout_x="0dp" android:layout_y="118dp"
+            android:background="#fbf0ff"
+            android:id="@+id/inner_frame">
+    </FrameLayout>
 </AbsoluteLayout>
