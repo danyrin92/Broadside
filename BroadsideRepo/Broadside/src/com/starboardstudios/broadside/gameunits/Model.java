@@ -79,6 +79,7 @@ public class Model extends Thread {
 
             for(int x=0; x<ships.size();x++)
             {
+
                 ships.get(x).update();
 
 

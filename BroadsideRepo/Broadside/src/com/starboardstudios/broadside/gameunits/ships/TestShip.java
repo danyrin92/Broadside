@@ -20,6 +20,20 @@ public class TestShip extends Ship {
         imageView.setImageResource(drawable.testship); //Set to image
         imageView.setAdjustViewBounds(true);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 xVelo=xVelo*2;
+            }
+        });
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                yVelo = yVelo*2;
+
+                return false;
+            }
+        });
          System.out.println("Ship Created");
     }
 
