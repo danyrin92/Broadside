@@ -8,18 +8,18 @@ import com.starboardstudios.broadside.gameunits.Model;
 
 public class TestShip extends Ship {
 
-    public ImageView imageView = new ImageView(context);
-    private Model model;
-	private int x,y,z,xVelo,yVelo,zVelo;
+    public ImageView imageView = new ImageView(context); //The image representing the ship
+    private Model model; //the model
+	private int x,y,z,xVelo,yVelo,zVelo; //position and speed
 
 	public TestShip(Model model)
 	{
-        super(model.context);
+        super(model.context); //Esthablish context 
         this.model=model;
-		x=0;y=0;z=0;
-        imageView.setImageResource(drawable.testship);
+		x=0;y=0;z=0; //Position
+        imageView.setImageResource(drawable.testship); //Set to image
         imageView.setAdjustViewBounds(true);
-        imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75));
+        imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
          System.out.println("Ship Created");
     }
 
@@ -37,7 +37,9 @@ public class TestShip extends Ship {
     {
 
     }
-
+/**
+ * called from the model each 'frame'. 
+ */
     public void update()
     {
 

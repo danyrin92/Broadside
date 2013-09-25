@@ -33,14 +33,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/jarlist.cache" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Broadside.apk" afterPath="$PROJECT_DIR$/bin/Broadside.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/dexedLibs/android-support-v4-022953a26356d9ae2b75585adb37dc2b.jar" afterPath="$PROJECT_DIR$/bin/dexedLibs/android-support-v4-022953a26356d9ae2b75585adb37dc2b.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="$PROJECT_DIR$/bin/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="$PROJECT_DIR$/bin/resources.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/test_controller_view.xml" afterPath="$PROJECT_DIR$/res/layout/test_controller_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,10 +104,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestController.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="33" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="915">
+            <state line="18" column="21" selection-start="469" selection-end="469" vertical-scroll-proportion="0.22167487" vertical-offset="0" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -136,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestShip.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestShip.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="41" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.7389163" vertical-offset="60" max-vertical-offset="1065">
+            <state line="48" column="41" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
               <folding>
                 <element signature="e#1244#1471#0" expanded="true" />
                 <element signature="e#1460#1461#0" expanded="true" />
@@ -198,9 +198,9 @@
       <list>
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout/test_controller_view.xml" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java" />
       </list>
     </option>
   </component>
@@ -628,12 +628,12 @@
       <changelist id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="" />
       <created>1380059351022</created>
       <updated>1380059351022</updated>
-      <workItem from="1380060130193" duration="11555000" />
+      <workItem from="1380060130193" duration="11803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11555000" />
+    <option name="totallyTimeSpent" value="11803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1348" extended-state="6" />
@@ -738,13 +738,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="33" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="74" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1635">
@@ -766,11 +759,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="41" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.7389163" vertical-offset="60" max-vertical-offset="1065">
+        <state line="48" column="41" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
           <folding>
             <element signature="e#1244#1471#0" expanded="true" />
             <element signature="e#1460#1461#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="469" selection-end="469" vertical-scroll-proportion="0.22167487" vertical-offset="0" max-vertical-offset="990">
+          <folding />
         </state>
       </provider>
     </entry>

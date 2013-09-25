@@ -8,12 +8,20 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
+/**
+ * A basic controller to test MVC functionality
+ */
 public class TestController extends Activity {
 
 
-
+    /**
+     * The global model
+     */
     private Model model;
 
+    /**
+     * Called when the class is instantiated
+     */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -45,7 +53,10 @@ public class TestController extends Activity {
     }
 
 
-
+    /**
+     * Is run when the user clicks on add ship
+     * @param view
+     */
     public void addShip(View view)
     {
         System.out.println("Ship Requested");
