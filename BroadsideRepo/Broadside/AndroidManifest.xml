@@ -14,36 +14,52 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.PlayController"
-		        android:parentActivityName=".controller.HomeController" 
-		        android:screenOrientation="landscape" android:label="@string/app_name">
+		        android:parentActivityName=".controller.HomeController"
+		        android:screenOrientation="landscape"
+		        android:label="@string/app_name">
 		        <meta-data
 		            android:name="android.support.PARENT_ACTIVITY"
 		            android:value=".controller.HomeController" />
     	</activity>
         <activity android:screenOrientation="landscape" 
-	            android:name=".controller.OptionsController" 
+	            android:name=".controller.OptionsController"
+	            android:parentActivityName=".controller.HomeController" 
 	            android:label="@string/app_name">
-            
+            	<meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".controller.HomeController" />
         </activity>
         <activity android:label="@string/app_name" 
-	            android:name=".controller.UpgradeController" 
+	            android:name=".controller.UpgradeController"
+	            android:parentActivityName=".controller.PlayController" 
 	            android:screenOrientation="landscape">
-            
+            	<meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".controller.PlayController" />
         </activity>
         <activity android:label="@string/app_name" 
-	            android:name=".controller.LeaderBoardController" 
+	            android:name=".controller.LeaderBoardController"
+	            android:parentActivityName=".controller.HomeController" 
 	            android:screenOrientation="landscape">
-            
+            	<meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".controller.HomeController" />
         </activity>
         <activity android:label="@string/app_name" 
-	            android:name=".controller.PauseController" 
+	            android:name=".controller.PauseController"
+	            android:parentActivityName=".controller.PlayController" 
 	            android:screenOrientation="landscape">
-            
+            	<meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".controller.PlayController" />
         </activity>
         <activity android:label="@string/app_name" 
-	            android:name=".controller.CreditsController" 
+	            android:name=".controller.CreditsController"
+	            android:parentActivityName=".controller.HomeController" 
 	            android:screenOrientation="landscape">
-            
+            	<meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".controller.HomeController" />
         </activity>
     </application>
 </manifest>
