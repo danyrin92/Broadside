@@ -17,6 +17,7 @@ public class TestShip extends Ship {
         super(model.context); //Esthablish context 
         this.model=model;
 		x=0;y=0;z=0; //Position
+
         imageView.setImageResource(drawable.testship); //Set to image
         imageView.setAdjustViewBounds(true);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
@@ -29,7 +30,7 @@ public class TestShip extends Ship {
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                yVelo = yVelo*2;
+        yVelo = yVelo*2;
 
                 return false;
             }

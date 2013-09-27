@@ -1,6 +1,8 @@
 package com.starboardstudios.broadside.gameunits.projectile;
 
-public class Projectile {
+import com.starboardstudios.broadside.gameunits.BaseUnit;
+
+public class Projectile extends BaseUnit {
 
 	public int getDamage() {
 		// TODO Auto-generated method stub

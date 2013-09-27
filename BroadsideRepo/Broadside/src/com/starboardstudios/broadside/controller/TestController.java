@@ -1,7 +1,6 @@
 package com.starboardstudios.broadside.controller;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.starboardstudios.broadside.R;
@@ -26,9 +25,9 @@ public class TestController extends Activity {
 	public void onCreate(Bundle savedInstanceState)
 	{
 	
-		Intent intent = new Intent(Intent.ACTION_MAIN,null);
-		intent.setPackage(getPackageName());
-		super.onCreate(savedInstanceState);
+	//	Intent intent = new Intent(Intent.ACTION_MAIN,null);
+	//	intent.setPackage(getPackageName());
+	//	super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_controller_view);
 		model = new Model(getBaseContext());
 
@@ -46,10 +45,6 @@ public class TestController extends Activity {
     }
 
 
-    public void runTask(Runnable runnable)
-    {
-        runnable.run();
-    }
 
 
     /**

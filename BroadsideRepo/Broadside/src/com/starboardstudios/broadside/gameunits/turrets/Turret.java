@@ -1,6 +1,8 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
-public abstract class Turret {
+import com.starboardstudios.broadside.gameunits.BaseUnit;
+
+public abstract class Turret extends BaseUnit {
 
 	//properties
 	  //image
