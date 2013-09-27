@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class HomeController extends Activity{
+public class HomeController extends BaseController{
 	
 	//private Model model;
 	
