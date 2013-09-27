@@ -25,11 +25,20 @@ public class TestController extends Activity {
 	public void onCreate(Bundle savedInstanceState)
 	{
 	
+<<<<<<< Updated upstream
 	//	Intent intent = new Intent(Intent.ACTION_MAIN,null);
 	//	intent.setPackage(getPackageName());
 	//	super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_controller_view);
 		model = new Model(getBaseContext());
+=======
+		//Intent intent = new Intent(Intent.ACTION_MAIN,null);
+		//intent.setPackage(getPackageName());
+		super.onCreate(savedInstanceState);
+		//setContentView(R.layout.test_controller_view);
+		//model = new Model(getBaseContext());
+		//model.setCurrentActivity(this);
+>>>>>>> Stashed changes
 
 
 

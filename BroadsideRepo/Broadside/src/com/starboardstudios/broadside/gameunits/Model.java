@@ -1,7 +1,15 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
+<<<<<<< Updated upstream
 import com.starboardstudios.broadside.controller.BaseController;
+=======
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.HomeController;
+>>>>>>> Stashed changes
 import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
 import java.util.ArrayList;
@@ -52,6 +60,10 @@ public class Model extends Thread {
         }
 
     }
+    public void setCurrentActivity(HomeController homeController)
+    {
+        this.currentActivity = homeController;
+    }
 
     public void setCurrentActivity(BaseController a)
     {
@@ -62,6 +74,10 @@ public class Model extends Thread {
     {
         currentActivity.runOnUiThread(x);
     }
+<<<<<<< Updated upstream
 
+=======
+	
+>>>>>>> Stashed changes
 
 }
