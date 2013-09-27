@@ -31,7 +31,6 @@ public class TestController extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test_controller_view);
 		model = new Model(getBaseContext());
-        model.setCurrentActivity(this);
 
 
 
