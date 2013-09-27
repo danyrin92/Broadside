@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.HomeController;
 import com.starboardstudios.broadside.controller.TestController;
 import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class Model extends Thread {
 
     public Context context;
-    private TestController currentActivity;
+    private HomeController currentActivity;
     private ArrayList<TestShip> ships = new ArrayList<TestShip>();
     private FrameLayout inner;
     public Model(Context context)
@@ -90,15 +91,17 @@ public class Model extends Thread {
         }
 
     }
-    public void setCurrentActivity(TestController a)
-    {
-        this.currentActivity=a;
-    }
 
     public void runOnMain(Runnable x)
     {
         currentActivity.runOnUiThread(x);
     }
+
+
+	public void setCurrentActivity(HomeController homeController) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
