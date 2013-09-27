@@ -2,6 +2,11 @@ package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
 import com.starboardstudios.broadside.controller.BaseController;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.HomeController;
 import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
 import java.util.ArrayList;
@@ -9,7 +14,7 @@ import java.util.ArrayList;
 public class Model extends Thread {
 
     public Context context;
-    private BaseController currentActivity;
+    private HomeController currentActivity;
     private ArrayList<TestShip> ships = new ArrayList<TestShip>();
     public Model(Context context)
     {
@@ -52,16 +57,14 @@ public class Model extends Thread {
         }
 
     }
-
-    public void setCurrentActivity(BaseController a)
+    public void setCurrentActivity(HomeController homeController)
     {
-        this.currentActivity=a;
+        this.currentActivity = homeController;
     }
 
     public void runOnMain(Runnable x)
     {
         currentActivity.runOnUiThread(x);
     }
-
 
 }
