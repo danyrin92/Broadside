@@ -12,7 +12,7 @@ public class OptionsController extends BaseController{
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.play_view);
+		setContentView(R.layout.options_view);
 		
 	}
 }

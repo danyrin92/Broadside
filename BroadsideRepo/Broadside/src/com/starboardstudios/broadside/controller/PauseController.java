@@ -12,7 +12,7 @@ public class PauseController extends BaseController{
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.play_view);
+		setContentView(R.layout.pause_view);
 		
 	}
 }
