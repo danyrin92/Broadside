@@ -12,6 +12,8 @@ public abstract class Ship extends BaseUnit {
 	private ArrayList<Turret> turrets;
 	protected int x;
 	protected int y;
+	protected int xSpeed;
+	protected int ySpeed;
 	protected Context context;
 	
 	public Ship(Context c)
@@ -30,6 +32,10 @@ public abstract class Ship extends BaseUnit {
 	}
 	
 	void GoTo(int x, int y){
+		this.x = x;
+		this.y = y;
+		xSpeed = 0;
+		ySpeed = 0;
 	}
 	
 	void Damage(Projectile p){
