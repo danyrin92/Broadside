@@ -15,10 +15,11 @@ public final class R {
         public static final int credits_cloud=0x7f020001;
         public static final int leaders_cloud=0x7f020002;
         public static final int load_game=0x7f020003;
-        public static final int newgame_cloud=0x7f020004;
-        public static final int testship=0x7f020005;
-        public static final int tutorial_cloud=0x7f020006;
-        public static final int waves=0x7f020007;
+        public static final int mainship=0x7f020004;
+        public static final int newgame_cloud=0x7f020005;
+        public static final int testship=0x7f020006;
+        public static final int tutorial_cloud=0x7f020007;
+        public static final int waves=0x7f020008;
     }
     public static final class id {
         public static final int addShip=0x7f060002;
