@@ -35,8 +35,9 @@ public class Model extends Thread {
 
     public void update()
     {
-        if(currentActivity!=null)
-        {
+        if(currentActivity!=null){
+        	
+        	System.out.println("We are in the update loop!");
           mainShip.update();
 
         }
