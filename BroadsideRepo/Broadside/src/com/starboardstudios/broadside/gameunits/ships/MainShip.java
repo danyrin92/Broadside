@@ -58,7 +58,15 @@ public class MainShip extends Ship {
 		x = x + xSpeed;
 		y = y + ySpeed;
 		
-		
+		model.runOnMain(new Runnable(){
+			public void run(){
+				imageView.setX(x);
+				imageView.setY(y);
+				imageView.setImageResource(drawable.mainship);
+				
+			}
+			
+		});
 		
 	}
 

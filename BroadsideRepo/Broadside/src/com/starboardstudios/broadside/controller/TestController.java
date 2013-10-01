@@ -63,7 +63,7 @@ public class TestController extends Activity {
         TestShip x = new TestShip(model);
        // x.setVelocity(Integer.parseInt(xvel.getText().toString()),1,0);
         x.setVelocity(1,1,0);
-        model.addShip(x);
+       // model.addShip(x);
 
     }
 	

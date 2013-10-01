@@ -1,21 +1,16 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
-import com.starboardstudios.broadside.controller.BaseController;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.FrameLayout;
-import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.controller.HomeController;
-import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
-import java.util.ArrayList;
+import com.starboardstudios.broadside.controller.HomeController;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.TestShip;
 
 public class Model extends Thread {
 
     public Context context;
     private HomeController currentActivity;
-    private ArrayList<TestShip> ships = new ArrayList<TestShip>();
+    private MainShip mainShip;
     public Model(Context context)
     {
         this.context=context;
@@ -37,22 +32,12 @@ public class Model extends Thread {
        }
     }
 
-    public void addShip(TestShip s)
-    {
-        ships.add(s);
-        //inner.addView(s.imageView);
-        System.out.println("Ship Added");
-
-    }
 
     public void update()
     {
         if(currentActivity!=null)
         {
-            for(int x=0; x<ships.size();x++)
-            {
-                ships.get(x).update();
-           }
+          mainShip.update();
 
         }
 
