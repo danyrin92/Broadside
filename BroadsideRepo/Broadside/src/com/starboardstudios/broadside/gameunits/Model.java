@@ -1,16 +1,15 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
-
 import com.starboardstudios.broadside.controller.HomeController;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.gameunits.ships.TestShip;
+
+import java.util.ArrayList;
 
 public class Model extends Thread {
 
     public Context context;
     private HomeController currentActivity;
-    private MainShip mainShip;
+    private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
     public Model(Context context)
     {
         this.context=context;
@@ -38,8 +37,12 @@ public class Model extends Thread {
         if(currentActivity!=null){
         	
         	System.out.println("We are in the update loop!");
-          mainShip.update();
+            for(int x=0;x<units.size();x++)
+            {
 
+                units.get(x).update();
+
+            }
         }
 
     }
@@ -51,6 +54,11 @@ public class Model extends Thread {
     public void runOnMain(Runnable x)
     {
         currentActivity.runOnUiThread(x);
+    }
+    public void addUnit(BaseUnit unit)
+    {
+
+        units.add(unit);
     }
 
 }

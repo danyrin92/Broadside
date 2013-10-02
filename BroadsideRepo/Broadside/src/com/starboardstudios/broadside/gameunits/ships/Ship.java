@@ -4,12 +4,13 @@ import android.content.Context;
 
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.turrets.BaseTurret;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
+
 import java.util.ArrayList;
 
 public abstract class Ship extends BaseUnit {
 
-	private ArrayList<BaseTurret> turrets;
+	private ArrayList<Turret> turrets;
 	protected int x;
 	protected int y;
 	protected int xSpeed;
@@ -22,7 +23,7 @@ public abstract class Ship extends BaseUnit {
 	}
 	
 	
-	ArrayList<BaseTurret> getTurrets(){
+	ArrayList<Turret> getTurrets(){
 		return turrets;
 	}
 	

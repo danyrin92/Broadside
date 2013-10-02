@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
-public class MainCannon extends BaseTurret{
+public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
     private Model model;
     int x,y,z;

@@ -1,9 +1,10 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
 import android.content.Context;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
-public abstract class BaseTurret {
+public abstract class Turret extends BaseUnit {
 
 	protected int x,y,z;
 	protected Context context;
@@ -11,7 +12,7 @@ public abstract class BaseTurret {
 	boolean canAffect;
 	double range;
 	
-	public BaseTurret(Context c) {
+	public Turret(Context c) {
 		this.context = c;
 	}	    
 	    
