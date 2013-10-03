@@ -11,6 +11,8 @@ public class TestShip extends Ship {
     public ImageView imageView = new ImageView(context); //The image representing the ship
     private Model model; //the model
 	private int x,y,z,xVelo,yVelo,zVelo; //position and speed
+    boolean inPosition =false;
+
 
 	public TestShip(Model model)
 	{
@@ -58,6 +60,17 @@ public class TestShip extends Ship {
     public void update()
     {
 
+        if(!inPosition)
+        {
+            y=y-1;
+            if(y>300)
+            {
+                inPosition=true;
+            }
+
+
+        }
+
 
         x=x+xVelo;
         y=y+yVelo;
@@ -84,6 +97,8 @@ public class TestShip extends Ship {
     public ImageView getImage() {
         return null;
     }
+
+
 
 
 }

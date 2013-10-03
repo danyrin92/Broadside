@@ -12,6 +12,9 @@ public class Model extends Thread {
     public Context context;
     private BaseController currentActivity;
     private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
+
+
+
     public Model(Context context)
     {
         this.context=context;
@@ -65,10 +68,18 @@ public class Model extends Thread {
             units.add(unit);
             ((FrameLayout)currentActivity.findViewById(R.id.play_frame)).addView(unit.getImage());
 
-
         }
 
 
+    }
+
+    public int getScreenX()
+    {
+        return currentActivity.getBaseContext().getResources().getDisplayMetrics().widthPixels;
+    }
+    public int getScreenY()
+    {
+        return currentActivity.getBaseContext().getResources().getDisplayMetrics().heightPixels;
     }
 
 }

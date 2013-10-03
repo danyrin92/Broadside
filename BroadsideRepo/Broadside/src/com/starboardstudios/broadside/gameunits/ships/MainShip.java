@@ -20,27 +20,22 @@ public class MainShip extends Ship {
 	private MainCannon mainCannon;
 	private int waterLevel = 0;
 	private int health = 100;
+    private  boolean inPosition=false;
 
 	public MainShip(Model model) {
 		super(model.context);// Makes context
 
 		this.model = model;
-		x = 50;
-		y = 80;
+		y = 100;
         //setVelocity(5,10);
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams(75, 75)); // Set	// 75,75?
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int)(model.getScreenX()*.75), (int)(model.getScreenY()*.75))); // Set	// 75,75?
+        x = (int) (model.getScreenX()*.5);
 
 
         System.out.println("Main Ship Created");
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setVelocity(10,10);
-            }
-        });
 
 
 	}
@@ -63,7 +58,10 @@ public class MainShip extends Ship {
 	}
 	
 	public void update(){
-		x = x + xSpeed;
+
+
+
+        x = x + xSpeed;
 		y = y + ySpeed;
 		
 		model.runOnMain(new Runnable(){
