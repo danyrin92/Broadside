@@ -35,7 +35,7 @@ public class MainShip extends Ship {
         System.out.print("hi");
 
 
-        System.out.println("Graham was here");
+       
         System.out.println("Main Ship Created");
 
 
