@@ -6,7 +6,7 @@
     <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:layout_x="-1dp" android:layout_y="5dp"
-            android:background="@drawable/background" android:id="@id/play_frame">
+            android:background="@drawable/ocean" android:id="@id/play_frame">
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <Button
-        android:id="@+id/playGame"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="94dp"
-        android:layout_height="wrap_content"
-        android:layout_x="218dp"
-        android:layout_y="60dp"
-        android:onClick="playGame"
-        android:text="New Game" />
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="233dp"
-        android:layout_y="134dp"
+        android:layout_x="154dp"
+        android:layout_y="24dp"
         android:text="Broadside"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/playGame"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="227dp"
+        android:layout_y="176dp"
+        android:onClick="playGame"
+        android:text="New Game" />
 
 </AbsoluteLayout>
