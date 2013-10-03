@@ -33,7 +33,7 @@ public class MainShip extends Ship {
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int)(model.getScreenX()*.75), (int)(model.getScreenY()*.75))); // Set	// 75,75?
         x = (int) (model.getScreenX()*.5);
 
-        System.out.println("Graham was here");
+       
         System.out.println("Main Ship Created");
 
 
