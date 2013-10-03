@@ -3,9 +3,11 @@ package com.starboardstudios.broadside.controller;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 public class PlayController extends BaseController{
 
@@ -41,8 +43,10 @@ public class PlayController extends BaseController{
     public void addShip(View view)
     {
         model.addUnit(new MainShip(model));
-
-
+    }
+    public void addTurret(View view)
+    {
+        model.addUnit(new MainCannon(model));
     }
 	
 	

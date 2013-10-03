@@ -17,10 +17,10 @@ public class MainCannon extends Turret {
 		super(model.context);
 		this.model = model;
 		x=0;y=0;z=0;
-		 //imageView.setImageResource(drawable.testturret); //Set to image
+		 imageView.setImageResource(drawable.turret); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
-	        imageView.setOnDragListener(new View.OnDragListener() {
+	        /*imageView.setOnDragListener(new View.OnDragListener() {
 	            @Override
 				public boolean onDrag(View v, DragEvent event) {
 					if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
@@ -33,7 +33,7 @@ public class MainCannon extends Turret {
 						return false;
 					}
 				}
-	        });
+	        });*/
 	         System.out.println("Turret Created");
 	    }
 
@@ -54,7 +54,7 @@ public class MainCannon extends Turret {
 	            public void run() {
 	                imageView.setX(x);
 	                imageView.setY(y);
-	                imageView.setImageResource(drawable.testship);
+	                imageView.setImageResource(drawable.turret);
 	            }
 	        });
 	    }
