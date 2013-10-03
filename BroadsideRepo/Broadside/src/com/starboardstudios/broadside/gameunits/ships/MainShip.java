@@ -14,82 +14,76 @@ import java.util.ArrayList;
 public class MainShip extends Ship {
 
 	public ImageView imageView = new ImageView(context); // Image for ship
-	private Model model; // THe model for the program
+	private Model model;
 	private ArrayList<Section> sections;
 	private ArrayList<Crew> crew;
 	private MainCannon mainCannon;
 	private int waterLevel = 0;
 	private int health = 100;
-    private  boolean inPosition=false;
+
+	// private boolean inPosition=false; No longer useful?
 
 	public MainShip(Model model) {
-		super(model.context);// Makes context
-
+		super(model.context);
 		this.model = model;
-		y = 100;
-        //setVelocity(5,10);
+
+		// PNG to be used as image
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams((int)(model.getScreenX()*.75), (int)(model.getScreenY()*.75))); // Set	// 75,75?
-        x = (int) (model.getScreenX()*.5);
-        System.out.print("hi");
-
-
-       
-        System.out.println("Main Ship Created");
-
-
-
+		// Determines rendering size of object
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * .75), (int) (model.getScreenY())));
+		// Starting position. As for now on the left. Why does x need to be negative? Huh?
+		x = -290;
+		y = ((int) (model.getScreenY() * .5))+300;
 	}
 
 	void Damage(Projectile p) {
-		// Dummy example
 		health = health - p.getDamage();
 	}
 
-	public void setVelocity(int xSpeed, int ySpeed){
+	public void setVelocity(int xSpeed, int ySpeed) {
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
 		imageView.setX(x);
 		imageView.setY(y);
-		
+
 	}
-	
-	public void setVelocity(View view){
-		
-	}
-	
-	public void update(){
 
+	public void update() {
 
-
-        x = x + xSpeed;
+		x = x + xSpeed;
 		y = y + ySpeed;
 		
-		model.runOnMain(new Runnable(){
-			public void run(){
+		if(y > 0)
+			ySpeed = -2;
+		else
+			ySpeed = 0;
+		
+
+		model.runOnMain(new Runnable() {
+			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 				imageView.setImageResource(drawable.mainship);
-				
+
 			}
-			
+
 		});
-		
+
 	}
 
-    @Override
-    public ImageView getImage() {
-        return imageView;
-    }
+	@Override
+	public ImageView getImage() {
+		return imageView;
+	}
 
-    void FireMain(int x, int y) {
+	void FireMain(int x, int y) {
 		int deltaX = x - this.x;
-		// Below is swapped due to Y being inverted with our screen
 		int deltaY = this.y - y;
 		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
 
-		// Make new projectile firing in this direction.
+		// Code to new projectile firing in this direction inc.
 	}
 
 }

@@ -20,13 +20,15 @@ public class PlayController extends BaseController{
 		name="PlayController";
 		model = new Model(getBaseContext());
         model.setCurrentActivity(this);
+        
+        //Below is an example of how to add to the model without keylistener logic! Don't delete!
         model.addUnit(new MainShip(model));
+       
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        model.addUnit(new MainShip(model));
 
 
 

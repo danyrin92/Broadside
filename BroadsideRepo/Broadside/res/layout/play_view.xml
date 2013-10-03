@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom" >
 
     <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" android:layout_x="-1dp" android:layout_y="5dp"
-            android:background="@drawable/ocean" android:id="@id/play_frame">
+        android:id="@id/play_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:background="@drawable/ocean" >
+
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Unit"
-                android:id="@+id/addObject" android:layout_gravity="center_horizontal|top" android:onClick="addShip"/>
+            android:id="@+id/addObject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addShip"
+            android:text="Add Unit"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
     </FrameLayout>
+
 </AbsoluteLayout>

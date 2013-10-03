@@ -1,6 +1,7 @@
 package com.starboardstudios.broadside.controller;
 
-
+//THIS CONTROLLER IS OUTDATED AND WILL NO LONGER WORK
+//STOP TRYING TO TEST WITH IT. USE PLAY CONTROLLER.
 
 import android.app.Activity;
 import android.os.Bundle;

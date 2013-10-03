@@ -6,6 +6,12 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
+
+
+//THIS CLASS IS OUTDATED AND PROBABLY WONT WORK
+//USE IT'S SYNTAX FOR REFERENCE, BUT NOT FOR ACTUAL TESTING
+
+
 public class TestShip extends Ship {
 
     public ImageView imageView = new ImageView(context); //The image representing the ship
