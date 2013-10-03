@@ -19,7 +19,7 @@ public class MainShip extends Ship {
 	private ArrayList<Crew> crew;
 	private MainCannon mainCannon;
 	private int waterLevel = 0;
-	private int health = 100;
+	private int health = 110;
     private  boolean inPosition=false;
 
 	public MainShip(Model model) {
