@@ -1,16 +1,15 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
-import java.util.ArrayList;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+
+import java.util.ArrayList;
 
 public class MainShip extends Ship {
 
@@ -26,15 +25,24 @@ public class MainShip extends Ship {
 		super(model.context);// Makes context
 
 		this.model = model;
-		x = 0;
-		y = 0;
-
+		x = 50;
+		y = 80;
+        //setVelocity(5,10);
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams(75, 75)); // Sets
-																			// size.
-																			// 75,75?
-		System.out.println("Main Ship Created");
+		imageView.setLayoutParams(new LinearLayout.LayoutParams(75, 75)); // Set	// 75,75?
+
+
+        System.out.println("Main Ship Created");
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setVelocity(10,10);
+            }
+        });
+
+
 	}
 
 	void Damage(Projectile p) {
@@ -70,7 +78,12 @@ public class MainShip extends Ship {
 		
 	}
 
-	void FireMain(int x, int y) {
+    @Override
+    public ImageView getImage() {
+        return imageView;
+    }
+
+    void FireMain(int x, int y) {
 		int deltaX = x - this.x;
 		// Below is swapped due to Y being inverted with our screen
 		int deltaY = this.y - y;

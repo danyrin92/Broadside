@@ -1,14 +1,16 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
-import com.starboardstudios.broadside.controller.HomeController;
+import android.widget.FrameLayout;
+import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.BaseController;
 
 import java.util.ArrayList;
 
 public class Model extends Thread {
 
     public Context context;
-    private HomeController currentActivity;
+    private BaseController currentActivity;
     private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
     public Model(Context context)
     {
@@ -46,7 +48,7 @@ public class Model extends Thread {
         }
 
     }
-    public void setCurrentActivity(HomeController homeController)
+    public void setCurrentActivity(BaseController homeController)
     {
         this.currentActivity = homeController;
     }
@@ -58,7 +60,15 @@ public class Model extends Thread {
     public void addUnit(BaseUnit unit)
     {
 
-        units.add(unit);
+        if(currentActivity.name.equalsIgnoreCase("PlayController"))
+        {
+            units.add(unit);
+            ((FrameLayout)currentActivity.findViewById(R.id.play_frame)).addView(unit.getImage());
+
+
+        }
+
+
     }
 
 }

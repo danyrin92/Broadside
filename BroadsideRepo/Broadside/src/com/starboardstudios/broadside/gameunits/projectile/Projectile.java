@@ -39,4 +39,13 @@ public class Projectile extends ProjectileBase {
 		return damage;
 	}
 
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public ImageView getImage() {
+        return null;
+    }
 }

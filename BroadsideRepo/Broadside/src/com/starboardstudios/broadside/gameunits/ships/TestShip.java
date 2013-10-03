@@ -80,7 +80,10 @@ public class TestShip extends Ship {
 
     }
 
+    @Override
+    public ImageView getImage() {
+        return null;
+    }
 
-	
-	
+
 }

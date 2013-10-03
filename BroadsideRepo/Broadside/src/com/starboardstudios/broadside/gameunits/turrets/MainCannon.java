@@ -60,5 +60,10 @@ public class MainCannon extends Turret {
 	                imageView.setImageResource(drawable.testship);
 	            }
 	        });
-	    }	    	    
+	    }
+
+    @Override
+    public ImageView getImage() {
+        return null;
+    }
 }
