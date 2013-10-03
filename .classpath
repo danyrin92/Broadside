@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="BroadsideRepo/Broadside/src/|BroadsideRepo/Broadside/gen/" kind="src" path=""/>
+	<classpathentry kind="src" path="BroadsideRepo/Broadside/gen"/>
+	<classpathentry kind="src" path="BroadsideRepo/Broadside/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="BroadsideRepo/Broadside/bin/classes"/>
+</classpath>

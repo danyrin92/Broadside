@@ -24,7 +24,7 @@ public class HomeController extends BaseController{
 	
 	public void playGame(View view)
 	{
-		Intent playIntent = new Intent(this, PlayController.class);
+		Intent playIntent = new Intent(this, TestController.class);
 		startActivity(playIntent);
 	}
 }

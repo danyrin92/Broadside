@@ -23,8 +23,15 @@ public class MainCannon extends Turret {
 	        imageView.setOnDragListener(new View.OnDragListener() {
 	            @Override
 				public boolean onDrag(View v, DragEvent event) {
-					// TODO Auto-generated method stub
-					return false;
+					if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
+						return true;
+					} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
+						v.setX(event.getX());
+						v.setY(event.getY());
+						return true;
+					} else {
+						return false;
+					}
 				}
 	        });
 	         System.out.println("Turret Created");
@@ -42,16 +49,6 @@ public class MainCannon extends Turret {
 	    }
 	    public void update()
 	    {
-
-
-	        /*x=x+xVelo;
-	        y=y+yVelo;
-	        z=z+zVelo;
-	        if(x>300 || x < 0)
-	        {
-	            xVelo = -xVelo;
-	            yVelo = -yVelo;
-	        }*/
 	        model.runOnMain(new Runnable() {
 	            @Override
 	            public void run() {
