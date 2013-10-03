@@ -44,10 +44,7 @@ public class Projectile extends ProjectileBase {
 		
 	}
 
-    @Override
-    public void update() {
 
-    }
 
     @Override
     public ImageView getImage() {

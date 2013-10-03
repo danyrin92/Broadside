@@ -1,12 +1,9 @@
 package com.starboardstudios.broadside.controller;
 
-import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.gameunits.Model;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.starboardstudios.broadside.R;
 
 public class HomeController extends BaseController{
 	
@@ -24,7 +21,7 @@ public class HomeController extends BaseController{
 	
 	public void playGame(View view)
 	{
-		Intent playIntent = new Intent(this, TestController.class);
+		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}
 }
