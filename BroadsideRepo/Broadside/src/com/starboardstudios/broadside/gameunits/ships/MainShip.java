@@ -34,6 +34,8 @@ public class MainShip extends Ship {
         x = (int) (model.getScreenX()*.5);
         System.out.print("hi");
 
+
+        System.out.println("Graham was here");
         System.out.println("Main Ship Created");
 
 
