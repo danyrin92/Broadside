@@ -1,11 +1,14 @@
 package com.starboardstudios.broadside.gameunits;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
-
-import java.util.ArrayList;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public class Model extends Thread {
 
@@ -38,6 +41,12 @@ public class Model extends Thread {
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
 			}
+			
+			if(currentActivity.name.equalsIgnoreCase("PlayController")){
+				TextView health = (TextView) currentActivity.findViewById(R.id.HealthView);
+				health.setText("Health" );
+				
+			}
 		}
 
 	}
@@ -59,8 +68,9 @@ public class Model extends Thread {
 		}
 
 	}
-	
-	//Two methods below return a dynamic value for screen resolution. Use this and mult/division to move through screen.
+
+	// Two methods below return a dynamic value for screen resolution. Use this
+	// and mult/division to move through screen.
 	public int getScreenX() {
 		return currentActivity.getBaseContext().getResources()
 				.getDisplayMetrics().widthPixels;
@@ -70,19 +80,33 @@ public class Model extends Thread {
 		return currentActivity.getBaseContext().getResources()
 				.getDisplayMetrics().heightPixels;
 	}
-	
-	
-	//Enter an x and y variable, and see if it is a valid placement for a turret
-	public boolean turretCheck(int x, int y){
+
+	// Enter an x and y variable, and see if it is a valid placement for a
+	// turret
+	public boolean turretCheck(int x, int y) {
 		int yMax = getScreenY();
 		int xMax = (int) (getScreenX() * .25);
 		boolean turretCheck = false;
-		
-		if(y > 0 && y < yMax && x > 0 && x < xMax)
+
+		if (y > 0 && y < yMax && x > 0 && x < xMax)
 			turretCheck = true;
-		
+
 		return turretCheck;
-		
+
 	}
 
+	public int getShipHealth() {
+		int health = 0;
+		for (int i = 0; i < units.size(); i++){
+			
+			if (units.get(i) instanceof MainShip)
+				health = ((MainShip) units.get(i)).getHealth();
+			
+		}
+		return health;
+	}
+
+	
+	
+	
 }

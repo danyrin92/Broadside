@@ -19,30 +19,23 @@ public final class R {
         public static final int leaders_cloud=0x7f020005;
         public static final int load_game=0x7f020006;
         public static final int main_cannon=0x7f020007;
-        public static final int mainship=0x7f020008;
-        public static final int newgame_cloud=0x7f020009;
-        public static final int ocean=0x7f02000a;
-        public static final int testship=0x7f02000b;
-        public static final int turret=0x7f02000c;
-        public static final int tutorial_cloud=0x7f02000d;
-        public static final int waves=0x7f02000e;
+        public static final int main_cannon_red=0x7f020008;
+        public static final int mainship=0x7f020009;
+        public static final int newgame_cloud=0x7f02000a;
+        public static final int ocean=0x7f02000b;
+        public static final int testship=0x7f02000c;
+        public static final int turret=0x7f02000d;
+        public static final int tutorial_cloud=0x7f02000e;
+        public static final int waves=0x7f02000f;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int addObject1=0x7f040003;
-        public static final int addObject2=0x7f040004;
-        public static final int addShip=0x7f040006;
-        public static final int addTurret=0x7f040007;
-        public static final int inner_frame=0x7f040005;
-=======
+        public static final int HealthView=0x7f040001;
         public static final int addObject2=0x7f040003;
         public static final int addShip=0x7f040005;
         public static final int addTurret=0x7f040006;
         public static final int inner_frame=0x7f040004;
->>>>>>> Changed the ship graphic. Added a check turret method. Made animations and ship graphic size a function of fractions of screen size rather thans static pixel values.
         public static final int playGame=0x7f040002;
         public static final int play_frame=0x7f040000;
-        public static final int textView1=0x7f040001;
     }
     public static final class layout {
         public static final int credits_view=0x7f030000;

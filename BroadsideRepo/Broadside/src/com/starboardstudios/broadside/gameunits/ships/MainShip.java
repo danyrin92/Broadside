@@ -85,6 +85,10 @@ public class MainShip extends Ship {
 
 		// Code to new projectile firing in this direction inc.
 	}
+	
+	public int getHealth(){
+		return health;
+	}
 
 
 }

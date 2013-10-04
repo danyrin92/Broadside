@@ -2,7 +2,7 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="bottom" >
+     >
 
     <FrameLayout
         android:id="@id/play_frame"
@@ -21,7 +21,17 @@
             android:onClick="addTurret"
             android:text="Add Turret"
             android:textStyle="bold"
-            android:typeface="serif" android:layout_gravity="right|top"/>
+            android:typeface="serif" android:layout_gravity="right|center"/>
+
+        <TextView
+            android:id="@+id/HealthView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="Health: "
+            android:textColor="#FF0000"
+            android:typeface="monospace" />
+
     </FrameLayout>
 
 </AbsoluteLayout>
