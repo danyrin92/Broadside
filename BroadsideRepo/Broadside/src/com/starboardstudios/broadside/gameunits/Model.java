@@ -37,7 +37,6 @@ public class Model extends Thread {
 		if (currentActivity != null) {
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
-
 			}
 		}
 
@@ -70,6 +69,20 @@ public class Model extends Thread {
 	public int getScreenY() {
 		return currentActivity.getBaseContext().getResources()
 				.getDisplayMetrics().heightPixels;
+	}
+	
+	
+	//Enter an x and y variable, and see if it is a valid placement for a turret
+	public boolean turretCheck(int x, int y){
+		int yMax = getScreenY();
+		int xMax = (int) (getScreenX() * .25);
+		boolean turretCheck = false;
+		
+		if(y > 0 && y < yMax && x > 0 && x < xMax)
+			turretCheck = true;
+		
+		return turretCheck;
+		
 	}
 
 }
