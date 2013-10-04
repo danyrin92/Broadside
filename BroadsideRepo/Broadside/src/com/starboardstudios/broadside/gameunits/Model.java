@@ -40,16 +40,22 @@ public class Model extends Thread {
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
 			}
-			
-			if(currentActivity.name.equalsIgnoreCase("PlayController")){
-				final TextView health = (TextView) currentActivity.findViewById(R.id.HealthView);
-			    Runnable updateHealthTask = new Runnable() {
-                    @Override
-                    public void run() {
-                        health.setText("Health: "+ getShipHealth());
-                    }
-                };
-                runOnMain(updateHealthTask);
+
+			// Below is how to show text to screen
+			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+				// Below grabs appropriate TextView object
+				final TextView health = (TextView) currentActivity
+						.findViewById(R.id.HealthView);
+				// Below is used because you cannot access screen from model
+				// Only the application thread can access the screen
+				// Runnable makes it so that you can do that
+				Runnable updateHealthTask = new Runnable() {
+					@Override
+					public void run() {
+						health.setText("Health: " + getShipHealth());
+					}
+				};
+				runOnMain(updateHealthTask);
 
 			}
 		}
@@ -101,17 +107,18 @@ public class Model extends Thread {
 	}
 
 	public int getShipHealth() {
-		int health = 0;
-		for (int i = 0; i < units.size(); i++){
-			
-			if (units.get(i) instanceof MainShip)
-				health = ((MainShip) units.get(i)).getHealth();
-			
-		}
+		int health = getMainShip().getHealth();
+
 		return health;
 	}
 
-	
-	
-	
+	public MainShip getMainShip() {
+		for (int i = 0; i < units.size(); i++) {
+			if (units.get(i) instanceof MainShip)
+				return((MainShip) units.get(i));
+		}
+			return null;
+
+	}
+
 }

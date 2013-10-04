@@ -48,6 +48,11 @@ public class PlayController extends BaseController{
     {
         model.addUnit(new MainCannon(model));
     }
+    public void loseHealth(View view){
+    	MainShip mainShip = model.getMainShip();
+    	
+    	mainShip.setHealth(mainShip.getHealth() - 1);
+    }
 	
 	
 }

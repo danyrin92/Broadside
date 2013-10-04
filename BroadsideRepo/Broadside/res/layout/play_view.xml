@@ -10,7 +10,8 @@
         android:layout_height="fill_parent"
         android:layout_x="0dp"
         android:layout_y="0dp"
-        android:background="@drawable/ocean" >
+        android:background="@drawable/ocean"
+        android:onClick="loseHealth" >
 
         <Button
             android:id="@+id/addObject2"
@@ -21,7 +22,8 @@
             android:onClick="addTurret"
             android:text="Add Turret"
             android:textStyle="bold"
-            android:typeface="serif" android:layout_gravity="right|center"/>
+            android:typeface="serif" 
+            android:layout_gravity="right|center"/>
 
         <TextView
             android:id="@+id/HealthView"
@@ -31,6 +33,16 @@
             android:text="Health: "
             android:textColor="#FF0000"
             android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/LoseHealth"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:onClick="loseHealth"
+            android:text="Lose Health" />
 
     </FrameLayout>
 
