@@ -1,13 +1,10 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
 import android.content.ClipData;
-import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
@@ -27,61 +24,41 @@ public class MainCannon extends Turret {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
 
+                    imageView.getParent().requestDisallowInterceptTouchEvent(true);
+                       imageView.setX(motionEvent.getRawX());
+                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                        if(view.getParent() !=null)
+                        {
+                            view.getParent().requestDisallowInterceptTouchEvent(true);
+                        }
 
-                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                         view.startDrag(data, shadowBuilder, view, 0);
                         view.setVisibility(View.INVISIBLE);
-                        return true;
+
+                        return false;
+                    }
+                    if(motionEvent.getAction() == MotionEvent.ACTION_UP)
+                    {
+                        view.setVisibility(View.VISIBLE);
+                        System.out.println("Lifted the finger");
+                        return false;
                     }
                     else {
-                        imageView.setX(motionEvent.getX());
                         System.out.println("Size" + motionEvent.getX());
-
-                        return true;
+                        System.out.println(motionEvent.toString());
+                        view.invalidate();
+                        return false;
                     }
                 }
+
+
+
+
             });
-	       imageView.setOnDragListener(new View.OnDragListener() {
-	            @Override
-				public boolean onDrag(View v, DragEvent event) {
-                    int action = event.getAction();
-                    switch (event.getAction()) {
-                        case DragEvent.ACTION_DRAG_STARTED:
-                            System.out.println("Drag Started");
-                            break;
-                        case DragEvent.ACTION_DRAG_ENTERED:
-                            System.out.println("Drag Entered");
 
-                            break;
-                        case DragEvent.ACTION_DRAG_EXITED:
-                            System.out.println("Drag Exited");
 
-                            break;
-                        case DragEvent.ACTION_DROP:
-                            // Dropped, reassign View to ViewGroup
-                            View view = (View) event.getLocalState();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
-                            view.setVisibility(View.VISIBLE);
-                            System.out.println("Drag Going:"+ event.getX() + "  "+ event.getY());
-                            imageView.setX(event.getX());
-                            imageView.setY(event.getY());
-                            break;
-                        case DragEvent.ACTION_DRAG_ENDED:
-                            System.out.println("Drag ended:"+ event.getX() + "  "+ event.getY());
-                            imageView.setX(event.getX());
-                            imageView.setY(event.getY());
-                        default:
-                            break;
-                    }
-                    return true;
-
-				}
-	        });  
 	         System.out.println("Turret Created");
 	    }
 

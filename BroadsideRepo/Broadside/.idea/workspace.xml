@@ -42,7 +42,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/play_view.xml" afterPath="$PROJECT_DIR$/res/layout/play_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -107,11 +110,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Model.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="2" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1410">
-              <folding />
+            <state line="63" column="59" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.57746476" vertical-offset="389" max-vertical-offset="1740">
+              <folding>
+                <element signature="e#1227#1422#0" expanded="true" />
+                <element signature="e#1403#1404#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,7 +134,7 @@
       <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="4" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1440">
+            <state line="26" column="4" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1500">
               <folding />
             </state>
           </provider>
@@ -146,10 +152,9 @@
       <file leaf-file-name="MainCannon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1605">
+            <state line="54" column="66" selection-start="2284" selection-end="2284" vertical-scroll-proportion="0.0" vertical-offset="524" max-vertical-offset="1305">
               <folding>
-                <element signature="e#3868#4038#0" expanded="true" />
-                <element signature="e#4026#4027#0" expanded="true" />
+                <element signature="e#808#2301#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,10 +172,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play_view.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="play_view.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
           <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -240,18 +245,18 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
         <option value="$PROJECT_DIR$/res/layout/play_view.xml" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
+    <option name="width" value="1865" />
     <option name="height" value="1330" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -493,33 +498,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="Errors" />
@@ -559,156 +546,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/drawable" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree">
-    <UpdateInfo date="Moments ago" ActionInfo="_Update">
-      <UpdatedFiles>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated from server" />
-          <option name="myStatusName" value="Changed on server" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CHANGED_ON_SERVER" />
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Updated" />
-            <option name="myStatusName" value="Changed" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="UPDATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/Broadside.apk</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes.dex</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/BuildConfig.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$drawable.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$id.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$layout.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$string.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$style.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/Model.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/MainShip$1.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/MainShip.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/TestShip$3.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/TestShip.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$1.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/mainship.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/resources.ap_</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/mainship.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/home_view.xml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/play_view.xml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Created" />
-            <option name="myStatusName" value="Created" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="CREATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$2.class</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$3.class</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Deleted" />
-            <option name="myStatusName" value="Deleted" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="true" />
-            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/dexedLibs/android-support-v4-d1b4f7ca405b6e740715bda8717c1864.jar</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/dexedLibs/android-support-v4-e5af4802a96df6e3521c7050a8f2f081.jar</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/jarlist.cache</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/background.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/credits_cloud.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/leaders_cloud.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/load_game.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/newgame_cloud.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/ocean.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/testship.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/tutorial_cloud.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/waves.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/drawable/testship.png</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Restored" />
-            <option name="myStatusName" value="Will be restored" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="RESTORED" />
-          </FILE-GROUP>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Modified" />
-          <option name="myStatusName" value="Modified" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MODIFIED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Skipped" />
-          <option name="myStatusName" value="Skipped" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SKIPPED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with conflicts" />
-          <option name="myStatusName" value="Will be merged with conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_CONFLICTS" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with tree conflicts" />
-          <option name="myStatusName" value="Merged with tree conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with property conflicts" />
-          <option name="myStatusName" value="Will be merged with property conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged" />
-          <option name="myStatusName" value="Will be merged" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Not in repository" />
-          <option name="myStatusName" value="Not in repository" />
-          <option name="mySupportsDeletion" value="true" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UNKNOWN" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally added" />
-          <option name="myStatusName" value="Locally added" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_ADDED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally removed" />
-          <option name="myStatusName" value="Locally removed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_REMOVED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Switched" />
-          <option name="myStatusName" value="Switched" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SWITCHED" />
-        </FILE-GROUP>
-      </UpdatedFiles>
-    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Android Application.HomeController">
     <configuration default="false" name="HomeController" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
@@ -1051,7 +888,9 @@
       <workItem from="1380771325784" duration="1470000" />
       <workItem from="1380772990805" duration="737000" />
       <workItem from="1380844365591" duration="10035000" />
-      <workItem from="1380856669447" duration="1956000" />
+      <workItem from="1380856669447" duration="2174000" />
+      <workItem from="1380858850087" duration="4420000" />
+      <workItem from="1380863351306" duration="203000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1109,14 +948,18 @@
       <created>1380858153930</created>
       <updated>1380858153930</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Images&#10;">
+      <created>1380858657014</created>
+      <updated>1380858657014</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43919000" />
+    <option name="totallyTimeSpent" value="48760000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
+    <frame x="0" y="22" width="1865" height="1330" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6707416" order="3" side_tool="false" content_ui="tabs" />
@@ -1129,19 +972,19 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3263158" sideWeight="0.43984374" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.44021448" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66963565" sideWeight="0.45859376" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3263158" sideWeight="0.5601562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3263158" sideWeight="0.55978554" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28085938" sideWeight="0.67368424" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32550606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38552278" sideWeight="0.67368424" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32550606" sideWeight="0.4997319" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1219,13 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -1254,13 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="2" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1410">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="22" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
@@ -1268,13 +1097,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1605">
-          <folding>
-            <element signature="e#3868#4038#0" expanded="true" />
-            <element signature="e#4026#4027#0" expanded="true" />
-          </folding>
+        <state line="22" column="35" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,6 +1122,25 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="66" selection-start="2284" selection-end="2284" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1305">
+          <folding>
+            <element signature="e#808#2301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="59" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.57746476" vertical-offset="389" max-vertical-offset="1740">
+          <folding>
+            <element signature="e#1227#1422#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

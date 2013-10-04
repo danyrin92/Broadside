@@ -1,14 +1,13 @@
 package com.starboardstudios.broadside.gameunits;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+
+import java.util.ArrayList;
 
 public class Model extends Thread {
 
@@ -43,9 +42,15 @@ public class Model extends Thread {
 			}
 			
 			if(currentActivity.name.equalsIgnoreCase("PlayController")){
-				TextView health = (TextView) currentActivity.findViewById(R.id.HealthView);
-				health.setText("Health" );
-				
+				final TextView health = (TextView) currentActivity.findViewById(R.id.HealthView);
+			    Runnable updateHealthTask = new Runnable() {
+                    @Override
+                    public void run() {
+                        health.setText("Health: "+ getShipHealth());
+                    }
+                };
+                runOnMain(updateHealthTask);
+
 			}
 		}
 
