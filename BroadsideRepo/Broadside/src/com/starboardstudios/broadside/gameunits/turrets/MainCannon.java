@@ -4,7 +4,6 @@ import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
@@ -16,24 +15,25 @@ public class MainCannon extends Turret {
 	public MainCannon(Model model) {
 		super(model.context);
 		this.model = model;
-		x=0;y=0;z=0;
+		x=35;y=35;z=0;
 		 imageView.setImageResource(drawable.turret); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
-	        /*imageView.setOnDragListener(new View.OnDragListener() {
+	        imageView.setOnDragListener(new View.OnDragListener() {
 	            @Override
 				public boolean onDrag(View v, DragEvent event) {
 					if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
 						return true;
 					} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
-						v.setX(event.getX());
-						v.setY(event.getY());
+						//v.setX(event.getX());
+						//v.setY(event.getY());
+                        setPosition((int)event.getX(), (int)event.getY(),0);
 						return true;
 					} else {
 						return false;
 					}
 				}
-	        });*/
+	        });
 	         System.out.println("Turret Created");
 	    }
 
@@ -54,13 +54,12 @@ public class MainCannon extends Turret {
 	            public void run() {
 	                imageView.setX(x);
 	                imageView.setY(y);
-	                imageView.setImageResource(drawable.turret);
 	            }
 	        });
 	    }
 
     @Override
     public ImageView getImage() {
-        return null;
+        return imageView;
     }
 }
