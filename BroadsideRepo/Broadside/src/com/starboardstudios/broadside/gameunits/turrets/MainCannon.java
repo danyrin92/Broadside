@@ -1,7 +1,10 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
+import android.content.ClipData;
 import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
@@ -16,22 +19,60 @@ public class MainCannon extends Turret {
 		super(model.context);
 		this.model = model;
 		x=35;y=35;z=0;
-		 imageView.setImageResource(drawable.turret); //Set to image
+		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
-	        imageView.setLayoutParams(new LinearLayout.LayoutParams(75,75)); //Set size
+	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
+            imageView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                        view.startDrag(data, shadowBuilder, view, 0);
+                        view.setVisibility(View.INVISIBLE);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
 	        imageView.setOnDragListener(new View.OnDragListener() {
 	            @Override
 				public boolean onDrag(View v, DragEvent event) {
-					if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
-						return true;
-					} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
-						//v.setX(event.getX());
-						//v.setY(event.getY());
-                        setPosition((int)event.getX(), (int)event.getY(),0);
-						return true;
-					} else {
-						return false;
-					}
+                    int action = event.getAction();
+                    switch (event.getAction()) {
+                        case DragEvent.ACTION_DRAG_STARTED:
+                            System.out.println("Drag Started");
+                            break;
+                        case DragEvent.ACTION_DRAG_ENTERED:
+                            System.out.println("Drag Entered");
+
+                            break;
+                        case DragEvent.ACTION_DRAG_EXITED:
+                            System.out.println("Drag Exited");
+
+                            break;
+                        case DragEvent.ACTION_DROP:
+                            // Dropped, reassign View to ViewGroup
+                            View view = (View) event.getLocalState();
+                            ViewGroup owner = (ViewGroup) view.getParent();
+                            owner.removeView(view);
+                            LinearLayout container = (LinearLayout) v;
+                            container.addView(view);
+                            view.setVisibility(View.VISIBLE);
+                            System.out.println("Drag Going:"+ event.getX() + "  "+ event.getY());
+                            imageView.setX(event.getX());
+                            imageView.setY(event.getY());
+                            break;
+                        case DragEvent.ACTION_DRAG_ENDED:
+                            System.out.println("Drag ended:"+ event.getX() + "  "+ event.getY());
+                            imageView.setX(event.getX());
+                            imageView.setY(event.getY());
+                        default:
+                            break;
+                    }
+                    return true;
+
 				}
 	        });
 	         System.out.println("Turret Created");
@@ -42,13 +83,13 @@ public class MainCannon extends Turret {
 	            this.x = x;
 	            this.y = y;
 	            this.z = z;
-	        imageView.setX(x);
-	        imageView.setY(y);
+
 	        //imageView.setZ(z);
 
 	    }
 	    public void update()
 	    {
+            // System.out.println("Updating Main Cannon");
 	        model.runOnMain(new Runnable() {
 	            @Override
 	            public void run() {
