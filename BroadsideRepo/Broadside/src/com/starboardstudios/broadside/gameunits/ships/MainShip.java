@@ -66,7 +66,6 @@ public class MainShip extends Ship {
 				imageView.setX(x);
 				imageView.setY(y);
 				imageView.setImageResource(drawable.mainship);
-
 			}
 
 		});
