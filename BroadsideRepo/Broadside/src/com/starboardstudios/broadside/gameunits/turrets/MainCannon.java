@@ -1,10 +1,8 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
 import android.content.ClipData;
-import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
@@ -25,18 +23,24 @@ public class MainCannon extends Turret {
             imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                         view.startDrag(data, shadowBuilder, view, 0);
                         view.setVisibility(View.INVISIBLE);
                         return true;
-                    } else {
-                        return false;
+                    }
+                    else {
+                        imageView.setX(motionEvent.getX());
+                        System.out.println("Size" + motionEvent.getX());
+
+                        return true;
                     }
                 }
             });
-	        imageView.setOnDragListener(new View.OnDragListener() {
+	     /**  imageView.setOnDragListener(new View.OnDragListener() {
 	            @Override
 				public boolean onDrag(View v, DragEvent event) {
                     int action = event.getAction();
@@ -74,7 +78,7 @@ public class MainCannon extends Turret {
                     return true;
 
 				}
-	        });
+	        });  **/
 	         System.out.println("Turret Created");
 	    }
 

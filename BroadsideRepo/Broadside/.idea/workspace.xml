@@ -110,7 +110,7 @@
       <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="2" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1140">
+            <state line="34" column="2" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -119,7 +119,7 @@
       <file leaf-file-name="Turret.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="22" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+            <state line="6" column="22" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -128,7 +128,7 @@
       <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="4" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+            <state line="25" column="4" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1425">
               <folding />
             </state>
           </provider>
@@ -146,7 +146,7 @@
       <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="20" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+            <state line="22" column="20" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -155,12 +155,10 @@
       <file leaf-file-name="MainCannon.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="36" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.41044775" vertical-offset="105" max-vertical-offset="1515">
+            <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.34701493" vertical-offset="441" max-vertical-offset="1605">
               <folding>
-                <element signature="e#870#1535#0" expanded="true" />
-                <element signature="e#1520#1521#0" expanded="true" />
-                <element signature="e#1575#3421#0" expanded="true" />
-                <element signature="e#3409#3410#0" expanded="true" />
+                <element signature="e#3868#4038#0" expanded="true" />
+                <element signature="e#4026#4027#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,7 +176,7 @@
       <file leaf-file-name="HomeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+            <state line="22" column="35" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="420">
               <folding />
             </state>
           </provider>
@@ -187,7 +185,7 @@
       <file leaf-file-name="UpgradeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+            <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -197,9 +195,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="55" column="7" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="1320">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -319,7 +315,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -512,12 +507,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="Errors" />
@@ -551,135 +547,12 @@
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/drawable" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree">
-    <UpdateInfo date="Moments ago" ActionInfo="_Update">
-      <UpdatedFiles>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated from server" />
-          <option name="myStatusName" value="Changed on server" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CHANGED_ON_SERVER" />
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Updated" />
-            <option name="myStatusName" value="Changed" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="UPDATED" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Created" />
-            <option name="myStatusName" value="Created" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="CREATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/broadside_logo.jpg</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/cannon_ball.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/enemyship.png</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/main_cannon.png</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Deleted" />
-            <option name="myStatusName" value="Deleted" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="true" />
-            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Background.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../BasicTurret.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../BoatPlayer.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Cannon.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Enemy.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../MissileLauncher.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Projectile.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../StartingClass.java</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Turret.java</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Restored" />
-            <option name="myStatusName" value="Will be restored" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="RESTORED" />
-          </FILE-GROUP>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Modified" />
-          <option name="myStatusName" value="Modified" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MODIFIED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Skipped" />
-          <option name="myStatusName" value="Skipped" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SKIPPED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with conflicts" />
-          <option name="myStatusName" value="Will be merged with conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_CONFLICTS" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with tree conflicts" />
-          <option name="myStatusName" value="Merged with tree conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with property conflicts" />
-          <option name="myStatusName" value="Will be merged with property conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged" />
-          <option name="myStatusName" value="Will be merged" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Not in repository" />
-          <option name="myStatusName" value="Not in repository" />
-          <option name="mySupportsDeletion" value="true" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UNKNOWN" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally added" />
-          <option name="myStatusName" value="Locally added" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_ADDED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally removed" />
-          <option name="myStatusName" value="Locally removed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_REMOVED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Switched" />
-          <option name="myStatusName" value="Switched" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SWITCHED" />
-        </FILE-GROUP>
-      </UpdatedFiles>
-    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Android Application.HomeController">
     <configuration default="false" name="HomeController" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
@@ -720,6 +593,12 @@
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -728,12 +607,6 @@
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -780,19 +653,6 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -819,6 +679,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -857,6 +730,23 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="Broadside" />
+      <option name="ACTIVITY_CLASS" value="com.starboardstudios.broadside.controller.TestController" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -890,23 +780,6 @@
       <option name="screenWidth" value="0" />
       <option name="url" value="http://" />
       <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="Broadside" />
-      <option name="ACTIVITY_CLASS" value="com.starboardstudios.broadside.controller.TestController" />
-      <option name="MODE" value="specific_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="Start" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1021,7 +894,8 @@
       <workItem from="1380769101061" duration="2216000" />
       <workItem from="1380771325784" duration="1470000" />
       <workItem from="1380772990805" duration="737000" />
-      <workItem from="1380844365591" duration="5992000" />
+      <workItem from="1380844365591" duration="10035000" />
+      <workItem from="1380856669447" duration="1478000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1067,11 +941,19 @@
       <created>1380845261155</created>
       <updated>1380845261155</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Corrected Update">
+      <created>1380850859294</created>
+      <updated>1380850859294</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Images&#10;">
+      <created>1380851325345</created>
+      <updated>1380851325345</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37920000" />
+    <option name="totallyTimeSpent" value="43441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
@@ -1091,7 +973,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66963565" sideWeight="0.45859376" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3263158" sideWeight="0.5601562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1123,7 +1005,8 @@
     <MESSAGE value="Update Model To Use Unit Abstract Class. Updated Units to abstract class." />
     <MESSAGE value="Update Sample Methods For Main Ship and Model&#10;" />
     <MESSAGE value="Corrected Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected Update" />
+    <MESSAGE value="Images&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Images&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1210,9 +1093,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="7" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="1320">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,12 +1127,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="36" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.41044775" vertical-offset="105" max-vertical-offset="1515">
+        <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.34701493" vertical-offset="441" max-vertical-offset="1605">
           <folding>
-            <element signature="e#870#1535#0" expanded="true" />
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#1575#3421#0" expanded="true" />
-            <element signature="e#3409#3410#0" expanded="true" />
+            <element signature="e#3868#4038#0" expanded="true" />
+            <element signature="e#4026#4027#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1325,6 +1204,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
