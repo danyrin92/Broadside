@@ -20,6 +20,7 @@ public class MainShip extends Ship {
 	private MainCannon mainCannon;
 	private int waterLevel = 0;
 	private int health = 100;
+	private boolean inPosition = false;
 
 	// private boolean inPosition=false; No longer useful?
 
@@ -34,8 +35,8 @@ public class MainShip extends Ship {
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .75), (int) (model.getScreenY())));
 		// Starting position. As for now on the left. Why does x need to be negative? Huh?
-		x = -290;
-		y = ((int) (model.getScreenY() * .5))+300;
+		x = -((int) (model.getScreenY() * .375));
+		y = ((int) (model.getScreenY() * .7));
 	}
 
 	void Damage(Projectile p) {
@@ -54,12 +55,12 @@ public class MainShip extends Ship {
 
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
-		if(y > 0)
+
+		if(y > -130)
 			ySpeed = -2;
 		else
 			ySpeed = 0;
-		
+	
 
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -84,5 +85,6 @@ public class MainShip extends Ship {
 
 		// Code to new projectile firing in this direction inc.
 	}
+
 
 }

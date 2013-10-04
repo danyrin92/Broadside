@@ -12,23 +12,14 @@
         android:layout_y="0dp"
         android:background="@drawable/ocean" >
 
-        <Button
-            android:id="@+id/addObject1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="addShip"
-            android:text="Add Unit"
-            android:textStyle="bold"
-            android:typeface="serif" />
-
     </FrameLayout>
 
     <Button
         android:id="@+id/addObject2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="208dp"
-        android:layout_y="112dp"
+        android:layout_x="209dp"
+        android:layout_y="111dp"
         android:onClick="addTurret"
         android:text="Add Turret"
         android:textStyle="bold"

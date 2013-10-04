@@ -28,11 +28,18 @@ public final class R {
         public static final int waves=0x7f02000e;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int addObject1=0x7f040003;
         public static final int addObject2=0x7f040004;
         public static final int addShip=0x7f040006;
         public static final int addTurret=0x7f040007;
         public static final int inner_frame=0x7f040005;
+=======
+        public static final int addObject2=0x7f040003;
+        public static final int addShip=0x7f040005;
+        public static final int addTurret=0x7f040006;
+        public static final int inner_frame=0x7f040004;
+>>>>>>> Changed the ship graphic. Added a check turret method. Made animations and ship graphic size a function of fractions of screen size rather thans static pixel values.
         public static final int playGame=0x7f040002;
         public static final int play_frame=0x7f040000;
         public static final int textView1=0x7f040001;
