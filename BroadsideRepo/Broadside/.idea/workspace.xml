@@ -42,7 +42,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/play_view.xml" afterPath="$PROJECT_DIR$/res/layout/play_view.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -110,7 +110,7 @@
       <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="2" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1215">
+            <state line="47" column="2" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1410">
               <folding />
             </state>
           </provider>
@@ -128,16 +128,7 @@
       <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="4" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PauseController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PauseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
+            <state line="26" column="4" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
@@ -152,10 +143,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainCannon.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainCannon.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.34701493" vertical-offset="441" max-vertical-offset="1605">
+            <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1605">
               <folding>
                 <element signature="e#3868#4038#0" expanded="true" />
                 <element signature="e#4026#4027#0" expanded="true" />
@@ -164,12 +155,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Projectile.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="3" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="885">
+      <file leaf-file-name="home_view.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/home_view.xml">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="play_view.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -232,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Ship.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/BaseController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java" />
-        <option value="$PROJECT_DIR$/res/layout/play_view.xml" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
@@ -240,6 +245,7 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
+        <option value="$PROJECT_DIR$/res/layout/play_view.xml" />
       </list>
     </option>
   </component>
@@ -553,6 +559,156 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/drawable" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/Broadside.apk</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes.dex</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/BuildConfig.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$drawable.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$id.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$layout.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$string.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/R$style.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/Model.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/MainShip$1.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/MainShip.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/TestShip$3.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/ships/TestShip.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$1.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/mainship.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/resources.ap_</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/gen/com/starboardstudios/broadside/R.java</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/drawable/mainship.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/home_view.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/res/layout/play_view.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$2.class</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/classes/com/starboardstudios/broadside/gameunits/turrets/MainCannon$3.class</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/dexedLibs/android-support-v4-d1b4f7ca405b6e740715bda8717c1864.jar</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/dexedLibs/android-support-v4-e5af4802a96df6e3521c7050a8f2f081.jar</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/jarlist.cache</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/background.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/credits_cloud.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/leaders_cloud.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/load_game.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/newgame_cloud.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/ocean.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/testship.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/tutorial_cloud.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/crunch/drawable/waves.png</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/res/drawable/testship.png</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Android Application.HomeController">
     <configuration default="false" name="HomeController" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
@@ -895,7 +1051,7 @@
       <workItem from="1380771325784" duration="1470000" />
       <workItem from="1380772990805" duration="737000" />
       <workItem from="1380844365591" duration="10035000" />
-      <workItem from="1380856669447" duration="1478000" />
+      <workItem from="1380856669447" duration="1956000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -949,11 +1105,15 @@
       <created>1380851325345</created>
       <updated>1380851325345</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Images&#10;">
+      <created>1380858153930</created>
+      <updated>1380858153930</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43441000" />
+    <option name="totallyTimeSpent" value="43919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
@@ -1016,13 +1176,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/pause_view.xml">
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
@@ -1038,16 +1191,6 @@
         <state line="25" column="46" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java">
@@ -1106,14 +1249,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="4" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1425">
+        <state line="26" column="4" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="2" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1140">
+        <state line="47" column="2" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1410">
           <folding />
         </state>
       </provider>
@@ -1127,12 +1270,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.34701493" vertical-offset="441" max-vertical-offset="1605">
+        <state line="57" column="25" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1605">
           <folding>
             <element signature="e#3868#4038#0" expanded="true" />
             <element signature="e#4026#4027#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/home_view.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>
