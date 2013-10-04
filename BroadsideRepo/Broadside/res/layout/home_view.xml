@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_x="154dp"
         android:layout_y="24dp"
-        android:text="Broadside"
+        android:text="Broadside1"
         android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="50dp" />
