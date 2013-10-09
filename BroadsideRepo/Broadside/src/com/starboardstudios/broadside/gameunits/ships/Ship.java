@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public abstract class Ship extends BaseUnit {
 
-	private ArrayList<Turret> turrets;
+	
 	protected int x;
 	protected int y;
 	protected int xSpeed;
@@ -23,9 +23,7 @@ public abstract class Ship extends BaseUnit {
 	}
 	
 	
-	ArrayList<Turret> getTurrets(){
-		return turrets;
-	}
+	
 	
 	void destroy(){
 		//Destroy means different things depending on if it's a main ship

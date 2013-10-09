@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.ships.BasicEnemyShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
@@ -39,7 +40,7 @@ public class PlayController extends BaseController{
 	public void init(){
 		
 	}
-
+	
     public void addShip(View view)
     {
         model.addUnit(new MainShip(model));
@@ -54,5 +55,9 @@ public class PlayController extends BaseController{
     	mainShip.setHealth(mainShip.getHealth() - 1);
     }
 	
+    public void spawnBasicEnemy(View view){
+    	model.addUnit(new BasicEnemyShip(model));
+    	
+    }
 	
 }

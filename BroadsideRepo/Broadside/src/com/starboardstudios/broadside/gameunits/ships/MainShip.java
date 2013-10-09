@@ -8,6 +8,7 @@ import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class MainShip extends Ship {
 	private int waterLevel = 0;
 	private int health = 100;
 	private boolean inPosition = false;
+	private ArrayList<Turret> turrets;
 
 	// private boolean inPosition=false; No longer useful?
 
@@ -34,7 +36,8 @@ public class MainShip extends Ship {
 		// Determines rendering size of object
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .75), (int) (model.getScreenY())));
-		// Starting position. As for now on the left. Why does x need to be negative? Huh?
+		// Starting position. As for now on the left. Why does x need to be
+		// negative? Huh?
 		x = -((int) (model.getScreenY() * .375));
 		y = ((int) (model.getScreenY() * .7));
 	}
@@ -56,11 +59,10 @@ public class MainShip extends Ship {
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if(y > -130)
+		if (y > -130)
 			ySpeed = -2;
 		else
 			ySpeed = 0;
-	
 
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -85,14 +87,17 @@ public class MainShip extends Ship {
 
 		// Code to new projectile firing in this direction inc.
 	}
-	
-	public int getHealth(){
+
+	public int getHealth() {
 		return health;
 	}
-	
-	public void setHealth(int health){
+
+	public void setHealth(int health) {
 		this.health = health;
 	}
 
+	ArrayList<Turret> getTurrets() {
+		return turrets;
+	}
 
 }

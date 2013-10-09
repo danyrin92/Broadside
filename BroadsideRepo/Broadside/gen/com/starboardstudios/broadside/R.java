@@ -31,10 +31,11 @@ public final class R {
     public static final class id {
         public static final int HealthView=0x7f040001;
         public static final int LoseHealth=0x7f040004;
+        public static final int SpawnEnemy=0x7f040005;
         public static final int addObject2=0x7f040003;
-        public static final int addShip=0x7f040006;
-        public static final int addTurret=0x7f040007;
-        public static final int inner_frame=0x7f040005;
+        public static final int addShip=0x7f040007;
+        public static final int addTurret=0x7f040008;
+        public static final int inner_frame=0x7f040006;
         public static final int playGame=0x7f040002;
         public static final int play_frame=0x7f040000;
     }

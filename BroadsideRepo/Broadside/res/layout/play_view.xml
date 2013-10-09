@@ -2,7 +2,7 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     >
+    android:onClick="spawnBasicEnemy" >
 
     <FrameLayout
         android:id="@id/play_frame"
@@ -43,6 +43,14 @@
             android:textStyle="bold"
             android:onClick="loseHealth"
             android:text="Lose Health" />
+
+        <Button
+            android:id="@+id/SpawnEnemy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:onClick="spawnBasicEnemy"
+            android:text="Spawn Enemy" />
 
     </FrameLayout>
 
