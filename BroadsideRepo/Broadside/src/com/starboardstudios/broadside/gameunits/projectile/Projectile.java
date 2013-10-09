@@ -18,6 +18,9 @@ public class Projectile extends ProjectileBase {
 		x = 0;
 		y = 0;
 		z = 0;
+		xSpeed = 0;
+		ySpeed = 0;
+		zSpeed = 0;
 
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
@@ -73,32 +76,33 @@ public class Projectile extends ProjectileBase {
 		this.z = z;
 	}
 
-	public int getxVelo() {
+	public int getxSpeed() {
 		return xSpeed;
 	}
 
-	public void setxVelo(int xVelo) {
+	public void setxSpeed(int xVelo) {
 		this.xSpeed = xVelo;
 	}
 
-	public int getyVelo() {
+	public int getySpeed() {
 		return ySpeed;
 	}
 
-	public void setyVelo(int yVelo) {
+	public void setySpeed(int yVelo) {
 		this.ySpeed = yVelo;
 	}
 
-	public int getzVelo() {
+	public int getzSpeed() {
 		return zSpeed;
 	}
 
-	public void setzVelo(int zVelo) {
+	public void setzSpeed(int zVelo) {
 		this.zSpeed = zVelo;
 	}
 
-	@Override
 	public ImageView getImage() {
-		return null;
+		return imageView;
 	}
+	
+	
 }

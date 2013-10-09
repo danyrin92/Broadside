@@ -51,7 +51,6 @@ public class BasicEnemyShip extends Ship {
 		xSpeed = -(int) (model.getScreenX() * .003);
 	}
 
-	@Override
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
@@ -76,6 +75,7 @@ public class BasicEnemyShip extends Ship {
 			}
 
 		});
+		
 
 	}
 
@@ -96,9 +96,8 @@ public class BasicEnemyShip extends Ship {
 		Projectile p = new Projectile(this.model);
 		p.setX(x);
 		p.setY(y);
-		p.setxVelo(-(int) (model.getScreenX() * .009));
+		p.setxSpeed(-(int) (model.getScreenX() * .009));
 		projectiles.add(p);
-		System.out.println("Shoot is working");
 	}
 
 	public int getHealth() {
