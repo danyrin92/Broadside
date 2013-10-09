@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.Random;
@@ -18,6 +20,7 @@ public class BasicEnemyShip extends Ship {
 	private Model model;
 	private MainCannon mainCannon;
 	private int health = 10;
+	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	Random rand = new Random();
 	int random = rand.nextInt(2);
 
@@ -33,6 +36,14 @@ public class BasicEnemyShip extends Ship {
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
+
+		imageView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				shoot();
+			}
+		});
+
 		x = ((int) (model.getScreenX()) + 75);
 		y = ((int) (model.getScreenY() * .4));
 
@@ -44,13 +55,17 @@ public class BasicEnemyShip extends Ship {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
-		if (x < ((int) (model.getScreenX()) *.5)){
+
+		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
-			if(random == 1)
+			if (random == 1)
 				ySpeed = (int) (model.getScreenX() * .003);
-			if(random == 0)
+			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
+		}
+		
+		for(int i=0;i<projectiles.size();i++){
+			projectiles.get(i).update();
 		}
 
 		model.runOnMain(new Runnable() {
@@ -75,6 +90,15 @@ public class BasicEnemyShip extends Ship {
 		imageView.setX(x);
 		imageView.setY(y);
 
+	}
+
+	public void shoot() {
+		Projectile p = new Projectile(this.model);
+		p.setX(x);
+		p.setY(y);
+		p.setxVelo(-(int) (model.getScreenX() * .009));
+		projectiles.add(p);
+		System.out.println("Shoot is working");
 	}
 
 	public int getHealth() {
