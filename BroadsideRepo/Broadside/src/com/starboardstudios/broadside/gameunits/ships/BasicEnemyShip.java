@@ -10,6 +10,7 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import java.util.Random;
 
 public class BasicEnemyShip extends Ship {
 
@@ -17,6 +18,8 @@ public class BasicEnemyShip extends Ship {
 	private Model model;
 	private MainCannon mainCannon;
 	private int health = 10;
+	Random rand = new Random();
+	int random = rand.nextInt(2);
 
 	public BasicEnemyShip(Model model) {
 		super(model.context);
@@ -30,7 +33,7 @@ public class BasicEnemyShip extends Ship {
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
-		x = ((int) (model.getScreenX()) +75);
+		x = ((int) (model.getScreenX()) + 75);
 		y = ((int) (model.getScreenY() * .4));
 
 		// Below will be updated
@@ -41,6 +44,14 @@ public class BasicEnemyShip extends Ship {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
+		
+		if (x < ((int) (model.getScreenX()) *.5)){
+			xSpeed = 0;
+			if(random == 1)
+				ySpeed = (int) (model.getScreenX() * .003);
+			if(random == 0)
+				ySpeed = -(int) (model.getScreenX() * .003);
+		}
 
 		model.runOnMain(new Runnable() {
 			public void run() {
