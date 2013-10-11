@@ -3,6 +3,8 @@ package com.starboardstudios.broadside.controller;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+//for getting the upgrades button to work...
+import android.content.Intent;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -16,6 +18,7 @@ public class PlayController extends BaseController{
 
 	private Model model;
 	
+	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -35,6 +38,13 @@ public class PlayController extends BaseController{
 
 
 
+	}
+	
+	//for getting the upgrades button to work...
+	public void gotoUpgrades(View view)
+	{
+		Intent gotoUpgrades = new Intent(this, UpgradeController.class);
+		startActivity(gotoUpgrades);
 	}
 	
 	public void init(){
