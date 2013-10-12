@@ -61,7 +61,7 @@ public class BasicEnemyShip extends Ship {
 			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
 		}
-	    /**  Projectiles aare not here.... in model, see above...
+	    /**  Projectiles are not here.... in model, see above...
 		    for(int i=0;i<projectiles.size();i++){
 	    		projectiles.get(i).update();
 	       	}
@@ -74,8 +74,6 @@ public class BasicEnemyShip extends Ship {
 			}
 
 		});
-		
-
 	}
 
 	@Override
@@ -100,7 +98,6 @@ public class BasicEnemyShip extends Ship {
     }
 
 	public void shoot() {
-
 
         Projectile p = new Projectile(this.model);
 		p.setX(x);
