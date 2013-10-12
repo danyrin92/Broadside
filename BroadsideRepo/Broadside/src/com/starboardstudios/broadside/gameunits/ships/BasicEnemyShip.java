@@ -1,17 +1,14 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
-import java.util.ArrayList;
-
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
-import com.starboardstudios.broadside.gameunits.Crew;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import java.util.Random;
 
 public class BasicEnemyShip extends Ship {
@@ -20,7 +17,7 @@ public class BasicEnemyShip extends Ship {
 	private Model model;
 	private MainCannon mainCannon;
 	private int health = 10;
-	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
 	int random = rand.nextInt(2);
 
@@ -40,7 +37,9 @@ public class BasicEnemyShip extends Ship {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				shoot();
+				System.out.print("I shot");
+                shoot();
+
 			}
 		});
 
@@ -62,11 +61,11 @@ public class BasicEnemyShip extends Ship {
 			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
 		}
-		
-		for(int i=0;i<projectiles.size();i++){
-			projectiles.get(i).update();
-		}
-
+	    /**  Projectiles aare not here.... in model, see above...
+		    for(int i=0;i<projectiles.size();i++){
+	    		projectiles.get(i).update();
+	       	}
+        */
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
@@ -92,12 +91,22 @@ public class BasicEnemyShip extends Ship {
 
 	}
 
+    public void collide(BaseUnit unit)
+    {
+
+       x=0;
+
+
+    }
+
 	public void shoot() {
-		Projectile p = new Projectile(this.model);
+
+
+        Projectile p = new Projectile(this.model);
 		p.setX(x);
 		p.setY(y);
 		p.setxSpeed(-(int) (model.getScreenX() * .009));
-		projectiles.add(p);
+        model.addUnit(p);
 	}
 
 	public int getHealth() {
@@ -107,5 +116,9 @@ public class BasicEnemyShip extends Ship {
 	public void setHealth(int health) {
 		this.health = health;
 	}
+
+
+
+
 
 }

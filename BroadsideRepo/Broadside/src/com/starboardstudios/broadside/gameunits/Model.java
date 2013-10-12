@@ -1,10 +1,14 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 import java.util.ArrayList;
@@ -15,7 +19,7 @@ public class Model extends Thread {
 	private BaseController currentActivity;
 	// Below will contain all units in the game. All units extend baseunit.
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
-
+    private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public Model(Context context) {
 		this.context = context;
 		this.start();
@@ -35,8 +39,16 @@ public class Model extends Thread {
 		}
 	}
 
+    /**
+     * The update method provides a frame by frame update loop for objects within the model to
+     * process movement, collisisons, exc.
+     */
 	public void update() {
-		if (currentActivity != null) {
+
+
+        checkCollisions();
+
+        if (currentActivity != null) {
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
 			}
@@ -62,17 +74,38 @@ public class Model extends Thread {
 
 	}
 
-	public void setCurrentActivity(BaseController homeController) {
-		this.currentActivity = homeController;
+    /**
+     * Sets the current activity running on the application.
+     * @param current The current activity
+     */
+	public void setCurrentActivity(BaseController current) {
+		this.currentActivity = current;
 	}
 
+    /**
+     * Runs the passed Runnable on the Application Thread (1).
+     * @param x The runnable to run on the App Thread.
+     */
 	public void runOnMain(Runnable x) {
 		currentActivity.runOnUiThread(x);
 	}
 
+    /**
+     * Adds the passed unit to the model.
+     * @param unit
+     */
 	public void addUnit(BaseUnit unit) {
 		if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-			units.add(unit);
+
+            if(unit.getClass().isInstance(Projectile.class))
+            {
+                projectiles.add((Projectile)unit);
+            }
+            else
+            {
+                units.add(unit);
+            }
+
 			((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 					.addView(unit.getImage());
 
@@ -80,13 +113,121 @@ public class Model extends Thread {
 
 	}
 
-	// Two methods below return a dynamic value for screen resolution. Use this
-	// and mult/division to move through screen.
+
+    /**
+     * Checks all projectiles for collisions by checking rect bounds, then redefining if necessary.
+     * Calls objects' collide methods if found.
+     */
+     public void checkCollisions()
+     {
+
+         for(int x =0;x<projectiles.size();x++)
+         {
+                 Projectile tempProjectile = projectiles.get(x);
+                 final Rect bounds =  tempProjectile.getImage().getDrawable().getBounds();
+                 for(int y=0; y<units.size();y++)
+                 {
+                     BaseUnit tempUnit = units.get(y);
+                     if(tempUnit.getImage().getDrawable().getBounds().contains(bounds))
+                     {
+
+
+                         if(checkCollision(tempProjectile, tempUnit))
+                         {
+
+                             tempProjectile.collide(tempUnit);
+                             tempUnit.collide(tempProjectile);
+                             System.err.print("THERE WAS A COLLISION!!!! HIDE YO KIDS!!! HIDE YO WIFE!!!!");
+                         }
+
+
+                     }
+                 }
+
+
+         }
+
+
+     }
+
+    /**
+     * Checks two objects for pixel by pixel collisions.
+     *
+     * @param unit1     First unit to test
+     * @param unit2     Second Unit to test
+     * @return
+     */
+     private boolean checkCollision(BaseUnit unit1, BaseUnit unit2)
+     {
+         Rect bounds1 = unit1.getImage().getDrawable().getBounds();
+         Rect bounds2 = unit2.getImage().getDrawable().getBounds();
+
+         if( Rect.intersects(bounds1, bounds2) ){
+             Rect collisionBounds = getCollisionBounds(bounds1, bounds2);
+             for (int i = collisionBounds.left; i < collisionBounds.right; i++) {
+                 for (int j = collisionBounds.top; j < collisionBounds.bottom; j++) {
+                     int sprite1Pixel = getBitmapPixel(unit1, i, j);
+                     int sprite2Pixel = getBitmapPixel(unit2, i, j);
+                     if( isFilled(sprite1Pixel) && isFilled(sprite2Pixel)) {
+                         return true;
+                     }
+                 }
+             }
+         }
+         return false;
+
+
+     }
+
+    /**
+     * Returns the pixel content requested
+     * @param unit The unit you are testing
+     * @param i    Internal x coordinate
+     * @param j    Internal j coordinate
+     * @return     Pixel value.
+     */
+    private static int getBitmapPixel(BaseUnit unit, int i, int j) {
+
+                BitmapDrawable image = ((BitmapDrawable)(unit.getImage().getDrawable()));
+        return image.getBitmap().getPixel(i-(int)unit.getImage().getX(), j-(int)unit.getImage().getY());
+    }
+
+    /**
+     * Checks the overlap of the corresponding rectangles
+     * @param rect1
+     * @param rect2
+     * @return   The overlap region
+     */
+    private static Rect getCollisionBounds(Rect rect1, Rect rect2) {
+        int left = (int) Math.max(rect1.left, rect2.left);
+        int top = (int) Math.max(rect1.top, rect2.top);
+        int right = (int) Math.min(rect1.right, rect2.right);
+        int bottom = (int) Math.min(rect1.bottom, rect2.bottom);
+        return new Rect(left, top, right, bottom);
+    }
+
+    /**
+     * Checks if the passed pixel is transparent.
+     * @param pixel
+     * @return true if the pixel is not transparent.
+     */
+    private static boolean isFilled(int pixel) {
+        return pixel != Color.TRANSPARENT;
+    }
+
+
+    /**
+     *
+     * @return The pixel value of the current device's screen width.
+     */
 	public int getScreenX() {
 		return currentActivity.getBaseContext().getResources()
 				.getDisplayMetrics().widthPixels;
 	}
-
+    /**
+     *
+     * @return The pixel value of the current device's screen height.
+     */
 	public int getScreenY() {
 		return currentActivity.getBaseContext().getResources()
 				.getDisplayMetrics().heightPixels;
@@ -95,7 +236,9 @@ public class Model extends Thread {
 	// Enter an x and y variable, and see if it is a valid placement for a
 	// turret
 	public boolean turretCheck(int x, int y) {
-		int yMax = getScreenY();
+		//TODO: Why is this in the model? This should be part of the turrent class which is called in the update method per MVC.
+
+        int yMax = getScreenY();
 		int xMax = (int) (getScreenX() * .25);
 		boolean turretCheck = false;
 
@@ -120,5 +263,14 @@ public class Model extends Thread {
 			return null;
 
 	}
+
+    /**
+     * Removes the requested unit from the model.
+     * @param unit
+     */
+    public void removeUnit(BaseUnit unit)
+    {
+        //TODO: Remove specified unit from model.
+    }
 
 }

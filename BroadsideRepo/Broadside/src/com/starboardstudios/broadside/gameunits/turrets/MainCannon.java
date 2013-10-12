@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 
 public class MainCannon extends Turret {
@@ -86,5 +87,10 @@ public class MainCannon extends Turret {
     @Override
     public ImageView getImage() {
         return imageView;
+    }
+
+    @Override
+    public void collide(BaseUnit collidedWith) {
+         //TODO: Turrent available drop.
     }
 }

@@ -1,15 +1,12 @@
 package com.starboardstudios.broadside.gameunits.projectile;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
 public class Projectile extends ProjectileBase {
 	public ImageView imageView = new ImageView(context);
-	private Model model;
 	private int x, y, z, xSpeed, ySpeed, zSpeed;
 
 	public Projectile(Model model) {

@@ -8,12 +8,22 @@ import android.widget.ImageView;
 public abstract class BaseUnit {
 
 
-
-
-
+    /**
+     * Updates the unit per the unit's own logic. Called by the model each "frame". Time should be adjusted for these frames.
+     */
     public abstract void update();
 
+    /**
+     * Returns the image to be rendered by the model.
+     * @return the image to be rendered by the model.
+     */
     public abstract ImageView getImage();
+
+    /**
+     * This method is called whenever the model detects a collision between this object and another.
+     * @param collidedWith The object this object collided with.
+     */
+    public abstract void collide(BaseUnit collidedWith);
 
 
 }

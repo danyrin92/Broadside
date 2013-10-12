@@ -1,9 +1,9 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
@@ -80,7 +80,12 @@ public class MainShip extends Ship {
 		return imageView;
 	}
 
-	void FireMain(int x, int y) {
+    @Override
+    public void collide(BaseUnit collidedWith) {
+
+    }
+
+    void FireMain(int x, int y) {
 		int deltaX = x - this.x;
 		int deltaY = this.y - y;
 		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
