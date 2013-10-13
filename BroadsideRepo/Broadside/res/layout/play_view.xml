@@ -8,22 +8,21 @@
         android:id="@id/play_frame"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_x="0dp"
-        android:layout_y="0dp"
         android:background="@drawable/ocean"
-        android:onClick="loseHealth" >
+        android:onClick="loseHealth"
+        android:scrollbarAlwaysDrawVerticalTrack="false" >
 
         <Button
             android:id="@+id/addObject2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
             android:layout_x="209dp"
             android:layout_y="111dp"
             android:onClick="addTurret"
             android:text="Add Turret"
             android:textStyle="bold"
-            android:typeface="serif" 
-            android:layout_gravity="right|center"/>
+            android:typeface="serif" />
 
         <TextView
             android:id="@+id/HealthView"
@@ -39,10 +38,10 @@
             android:layout_width="99dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:typeface="serif"
-            android:textStyle="bold"
             android:onClick="loseHealth"
-            android:text="Lose Health" />
+            android:text="Lose Health"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
         <Button
             android:id="@+id/SpawnEnemy"
@@ -53,12 +52,30 @@
             android:text="Spawn Enemy" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/UpgradeScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|right"
             android:onClick="gotoUpgrades"
             android:text="Upgrade Screen" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/LevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical|center_horizontal|right"
+                android:text="Level: "
+                android:textColor="#FF0000"
+                android:typeface="monospace" />
+
+        </RelativeLayout>
 
     </FrameLayout>
 

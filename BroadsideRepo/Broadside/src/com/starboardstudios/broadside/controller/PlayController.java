@@ -61,7 +61,6 @@ public class PlayController extends BaseController{
     }
     public void loseHealth(View view){
     	MainShip mainShip = model.getMainShip();
-    	
     	mainShip.setHealth(mainShip.getHealth() - 1);
     }
 	

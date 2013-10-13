@@ -3,6 +3,7 @@
 	<classpathentry excluding="BroadsideRepo/Broadside/src/|BroadsideRepo/Broadside/gen/" kind="src" path=""/>
 	<classpathentry kind="src" path="BroadsideRepo/Broadside/gen"/>
 	<classpathentry kind="src" path="BroadsideRepo/Broadside/src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/martin/Desktop/Software Engineering/adt-bundle-windows-x86_64-20130729/sdk/extras/android/support/v4/android-support-v4.jar"/>
 	<classpathentry kind="output" path="BroadsideRepo/Broadside/bin/classes"/>
 </classpath>

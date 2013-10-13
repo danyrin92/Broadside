@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class Model extends Thread {
 
+	private int level = 1;
 	public Context context;
 	private BaseController currentActivity;
 	// Below will contain all units in the game. All units extend baseunit.
@@ -68,6 +69,19 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateHealthTask);
+
+			}
+			if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
+					(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
+				final TextView level = (TextView) currentActivity
+						.findViewById(R.id.LevelView);
+				Runnable updateLevelTask = new Runnable() {
+					@Override
+					public void run() {
+						level.setText("Level: " + getLevel());
+					}
+				};
+				runOnMain(updateLevelTask);
 
 			}
 		}
@@ -254,6 +268,7 @@ public class Model extends Thread {
 
 		return health;
 	}
+	
 
 	public MainShip getMainShip() {
 		for (int i = 0; i < units.size(); i++) {
@@ -272,5 +287,13 @@ public class Model extends Thread {
     {
         //TODO: Remove specified unit from model.
     }
-
+    
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int lvl) {
+		level = lvl;
+	}
+    
 }

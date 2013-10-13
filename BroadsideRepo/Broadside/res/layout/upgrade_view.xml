@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/broadside_logo" >
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/broadside_logo" >
+
+        <Button
+            android:id="@+id/nxtLvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="19dp"
+            android:onClick="nextLevel"
+            android:text="Continue" />
+
+        <TextView
+            android:id="@+id/LevelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:text="Level: "
+            android:textColor="#FF0000"
+            android:typeface="monospace" />
+
+    </RelativeLayout>
 
 </AbsoluteLayout>
