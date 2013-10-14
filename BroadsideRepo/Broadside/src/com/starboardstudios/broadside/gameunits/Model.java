@@ -10,10 +10,14 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+//for passing the model to controllers other than play
+import android.os.Bundle;
+import android.os.Parcel; 
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Model extends Thread {
+public class Model extends Thread implements Parcelable {
 
 	private int level = 1;
 	public Context context;
@@ -96,6 +100,11 @@ public class Model extends Thread {
 		this.currentActivity = current;
 	}
 
+	//not sure if this is necessary; attempting to pass model between activities
+	public void setContext(Context context) {
+		this.context = context;
+	}
+	
     /**
      * Runs the passed Runnable on the Application Thread (1).
      * @param x The runnable to run on the App Thread.
@@ -213,10 +222,10 @@ public class Model extends Thread {
      * @return   The overlap region
      */
     private static Rect getCollisionBounds(Rect rect1, Rect rect2) {
-        int left = (int) Math.max(rect1.left, rect2.left);
-        int top = (int) Math.max(rect1.top, rect2.top);
-        int right = (int) Math.min(rect1.right, rect2.right);
-        int bottom = (int) Math.min(rect1.bottom, rect2.bottom);
+        int left = Math.max(rect1.left, rect2.left);
+        int top = Math.max(rect1.top, rect2.top);
+        int right = Math.min(rect1.right, rect2.right);
+        int bottom = Math.min(rect1.bottom, rect2.bottom);
         return new Rect(left, top, right, bottom);
     }
 
@@ -295,5 +304,43 @@ public class Model extends Thread {
 	public void setLevel(int lvl) {
 		level = lvl;
 	}
-    
+	
+    /* everything below here is for implementing Parcelable */
+	//Parcelable is for passing model properties between screens
+
+    // 99.9% of the time you can just ignore this
+    public int describeContents() {
+        return 0;
+    }
+
+    // write your object's data to the passed-in Parcel
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(level); //level
+        //units
+        //projectiles
+        //context and currentActivity not needed...???
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Model> CREATOR = new Parcelable.Creator<Model>() {
+        public Model createFromParcel(Parcel in) {
+            return new Model(in);
+        }
+
+        public Model[] newArray(int size) {
+            return new Model[size];
+        }
+    };
+
+    // example constructor that takes a Parcel and gives you an object populated with it's values
+    private Model(Parcel in) {
+        level = in.readInt(); //level
+        //units
+        //projectiles
+        //context and currentActivity not needed...???
+    }
+	
 }
+
+    
+

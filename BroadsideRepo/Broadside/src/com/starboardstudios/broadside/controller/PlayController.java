@@ -26,6 +26,9 @@ public class PlayController extends BaseController{
 		name="PlayController";
 		model = new Model(getBaseContext());
         model.setCurrentActivity(this);
+        //pass level property between activities
+        int level= getIntent().getIntExtra("level", 1);
+        model.setLevel(level);
         
         //Below is an example of how to add to the model without keylistener logic! Don't delete!
         model.addUnit(new MainShip(model));
@@ -44,6 +47,7 @@ public class PlayController extends BaseController{
 	public void gotoUpgrades(View view)
 	{
 		Intent gotoUpgrades = new Intent(this, UpgradeController.class);
+		gotoUpgrades.putExtra("level", model.getLevel());
 		startActivity(gotoUpgrades);
 	}
 	

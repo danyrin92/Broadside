@@ -23,9 +23,12 @@ public class UpgradeController extends BaseController{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.upgrade_view);
 		
-		name="UpgradeController";
+		name="UpgradeController";	
 		model = new Model(getBaseContext());
         model.setCurrentActivity(this);
+        //pass level property between activities
+        int level= getIntent().getIntExtra("level", 1);
+        model.setLevel(level);
        
         try {
             Thread.sleep(20);
@@ -37,6 +40,7 @@ public class UpgradeController extends BaseController{
 	public void nextLevel(View view){
 		model.setLevel(model.getLevel()+1);
     	Intent playIntent = new Intent(this, PlayController.class);
+    	playIntent.putExtra("level", model.getLevel());
 		startActivity(playIntent);
     }
 	
