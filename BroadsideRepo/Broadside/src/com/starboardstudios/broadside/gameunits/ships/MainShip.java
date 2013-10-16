@@ -4,6 +4,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
@@ -12,7 +13,7 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
-public class MainShip extends Ship {
+public class MainShip extends CombatUnit {
 
 	public ImageView imageView = new ImageView(context); // Image for ship
 	private Model model;
@@ -20,7 +21,6 @@ public class MainShip extends Ship {
 	private ArrayList<Crew> crew;
 	private MainCannon mainCannon;
 	private int waterLevel = 0;
-	private int health = 100;
 	private boolean inPosition = false;
 	private ArrayList<Turret> turrets;
 
@@ -40,6 +40,8 @@ public class MainShip extends Ship {
 		// negative? Huh?
 		x = -((int) (model.getScreenY() * .375));
 		y = ((int) (model.getScreenY() * .7));
+		
+		health = 100;
 	}
 
 	void Damage(Projectile p) {
@@ -91,14 +93,6 @@ public class MainShip extends Ship {
 		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
 
 		// Code to new projectile firing in this direction inc.
-	}
-
-	public int getHealth() {
-		return health;
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
 	}
 
 	ArrayList<Turret> getTurrets() {

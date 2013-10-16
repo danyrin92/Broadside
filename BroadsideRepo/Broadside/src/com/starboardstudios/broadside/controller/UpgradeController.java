@@ -4,11 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.ships.BasicEnemyShip;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public class UpgradeController extends BaseController{
 

@@ -1,8 +1,11 @@
-package com.starboardstudios.broadside.gameunits.ships;
+package com.starboardstudios.broadside.gameunits.aircrafts;
+
+import java.util.Random;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
@@ -10,25 +13,23 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
-import java.util.Random;
-
-public class Ship extends CombatUnit {
-	//Top level of all types of Ships
-
+public class Aircraft extends CombatUnit {
+	//Top level of all types of aircraft
+	
 	public ImageView imageView = new ImageView(context); // Image for ship
 	protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
 	int random = rand.nextInt(2);
 
-	public Ship(Model model) {
+	public Aircraft(Model model) {
 		super(model.context);
 		this.model = model;
 
 		// Can't make image another file because it's not auto-generating the
 		// address in R.java. What gives?
 		// Using test for now
-		imageView.setImageResource(drawable.testship);
+		imageView.setImageResource(drawable.credits_cloud); //image needed
 		imageView.setAdjustViewBounds(true);
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
@@ -72,7 +73,7 @@ public class Ship extends CombatUnit {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.testship);
+				imageView.setImageResource(drawable.credits_cloud);
 			}
 
 		});
@@ -107,5 +108,7 @@ public class Ship extends CombatUnit {
 		p.setxSpeed(-(int) (model.getScreenX() * .009));
         model.addUnit(p);
 	}
+
+	
 	
 }

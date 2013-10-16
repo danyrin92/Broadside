@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.controller;
 
+import java.util.Random;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +10,10 @@ import android.content.Intent;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.ships.BasicEnemyShip;
+import com.starboardstudios.broadside.gameunits.aircrafts.Aircraft;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.Ship;
+import com.starboardstudios.broadside.gameunits.submarine.Submarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 public class PlayController extends BaseController{
@@ -38,9 +42,7 @@ public class PlayController extends BaseController{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
-
+        
 	}
 	
 	//for getting the upgrades button to work...
@@ -68,8 +70,24 @@ public class PlayController extends BaseController{
     	mainShip.setHealth(mainShip.getHealth() - 1);
     }
 	
-    public void spawnBasicEnemy(View view){
-    	model.addUnit(new BasicEnemyShip(model));
+    public void spawnBasicEnemy(View view){ 
+    	//for testing
+    	
+    	Random rand = new Random();
+    	int random = rand.nextInt(3);
+    	
+    	switch (random) {
+    		case 0: 
+    			model.addUnit(new Ship(model));
+    			break;
+    		case 1:
+    			model.addUnit(new Aircraft(model));
+    			break;
+    		case 2:
+    			model.addUnit(new Submarine(model));
+    			break;
+    			
+    	}
     	
     }
 	

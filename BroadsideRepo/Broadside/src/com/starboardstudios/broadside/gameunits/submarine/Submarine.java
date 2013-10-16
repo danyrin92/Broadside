@@ -1,34 +1,34 @@
-package com.starboardstudios.broadside.gameunits.ships;
+package com.starboardstudios.broadside.gameunits.submarine;
+
+import java.util.Random;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
-import java.util.Random;
-
-public class BasicEnemyShip extends Ship {
+public class Submarine extends CombatUnit{
+	//Top level of all types of Ships
 
 	public ImageView imageView = new ImageView(context); // Image for ship
-	private Model model;
-	private MainCannon mainCannon;
-	private int health = 10;
+	protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
 	int random = rand.nextInt(2);
-
-	public BasicEnemyShip(Model model) {
+	
+	public Submarine(Model model) {
 		super(model.context);
 		this.model = model;
-
-		// Can't make image another file because it's not auto-generating the
+			// Can't make image another file because it's not auto-generating the
 		// address in R.java. What gives?
-		// Using test for now
-		imageView.setImageResource(drawable.testship);
+			// Using test for now
+		imageView.setImageResource(drawable.enemyship); //new image needed
 		imageView.setAdjustViewBounds(true);
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
@@ -38,11 +38,13 @@ public class BasicEnemyShip extends Ship {
 			@Override
 			public void onClick(View view) {
 				System.out.print("I shot");
-                shoot();
+	               shoot();
 
 			}
 		});
-
+			
+		health = 10;
+			
 		x = ((int) (model.getScreenX()) + 75);
 		y = ((int) (model.getScreenY() * .4));
 
@@ -65,14 +67,14 @@ public class BasicEnemyShip extends Ship {
 		    for(int i=0;i<projectiles.size();i++){
 	    		projectiles.get(i).update();
 	       	}
-        */
+	       */
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.testship);
+				imageView.setImageResource(drawable.enemyship);
 			}
-
+			
 		});
 	}
 
@@ -80,7 +82,7 @@ public class BasicEnemyShip extends Ship {
 	public ImageView getImage() {
 		return imageView;
 	}
-
+	
 	public void setVelocity(int xSpeed, int ySpeed) {
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
@@ -89,33 +91,19 @@ public class BasicEnemyShip extends Ship {
 
 	}
 
-    public void collide(BaseUnit unit)
-    {
+	public void collide(BaseUnit unit) {
 
-       x=0;
+	       x=0;
 
 
-    }
+	}
 
 	public void shoot() {
 
-        Projectile p = new Projectile(this.model);
+		Projectile p = new Projectile(this.model);
 		p.setX(x);
 		p.setY(y);
 		p.setxSpeed(-(int) (model.getScreenX() * .009));
-        model.addUnit(p);
+	    model.addUnit(p);
 	}
-
-	public int getHealth() {
-		return health;
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
-	}
-
-
-
-
-
 }
