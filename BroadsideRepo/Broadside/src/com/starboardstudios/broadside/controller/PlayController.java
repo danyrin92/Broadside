@@ -10,10 +10,10 @@ import android.content.Intent;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.aircrafts.Aircraft;
+import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
+import com.starboardstudios.broadside.gameunits.ships.BaseShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.gameunits.ships.Ship;
-import com.starboardstudios.broadside.gameunits.submarine.Submarine;
+import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 public class PlayController extends BaseController{
@@ -78,13 +78,13 @@ public class PlayController extends BaseController{
     	
     	switch (random) {
     		case 0: 
-    			model.addUnit(new Ship(model));
+    			model.addUnit(new BaseShip(model));
     			break;
     		case 1:
-    			model.addUnit(new Aircraft(model));
+    			model.addUnit(new BaseAircraft(model));
     			break;
     		case 2:
-    			model.addUnit(new Submarine(model));
+    			model.addUnit(new BaseSubmarine(model));
     			break;
     			
     	}

@@ -13,7 +13,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
-public class Submarine extends CombatUnit{
+public class BaseSubmarine extends CombatUnit{
 	//Top level of all types of Ships
 
 	public ImageView imageView = new ImageView(context); // Image for ship
@@ -22,7 +22,7 @@ public class Submarine extends CombatUnit{
 	Random rand = new Random();
 	int random = rand.nextInt(2);
 	
-	public Submarine(Model model) {
+	public BaseSubmarine(Model model) {
 		super(model.context);
 		this.model = model;
 			// Can't make image another file because it's not auto-generating the
