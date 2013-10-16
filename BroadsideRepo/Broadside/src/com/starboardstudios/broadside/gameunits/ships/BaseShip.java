@@ -3,18 +3,18 @@ package com.starboardstudios.broadside.gameunits.ships;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 import java.util.Random;
 
 public class BaseShip extends CombatUnit {
 	//Top level of all types of Ships
-
 	public ImageView imageView = new ImageView(context); // Image for ship
 	protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
@@ -38,11 +38,11 @@ public class BaseShip extends CombatUnit {
 			@Override
 			public void onClick(View view) {
 				System.out.print("I shot");
-                shoot();
+                testFire();
 
 			}
 		});
-		
+	
 		health = 10;
 		
 		x = ((int) (model.getScreenX()) + 75);
@@ -93,19 +93,14 @@ public class BaseShip extends CombatUnit {
 
     public void collide(BaseUnit unit)
     {
-
        x=0;
-
-
     }
-
-	public void shoot() {
-
-        Projectile p = new Projectile(this.model);
-		p.setX(x);
-		p.setY(y);
-		p.setxSpeed(-(int) (model.getScreenX() * .009));
-        model.addUnit(p);
+    //TESTING
+    public static int xFireSpeed = 1;
+    public static int yFireSpeed = 0;
+    public static int zFireSpeed;
+    public int z = 0;
+    void testFire() {
+		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed));
 	}
-	
 }

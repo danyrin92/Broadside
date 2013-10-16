@@ -39,7 +39,7 @@ public class BaseAircraft extends CombatUnit {
 			@Override
 			public void onClick(View view) {
 				System.out.print("I shot");
-                shoot();
+                //shoot();
 
 			}
 		});
@@ -99,7 +99,7 @@ public class BaseAircraft extends CombatUnit {
 
 
     }
-
+/*
 	public void shoot() {
 
         Projectile p = new Projectile(this.model);
@@ -107,7 +107,7 @@ public class BaseAircraft extends CombatUnit {
 		p.setY(y);
 		p.setxSpeed(-(int) (model.getScreenX() * .009));
         model.addUnit(p);
-	}
+	}*/
 
 	
 	

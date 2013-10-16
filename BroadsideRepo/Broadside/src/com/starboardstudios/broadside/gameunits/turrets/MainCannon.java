@@ -5,18 +5,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
     private Model model;
     int x,y,z;
     
-	public MainCannon(Model model) {
-		super(model.context);
-		this.model = model;
+	public MainCannon(Model model, Projectile projectile) {
+		super(model);
+		this.projectile = projectile;
 		x=35;y=35;z=0;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
@@ -53,9 +55,6 @@ public class MainCannon extends Turret {
                         return false;
                     }
                 }
-
-
-
 
             });
 

@@ -10,8 +10,6 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
-//for passing the model to controllers other than play
-import android.os.Bundle;
 import android.os.Parcel; 
 import android.os.Parcelable;
 

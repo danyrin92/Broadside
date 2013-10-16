@@ -38,7 +38,7 @@ public class BaseSubmarine extends CombatUnit{
 			@Override
 			public void onClick(View view) {
 				System.out.print("I shot");
-	               shoot();
+	              // shoot();
 
 			}
 		});
@@ -97,7 +97,7 @@ public class BaseSubmarine extends CombatUnit{
 
 
 	}
-
+/*
 	public void shoot() {
 
 		Projectile p = new Projectile(this.model);
@@ -105,5 +105,5 @@ public class BaseSubmarine extends CombatUnit{
 		p.setY(y);
 		p.setxSpeed(-(int) (model.getScreenX() * .009));
 	    model.addUnit(p);
-	}
+	}*/
 }

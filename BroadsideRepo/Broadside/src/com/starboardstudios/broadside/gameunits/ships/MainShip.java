@@ -44,7 +44,7 @@ public class MainShip extends CombatUnit {
 		health = 100;
 	}
 
-	void Damage(Projectile p) {
+	protected void Damage(Projectile p) {
 		health = health - p.getDamage();
 	}
 

@@ -11,6 +11,7 @@ import android.content.Intent;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
+import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.BaseShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
@@ -63,14 +64,14 @@ public class PlayController extends BaseController{
     }
     public void addTurret(View view)
     {
-        model.addUnit(new MainCannon(model));
+        model.addUnit(new MainCannon(model, new CannonBall(model, 20)));
     }
-    public void loseHealth(View view){
+    public void loseHealth(View view) {
     	MainShip mainShip = model.getMainShip();
     	mainShip.setHealth(mainShip.getHealth() - 1);
     }
 	
-    public void spawnBasicEnemy(View view){ 
+    public void spawnBasicEnemy(View view) { 
     	//for testing
     	
     	Random rand = new Random();

@@ -36,7 +36,7 @@ public abstract class CombatUnit extends BaseUnit {
 		ySpeed = 0;
 	}
 	
-	void Damage(Projectile p){
+	protected void Damage(Projectile p){
 		health = health - p.getDamage();
 	}
 	

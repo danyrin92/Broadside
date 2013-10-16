@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.TestShip;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
@@ -74,7 +75,7 @@ public class TestController extends Activity {
     }
     public void addTurret(View view) {
     	System.out.println("Turret requested");
-    	Turret x = new MainCannon(model);
+    	Turret x = new MainCannon(model, new CannonBall(model));
     	((MainCannon) x).setPosition(100,100,0);
     }
 	
