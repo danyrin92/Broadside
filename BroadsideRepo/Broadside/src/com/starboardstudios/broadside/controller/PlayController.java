@@ -1,14 +1,11 @@
 package com.starboardstudios.broadside.controller;
 
-import java.util.Random;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-//for getting the upgrades button to work...
-import android.content.Intent;
-
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
@@ -17,11 +14,15 @@ import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
+import java.util.Random;
+
+//for getting the upgrades button to work...
+
 public class PlayController extends BaseController{
 
 	@SuppressLint("NewApi")
 
-	private Model model;
+	public Model model;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -29,15 +30,15 @@ public class PlayController extends BaseController{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.play_view);
 		name="PlayController";
-		model = new Model(getBaseContext());
+		model = ((BroadsideApplication)this.getApplication()).getModel();
         model.setCurrentActivity(this);
         //pass level property between activities
         int level= getIntent().getIntExtra("level", 1);
         model.setLevel(level);
-        
+        System.out.print("Model Rendering");
         //Below is an example of how to add to the model without keylistener logic! Don't delete!
         model.addUnit(new MainShip(model));
-       
+       System.out.println("adding ship");
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
