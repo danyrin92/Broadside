@@ -32,7 +32,7 @@ public class Model extends Thread implements Parcelable {
 	public void run() {
 		System.out.println("Model Started ");
 		while (true) {
-			update();
+           	update();
 			try {
 				// FPS modifier below
 				Thread.sleep(10);
@@ -96,6 +96,7 @@ public class Model extends Thread implements Parcelable {
      */
 	public void setCurrentActivity(BaseController current) {
 		this.currentActivity = current;
+        context = current.getBaseContext();
 	}
 
 	//not sure if this is necessary; attempting to pass model between activities

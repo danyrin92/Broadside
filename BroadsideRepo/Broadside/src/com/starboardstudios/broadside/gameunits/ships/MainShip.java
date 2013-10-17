@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainShip extends CombatUnit {
 
-	public ImageView imageView = new ImageView(context); // Image for ship
+	public ImageView imageView; // Image for ship
 	private Model model;
 	private ArrayList<Section> sections;
 	private ArrayList<Crew> crew;
@@ -29,7 +29,7 @@ public class MainShip extends CombatUnit {
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
-
+        imageView = new ImageView(model.context);
 		// PNG to be used as image
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
