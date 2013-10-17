@@ -38,7 +38,7 @@ public class PlayController extends BaseController{
         System.out.print("Model Rendering");
         //Below is an example of how to add to the model without keylistener logic! Don't delete!
         model.addUnit(new MainShip(model));
-       System.out.println("adding ship");
+       System.out.println("adding ship2");
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
