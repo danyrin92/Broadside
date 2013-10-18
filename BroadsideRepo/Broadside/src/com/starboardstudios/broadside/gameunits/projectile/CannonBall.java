@@ -60,4 +60,8 @@ public class CannonBall extends Projectile {
 		return new CannonBall(model, damage, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed);
 	}
 
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
 }

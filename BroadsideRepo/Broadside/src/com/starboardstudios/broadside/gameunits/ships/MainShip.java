@@ -87,6 +87,11 @@ public class MainShip extends CombatUnit {
 
     }
 
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
     void FireMain(int x, int y) {
 		int deltaX = x - this.x;
 		int deltaY = this.y - y;

@@ -1,17 +1,15 @@
 package com.starboardstudios.broadside.gameunits.aircrafts;
 
-import java.util.Random;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+
+import java.util.Random;
 
 public class BaseAircraft extends CombatUnit {
 	//Top level of all types of aircraft
@@ -97,6 +95,11 @@ public class BaseAircraft extends CombatUnit {
 
        x=0;
 
+
+    }
+
+    @Override
+    public void setPosition(int x, int y) {
 
     }
 /*

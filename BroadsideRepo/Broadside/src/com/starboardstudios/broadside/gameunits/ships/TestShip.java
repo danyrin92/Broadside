@@ -111,5 +111,10 @@ public class TestShip extends CombatUnit {
 
     }
 
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
 
 }

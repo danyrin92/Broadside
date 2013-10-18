@@ -25,5 +25,6 @@ public abstract class BaseUnit {
      */
     public abstract void collide(BaseUnit collidedWith);
 
+    public abstract void setPosition(int x, int y);
 
 }

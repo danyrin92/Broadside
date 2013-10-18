@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
+import android.graphics.Color;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,7 +15,7 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 import java.util.Random;
 
-public class BaseShip extends CombatUnit {
+  public class BaseShip extends CombatUnit {
 	//Top level of all types of Ships
 	public ImageView imageView = new ImageView(context); // Image for ship
 	protected MainCannon mainCannon;
@@ -50,6 +52,32 @@ public class BaseShip extends CombatUnit {
 
 		// Below will be updated
 		xSpeed = -(int) (model.getScreenX() * .003);
+        imageView.setOnDragListener( new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+
+                System.out.println("Encountered Drag Event");
+                if(event.getAction()== DragEvent.ACTION_DRAG_STARTED)
+                {
+                    System.out.println("Begin Drag ");
+                    v.setBackgroundColor(Color.BLUE);
+                }
+                else if(event.getAction()== DragEvent.ACTION_DRAG_ENTERED)
+                {
+                    System.out.println("Begin Drag 2 ");
+                    v.setBackgroundColor(Color.GREEN);
+                }
+                else if(event.getAction()== DragEvent.ACTION_DROP)
+                {
+                    System.out.println("Begin Drop ");
+                    v.setBackgroundColor(Color.RED);
+                    System.out.println("Location:" + v.getX() +"  "+ v.getY() );
+                }
+                v.invalidate();
+                return true;
+
+            }
+        });
 	}
 
 	public void update() {
@@ -95,6 +123,12 @@ public class BaseShip extends CombatUnit {
     {
        x=0;
     }
+
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
     //TESTING
     public static int xFireSpeed = 1;
     public static int yFireSpeed = 0;

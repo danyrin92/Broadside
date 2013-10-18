@@ -73,10 +73,9 @@ public class Model extends Thread implements Parcelable {
 				runOnMain(updateHealthTask);
 
 			}
-			if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
+			/**if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 					(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
-				final TextView level = (TextView) currentActivity
-						.findViewById(R.id.LevelView);
+				final TextView level = (TextView) currentActivity.findViewById(R.id.LevelView);
 				Runnable updateLevelTask = new Runnable() {
 					@Override
 					public void run() {
@@ -85,7 +84,7 @@ public class Model extends Thread implements Parcelable {
 				};
 				runOnMain(updateLevelTask);
 
-			}
+			}       */
 		}
 
 	}

@@ -5,7 +5,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -13,50 +12,39 @@ import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
-    private Model model;
     int x,y,z;
+    MainCannon me;
     
 	public MainCannon(Model model, Projectile projectile) {
 		super(model);
+        me=this;
 		this.projectile = projectile;
 		x=35;y=35;z=0;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
-            imageView.setOnTouchListener(new View.OnTouchListener() {
+           imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-
                     imageView.getParent().requestDisallowInterceptTouchEvent(true);
-                       imageView.setX(motionEvent.getRawX());
+
                      if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                        if(view.getParent() !=null)
-                        {
-                            view.getParent().requestDisallowInterceptTouchEvent(true);
-                        }
+                        System.out.println(view.toString());
 
                         ClipData data = ClipData.newPlainText("", "");
-                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                        view.startDrag(data, shadowBuilder, view, 0);
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
+                        view.startDrag(data, shadowBuilder, me , 0);
                         view.setVisibility(View.INVISIBLE);
 
-                        return false;
-                    }
-                    if(motionEvent.getAction() == MotionEvent.ACTION_UP)
-                    {
-                        view.setVisibility(View.VISIBLE);
-                        System.out.println("Lifted the finger");
-                        return false;
-                    }
-                    else {
-                        System.out.println("Size" + motionEvent.getX());
-                        System.out.println(motionEvent.toString());
-                        view.invalidate();
-                        return false;
-                    }
-                }
 
+                        return true;
+                    }
+
+                    return false;
+                }
             });
+
+
 
 
 	         System.out.println("Turret Created");
@@ -91,5 +79,11 @@ public class MainCannon extends Turret {
     @Override
     public void collide(BaseUnit collidedWith) {
          //TODO: Turrent available drop.
+    }
+
+    @Override
+    public void setPosition(int x, int y) {
+        this.x=x;
+        this.y=y;
     }
 }

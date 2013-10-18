@@ -9,7 +9,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 
 public abstract class Projectile extends BaseUnit {
 	protected Context context;
-	protected ImageView imageView = new ImageView(context);
+	protected ImageView imageView;
 	protected int damage;
 	protected int x, y, z, xSpeed, ySpeed, zSpeed;
     public Model model;
@@ -19,13 +19,16 @@ public abstract class Projectile extends BaseUnit {
 	{
 		this.model = model;
 		this.context = model.context;
+        imageView = new ImageView(context);
 	}
     public Projectile(Model model, int damage)
 	{
 		this.model = model;
 		this.context = model.context;
 		this.damage = damage;
-	}
+        imageView = new ImageView(context);
+
+    }
 
     public void collide(BaseUnit collidedWith)
     {
