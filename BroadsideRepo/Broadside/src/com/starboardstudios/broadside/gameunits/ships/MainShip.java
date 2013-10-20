@@ -55,7 +55,8 @@ public class MainShip extends CombatUnit {
 		imageView.setY(y);
 
 	}
-
+	
+	@Override
 	public void update() {
 
 		x = x + xSpeed;

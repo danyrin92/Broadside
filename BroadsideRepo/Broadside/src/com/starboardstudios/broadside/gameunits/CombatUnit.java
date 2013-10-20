@@ -52,4 +52,8 @@ public abstract class CombatUnit extends BaseUnit {
 		this.health = health;
 	}
 	
+    public void setPosition(int x, int y) {
+		this.x = ((int) (model.getScreenX()) + x);
+		this.y = ((int) (model.getScreenY() + y));
+    }
 }

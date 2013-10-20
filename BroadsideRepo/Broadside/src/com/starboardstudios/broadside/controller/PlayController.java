@@ -14,6 +14,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.BaseShip;
+import com.starboardstudios.broadside.gameunits.ships.BasicShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
@@ -116,7 +117,7 @@ public class PlayController extends BaseController{
     	
     	switch (random) {
     		case 0: 
-    			model.addUnit(new BaseShip(model));
+    			model.addUnit(new BasicShip(model));
     			break;
     		case 1:
     			model.addUnit(new BaseAircraft(model));

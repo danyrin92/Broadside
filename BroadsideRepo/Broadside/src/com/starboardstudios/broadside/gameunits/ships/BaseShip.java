@@ -15,10 +15,10 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 
 import java.util.Random;
 
-  public class BaseShip extends CombatUnit {
+  public abstract class BaseShip extends CombatUnit {
 	//Top level of all types of Ships
 	public ImageView imageView = new ImageView(context); // Image for ship
-	protected MainCannon mainCannon;
+	//protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
 	int random = rand.nextInt(2);
@@ -30,7 +30,8 @@ import java.util.Random;
 		// Can't make image another file because it's not auto-generating the
 		// address in R.java. What gives?
 		// Using test for now
-		imageView.setImageResource(drawable.testship);
+		imageView.setVisibility(imageView.INVISIBLE);
+		imageView.setImageResource(drawable.error);
 		imageView.setAdjustViewBounds(true);
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
@@ -44,8 +45,6 @@ import java.util.Random;
 
 			}
 		});
-	
-		health = 10;
 		
 		x = ((int) (model.getScreenX()) + 75);
 		y = ((int) (model.getScreenY() * .4));
@@ -100,7 +99,7 @@ import java.util.Random;
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.testship);
+				//imageView.setImageResource(drawable.testship);
 			}
 
 		});
@@ -122,11 +121,6 @@ import java.util.Random;
     public void collide(BaseUnit unit)
     {
        x=0;
-    }
-
-    @Override
-    public void setPosition(int x, int y) {
-
     }
 
     //TESTING
