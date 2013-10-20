@@ -27,9 +27,6 @@ import java.util.Random;
 		super(model.context);
 		this.model = model;
 
-		// Can't make image another file because it's not auto-generating the
-		// address in R.java. What gives?
-		// Using test for now
 		imageView.setVisibility(imageView.INVISIBLE);
 		imageView.setImageResource(drawable.error);
 		imageView.setAdjustViewBounds(true);
@@ -48,7 +45,6 @@ import java.util.Random;
 		
 		x = ((int) (model.getScreenX()) + 75);
 		y = ((int) (model.getScreenY() * .4));
-
 		// Below will be updated
 		xSpeed = -(int) (model.getScreenX() * .003);
         imageView.setOnDragListener( new View.OnDragListener() {
@@ -113,8 +109,8 @@ import java.util.Random;
 	public void setVelocity(int xSpeed, int ySpeed) {
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
-		imageView.setX(x);
-		imageView.setY(y);
+		//imageView.setX(x);
+		//imageView.setY(y);
 
 	}
 
