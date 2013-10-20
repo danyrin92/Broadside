@@ -5,18 +5,15 @@ import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
-
 import java.util.Random;
 
 public abstract class BaseAircraft extends CombatUnit {
-	//Top level of all types of Ships
-	public ImageView imageView = new ImageView(context); // Image for ship
+	//Top level of all types of Aircraft
+	//public ImageView imageView = new ImageView(context); // Image for ship
 	//protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
@@ -29,8 +26,8 @@ public abstract class BaseAircraft extends CombatUnit {
 		// Can't make image another file because it's not auto-generating the
 		// address in R.java. What gives?
 		// Using test for now
-		imageView.setVisibility(imageView.INVISIBLE);
-		imageView.setImageResource(drawable.error);
+		imageView.setVisibility(View.INVISIBLE);
+		//imageView.setImageResource(drawable.error);
 		imageView.setAdjustViewBounds(true);
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model

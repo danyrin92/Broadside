@@ -1,15 +1,14 @@
 package com.starboardstudios.broadside.gameunits;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ImageView;
-
+import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
-
-import java.util.ArrayList;
 
 public abstract class CombatUnit extends BaseUnit {
-	//Renamed from "Ship" to more appropriately reflect hierarchy and purpose
+	
+	public ImageView imageView;
 	
 	protected int x;
 	protected int y;
@@ -22,6 +21,11 @@ public abstract class CombatUnit extends BaseUnit {
 	public CombatUnit(Context c)
 	{
 		this.context=c;
+		
+		imageView = new ImageView(context);
+		imageView.setVisibility(View.GONE);
+		imageView.setImageResource(drawable.error);
+		
 	}
 	
 	void destroy(){

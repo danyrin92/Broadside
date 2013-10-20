@@ -24,7 +24,7 @@ public class BasicSubmarine extends BaseSubmarine {
 
 			}
 		});
-		imageView.setVisibility(imageView.VISIBLE);		//BaseShip is set to invisible
+		imageView.setVisibility(View.VISIBLE);		//BaseShip is set to invisible
 	}
 
 }

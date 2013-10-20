@@ -6,18 +6,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
-
 import java.util.Random;
 
   public abstract class BaseShip extends CombatUnit {
 	//Top level of all types of Ships
-	public ImageView imageView = new ImageView(context); // Image for ship
+	//public ImageView imageView = new ImageView(context); // Image for ship
 	//protected MainCannon mainCannon;
 	//private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();    Projectiles are put in the MODEL, not owned by a ship... once a ship shoots something, why would the ship have any control over it?
 	Random rand = new Random();
@@ -27,8 +24,8 @@ import java.util.Random;
 		super(model.context);
 		this.model = model;
 
-		imageView.setVisibility(imageView.INVISIBLE);
-		imageView.setImageResource(drawable.error);
+		imageView.setVisibility(View.INVISIBLE);
+		//imageView.setImageResource(drawable.error);
 		imageView.setAdjustViewBounds(true);
 
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
