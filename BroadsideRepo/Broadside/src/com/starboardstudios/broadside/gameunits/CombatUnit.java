@@ -28,10 +28,13 @@ public abstract class CombatUnit extends BaseUnit {
 		
 	}
 	
-	void destroy(){
+	 void destroy(){
+
+     }
 		//Destroy means different things depending on if it's a main ship
 		//Or enemy. Will be implemented in extended classes
-	}
+        // THEN IT SHOULD BE ABSTRACT  :)
+
 	
 	void GoTo(int x, int y){
 		this.x = x;
@@ -43,7 +46,8 @@ public abstract class CombatUnit extends BaseUnit {
 	protected void Damage(Projectile p){
 		health = health - p.getDamage();
 	}
-	
+
+    //Why is this here?
 	void Update(){
 		
 	}

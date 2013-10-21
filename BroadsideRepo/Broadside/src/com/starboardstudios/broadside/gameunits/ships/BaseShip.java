@@ -1,15 +1,13 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
-import android.graphics.Color;
-import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+
 import java.util.Random;
 
   public abstract class BaseShip extends CombatUnit {
@@ -44,32 +42,7 @@ import java.util.Random;
 		y = ((int) (model.getScreenY() * .4));
 		// Below will be updated
 		xSpeed = -(int) (model.getScreenX() * .003);
-        imageView.setOnDragListener( new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
 
-                System.out.println("Encountered Drag Event");
-                if(event.getAction()== DragEvent.ACTION_DRAG_STARTED)
-                {
-                    System.out.println("Begin Drag ");
-                    v.setBackgroundColor(Color.BLUE);
-                }
-                else if(event.getAction()== DragEvent.ACTION_DRAG_ENTERED)
-                {
-                    System.out.println("Begin Drag 2 ");
-                    v.setBackgroundColor(Color.GREEN);
-                }
-                else if(event.getAction()== DragEvent.ACTION_DROP)
-                {
-                    System.out.println("Begin Drop ");
-                    v.setBackgroundColor(Color.RED);
-                    System.out.println("Location:" + v.getX() +"  "+ v.getY() );
-                }
-                v.invalidate();
-                return true;
-
-            }
-        });
 	}
 
 	public void update() {

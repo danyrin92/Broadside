@@ -48,8 +48,11 @@ public class Model extends Thread implements Parcelable {
      */
 	public void update() {
 
-
-        checkCollisions();
+        try{
+            checkCollisions();
+        } catch(Exception e)
+        {
+        }
 
         if (currentActivity != null) {
 			for (int x = 0; x < units.size(); x++) {
@@ -118,16 +121,20 @@ public class Model extends Thread implements Parcelable {
 	public void addUnit(BaseUnit unit) {
 		if (currentActivity.name.equalsIgnoreCase("PlayController")) {
 
-            if(unit.getClass().isInstance(Projectile.class))
-            {
+            System.out.println("Adding unit to class "+ unit.toString() );
+            try{
+
+                Projectile p = (Projectile)unit;
+                System.out.println("Adding Projectile To Model");
                 projectiles.add((Projectile)unit);
-            }
-            else
-            {
+
+
+            }catch(Exception e){
                 units.add(unit);
+
             }
 
-			((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+           	((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 					.addView(unit.getImage());
 
 		}
@@ -139,13 +146,13 @@ public class Model extends Thread implements Parcelable {
      * Checks all projectiles for collisions by checking rect bounds, then redefining if necessary.
      * Calls objects' collide methods if found.
      */
-     public void checkCollisions()
+     public void checkCollisions() throws Exception
      {
-
          for(int x =0;x<projectiles.size();x++)
          {
-                 Projectile tempProjectile = projectiles.get(x);
-                 final Rect bounds =  tempProjectile.getImage().getDrawable().getBounds();
+             Projectile tempProjectile = projectiles.get(x);
+
+             final Rect bounds =  tempProjectile.getImage().getDrawable().getBounds();
                  for(int y=0; y<units.size();y++)
                  {
                      BaseUnit tempUnit = units.get(y);
@@ -158,7 +165,6 @@ public class Model extends Thread implements Parcelable {
 
                              tempProjectile.collide(tempUnit);
                              tempUnit.collide(tempProjectile);
-                             System.err.print("THERE WAS A COLLISION!!!! HIDE YO KIDS!!! HIDE YO WIFE!!!!");
                          }
 
 

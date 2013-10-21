@@ -20,7 +20,7 @@ public abstract class Projectile extends BaseUnit {
 		this.model = model;
 		this.context = model.context;
         imageView = new ImageView(context);
-	}
+ 	}
     public Projectile(Model model, int damage)
 	{
 		this.model = model;
@@ -36,7 +36,9 @@ public abstract class Projectile extends BaseUnit {
     }
     
     public void update() {
-		x = x + xSpeed;
+
+
+        x = x + xSpeed;
 		y = y + ySpeed;
 		z = z + zSpeed;
 

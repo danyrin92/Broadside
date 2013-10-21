@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -33,7 +34,7 @@ public class PlayController extends BaseController{
 	{
 		super.onCreate(savedInstanceState);
        final View screen = ((LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.play_view,null);
-
+       this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 		name="PlayController";
 		model = ((BroadsideApplication)this.getApplication()).getModel();
@@ -57,7 +58,6 @@ public class PlayController extends BaseController{
             @Override
             public boolean onDrag(View v, DragEvent event) {
 
-                System.out.println("Encountered Drag Event " + v.toString());
                 if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
                     System.out.println("Begin Drag ");
                     v.setBackgroundColor(Color.RED);
@@ -68,7 +68,11 @@ public class PlayController extends BaseController{
                     v.setBackgroundColor(Color.GREEN);
                 } else if (event.getAction() == DragEvent.ACTION_DROP) {
                    //TODO: Replace with correct superclass which can cast all draggable types, probably create a draggable interface.
-                    ((MainCannon) event.getLocalState()).setPosition(((int) (event.getX()-screen.getX())), (int) (event.getY()-screen.getY()));
+                    int centerX =( ((MainCannon)event.getLocalState()).getImage().getLeft() + ((MainCannon)event.getLocalState()).getImage().getRight())/2;
+                    int centerY = (((MainCannon)event.getLocalState()).getImage().getTop() + ((MainCannon)event.getLocalState()).getImage().getBottom())/2;
+
+                    //  ((MainCannon) event.getLocalState()).setPosition(((int) (event.getX()-screen.getX())), (int) (event.getY()-screen.getY()));
+                      ((MainCannon) event.getLocalState()).setPosition(((int) (event.getX() - centerX)  ), (int) (event.getY()-centerY));
                     ((MainCannon) event.getLocalState()).getImage().clearColorFilter();
                     ((MainCannon) event.getLocalState()).getImage().setVisibility(View.VISIBLE);
 
