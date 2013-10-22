@@ -35,10 +35,10 @@ public class MainShip extends CombatUnit {
 		imageView.setAdjustViewBounds(true);
 		// Determines rendering size of object
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .75), (int) (model.getScreenY())));
+				.getScreenX() * .75), (int) (model.getScreenY()*1.2)));
 		// Starting position. As for now on the left. Why does x need to be
 		// negative? Huh?
-		x = -((int) (model.getScreenY() * .375));
+		x = -((int) (model.getScreenX() * .225));
 		y = ((int) (model.getScreenY() * .7));
 		
 		health = 100;
