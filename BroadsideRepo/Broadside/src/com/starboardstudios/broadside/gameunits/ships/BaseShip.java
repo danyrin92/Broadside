@@ -36,9 +36,6 @@ import java.util.Random;
 	public void setVelocity(int xSpeed, int ySpeed) {
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
-		//imageView.setX(x);
-		//imageView.setY(y);
-
 	}
 
     public void collide(BaseUnit unit)

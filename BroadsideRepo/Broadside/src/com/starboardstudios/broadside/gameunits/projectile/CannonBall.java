@@ -44,8 +44,8 @@ public class CannonBall extends Projectile {
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
-																		// size
+				.getScreenX() * .05), (int) (model.getScreenY() * .05))); 
+																		
 
 	}
 

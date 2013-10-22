@@ -13,7 +13,7 @@ public class BasicSubmarine extends BaseSubmarine {
 		
 		health = 10;
 		
-		imageView.setImageResource(drawable.enemyship);
+		imageView.setImageResource(drawable.easyship);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 		imageView.setOnClickListener(new View.OnClickListener() {

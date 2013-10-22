@@ -14,7 +14,7 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import java.util.ArrayList;
 
 public class MainShip extends CombatUnit {
-	
+
 	ImageView imageView; // Image for ship
 	private Model model;
 	private ArrayList<Section> sections;
@@ -24,23 +24,23 @@ public class MainShip extends CombatUnit {
 	private boolean inPosition = false;
 	private ArrayList<Turret> turrets;
 
-	// private boolean inPosition=false; No longer useful?
-
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
-        imageView = new ImageView(model.context);
-		// PNG to be used as image
+		imageView = new ImageView(model.context);
+
+		/** PNG to be used as image */
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
-		// Determines rendering size of object
+
+		/** Determines rendering size of object */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .75), (int) (model.getScreenY()*1.2)));
-		// Starting position. As for now on the left. Why does x need to be
-		// negative? Huh?
+				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
+
+		/** Starting position. As for now on the left. */
 		x = -((int) (model.getScreenX() * .225));
 		y = ((int) (model.getScreenY() * .7));
-		
+
 		health = 100;
 	}
 
@@ -55,15 +55,15 @@ public class MainShip extends CombatUnit {
 		imageView.setY(y);
 
 	}
-	
+
 	@Override
 	public void update() {
 
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (y > -(model.getScreenY()*.2))
-			ySpeed = -(int)(model.getScreenY()*.003);
+		if (y > -(model.getScreenY() * .2))
+			ySpeed = -(int) (model.getScreenY() * .003);
 		else
 			ySpeed = 0;
 
@@ -83,22 +83,29 @@ public class MainShip extends CombatUnit {
 		return imageView;
 	}
 
-    @Override
-    public void collide(BaseUnit collidedWith) {
+	@Override
+	public void collide(BaseUnit collidedWith) {
 
-    }
+	}
 
-    @Override
-    public void setPosition(int x, int y) {
+	@Override
+	public void setPosition(int x, int y) {
 
-    }
+	}
 
-    void FireMain(int x, int y) {
+	/**
+	 * 
+	 * @param x
+	 *            x position of where to fire
+	 * @param y
+	 *            y position of where to fire
+	 * 
+	 *            Can then call fire with returned degreeAngle
+	 */
+	void FireMain(int x, int y) {
 		int deltaX = x - this.x;
 		int deltaY = this.y - y;
 		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
-
-		// Code to new projectile firing in this direction inc.
 	}
 
 	ArrayList<Turret> getTurrets() {

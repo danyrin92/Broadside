@@ -10,6 +10,7 @@ public abstract class BaseUnit {
 	
 	protected int x;
 	protected int y;
+	protected int z;
 
     /**
      * Updates the unit per the unit's own logic. Called by the model each "frame". Time should be adjusted for these frames.

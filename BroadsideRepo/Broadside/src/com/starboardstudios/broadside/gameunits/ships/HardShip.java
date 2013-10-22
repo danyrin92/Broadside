@@ -7,20 +7,23 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
-public class BasicShip extends BaseShip {
+public class HardShip extends BaseShip {
 
-	public BasicShip(Model model) {
+	public HardShip(Model model) {
 		super(model);
 
-		/** Health for a BasicShip */
+		/** Unique variables for a HardShip */
 		health = 10;
+		
+		/** Projectile speed */
+		xFireSpeed = (int) (model.getScreenX() * .03);
 
-		/** Art asset assigned to BasicShip */
-		imageView.setImageResource(drawable.testship);
+		/** Art asset assigned to HardShip */
+		imageView.setImageResource(drawable.hardship);
 
-		/** Scale of the BasicShip type */
+		/** Scale of the HardShip type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
+				.getScreenX() * .15), (int) (model.getScreenY() * .26)));
 
 		/**
 		 * Current onClick listener for testing firing. TODO: Delete and
@@ -35,16 +38,15 @@ public class BasicShip extends BaseShip {
 			}
 		});
 
-		/** Starting position of ship */
-		x = ((int) (model.getScreenX()) + 75);
-		y = ((int) (model.getScreenY() * .4));
-
-		imageView.setVisibility(View.VISIBLE); // BaseShip is set to invisible
+		imageView.setVisibility(View.VISIBLE);
 
 		/** Starting speed of the ship */
 		xSpeed = -(int) (model.getScreenX() * .003);
 	}
 
+	/**
+	 * Features current basic pathing TODO: Implement advanced pathing
+	 */
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
@@ -65,12 +67,6 @@ public class BasicShip extends BaseShip {
 		});
 
 	}
-
-	/** Testing firing of BasicShip */
-	public static int xFireSpeed = -2;
-	public static int yFireSpeed = 0;
-	public static int zFireSpeed;
-	public int z = 0;
 
 	void testFire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,

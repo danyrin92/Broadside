@@ -14,7 +14,9 @@ import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.BasicAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.ships.BasicShip;
+import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.submarine.BasicSubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
@@ -117,13 +119,19 @@ public class PlayController extends BaseController{
     	
     	switch (random) {
     		case 0: 
-    			model.addUnit(new BasicShip(model));
+    			EasyShip es = new EasyShip(model);
+    			es.setPosition(((int) (model.getScreenX()) + 75), ((int) (model.getScreenY() * .4)));
+    			model.addUnit(es);
     			break;
     		case 1:
-    			model.addUnit(new BasicAircraft(model));
+    			MediumShip ms = new MediumShip(model);
+    			ms.setPosition(((int) (model.getScreenX()) + 75), ((int) (model.getScreenY() * .4)));
+    			model.addUnit(ms);
     			break;
     		case 2:
-    			model.addUnit(new BasicSubmarine(model));
+    			HardShip hs = new HardShip(model);
+    			hs.setPosition(((int) (model.getScreenX()) + 75), ((int) (model.getScreenY() * .4)));
+    			model.addUnit(hs);
     			break;
     			
     	}

@@ -14,6 +14,7 @@ public abstract class CombatUnit extends BaseUnit {
 	protected int xSpeed;
 	protected int ySpeed;
 	protected int health;
+	protected int xFireSpeed, yFireSpeed, zFireSpeed;
 	
 	protected Context context;
 	protected Model model;
@@ -59,8 +60,11 @@ public abstract class CombatUnit extends BaseUnit {
 		this.health = health;
 	}
 	
+	/** Pass only x and y values that are functions
+	 * of screen size into method below!
+	 */
     public void setPosition(int x, int y) {
-		this.x = ((int) (model.getScreenX()) + x);
-		this.y = ((int) (model.getScreenY() + y));
+		this.x = x;
+		this.y = y;
     }
 }
