@@ -13,7 +13,7 @@ public class HardShip extends BaseShip {
 		super(model);
 
 		/** Unique variables for a HardShip */
-		health = 10;
+		health = 100;
 		
 		/** Projectile speed */
 		xFireSpeed = (int) (model.getScreenX() * .03);

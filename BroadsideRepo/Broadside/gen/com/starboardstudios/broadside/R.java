@@ -15,20 +15,22 @@ public final class R {
         public static final int broadside_logo=0x7f020001;
         public static final int cannon_ball=0x7f020002;
         public static final int credits_cloud=0x7f020003;
-        public static final int easyship=0x7f020004;
-        public static final int error=0x7f020005;
-        public static final int hardship=0x7f020006;
-        public static final int leaders_cloud=0x7f020007;
-        public static final int load_game=0x7f020008;
-        public static final int main_cannon=0x7f020009;
-        public static final int main_cannon_red=0x7f02000a;
-        public static final int mainship=0x7f02000b;
-        public static final int mediumship=0x7f02000c;
-        public static final int newgame_cloud=0x7f02000d;
-        public static final int ocean=0x7f02000e;
-        public static final int turret=0x7f02000f;
-        public static final int tutorial_cloud=0x7f020010;
-        public static final int waves=0x7f020011;
+        public static final int easyaircraft=0x7f020004;
+        public static final int easyship=0x7f020005;
+        public static final int easysubmarine=0x7f020006;
+        public static final int error=0x7f020007;
+        public static final int hardship=0x7f020008;
+        public static final int leaders_cloud=0x7f020009;
+        public static final int load_game=0x7f02000a;
+        public static final int main_cannon=0x7f02000b;
+        public static final int main_cannon_red=0x7f02000c;
+        public static final int mainship=0x7f02000d;
+        public static final int mediumship=0x7f02000e;
+        public static final int newgame_cloud=0x7f02000f;
+        public static final int ocean=0x7f020010;
+        public static final int turret=0x7f020011;
+        public static final int tutorial_cloud=0x7f020012;
+        public static final int waves=0x7f020013;
     }
     public static final class id {
         public static final int FrameLayout01=0x7f04000b;

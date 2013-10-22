@@ -1,4 +1,4 @@
-package com.starboardstudios.broadside.gameunits.ships;
+package com.starboardstudios.broadside.gameunits.submarine;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -7,23 +7,23 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
-public class MediumShip extends BaseShip {
+public class EasySubmarine extends BaseSubmarine {
 
-	public MediumShip(Model model) {
+	public EasySubmarine(Model model) {
 		super(model);
 
-		/** Unique variables for an MediumShip */
-		health = 50;
-
+		/** Unique variables for an EasySubmarine */
+		health = 10;
+		
 		/** Projectile speed */
-		xFireSpeed = (int) (model.getScreenX() * .03);
+		xFireSpeed = (int)(model.getScreenX() * .03);
 
-		/** Art asset assigned to MediumShip */
-		imageView.setImageResource(drawable.mediumship);
+		/** Art asset assigned to EasySubmarine */
+		imageView.setImageResource(drawable.easysubmarine);
 
-		/** Scale of the MediumShip type */
+		/** Scale of the EasySubmarine type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), (int) (model.getScreenY() * .2)));
+				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 
 		/**
 		 * Current onClick listener for testing firing. TODO: Delete and
@@ -40,7 +40,7 @@ public class MediumShip extends BaseShip {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
+		/** Starting speed of the submarine */
 		xSpeed = -(int) (model.getScreenX() * .003);
 	}
 

@@ -21,7 +21,7 @@ public class EasyShip extends BaseShip {
 		/** Art asset assigned to EasyShip */
 		imageView.setImageResource(drawable.easyship);
 
-		/** Scale of the BasicShip type */
+		/** Scale of the EasyShip type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 

@@ -1,4 +1,4 @@
-package com.starboardstudios.broadside.gameunits.ships;
+package com.starboardstudios.broadside.gameunits.aircrafts;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -7,23 +7,23 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
-public class MediumShip extends BaseShip {
+public class EasyAircraft extends BaseAircraft {
 
-	public MediumShip(Model model) {
+	public EasyAircraft(Model model) {
 		super(model);
 
-		/** Unique variables for an MediumShip */
-		health = 50;
+		/** Unique variables for an EasyAircraft */
+		health = 10;
 
 		/** Projectile speed */
 		xFireSpeed = (int) (model.getScreenX() * .03);
 
-		/** Art asset assigned to MediumShip */
-		imageView.setImageResource(drawable.mediumship);
+		/** Art asset assigned to EasyAircraft */
+		imageView.setImageResource(drawable.easyaircraft);
 
-		/** Scale of the MediumShip type */
+		/** Scale of the EasyAircraft type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), (int) (model.getScreenY() * .2)));
+				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 
 		/**
 		 * Current onClick listener for testing firing. TODO: Delete and
@@ -32,7 +32,6 @@ public class MediumShip extends BaseShip {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				System.out.print("I shot");
 				testFire();
 
 			}
@@ -40,7 +39,7 @@ public class MediumShip extends BaseShip {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
+		/** Starting speed of the submarine */
 		xSpeed = -(int) (model.getScreenX() * .003);
 	}
 
@@ -50,7 +49,7 @@ public class MediumShip extends BaseShip {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
+
 		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
 			if (random == 1)
