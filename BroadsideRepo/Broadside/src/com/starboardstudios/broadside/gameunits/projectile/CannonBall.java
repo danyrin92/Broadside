@@ -25,19 +25,21 @@ public class CannonBall extends Projectile {
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
 																		// size
-		
+		}
+	
+	public CannonBall(Model model, int damage, int x, int y, int z) {
+		super(model, damage, x, y, z);
 
+		imageView.setImageResource(drawable.cannon_ball);
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
+																		// size
 	}
 	
 	public CannonBall(Model model, int damage, int x, int y, int z, int xSpeed, int ySpeed, int zSpeed) {
-		super(model, damage);
-		x = this.x;
-		y = this.y;
-		z = this.z;
-		xSpeed = this.xSpeed;
-		ySpeed = this.ySpeed;
-		zSpeed = this.zSpeed;
-
+		super(model, damage, x, y, z, xSpeed, ySpeed, zSpeed);
+		
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model

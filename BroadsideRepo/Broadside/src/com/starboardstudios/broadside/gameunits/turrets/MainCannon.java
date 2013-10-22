@@ -16,9 +16,12 @@ public class MainCannon extends Turret {
     MainCannon me;
     
 	public MainCannon(Model model, Projectile projectile) {
-		super(model);
+		super(model, projectile);
+		/*ARBITRARY VALUES*/
+		this.xFireSpeed = 20;
+		this.yFireSpeed = 0;
+		this.zFireSpeed = 0;
         me=this;
-		this.projectile = projectile;
 		x=35;y=35;z=0;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
@@ -26,20 +29,19 @@ public class MainCannon extends Turret {
            imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    imageView.getParent().requestDisallowInterceptTouchEvent(true);
+                	imageView.getParent().requestDisallowInterceptTouchEvent(true);
 
-                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                        System.out.println(view.toString());
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                       System.out.println(view.toString());
 
-                        ClipData data = ClipData.newPlainText("", "");
-                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
-                        view.startDrag(data, shadowBuilder, me , 0);
-                        view.setVisibility(View.INVISIBLE);
+                       ClipData data = ClipData.newPlainText("", "");
+                       View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
+                       view.startDrag(data, shadowBuilder, me , 0);
+                       view.setVisibility(View.INVISIBLE);
 
 
-                        return true;
-                    }
-
+                       return true;
+                   }
                     return false;
                 }
             });
@@ -49,6 +51,72 @@ public class MainCannon extends Turret {
 
 	         System.out.println("Turret Created");
 	    }
+		public MainCannon(Model model, Projectile projectile, int x, int y, int z) {
+		super(model, projectile, x, y, z);
+		/*ARBITRARY VALUES*/
+		this.xFireSpeed = 20;
+		this.yFireSpeed = 0;
+		this.zFireSpeed = 0;
+        me=this;
+		    imageView.setImageResource(drawable.main_cannon); //Set to image
+	        imageView.setAdjustViewBounds(true);
+	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
+           imageView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                	imageView.getParent().requestDisallowInterceptTouchEvent(true);
+
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                       System.out.println(view.toString());
+
+                       ClipData data = ClipData.newPlainText("", "");
+                       View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
+                       view.startDrag(data, shadowBuilder, me , 0);
+                       view.setVisibility(View.INVISIBLE);
+
+
+                       return true;
+                   }
+                    return false;
+                }
+            });
+
+
+
+
+	         System.out.println("Turret Created");
+	    }
+		public MainCannon(Model model, Projectile projectile, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
+			super(model, projectile, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed);
+	        me=this;
+			    imageView.setImageResource(drawable.main_cannon); //Set to image
+		        imageView.setAdjustViewBounds(true);
+		        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
+	           imageView.setOnTouchListener(new View.OnTouchListener() {
+	                @Override
+	                public boolean onTouch(View view, MotionEvent motionEvent) {
+	                	imageView.getParent().requestDisallowInterceptTouchEvent(true);
+
+	                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+	                        System.out.println(view.toString());
+
+	                        ClipData data = ClipData.newPlainText("", "");
+	                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
+	                        view.startDrag(data, shadowBuilder, me , 0);
+	                        view.setVisibility(View.INVISIBLE);
+
+
+	                        return true;
+	                    }
+	                    return false;
+	                }
+	            });
+
+
+
+
+		         System.out.println("Turret Created");
+		    }
 
 	    public void setPosition(int x, int y, int z)
 	    {

@@ -29,6 +29,31 @@ public abstract class Projectile extends BaseUnit {
         imageView = new ImageView(context);
 
     }
+    public Projectile(Model model, int damage, int x, int y, int z)
+	{
+		this.model = model;
+		this.context = model.context;
+		this.damage = damage;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+        imageView = new ImageView(context);
+
+    }
+    public Projectile(Model model, int damage, int x, int y, int z, int xSpeed, int ySpeed, int zSpeed)
+	{
+		this.model = model;
+		this.context = model.context;
+		this.damage = damage;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.xSpeed = xSpeed;
+		this.ySpeed = ySpeed;
+		this.zSpeed = zSpeed;
+        imageView = new ImageView(context);
+
+    }
 
     public void collide(BaseUnit collidedWith)
     {

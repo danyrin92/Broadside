@@ -58,6 +58,9 @@ public class Model extends Thread implements Parcelable {
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
 			}
+			for (int x = 0; x < projectiles.size(); x++) {
+				projectiles.get(x).update();
+			}
 
 			// Below is how to show text to screen
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {

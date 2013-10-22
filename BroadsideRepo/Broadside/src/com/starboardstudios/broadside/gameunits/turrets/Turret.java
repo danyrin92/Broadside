@@ -15,10 +15,31 @@ public abstract class Turret extends BaseUnit {
 	boolean canAffect;
 	double range;
 	
-	public Turret(Model model) {
+	public Turret(Model model, Projectile projectile) {
 		this.context = model.context;
 		this.model = model;
+		this.projectile = projectile;
 	}	    
+	public Turret(Model model, Projectile projectile, int x, int y, int z) {
+		this.context = model.context;
+		this.model = model;
+		this.projectile = projectile;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	public Turret(Model model, Projectile projectile, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
+		this.context = model.context;
+		this.model = model;
+		this.projectile = projectile;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.xFireSpeed = xFireSpeed;
+		this.yFireSpeed = yFireSpeed;
+		this.zFireSpeed = zFireSpeed;
+	}
+	
 	
 	public Projectile getProjectile()
 	{
