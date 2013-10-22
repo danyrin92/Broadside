@@ -30,18 +30,28 @@ public final class R {
         public static final int waves=0x7f020010;
     }
     public static final class id {
-        public static final int HealthView=0x7f040001;
-        public static final int LevelView=0x7f040007;
-        public static final int LoseHealth=0x7f040004;
-        public static final int RelativeLayout1=0x7f04000b;
-        public static final int SpawnEnemy=0x7f040005;
-        public static final int UpgradeScreen=0x7f040006;
-        public static final int addObject2=0x7f040003;
-        public static final int addShip=0x7f040009;
-        public static final int addTurret=0x7f04000a;
-        public static final int inner_frame=0x7f040008;
-        public static final int nxtLvl=0x7f04000c;
-        public static final int playGame=0x7f040002;
+        public static final int FrameLayout01=0x7f04000b;
+        public static final int FrameLayout02=0x7f040009;
+        public static final int FrameLayout03=0x7f040002;
+        public static final int HealthView=0x7f040003;
+        public static final int ImageView01=0x7f04000c;
+        public static final int ImageView02=0x7f04000a;
+        public static final int ImageView03=0x7f040004;
+        public static final int LevelView=0x7f040011;
+        public static final int LoseHealth=0x7f04000e;
+        public static final int RelativeLayout1=0x7f040015;
+        public static final int SpawnEnemy=0x7f04000f;
+        public static final int UpgradeScreen=0x7f040010;
+        public static final int addObject2=0x7f04000d;
+        public static final int addShip=0x7f040013;
+        public static final int addTurret=0x7f040014;
+        public static final int frameLayout1=0x7f040007;
+        public static final int frameLayout2=0x7f040005;
+        public static final int imageView1=0x7f040008;
+        public static final int imageView2=0x7f040006;
+        public static final int imageView3=0x7f040001;
+        public static final int inner_frame=0x7f040012;
+        public static final int nxtLvl=0x7f040016;
         public static final int play_frame=0x7f040000;
     }
     public static final class layout {
