@@ -20,9 +20,13 @@ public class Model extends Thread implements Parcelable {
 	private int level = 1;
 	public Context context;
 	private BaseController currentActivity;
-	// Below will contain all units in the game. All units extend baseunit.
+	
+	/** Below will contain all units in the game. All units extend baseunit. */
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
+	
+	/** Below will contain all projectiles in the game. All types of projectiles extend projectile */
     private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+    
 	public Model(Context context) {
 		this.context = context;
 		this.start();
@@ -34,7 +38,7 @@ public class Model extends Thread implements Parcelable {
 		while (true) {
            	update();
 			try {
-				// FPS modifier below
+				/** FPS modifier below */
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -44,7 +48,7 @@ public class Model extends Thread implements Parcelable {
 
     /**
      * The update method provides a frame by frame update loop for objects within the model to
-     * process movement, collisisons, exc.
+     * process movement, collisisons, etc.
      */
 	public void update() {
 
@@ -62,14 +66,14 @@ public class Model extends Thread implements Parcelable {
 				projectiles.get(x).update();
 			}
 
-			// Below is how to show text to screen
+			/** Below is how to show text to screen */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-				// Below grabs appropriate TextView object
+				/** Below grabs appropriate TextView object */
 				final TextView health = (TextView) currentActivity
 						.findViewById(R.id.HealthView);
-				// Below is used because you cannot access screen from model
-				// Only the application thread can access the screen
-				// Runnable makes it so that you can do that
+				/** Below is used because you cannot access screen from model
+				* Only the application thread can access the screen
+				* Runnable makes it so that you can do that */
 				Runnable updateHealthTask = new Runnable() {
 					@Override
 					public void run() {
@@ -79,6 +83,8 @@ public class Model extends Thread implements Parcelable {
 				runOnMain(updateHealthTask);
 
 			}
+			
+			/** Displays level text to screen */
 			if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 					(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
 				final TextView level = (TextView) currentActivity.findViewById(R.id.LevelView);
@@ -263,21 +269,7 @@ public class Model extends Thread implements Parcelable {
 				.getDisplayMetrics().heightPixels;
 	}
 
-	// Enter an x and y variable, and see if it is a valid placement for a
-	// turret
-	public boolean turretCheck(int x, int y) {
-		//TODO: Why is this in the model? This should be part of the turrent class which is called in the update method per MVC.
 
-        int yMax = getScreenY();
-		int xMax = (int) (getScreenX() * .25);
-		boolean turretCheck = false;
-
-		if (y > 0 && y < yMax && x > 0 && x < xMax)
-			turretCheck = true;
-
-		return turretCheck;
-
-	}
 
 	public int getShipHealth() {
 		int health = getMainShip().getHealth();

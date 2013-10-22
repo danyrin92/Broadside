@@ -11,7 +11,8 @@ public abstract class Projectile extends BaseUnit {
 	protected Context context;
 	protected ImageView imageView;
 	protected int damage;
-	protected int x, y, z, xSpeed, ySpeed, zSpeed;
+	/** Added Z value for possible image scaling */
+	protected int z, xSpeed, ySpeed, zSpeed;
     public Model model;
 
 
@@ -92,8 +93,6 @@ public abstract class Projectile extends BaseUnit {
     	return this.damage;
     }
 
-    
-    //POSITION
     public int getX()
     {
 		return x;
@@ -119,7 +118,6 @@ public abstract class Projectile extends BaseUnit {
 		this.z = z;
 	}
 	
-	//SPEED
 	public int getxSpeed()
 	{
 		return xSpeed;

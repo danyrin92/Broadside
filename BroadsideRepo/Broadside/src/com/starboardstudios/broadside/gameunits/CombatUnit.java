@@ -10,12 +10,12 @@ public abstract class CombatUnit extends BaseUnit {
 	
 	public ImageView imageView;
 	
-	protected int x;
-	protected int y;
+	/** Variables intrinsic to combat units */
 	protected int xSpeed;
 	protected int ySpeed;
-	protected Context context;
 	protected int health;
+	
+	protected Context context;
 	protected Model model;
 	
 	public CombatUnit(Context c)
@@ -28,13 +28,16 @@ public abstract class CombatUnit extends BaseUnit {
 		
 	}
 	
-	 void destroy(){
-
-     }
-		//Destroy means different things depending on if it's a main ship
-		//Or enemy. Will be implemented in extended classes
-        // THEN IT SHOULD BE ABSTRACT  :)
-
+	void destroy(){
+		/** TODO: Destroy should actually be the same in
+		 * all units, minus an animation. How do you remove 
+		 * objects from the model properly?
+		 * 
+		 * The logic is that if they're deleted from the model, they are 
+		 * functionally destroyed.
+		 */
+    }
+	
 	
 	void GoTo(int x, int y){
 		this.x = x;
@@ -43,13 +46,9 @@ public abstract class CombatUnit extends BaseUnit {
 		ySpeed = 0;
 	}
 	
+	/** Pass in projectile that collides, take damage */
 	protected void Damage(Projectile p){
 		health = health - p.getDamage();
-	}
-
-    //Why is this here?
-	void Update(){
-		
 	}
 	
 	public int getHealth() {

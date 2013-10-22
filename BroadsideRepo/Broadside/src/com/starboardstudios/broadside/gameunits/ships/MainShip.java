@@ -14,8 +14,8 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import java.util.ArrayList;
 
 public class MainShip extends CombatUnit {
-
-	public ImageView imageView; // Image for ship
+	
+	ImageView imageView; // Image for ship
 	private Model model;
 	private ArrayList<Section> sections;
 	private ArrayList<Crew> crew;
@@ -62,8 +62,8 @@ public class MainShip extends CombatUnit {
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (y > -130)
-			ySpeed = -2;
+		if (y > -(model.getScreenY()*.2))
+			ySpeed = -(int)(model.getScreenY()*.003);
 		else
 			ySpeed = 0;
 

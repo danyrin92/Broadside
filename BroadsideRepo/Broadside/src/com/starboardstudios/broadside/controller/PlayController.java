@@ -18,10 +18,9 @@ import com.starboardstudios.broadside.gameunits.ships.BasicShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.submarine.BasicSubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
-
 import java.util.Random;
 
-//for getting the upgrades button to work...
+
 
 public class PlayController extends BaseController{
 
@@ -39,13 +38,16 @@ public class PlayController extends BaseController{
 		name="PlayController";
 		model = ((BroadsideApplication)this.getApplication()).getModel();
         model.setCurrentActivity(this);
-        //pass level property between activities
+        
+        /**pass level property between activities*/
+        
         int level= getIntent().getIntExtra("level", 1);
         model.setLevel(level);
         System.out.print("Model Rendering");
-        //Below is an example of how to add to the model without keylistener logic! Don't delete!
+        
+        /**Below is an example of how to add to the model without keylistener logic! Don't delete! */
         model.addUnit(new MainShip(model));
-       System.out.println("adding ship2");
+        
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
@@ -53,8 +55,9 @@ public class PlayController extends BaseController{
             e.printStackTrace();
         }
         screen.setVisibility(View.VISIBLE);
-
+        
         screen.setOnDragListener(new View.OnDragListener() {
+        	
             @Override
             public boolean onDrag(View v, DragEvent event) {
 
@@ -87,7 +90,7 @@ public class PlayController extends BaseController{
         });
 	}
 	
-	//for getting the upgrades button to work...
+	/**for getting the upgrades button to work...*/
 	public void gotoUpgrades(View view)
 	{
 		Intent gotoUpgrades = new Intent(this, UpgradeController.class);
@@ -99,21 +102,15 @@ public class PlayController extends BaseController{
 		
 	}
 	
-    public void addShip(View view)
-    {
-        model.addUnit(new MainShip(model));
-    }
+	/** For adding turret keylistener. */
     public void addTurret(View view)
     {
         model.addUnit(new MainCannon(model, new CannonBall(model, 20)));
     }
-    public void loseHealth(View view) {
-    	MainShip mainShip = model.getMainShip();
-    	mainShip.setHealth(mainShip.getHealth() - 1);
-    }
+  
 	
+    /** Test method for spawning a random enemy */
     public void spawnBasicEnemy(View view) { 
-    	//for testing
     	
     	Random rand = new Random();
     	int random = rand.nextInt(3);

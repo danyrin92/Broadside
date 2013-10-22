@@ -6,11 +6,11 @@ import com.starboardstudios.broadside.gameunits.Model;
 
 public class CannonBall extends Projectile {
 	private int defaultDamage = 20;
-	
+
 	public CannonBall(Model model) {
 		super(model);
 	}
-	
+
 	public CannonBall(Model model, int damage) {
 		super(model, damage);
 		x = 0;
@@ -23,10 +23,10 @@ public class CannonBall extends Projectile {
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
-																		// size
-		}
-	
+				.getScreenX() * .7), (int) (model.getScreenY() * .7)));
+
+	}
+
 	public CannonBall(Model model, int damage, int x, int y, int z) {
 		super(model, damage, x, y, z);
 
@@ -36,34 +36,39 @@ public class CannonBall extends Projectile {
 				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
 																		// size
 	}
-	
-	public CannonBall(Model model, int damage, int x, int y, int z, int xSpeed, int ySpeed, int zSpeed) {
+
+	public CannonBall(Model model, int damage, int x, int y, int z, int xSpeed,
+			int ySpeed, int zSpeed) {
 		super(model, damage, x, y, z, xSpeed, ySpeed, zSpeed);
-		
+
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
 																		// size
-		
 
 	}
+
 	public int getDefaultDamage() {
 		return defaultDamage;
 	}
-	
+
 	@Override
-	public Projectile create(Model model, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-		return new CannonBall(model, defaultDamage, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed);
-	}
-	
-	@Override
-	public Projectile create(Model model, int damage, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-		return new CannonBall(model, damage, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed);
+	public Projectile create(Model model, int x, int y, int z, int xFireSpeed,
+			int yFireSpeed, int zFireSpeed) {
+		return new CannonBall(model, defaultDamage, x, y, z, xFireSpeed,
+				yFireSpeed, zFireSpeed);
 	}
 
-    @Override
-    public void setPosition(int x, int y) {
+	@Override
+	public Projectile create(Model model, int damage, int x, int y, int z,
+			int xFireSpeed, int yFireSpeed, int zFireSpeed) {
+		return new CannonBall(model, damage, x, y, z, xFireSpeed, yFireSpeed,
+				zFireSpeed);
+	}
 
-    }
+	@Override
+	public void setPosition(int x, int y) {
+
+	}
 }

@@ -6,7 +6,10 @@ import android.widget.ImageView;
  * Created by Alex on 9/26/13.
  */
 public abstract class BaseUnit {
-
+	
+	
+	protected int x;
+	protected int y;
 
     /**
      * Updates the unit per the unit's own logic. Called by the model each "frame". Time should be adjusted for these frames.

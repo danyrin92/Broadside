@@ -51,13 +51,7 @@ public class TestController extends Activity {
     public void init()
     {
 
-
-
-
     }
-
-
-
 
     /**
      * Is run when the user clicks on add ship
