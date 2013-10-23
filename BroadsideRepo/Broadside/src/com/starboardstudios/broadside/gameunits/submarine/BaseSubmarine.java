@@ -15,6 +15,7 @@ import java.util.Random;
 	/** Random value for choosing  pathing track */
 	Random rand = new Random();
 	int random = rand.nextInt(2);
+	int moveCount = 0;
 
 	public BaseSubmarine(Model model) {
 		super(model.context);

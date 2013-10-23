@@ -53,9 +53,9 @@ public class HardShip extends BaseShip {
 		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
 			if (random == 1)
-				ySpeed = (int) (model.getScreenX() * .003);
+				pathOne();
 			if (random == 0)
-				ySpeed = -(int) (model.getScreenX() * .003);
+				pathTwo();
 		}
 		
 		moveCount += Math.abs(xSpeed);
@@ -79,6 +79,14 @@ public class HardShip extends BaseShip {
 	void fire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
+	}
+	
+	void pathOne(){
+		ySpeed = (int) (model.getScreenX() * .003);
+	}
+	
+	void pathTwo(){
+		ySpeed = -(int) (model.getScreenX() * .003);
 	}
 
 }
