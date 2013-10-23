@@ -77,6 +77,18 @@ public class MainShip extends CombatUnit {
 		});
 
 	}
+	
+	/** test to put mainShip onto upgrades screen*/
+	public void spawn() {
+		model.runOnMain(new Runnable() {
+			public void run() {
+				imageView.setX(x);
+				imageView.setY(y);
+				imageView.setImageResource(drawable.mainship);
+			}
+
+		});
+	}
 
 	@Override
 	public ImageView getImage() {
