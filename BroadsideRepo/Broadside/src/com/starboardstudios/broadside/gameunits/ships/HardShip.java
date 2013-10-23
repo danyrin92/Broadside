@@ -32,7 +32,7 @@ public class HardShip extends BaseShip {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				testFire();
+				fire();
 
 			}
 		});
@@ -57,17 +57,26 @@ public class HardShip extends BaseShip {
 			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
 		}
+		
+		moveCount += Math.abs(xSpeed);
+		moveCount += Math.abs(ySpeed);
+		
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				
+				if (moveCount >= 250) {
+					fire();
+					moveCount = 0;
+				}
 			}
 
 		});
 
 	}
 
-	void testFire() {
+	void fire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
 	}

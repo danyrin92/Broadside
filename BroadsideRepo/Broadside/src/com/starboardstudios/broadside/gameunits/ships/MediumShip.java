@@ -16,7 +16,7 @@ public class MediumShip extends BaseShip {
 		health = 50;
 
 		/** Projectile speed */
-		xFireSpeed = -(int)(model.getScreenX() * .005);
+		xFireSpeed = -(int) (model.getScreenX() * .005);
 
 		/** Art asset assigned to MediumShip */
 		imageView.setImageResource(drawable.mediumship);
@@ -32,8 +32,7 @@ public class MediumShip extends BaseShip {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				System.out.print("I shot");
-				testFire();
+				fire();
 
 			}
 		});
@@ -50,7 +49,7 @@ public class MediumShip extends BaseShip {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
+
 		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
 			if (random == 1)
@@ -58,17 +57,25 @@ public class MediumShip extends BaseShip {
 			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
 		}
+		
+		moveCount += Math.abs(xSpeed);
+		moveCount += Math.abs(ySpeed);
+
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				if (moveCount >= 250) {
+					fire();
+					moveCount = 0;
+				}
 			}
 
 		});
 
 	}
 
-	void testFire() {
+	void fire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
 	}

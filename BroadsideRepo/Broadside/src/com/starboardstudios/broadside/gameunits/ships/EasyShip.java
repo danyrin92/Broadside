@@ -14,9 +14,9 @@ public class EasyShip extends BaseShip {
 
 		/** Unique variables for an EasyShip */
 		health = 10;
-		
+
 		/** Projectile speed */
-		xFireSpeed = -(int)(model.getScreenX() * .005);
+		xFireSpeed = -(int) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyShip */
 		imageView.setImageResource(drawable.easyship);
@@ -49,7 +49,7 @@ public class EasyShip extends BaseShip {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
+
 		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
 			if (random == 1)
@@ -57,10 +57,18 @@ public class EasyShip extends BaseShip {
 			if (random == 0)
 				ySpeed = -(int) (model.getScreenX() * .003);
 		}
+		moveCount += Math.abs(xSpeed);
+		moveCount += Math.abs(ySpeed);
+
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+
+				if (moveCount >= 250) {
+					fire();
+					moveCount = 0;
+				}
 			}
 
 		});
