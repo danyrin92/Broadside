@@ -8,8 +8,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.starboardstudios.broadside.app.*;
 import com.starboardstudios.broadside.R;
@@ -20,8 +19,6 @@ import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public class UpgradeController extends BaseController {
 
-	// I need to pass in the model in order to add turrets to the ship... right?
-	// Uh, how DO I pass in the model???...
 	private Model model;
 	private MainShip mainShip;
 
@@ -35,14 +32,11 @@ public class UpgradeController extends BaseController {
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
-		// pass level property between activities
-		// int level= getIntent().getIntExtra("level", 1);
-		// model.setLevel(level);
 
 		// get and display mainShip
 		mainShip = model.getMainShip();
 		// TODO: spawn ship in correctly...
-		model.addUnit(new MainShip(model));
+		
 
         try {
             Thread.sleep(20);
@@ -103,7 +97,6 @@ public class UpgradeController extends BaseController {
 	public void nextLevel(View view) {
 		model.setLevel(model.getLevel() + 1);
 		Intent playIntent = new Intent(this, PlayController.class);
-		playIntent.putExtra("level", model.getLevel());
 		startActivity(playIntent);
 	}
 

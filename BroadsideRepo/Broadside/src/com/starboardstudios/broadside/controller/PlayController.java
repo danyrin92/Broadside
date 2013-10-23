@@ -39,10 +39,6 @@ public class PlayController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 
-		/** pass level property between activities */
-
-		int level = getIntent().getIntExtra("level", 1);
-		model.setLevel(level);
 		System.out.print("Model Rendering");
 
 		/**
@@ -110,7 +106,6 @@ public class PlayController extends BaseController {
 	/** for getting the upgrades button to work... */
 	public void gotoUpgrades(View view) {
 		Intent gotoUpgrades = new Intent(this, UpgradeController.class);
-		gotoUpgrades.putExtra("level", model.getLevel());
 		startActivity(gotoUpgrades);
 	}
 

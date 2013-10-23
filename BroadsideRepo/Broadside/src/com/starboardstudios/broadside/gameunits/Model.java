@@ -10,12 +10,10 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import android.os.Parcel; 
-import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Model extends Thread implements Parcelable {
+public class Model extends Thread {
 
 	private int level = 1;
 	public Context context;
@@ -307,41 +305,6 @@ public class Model extends Thread implements Parcelable {
 	public void setLevel(int lvl) {
 		level = lvl;
 	}
-	
-    /* everything below here is for implementing Parcelable */
-	//Parcelable is for passing model properties between screens
-
-    // 99.9% of the time you can just ignore this
-    public int describeContents() {
-        return 0;
-    }
-
-    // write your object's data to the passed-in Parcel
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeInt(level); //level
-        //units
-        //projectiles
-        //context and currentActivity not needed...???
-    }
-
-    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
-    public static final Parcelable.Creator<Model> CREATOR = new Parcelable.Creator<Model>() {
-        public Model createFromParcel(Parcel in) {
-            return new Model(in);
-        }
-
-        public Model[] newArray(int size) {
-            return new Model[size];
-        }
-    };
-
-    // example constructor that takes a Parcel and gives you an object populated with it's values
-    private Model(Parcel in) {
-        level = in.readInt(); //level
-        //units
-        //projectiles
-        //context and currentActivity not needed...???
-    }
 	
 }
 
