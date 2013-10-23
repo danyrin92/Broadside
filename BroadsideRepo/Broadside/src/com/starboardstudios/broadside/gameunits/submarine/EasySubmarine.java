@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
 public class EasySubmarine extends BaseSubmarine {
 
@@ -14,14 +15,14 @@ public class EasySubmarine extends BaseSubmarine {
 
 		/** Unique variables for an EasySubmarine */
 		health = 10;
-		
+
 		/** Projectile speed */
-		xFireSpeed = (int)(model.getScreenX() * .03);
+		xFireSpeed = -(int) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasySubmarine */
 		imageView.setImageResource(drawable.easysubmarine);
 
-		/** Scale of the EasySubmarine type */
+		/** Scale of the EasyAircraft type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 
@@ -32,7 +33,6 @@ public class EasySubmarine extends BaseSubmarine {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				System.out.print("I shot");
 				testFire();
 
 			}
@@ -50,7 +50,7 @@ public class EasySubmarine extends BaseSubmarine {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-		
+
 		if (x < ((int) (model.getScreenX()) * .5)) {
 			xSpeed = 0;
 			if (random == 1)
@@ -69,7 +69,7 @@ public class EasySubmarine extends BaseSubmarine {
 	}
 
 	void testFire() {
-		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
+		model.addUnit(new Torpedo(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
 	}
 

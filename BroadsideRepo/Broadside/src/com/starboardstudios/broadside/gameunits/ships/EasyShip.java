@@ -16,7 +16,7 @@ public class EasyShip extends BaseShip {
 		health = 10;
 		
 		/** Projectile speed */
-		xFireSpeed = (int)(model.getScreenX() * .03);
+		xFireSpeed = -(int)(model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyShip */
 		imageView.setImageResource(drawable.easyship);
@@ -32,8 +32,7 @@ public class EasyShip extends BaseShip {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				System.out.print("I shot");
-				testFire();
+				fire();
 
 			}
 		});
@@ -68,7 +67,7 @@ public class EasyShip extends BaseShip {
 
 	}
 
-	void testFire() {
+	void fire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
 	}

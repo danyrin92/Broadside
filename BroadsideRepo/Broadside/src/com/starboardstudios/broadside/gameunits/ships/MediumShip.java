@@ -16,7 +16,7 @@ public class MediumShip extends BaseShip {
 		health = 50;
 
 		/** Projectile speed */
-		xFireSpeed = (int) (model.getScreenX() * .03);
+		xFireSpeed = -(int)(model.getScreenX() * .005);
 
 		/** Art asset assigned to MediumShip */
 		imageView.setImageResource(drawable.mediumship);

@@ -72,7 +72,6 @@ public abstract class Projectile extends BaseUnit {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.cannon_ball);
 			}
 
 		});

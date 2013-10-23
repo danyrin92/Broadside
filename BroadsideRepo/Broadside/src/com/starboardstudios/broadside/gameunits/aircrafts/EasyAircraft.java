@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Missile;
 
 public class EasyAircraft extends BaseAircraft {
 
@@ -16,7 +17,7 @@ public class EasyAircraft extends BaseAircraft {
 		health = 10;
 
 		/** Projectile speed */
-		xFireSpeed = (int) (model.getScreenX() * .03);
+		xFireSpeed = -(int) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyAircraft */
 		imageView.setImageResource(drawable.easyaircraft);
@@ -68,7 +69,7 @@ public class EasyAircraft extends BaseAircraft {
 	}
 
 	void testFire() {
-		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
+		model.addUnit(new Missile(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
 	}
 

@@ -14,9 +14,9 @@ public class HardShip extends BaseShip {
 
 		/** Unique variables for a HardShip */
 		health = 100;
-		
+
 		/** Projectile speed */
-		xFireSpeed = (int) (model.getScreenX() * .03);
+		xFireSpeed = -(int) (model.getScreenX() * .005);
 
 		/** Art asset assigned to HardShip */
 		imageView.setImageResource(drawable.hardship);
@@ -32,7 +32,6 @@ public class HardShip extends BaseShip {
 		imageView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				System.out.print("I shot");
 				testFire();
 
 			}

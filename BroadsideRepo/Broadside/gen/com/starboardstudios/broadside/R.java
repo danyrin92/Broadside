@@ -26,11 +26,13 @@ public final class R {
         public static final int main_cannon_red=0x7f02000c;
         public static final int mainship=0x7f02000d;
         public static final int mediumship=0x7f02000e;
-        public static final int newgame_cloud=0x7f02000f;
-        public static final int ocean=0x7f020010;
-        public static final int turret=0x7f020011;
-        public static final int tutorial_cloud=0x7f020012;
-        public static final int waves=0x7f020013;
+        public static final int missile=0x7f02000f;
+        public static final int newgame_cloud=0x7f020010;
+        public static final int ocean=0x7f020011;
+        public static final int torpedo=0x7f020012;
+        public static final int turret=0x7f020013;
+        public static final int tutorial_cloud=0x7f020014;
+        public static final int waves=0x7f020015;
     }
     public static final class id {
         public static final int FrameLayout01=0x7f04000b;
