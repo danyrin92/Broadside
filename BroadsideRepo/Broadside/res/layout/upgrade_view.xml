@@ -1,36 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/broadside_logo" >
 
-    <RelativeLayout
-        android:id="@+id/RelativeLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/broadside_logo" >
-
-        <Button
-            android:id="@+id/nxtLvl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="19dp"
-            android:onClick="nextLevel"
-            android:text="Continue" />
+    <FrameLayout
+        android:id="@+id/upgrade_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true" >
 
         <TextView
             android:id="@+id/LevelView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="46dp"
             android:text="Level: "
             android:textColor="#FF0000"
             android:typeface="monospace" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="addTurret3"
+            android:text="3" />
 
-</AbsoluteLayout>
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="18dp"
+            android:onClick="addTurret1"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:onClick="addTurret5"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:onClick="addTurret6"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:onClick="addTurret4"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:text="Add Turret"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:onClick="addTurret2"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/nxtLvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="clip_horizontal|start"
+            android:onClick="nextLevel"
+            android:text="Continue" />
+
+    </FrameLayout>
+
+</RelativeLayout>

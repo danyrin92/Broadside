@@ -128,23 +128,27 @@ public class Model extends Thread implements Parcelable {
      * @param unit
      */
 	public void addUnit(BaseUnit unit) {
-		if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+		if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
+				(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
 
             System.out.println("Adding unit to class "+ unit.toString() );
             try{
-
                 Projectile p = (Projectile)unit;
                 System.out.println("Adding Projectile To Model");
                 projectiles.add((Projectile)unit);
-
-
             }catch(Exception e){
                 units.add(unit);
-
             }
-
+            
+            if (currentActivity.name.equalsIgnoreCase("PlayController")) {
            	((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 					.addView(unit.getImage());
+            } 
+            //this makes addTurret# in upgrade screen work
+            else if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
+               	((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame)) 
+    					.addView(unit.getImage());
+            }
 
 		}
 
