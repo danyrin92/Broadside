@@ -15,7 +15,14 @@ import java.util.ArrayList;
 
 public class Model extends Thread {
 
-	private int level = 1;
+	private int level;
+	private LevelManager levelManger;
+	/** Will keep track of the number of enemies in the model to know when to go the next level on the final enemy wave*/
+	private int numOfEnemies;
+	
+	/** Starting diffculity is 1 */
+	protected int difficulty; 
+	
 	public Context context;
 	private BaseController currentActivity;
 	
@@ -27,6 +34,11 @@ public class Model extends Thread {
     
 	public Model(Context context) {
 		this.context = context;
+		
+		/** Sets level to 1 in constructor */
+		this.levelManger = new LevelManager();
+		this.numOfEnemies = 0;
+		this.difficulty = 1; 
 		this.start();
 	}
 
@@ -43,6 +55,7 @@ public class Model extends Thread {
 			}
 		}
 	}
+
 
     /**
      * The update method provides a frame by frame update loop for objects within the model to
@@ -295,7 +308,7 @@ public class Model extends Thread {
      */
     public void removeUnit(BaseUnit unit)
     {
-        //TODO: Remove specified unit from model.
+    	units.remove(unit);
     }
     
 	public int getLevel() {
@@ -306,7 +319,102 @@ public class Model extends Thread {
 		level = lvl;
 	}
 	
+	/**
+	 * Increment the level by 1
+	 */
+	public void updateLevel() {
+		level += 1;
+	}
+	
+
+	
+	/**
+	 * (tentative description. Change as necessary)
+	 * 
+	 * Manages levels and spawning based on parsing a file.
+	 * A line of enemy units to spawn delimited by spaces followed by
+	 * a next line with the amount of seconds until the next spawn wave.
+	 * 
+	 * private final class
+	 */
+	private final class LevelManager {
+		final int maxLevel = 5; /** Arbitarly set until otherwise known*/
+		
+		//TODO: Add final ID value to represent each unit
+		
+		/** For knowing when to go to the next level */
+		boolean finalWave;
+		/** Amount of delay until the next level in miliseconds*/
+		int delay;
+		
+		/**
+		 * Default Constructor
+		 * Sets level to 1;
+		 */
+		public LevelManager() {
+			delay = 0;
+			level = 1;
+		}
+		
+		/**
+		 * Set the starting level
+		 * @param startingLevel
+		 */
+		public LevelManager(int startingLevel) {
+			delay = 0;
+			level = startingLevel;
+		}
+		
+		/**
+		 * 
+		 */
+		public void update() {
+			//TODO: Get LevelManager update method working for unit spawning and level management
+			
+		}
+		
+		/**
+		 * Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
+		 *  
+		 * In that order.
+		 */
+		private void nextLevel() {
+			//TODO: Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
+			if (level < maxLevel) {
+				level += 1;
+			} else {
+				difficulty += 1;
+				level = 1;
+			}
+		}
+		/**
+		 * Spawn unit based off of integer.
+		 * 
+		 *  Hundreds place represents type:
+		 *  	0 = BaseShip
+		 *  	1 = BaseAircraft
+		 *  	2 = BaseSubmarine
+		 *  Tens and single digits place represent the specific type.
+		 *  
+		 *  ID given as a final in level manager
+		 *  
+		 * @param unit
+		 */
+		private void spawn(int id) {
+			//TODO: Spawn in unit based off of ID number
+			if (id > 400) 
+				return;
+			else
+				switch (id) {
+					
+				}
+		}
+		
+	}
+	
 }
+
+    
 
     
 
