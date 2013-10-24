@@ -47,18 +47,18 @@ public class EasyShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
+		int speed = Math.abs(xSpeed) + Math.abs(ySpeed);
+		System.out.println("Speed: " + speed);
+		
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (x < ((int) (model.getScreenX()) * .5)) {
-			xSpeed = 0;
-			if (random == 1)
-				pathOne();
-				
-			if (random == 0)
-				pathTwo();
-			
-		}
+		if (random == 1)
+			pathOne();
+
+		if (random == 0)
+			pathTwo();
+
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
 
@@ -80,14 +80,6 @@ public class EasyShip extends BaseShip {
 	void fire() {
 		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed));
-	}
-	
-	void pathOne(){
-		ySpeed = (int) (model.getScreenX() * .003);
-	}
-	
-	void pathTwo(){
-		ySpeed = -(int) (model.getScreenX() * .003);
 	}
 
 }

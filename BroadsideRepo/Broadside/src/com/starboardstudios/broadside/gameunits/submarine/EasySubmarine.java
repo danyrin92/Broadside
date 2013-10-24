@@ -51,13 +51,11 @@ public class EasySubmarine extends BaseSubmarine {
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (x < ((int) (model.getScreenX()) * .5)) {
-			xSpeed = 0;
-			if (random == 1)
-				ySpeed = (int) (model.getScreenX() * .003);
-			if (random == 0)
-				ySpeed = -(int) (model.getScreenX() * .003);
-		}
+		if (random == 1)
+			pathOne();
+
+		if (random == 0)
+			pathTwo();
 
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);

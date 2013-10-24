@@ -51,13 +51,11 @@ public class EasyAircraft extends BaseAircraft {
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (x < ((int) (model.getScreenX()) * .5)) {
-			xSpeed = 0;
-			if (random == 1)
-				pathOne();
-			if (random == 0)
-				pathTwo();
-		}
+		if (random == 1)
+			pathOne();
+
+		if (random == 0)
+			pathTwo();
 
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
@@ -79,14 +77,6 @@ public class EasyAircraft extends BaseAircraft {
 	void fire() {
 		model.addUnit(new Missile(model, 20, x, y, z, xFireSpeed, yFireSpeed,
 				zFireSpeed));
-	}
-
-	void pathOne() {
-		ySpeed = (int) (model.getScreenX() * .003);
-	}
-
-	void pathTwo() {
-		ySpeed = -(int) (model.getScreenX() * .003);
 	}
 
 }
