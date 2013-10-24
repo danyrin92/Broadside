@@ -152,7 +152,16 @@ public class Model extends Thread {
 	public void setCurrentActivity(BaseController current) {
 		this.currentActivity = current;
         context = current.getBaseContext();
-	}
+
+        if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+           for(int x=0;x< units.size();x++)
+           {
+               ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+                       .addView(units.get(x).getImage());
+           }
+
+        }
+    }
 
 	//not sure if this is necessary; attempting to pass model between activities
 	public void setContext(Context context) {
