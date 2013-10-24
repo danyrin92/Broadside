@@ -28,9 +28,7 @@ public class Model extends Thread {
 	
 	private int level;
 	private LevelManager levelManager;
-	/** Will keep track of the number of enemies in the model to know when to go the next level on the final enemy wave*/
-	private int numOfEnemies;
-	/** Starting difficulty is 1
+	/** Starting difficulty is 1.
 	 * Modifier that indicates the number of times the player has made it past the max level subtracted by 1.
 	 * Intended to help emulate infinite levels. 
 	 */
@@ -58,11 +56,11 @@ public class Model extends Thread {
 		this.turretCosts[4] = 75;
 		this.turretCosts[5] = 100;
 		this.turretCosts[6] = 200;
+		this.difficulty = 1;
 		/** Sets level to 1 in constructor */
-		this.level = 1;
 		this.levelManager = new LevelManager(this);
-		this.numOfEnemies = 0;
-		this.difficulty = 1; 
+		
+		this.levelManager.start();
 		this.start();
 	}
 
@@ -117,7 +115,6 @@ public class Model extends Thread {
 				};
 				runOnMain(updateHealthTask);
 
-				levelManager.update();
 			}
 			
 			/** Displays level text and booty to screen */
@@ -131,7 +128,8 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateLevelTask);
-				//handles booty updates
+				
+				/**handles booty updates */
 				final TextView booty = (TextView) currentActivity.findViewById(R.id.BootyView);
 				Runnable updateBootyTask = new Runnable() {
 					@Override
@@ -358,18 +356,16 @@ public class Model extends Thread {
     {
     	units.remove(unit);
     }
-    
+    /** To be deleted or made private when LevelManager is working */
 	public int getLevel() {
 		return level;
 	}
-	
+	 /** To be deleted or made private when LevelManager is working */
 	public void setLevel(int lvl) {
 		level = lvl;
 	}
 	
-	/**
-	 * Increment the level by 1
-	 */
+	 /** To be deleted or made private when LevelManager is working */
 	public void updateLevel() {
 		level += 1;
 	}
@@ -398,9 +394,11 @@ public class Model extends Thread {
 	 * A line of enemy units to spawn delimited by spaces followed by
 	 * a next line with the amount of seconds until the next spawn wave.
 	 * 
+	 * If in the text file delay == 0 then the level is on the final wave
+	 * 
 	 * private final class
 	 */
-	private final class LevelManager {
+	private final class LevelManager extends Thread {
 		/** Arbitarly set until otherwise known */
 		final int MAXLEVEL = 5; 
 		
@@ -417,14 +415,16 @@ public class Model extends Thread {
 		
 		/** For knowing when to go to the next level */
 		boolean finalWave = false;
+		boolean stillAlive;
 		
-		/** Amount of delay until the next wave in miliseconds*/
+		/** Amount of delay until the next wave in milliseconds*/
 		int delay;
 		
-		Model model; //needed for added units to the model
+		/** Needed for added units to the model */
+		Model model;
 		
 		/** Stores unit ID's for next Wave of enemies to spawn */
-		ArrayList<integer> nextWave = new ArrayList<integer>();
+		ArrayList<integer> nextWaveUnits = new ArrayList<integer>();
 		
 		/**
 		 * Default Constructor
@@ -434,8 +434,9 @@ public class Model extends Thread {
 		 */
 		public LevelManager(Model model) {
 			this.model = model;
-			delay = 0;
+			delay = 10000; //10 secs. waiting for ship 
 			level = 1;
+			//TODO: Then load in level 1
 		}
 		
 		/**
@@ -446,15 +447,53 @@ public class Model extends Thread {
 		 */
 		public LevelManager(Model model,int startingLevel) {
 			this.model = model;
-			delay = 0;
+			delay = 10000; //10 secs. waiting for ship 
 			level = startingLevel;
+			//TODO: Then load in the apprioiate file
 		}
+		
+		/** For timing the spawning of units and reading the level */
+		@Override
+		public void run() {
+			
+			System.out.println("LevelManager Started ");
+			if (currentActivity != null) {
+				if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+					while (true) {
+						if (finalWave == true) {
+							/** Check if there are any enemies left before going to the next level */
+						
+							delay = 2000; /** Needed for sleep while on the final wave. Arbiltarily picked amount  */
+							stillAlive = false;
+							for(int i = 0; i < units.size(); i++) {
+								if ((units.get(i) instanceof CombatUnit == true) & (units.get(i) instanceof MainShip == false ) ) {
+									stillAlive = true;
+									break;
+								}	
+							}
+							if (stillAlive == false) {
+								nextLevel();
+							}
+						} else {
+							nextWave(); //read next two lines from the level text. Gets units to add and next delay.
+						}
+					}
+				}
+			}
+			
+			try {
+				Thread.sleep(delay);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 		/**
 		 * TODO: Get LevelManager update method working for unit spawning and level management.
 		 * 		Must implement a real time delay for wave spawning. 
 		 */
-		public void update() {
+		public void nextWave() {
 			
 		}
 		
@@ -466,6 +505,9 @@ public class Model extends Thread {
 			/** Loop levels to minic infinite levels.
 			 * Use difficulty parameter to adjust difficulty  
 			 */
+			
+			delay = 100; /** Reset the delay after it was changed in the final wave loop */
+			
 			if (level < MAXLEVEL) {
 				level += 1;
 			} else {
@@ -501,21 +543,21 @@ public class Model extends Thread {
 								break;
 						
 							case ID_MEDIUMSHIP:
-								units.add(new MediumShip(model));
+								model.addUnit(new MediumShip(model));
 								break;
 						
 							case ID_HARDSHIP:
-								units.add(new HardShip(model));
+								model.addUnit(new HardShip(model));
 								break;
 						
 							//BaseAircraft
 							case ID_EASYAIRCRAFT:
-								units.add(new EasyAircraft(model));
+								model.addUnit(new EasyAircraft(model));
 								break;
 						
 							//BaseSubmarine	
 							case ID_EASYSUBMARINE:
-								units.add(new EasySubmarine(model));
+								model.addUnit(new EasySubmarine(model));
 								break;
 					
 						}
