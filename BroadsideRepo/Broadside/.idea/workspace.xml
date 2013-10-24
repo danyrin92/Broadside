@@ -40,7 +40,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -230,7 +229,7 @@
         <option value="Alex Whiteside" />
       </list>
     </option>
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitLogSettings">
@@ -1024,7 +1023,7 @@
       <workItem from="1382405182113" duration="4526000" />
       <workItem from="1382486082720" duration="571000" />
       <workItem from="1382590121349" duration="258000" />
-      <workItem from="1382591059200" duration="645000" />
+      <workItem from="1382591059200" duration="678000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1102,11 +1101,15 @@
       <created>1382592037695</created>
       <updated>1382592037695</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="-Model adds previously added items to the view on screen change.">
+      <created>1382592066676</created>
+      <updated>1382592066676</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74403000" />
+    <option name="totallyTimeSpent" value="74436000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
