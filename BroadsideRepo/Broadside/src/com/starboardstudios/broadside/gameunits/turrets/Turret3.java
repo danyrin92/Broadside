@@ -16,7 +16,7 @@ public class Turret3 extends Turret {
     Turret3 me;
     
 	public Turret3(Model model, Projectile projectile) {
-		super(model, projectile);
+		super(model, projectile, 3);
 		/*ARBITRARY VALUES*/
 		this.xFireSpeed = 20;
 		this.yFireSpeed = 0;

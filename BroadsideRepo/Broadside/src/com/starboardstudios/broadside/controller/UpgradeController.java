@@ -103,32 +103,52 @@ public class UpgradeController extends BaseController {
 	/** For implementing turret options... Will de-derpify later. */
 	public void addTurret1(View view) {
 		System.out.println("addturret1 clicked");
-		model.addUnit(new Turret1(model, new CannonBall(model, 20)));
+		if (enoughBooty(1)) {
+			model.addUnit(new Turret1(model, new CannonBall(model, 20)));
+		}
 	}
 
 	public void addTurret2(View view) {
 		System.out.println("addturret2 clicked");
-		model.addUnit(new Turret2(model, new CannonBall(model, 20)));
+		if (enoughBooty(2)) {
+			model.addUnit(new Turret2(model, new CannonBall(model, 20)));
+		}
 	}
 
 	public void addTurret3(View view) {
 		System.out.println("addturret3 clicked");
-		model.addUnit(new Turret3(model, new CannonBall(model, 20)));
+		if (enoughBooty(3)) {
+			model.addUnit(new Turret3(model, new CannonBall(model, 20)));
+		}
 	}
 
 	public void addTurret4(View view) {
 		System.out.println("addturret4 clicked");
-		model.addUnit(new Turret4(model, new CannonBall(model, 20)));
+		if (enoughBooty(4)) {
+			model.addUnit(new Turret4(model, new CannonBall(model, 20)));
+		}
 	}
 
 	public void addTurret5(View view) {
 		System.out.println("addturret5 clicked");
-		model.addUnit(new Turret5(model, new CannonBall(model, 20)));
+		if (enoughBooty(5)) {
+			model.addUnit(new Turret5(model, new CannonBall(model, 20)));
+		}
 	}
 
 	public void addTurret6(View view) {
 		System.out.println("addturret6 clicked");
-		model.addUnit(new Turret6(model, new CannonBall(model, 20)));
+		if (enoughBooty(6)) {
+			model.addUnit(new Turret6(model, new CannonBall(model, 20)));
+		}
+	}
+	
+	public boolean enoughBooty(int turretNum) {
+		if (model.getBooty()>=model.getTurretCostAt(turretNum)) {
+			return true;
+		}
+		//TODO display "you don't have enough booty..."
+		return false;
 	}
 
 }

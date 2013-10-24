@@ -15,16 +15,19 @@ import java.util.ArrayList;
 
 public class Model extends Thread {
 
+	private BaseController currentActivity;
+	public Context context;
+	
 	private int level;
 	private LevelManager levelManger;
 	/** Will keep track of the number of enemies in the model to know when to go the next level on the final enemy wave*/
 	private int numOfEnemies;
-	
 	/** Starting diffculity is 1 */
 	protected int difficulty; 
 	
-	public Context context;
-	private BaseController currentActivity;
+	private int booty; //currency
+	private int numTurretTypes;
+	private int[] turretCosts; //centralizes turret pricing
 	
 	/** Below will contain all units in the game. All units extend baseunit. */
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
@@ -34,8 +37,18 @@ public class Model extends Thread {
     
 	public Model(Context context) {
 		this.context = context;
-		
+		this.booty = 200;
+		/**This turret stuff should probably be done elsewhere...*/
+		this.numTurretTypes = 6;
+		this.turretCosts = new int[numTurretTypes+1];
+		this.turretCosts[1] = 50;
+		this.turretCosts[2] = 25;
+		this.turretCosts[3] = 50;
+		this.turretCosts[4] = 75;
+		this.turretCosts[5] = 100;
+		this.turretCosts[6] = 200;
 		/** Sets level to 1 in constructor */
+		this.level = 1;
 		this.levelManger = new LevelManager();
 		this.numOfEnemies = 0;
 		this.difficulty = 1; 
@@ -95,7 +108,7 @@ public class Model extends Thread {
 
 			}
 			
-			/** Displays level text to screen */
+			/** Displays level text and booty to screen */
 			if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 					(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
 				final TextView level = (TextView) currentActivity.findViewById(R.id.LevelView);
@@ -106,6 +119,15 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateLevelTask);
+				//handles booty updates
+				final TextView booty = (TextView) currentActivity.findViewById(R.id.BootyView);
+				Runnable updateBootyTask = new Runnable() {
+					@Override
+					public void run() {
+						booty.setText("Booty: " + getBooty());
+					}
+				};
+				runOnMain(updateBootyTask);
 
 			}       
 		}
@@ -326,7 +348,22 @@ public class Model extends Thread {
 		level += 1;
 	}
 	
-
+	/**for currency system*/
+	public int getBooty() {
+		return booty;
+	}
+	
+	public void setBooty(int booty) {
+		this.booty = booty;
+	}
+	
+	public void spendBooty(int spentBooty) {
+		this.booty -= spentBooty;
+	}
+	
+	public int getTurretCostAt(int index) {
+		return turretCosts[index];
+	}
 	
 	/**
 	 * (tentative description. Change as necessary)

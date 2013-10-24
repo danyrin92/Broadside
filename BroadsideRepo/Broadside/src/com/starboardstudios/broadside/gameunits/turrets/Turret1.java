@@ -12,11 +12,11 @@ import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class Turret1 extends Turret {
 	public ImageView imageView = new ImageView(context);
-    int x,y,z;
+    private int x,y,z;
     Turret1 me;
     
 	public Turret1(Model model, Projectile projectile) {
-		super(model, projectile);
+		super(model, projectile, 1);
 		/*ARBITRARY VALUES*/
 		this.xFireSpeed = 20;
 		this.yFireSpeed = 0;
