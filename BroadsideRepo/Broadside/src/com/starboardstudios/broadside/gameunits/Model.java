@@ -11,7 +11,6 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
@@ -479,7 +478,7 @@ public class Model extends Thread {
 		 *  
 		 *  ID given as a final in level manager
 		 *  
-		 * @param unit
+		 * @param id
 		 */
 		private void spawn(int id) {
 			if ((currentActivity.name.equalsIgnoreCase("PlayController"))) {

@@ -40,7 +40,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -128,7 +127,7 @@
       <file leaf-file-name="Model.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="163" column="51" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.59974587" vertical-offset="1478" max-vertical-offset="7410">
+            <state line="480" column="20" selection-start="13520" selection-end="13520" vertical-scroll-proportion="0.3329098" vertical-offset="6218" max-vertical-offset="7410">
               <folding />
             </state>
           </provider>
@@ -1025,7 +1024,7 @@
       <workItem from="1382405182113" duration="4526000" />
       <workItem from="1382486082720" duration="571000" />
       <workItem from="1382590121349" duration="258000" />
-      <workItem from="1382591059200" duration="591000" />
+      <workItem from="1382591059200" duration="645000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1099,11 +1098,15 @@
       <created>1382322872943</created>
       <updated>1382322872943</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="-Model adds previously added items to the view on screen change.">
+      <created>1382592037695</created>
+      <updated>1382592037695</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74349000" />
+    <option name="totallyTimeSpent" value="74403000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1143,6 +1146,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6683127" sideWeight="0.4582339" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30986476" sideWeight="0.6017442" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674897" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921812" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949877" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1159,7 +1163,6 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6707416" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.053410023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674897" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1179,7 +1182,8 @@
     <MESSAGE value="-Fixed Projectile Spawn in BasicEnemyShip&#10;-Created Basic Collision Detection&#10;-Added TODOs for errors &#10;-Comments" />
     <MESSAGE value="-Fixed Drag/Drop capabilities of turret &#10;-Added TODO to make things right" />
     <MESSAGE value="-Fixed Collision Properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fixed Collision Properties" />
+    <MESSAGE value="-Model adds previously added items to the view on screen change." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Model adds previously added items to the view on screen change." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1317,7 +1321,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="51" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.59974587" vertical-offset="1478" max-vertical-offset="7410">
+        <state line="480" column="20" selection-start="13520" selection-end="13520" vertical-scroll-proportion="0.3329098" vertical-offset="6218" max-vertical-offset="7410">
           <folding />
         </state>
       </provider>
