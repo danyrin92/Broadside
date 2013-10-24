@@ -38,6 +38,17 @@ public class CannonBall extends Projectile {
 																	
 	}
 
+	public CannonBall(Model model, int x, int y, float xTarget, float yTarget) {
+		super(model);
+		this.x =x; this.y=y; this.xTarget = xTarget; this.yTarget = yTarget;
+		
+		imageView.setImageResource(drawable.cannon_ball);
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
+																		// size
+	}
+	
 	public CannonBall(Model model, int damage, int x, int y, int z, int xSpeed,
 			int ySpeed, int zSpeed) {
 		super(model, damage, x, y, z, xSpeed, ySpeed, zSpeed);
@@ -49,6 +60,17 @@ public class CannonBall extends Projectile {
 																		
 
 	}
+	
+	public CannonBall(Model model, int damage, int x, int y, float xTarget, float yTarget){
+		super(model,damage,x,y,xTarget,yTarget);
+		
+		imageView.setImageResource(drawable.cannon_ball);
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * .7), (int) (model.getScreenY() * .7))); // Set
+																		// size
+  	}
+  	
 
 	public int getDefaultDamage() {
 		return defaultDamage;
@@ -72,4 +94,12 @@ public class CannonBall extends Projectile {
 	public void setPosition(int x, int y) {
 
 	}
+
+	@Override
+	public Projectile create(Model model, int x, int y, float xTarget,
+			float yTarget) {
+		return new CannonBall(model, x, y, xTarget, yTarget);
+	}
+	
+	
 }

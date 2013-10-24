@@ -43,6 +43,7 @@ public class MainShip extends CombatUnit {
 		y = ((int) (model.getScreenY() * .7));
 
 		health = 100;
+		mainCannon = new MainCannon(model,this.x+((int)(model.getScreenX()*.325)),this.y+((int)(model.getScreenX()*.3))) ;
 	}
 
 	protected void Damage(Projectile p) {
@@ -68,6 +69,8 @@ public class MainShip extends CombatUnit {
 		else
 			ySpeed = 0;
 
+		mainCannon.setPosition(this.x+((int)(model.getScreenX()*.325)),this.y+((int)(model.getScreenX()*.3)));
+		
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
@@ -125,9 +128,9 @@ public class MainShip extends CombatUnit {
 		return turrets;
 	}
 	
-	public void addTurret(Turret turret) {
-		turrets.add(turret);
+	public MainCannon getMainCannon(){
+		return mainCannon;
+		
 	}
-	
 
 }

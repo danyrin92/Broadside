@@ -13,6 +13,7 @@ public abstract class Projectile extends BaseUnit {
 	protected int damage;
 	/** Added Z value for possible image scaling */
 	protected int z, xSpeed, ySpeed, zSpeed;
+	protected float xTarget, yTarget;
     public Model model;
 
 
@@ -41,6 +42,26 @@ public abstract class Projectile extends BaseUnit {
         imageView = new ImageView(context);
 
     }
+    
+    public Projectile(Model model, int damage, int x, int y, float xTarget, float yTarget)
+  	{
+  		this.model = model;
+  		this.context = model.context;
+  		this.damage = damage;
+  		this.x = x;
+  		this.y = y;
+  		this.xTarget = xTarget;
+  		this.yTarget = yTarget;
+  		float m = (yTarget - y) / (xTarget-x);
+  		xSpeed = 10;
+  		if (yTarget < y)
+  			ySpeed = (int) -m;
+  		else
+  			ySpeed = (int) m;
+  		
+          imageView = new ImageView(context);
+
+      }
     public Projectile(Model model, int damage, int x, int y, int z, int xSpeed, int ySpeed, int zSpeed)
 	{
 		this.model = model;
@@ -63,7 +84,9 @@ public abstract class Projectile extends BaseUnit {
     
     public void update() {
 
-
+    	if(x == xTarget && y == yTarget)
+			this.destroy();
+    	
         x = x + xSpeed;
 		y = y + ySpeed;
 		z = z + zSpeed;
@@ -145,4 +168,5 @@ public abstract class Projectile extends BaseUnit {
 	public abstract int getDefaultDamage();
 	public abstract Projectile create(Model model, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed);
 	public abstract Projectile create(Model model, int damage, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed);
+	public abstract Projectile create(Model model2, int x, int y, float xTarget, float yTarget);
 }
