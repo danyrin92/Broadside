@@ -20,13 +20,14 @@ public class MainShip extends CombatUnit {
 	private ArrayList<Section> sections;
 	private ArrayList<Crew> crew;
 	private MainCannon mainCannon;
-	private int waterLevel = 0;
+	private int waterLevel;
 	private boolean inPosition = false;
-	private ArrayList<Turret> turrets;
+	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
+		this.waterLevel = 0;
 		imageView = new ImageView(model.context);
 
 		/** PNG to be used as image */
@@ -120,8 +121,13 @@ public class MainShip extends CombatUnit {
 		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
 	}
 
-	ArrayList<Turret> getTurrets() {
+	public ArrayList<Turret> getTurrets() {
 		return turrets;
 	}
+	
+	public void addTurret(Turret turret) {
+		turrets.add(turret);
+	}
+	
 
 }

@@ -17,6 +17,7 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
@@ -192,6 +193,10 @@ public class Model extends Thread {
                 projectiles.add((Projectile)unit);
             }catch(Exception e){
                 units.add(unit);
+              //maintain mainship turret list
+                if (unit instanceof Turret) {
+                	getMainShip().addTurret((Turret) unit);
+                }
             }
             
             if (currentActivity.name.equalsIgnoreCase("PlayController")) {
