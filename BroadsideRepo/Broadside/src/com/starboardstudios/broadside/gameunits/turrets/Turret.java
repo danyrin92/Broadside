@@ -52,6 +52,13 @@ public abstract class Turret extends BaseUnit {
 		this.zFireSpeed = zFireSpeed;
 	}
 
+	public Turret(Model model, int x, int y) {
+		this.context = model.context;
+		this.model = model;
+		this.x = x;
+		this.y = y;
+	}
+
 	public Projectile getProjectile() {
 		return this.projectile;
 	}

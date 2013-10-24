@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import com.starboardstudios.broadside.R;
@@ -46,7 +47,8 @@ public class PlayController extends BaseController {
 		 * logic! Don't delete!
 		 */
 		model.addUnit(new MainShip(model));
-
+        model.addUnit(model.getMainShip().getMainCannon());
+        
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -101,8 +103,19 @@ public class PlayController extends BaseController {
 
 			}
 		});
+        /**for firing the main cannon*/
+        screen.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				model.getMainShip().getMainCannon().fireMainCannon(event.getX(), event.getY());
+				return true;
+			}
+		});  
+        
+        
 	}
-
+	
 	/** for getting the upgrades button to work... */
 	public void gotoUpgrades(View view) {
 		Intent gotoUpgrades = new Intent(this, UpgradeController.class);
