@@ -1,5 +1,6 @@
 package com.starboardstudios.broadside.gameunits;
 
+import android.R.integer;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -8,8 +9,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.HardShip;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 
 import java.util.ArrayList;
 
@@ -19,10 +26,13 @@ public class Model extends Thread {
 	public Context context;
 	
 	private int level;
-	private LevelManager levelManger;
+	private LevelManager levelManager;
 	/** Will keep track of the number of enemies in the model to know when to go the next level on the final enemy wave*/
 	private int numOfEnemies;
-	/** Starting diffculity is 1 */
+	/** Starting difficulty is 1
+	 * Modifier that indicates the number of times the player has made it past the max level subtracted by 1.
+	 * Intended to help emulate infinite levels. 
+	 */
 	protected int difficulty; 
 	
 	private int booty; //currency
@@ -49,7 +59,7 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		/** Sets level to 1 in constructor */
 		this.level = 1;
-		this.levelManger = new LevelManager();
+		this.levelManager = new LevelManager(this);
 		this.numOfEnemies = 0;
 		this.difficulty = 1; 
 		this.start();
@@ -106,6 +116,7 @@ public class Model extends Thread {
 				};
 				runOnMain(updateHealthTask);
 
+				levelManager.update();
 			}
 			
 			/** Displays level text and booty to screen */
@@ -375,55 +386,79 @@ public class Model extends Thread {
 	 * private final class
 	 */
 	private final class LevelManager {
-		final int maxLevel = 5; /** Arbitarly set until otherwise known*/
+		/** Arbitarly set until otherwise known */
+		final int MAXLEVEL = 5; 
 		
-		//TODO: Add final ID value to represent each unit
+		//BaseShips: 000 to 099
+		final int ID_EASYSHIP = 000;
+		final int ID_MEDIUMSHIP = 001;
+		final int ID_HARDSHIP = 002;
+		
+		//BaseAircraft: 100 to 199
+		final int ID_EASYAIRCRAFT = 100;
+		
+		//BaseSubmarine: 200 to 299
+		final int ID_EASYSUBMARINE = 200;
 		
 		/** For knowing when to go to the next level */
-		boolean finalWave;
-		/** Amount of delay until the next level in miliseconds*/
+		boolean finalWave = false;
+		
+		/** Amount of delay until the next wave in miliseconds*/
 		int delay;
+		
+		Model model; //needed for added units to the model
+		
+		/** Stores unit ID's for next Wave of enemies to spawn */
+		ArrayList<integer> nextWave = new ArrayList<integer>();
 		
 		/**
 		 * Default Constructor
 		 * Sets level to 1;
+		 * 
+		 * @param model
 		 */
-		public LevelManager() {
+		public LevelManager(Model model) {
+			this.model = model;
 			delay = 0;
 			level = 1;
 		}
 		
 		/**
-		 * Set the starting level
+		 * Constructor with set the starting level
+		 * 
+		 * @param model
 		 * @param startingLevel
 		 */
-		public LevelManager(int startingLevel) {
+		public LevelManager(Model model,int startingLevel) {
+			this.model = model;
 			delay = 0;
 			level = startingLevel;
 		}
 		
 		/**
-		 * 
+		 * TODO: Get LevelManager update method working for unit spawning and level management.
+		 * 		Must implement a real time delay for wave spawning. 
 		 */
 		public void update() {
-			//TODO: Get LevelManager update method working for unit spawning and level management
 			
 		}
 		
 		/**
 		 * Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-		 *  
-		 * In that order.
 		 */
 		private void nextLevel() {
 			//TODO: Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-			if (level < maxLevel) {
+			/** Loop levels to minic infinite levels.
+			 * Use difficulty parameter to adjust difficulty  
+			 */
+			if (level < MAXLEVEL) {
 				level += 1;
 			} else {
 				difficulty += 1;
 				level = 1;
 			}
 		}
+		
 		/**
 		 * Spawn unit based off of integer.
 		 * 
@@ -438,16 +473,52 @@ public class Model extends Thread {
 		 * @param unit
 		 */
 		private void spawn(int id) {
-			//TODO: Spawn in unit based off of ID number
-			if (id > 400) 
-				return;
-			else
-				switch (id) {
+			if ((currentActivity.name.equalsIgnoreCase("PlayController"))) {
+				if (id > 300) {
+					return;
+				} else {
+					/** Increases the spawn amount by difficulty */
+					for(int i = 0; i < difficulty; i++) {
+						switch (id) {
+							//BaseShips
+							case ID_EASYSHIP:
+								model.addUnit(new EasyShip(model));
+								break;
+						
+							case ID_MEDIUMSHIP:
+								units.add(new MediumShip(model));
+								break;
+						
+							case ID_HARDSHIP:
+								units.add(new HardShip(model));
+								break;
+						
+							//BaseAircraft
+							case ID_EASYAIRCRAFT:
+								units.add(new EasyAircraft(model));
+								break;
+						
+							//BaseSubmarine	
+							case ID_EASYSUBMARINE:
+								units.add(new EasySubmarine(model));
+								break;
 					
+						}
+					}
 				}
+			}
 		}
 		
+		/** 
+		 * TODO: Add parser 
+		 * */
+		
+		/**
+		 * TODO: Add interpreter
+		 */
+		
 	}
+	
 	
 }
 
