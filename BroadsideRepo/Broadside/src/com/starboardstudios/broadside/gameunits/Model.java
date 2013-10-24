@@ -399,8 +399,7 @@ public class Model extends Thread {
 	 * private final class
 	 */
 	private final class LevelManager extends Thread {
-		/** Arbitarly set until otherwise known */
-		final int MAXLEVEL = 5; 
+		final int MAXLEVEL = 1; 
 		
 		//BaseShips: 000 to 099
 		final int ID_EASYSHIP = 000;
@@ -457,9 +456,9 @@ public class Model extends Thread {
 		public void run() {
 			
 			System.out.println("LevelManager Started ");
-			if (currentActivity != null) {
-				if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-					while (true) {
+			while (true) {
+				if (currentActivity != null) {
+					if (currentActivity.name.equalsIgnoreCase("PlayController")) {
 						if (finalWave == true) {
 							/** Check if there are any enemies left before going to the next level */
 						
@@ -479,12 +478,12 @@ public class Model extends Thread {
 						}
 					}
 				}
-			}
 			
-			try {
-				Thread.sleep(delay);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+				try {
+					Thread.sleep(delay);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		
