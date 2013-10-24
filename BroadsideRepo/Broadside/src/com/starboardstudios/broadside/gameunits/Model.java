@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
@@ -152,14 +153,15 @@ public class Model extends Thread {
 		this.currentActivity = current;
         context = current.getBaseContext();
 
-     /**   if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+       if (currentActivity.name.equalsIgnoreCase("PlayController")) {
            for(int x=0;x< units.size();x++)
            {
+               ((ViewGroup)units.get(x).getImage().getParent()).removeView(units.get(x).getImage());
                ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
                        .addView(units.get(x).getImage());
            }
 
-        }      */
+        }
     }
 
 	//not sure if this is necessary; attempting to pass model between activities
