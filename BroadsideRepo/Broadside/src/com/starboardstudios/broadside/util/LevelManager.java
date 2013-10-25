@@ -3,46 +3,50 @@ package com.starboardstudios.broadside.util;
 import android.R.integer;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
+import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.HardShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class LevelManager {
-		final int MAXLEVEL = 1; 
+		final static int MAXLEVEL = 2; 
 		
 		//BaseShips: 000 to 099
-		final int ID_EASYSHIP = 000;
-		final int ID_MEDIUMSHIP = 001;
-		final int ID_HARDSHIP = 002;
+		final static int ID_EASYSHIP = 000;
+		final static int ID_MEDIUMSHIP = 001;
+		final static int ID_HARDSHIP = 002;
 		
 		//BaseAircraft: 100 to 199
-		final int ID_EASYAIRCRAFT = 100;
+		final static int ID_EASYAIRCRAFT = 100;
 		
 		//BaseSubmarine: 200 to 299
-		final int ID_EASYSUBMARINE = 200;
+		final static int ID_EASYSUBMARINE = 200;
 		
 		//Ships, then Airplane, then Submarine. Each difficulty with the delay after it.
 		static int[][] levelArray = new int[100][10];
 		
 		/** For knowing when to go to the next level */
-		boolean finalWave = false;
-		boolean stillAlive;
+		static boolean finalWave = false;
+		static boolean stillAlive;
 		
 		/** Amount of delay until the next wave in milliseconds*/
-		int delay;
+		static int delay;
 		
 		/** Needed for added units to the model */
-		Model model;
+		static Model model;
 		
 		/** Stores unit ID's for next Wave of enemies to spawn */
-		ArrayList<integer> nextWaveUnits = new ArrayList<integer>();
+		static ArrayList<integer> nextWaveUnits = new ArrayList<integer>();
 		
-		/**
-		 * Default Constructor
-		 * Sets level to 1;
-		 * 
-		 * @param model
-		 */
+		static boolean newLevel = false;
+		/** Timer for spawing enemy units */
+		static Timer timer;
 		
 		public static void LevelReader(Model model){
 			try {
@@ -76,147 +80,146 @@ public abstract class LevelManager {
 				e.printStackTrace();
 			}	
 		}
-		
-		public LevelManager(Model model) {
-			this.model = model;
-			delay = 10000; //10 secs. waiting for ship 
-			//level = 1;
-			//TODO: Then load in level 1
+
+		/** Interface for model*/
+		public static void update() {
+			if (newLevel == true) {
+				startLevel(model.getLevel());
+				newLevel = false;
+			}
 		}
 		
-		/**
-		 * Constructor with set the starting level
-		 * 
-		 * @param model
-		 * @param startingLevel
+		/** 
+		 * Starts the timers for enemy unit spawning
+		 * @param level
 		 */
-		public LevelManager(Model model, int startingLevel) {
-			this.model = model;
-			delay = 10000; //10 secs. waiting for ship 
-			//level = startingLevel;
-			//TODO: Then load in the apprioiate file
+		private static void startTimers(final int level) {
+			//Reset timers
+			timer = new Timer();
+			
+			/** EasyShip spawn timer */
+			TimerTask taskEasyShip = new TimerTask() {
+				@Override
+				public void run() {
+					spawn(levelArray[level][0]);
+				};
+			};
+			
+			/** MediumShip spawn timer */
+			TimerTask taskMediumShip = new TimerTask() {
+				@Override
+				public void run() {
+					spawn(levelArray[level][2]);
+				};
+			};
+			
+			/** HardShip spawn timer */
+			TimerTask taskHardShip = new TimerTask() {
+				@Override
+				public void run() {
+					spawn(levelArray[level][4]);
+				};
+			};
+			
+			/** EasyAircraft spawn timer */
+			TimerTask taskEasyAircraft = new TimerTask() {
+				@Override
+				public void run() {
+					spawn(levelArray[level][6]);
+				};
+			};
+			
+			/** EasySubmarine spawn timer */
+			TimerTask taskEasySubmarine = new TimerTask() {
+				@Override
+				public void run() {
+					spawn(levelArray[level][8]);
+				};
+			};
+			
+			/** Add TimerTask to timer. 
+			 * An initial 10 sec delay to wait for the MainShip to stop moving.
+			 */
+			timer.schedule(taskEasyShip, 10000, levelArray[level][1]);
+			timer.schedule(taskMediumShip, 10000, levelArray[level][3]);
+			timer.schedule(taskHardShip, 10000, levelArray[level][5]);
+			timer.schedule(taskEasyAircraft, 10000, levelArray[level][7]);
+			timer.schedule(taskEasySubmarine, 10000 , levelArray[level][9]);
 		}
 		
-		/** For timing the spawning of units and reading the level */
-		/*@Override
-		public void run() {
+		private static void startLevel() {
+			startLevel(model.getLevel());
+		}
+		
+		private static void startLevel(int level) {
+			startTimers(level);
 			
-			System.out.println("LevelManager Started ");
-			while (true) {
-				if (currentActivity != null) {
-					if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-						if (finalWave == true) {
-							/** Check if there are any enemies left before going to the next level
+			TimerTask waitForSuccess = new TimerTask() {
+				@Override
+				public void run() {
+					int level;
+					/** When all enemies have been defeated go to the next level */
+					if (model.getNumOfEnemies() <= 0) {
+						/** Increment level*/
+						level = model.getLevel();
+						level++;
+						model.setLevel(level);
 						
-							delay = 2000; /** Needed for sleep while on the final wave. Arbiltarily picked amount
-							stillAlive = false;
-							for(int i = 0; i < units.size(); i++) {
-								if ((units.get(i) instanceof CombatUnit == true) & (units.get(i) instanceof MainShip == false ) ) {
-									stillAlive = true;
-									break;
-								}	
-							}
-							if (stillAlive == false) {
-								nextLevel();
-							}
-						} else {
-							nextWave(); //read next two lines from the level text. Gets units to add and next delay.
-						}
+						/** Go to Upgrade then end program*/
+						//TODO: Switch to the upgrade screen from the LevelManager
+						
+						newLevel = true;
+						timer.cancel();
+						timer.purge();
+						return;
 					}
 				}
-			
-				try {
-					Thread.sleep(delay);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}*/
-		
-		
-		/**
-		 * TODO: Get LevelManager update method working for unit spawning and level management.
-		 * 		Must implement a real time delay for wave spawning. 
-		 */
-		public void nextWave() {
-			
+			};
+			/** Check that the player has beaten the game every two second */
+			timer.schedule(waitForSuccess,0,2000);
 		}
-		
-		/**
-		 * Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-		 */
-		/*private void nextLevel() {
-			//TODO: Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-			/** Loop levels to minic infinite levels.
-			 * Use difficulty parameter to adjust difficulty  
-			 
 			
-			delay = 100; /** Reset the delay after it was changed in the final wave loop 
-			
-			if (level < MAXLEVEL) {
-				level += 1;
-			} else {
-				difficulty += 1;
-				level = 1;
-			}
-		}*/
-		
 		/**
-		 * Spawn unit based off of integer.
+		 * Spawn unit based off of integer that ID's what type of enemy.
 		 * 
-		 *  Hundreds place represents type:
-		 *  	0 = BaseShip
-		 *  	1 = BaseAircraft
-		 *  	2 = BaseSubmarine
-		 *  Tens and single digits place represent the specific type.
-		 *  
 		 *  ID given as a final in level manager
-		 *  
 		 * @param id
 		 */
-		/*private void spawn(int id) {
-			if ((currentActivity.name.equalsIgnoreCase("PlayController"))) {
+		private static void spawn(int id) {
+			if ((model.getCurrentActivity().name.equalsIgnoreCase("PlayController"))) {
 				if (id > 300) {
 					return;
 				} else {
-					/** Increases the spawn amount by difficulty
-					for(int i = 0; i < difficulty; i++) {
+					/** Increases the spawn amount by difficulty */
+					for(int i = 0; i < model.getDifficulty(); i++) {
 						switch (id) {
 							//BaseShips
 							case ID_EASYSHIP:
 								model.addUnit(new EasyShip(model));
 								break;
-						
+							
 							case ID_MEDIUMSHIP:
 								model.addUnit(new MediumShip(model));
 								break;
-						
+							
 							case ID_HARDSHIP:
 								model.addUnit(new HardShip(model));
 								break;
-						
+							
 							//BaseAircraft
 							case ID_EASYAIRCRAFT:
 								model.addUnit(new EasyAircraft(model));
 								break;
-						
+							
 							//BaseSubmarine	
 							case ID_EASYSUBMARINE:
 								model.addUnit(new EasySubmarine(model));
 								break;
-					
+						
 						}
 					}
 				}
 			}
-		}*/
-		
-		/** 
-		 * TODO: Add parser 
-		 * */
-		
-		/**
-		 * TODO: Add interpreter
-		 */
-		
-}
+		}
+			
+	}
