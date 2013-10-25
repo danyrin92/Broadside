@@ -346,6 +346,9 @@ public class Model extends Thread {
     public void removeUnit(BaseUnit unit)
     {
     	units.remove(unit);
+        ViewGroup vg = ((ViewGroup)currentActivity.activityScreen.getParent());
+        vg.removeView(unit.getImage());
+
     }
   
 	public int getLevel() {

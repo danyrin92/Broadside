@@ -24,20 +24,16 @@ public class Turret1 extends Turret {
 		    imageView.setImageResource(drawable.turret1); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
-           imageView.setOnTouchListener(new View.OnTouchListener() {
+            imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                 	imageView.getParent().requestDisallowInterceptTouchEvent(true);
-
+                    view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                       System.out.println(view.toString());
-
                        ClipData data = ClipData.newPlainText("", "");
                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
-                       view.startDrag(data, shadowBuilder, me , 0);
-                       view.setVisibility(View.INVISIBLE);
-
-
+                       imageView.startDrag(data, shadowBuilder, me , 0);
+                       imageView.setVisibility(View.INVISIBLE);
                        return true;
                    }
                     return false;
@@ -98,8 +94,8 @@ public class Turret1 extends Turret {
 
 	                        ClipData data = ClipData.newPlainText("", "");
 	                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(imageView);
-	                        view.startDrag(data, shadowBuilder, me , 0);
-	                        view.setVisibility(View.INVISIBLE);
+	                        imageView.startDrag(data, shadowBuilder, me , 0);
+	                        imageView.setVisibility(View.INVISIBLE);
 
 
 	                        return true;
@@ -162,7 +158,10 @@ public class Turret1 extends Turret {
 	}
 	@Override
 	public void endDrag(float x, float y) {
-		// TODO Auto-generated method stub
-		
+        System.out.println("End Drag");
+        int centerX = (getImage().getLeft() + getImage().getRight()) / 2;
+        int centerY = (getImage().getTop() + getImage().getBottom()) / 2;
+        setPosition((int)(x-centerX),(int)(y-centerY));
+        getImage().setVisibility(View.VISIBLE);
 	}
 }

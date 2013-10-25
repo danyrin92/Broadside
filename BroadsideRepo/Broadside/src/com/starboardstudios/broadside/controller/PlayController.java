@@ -4,14 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.DragEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.DragEvent;
-import android.view.Window;
-import android.view.LayoutInflater;
-
-import com.starboardstudios.broadside.interfaces.Draggable;
+import android.view.*;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -21,6 +14,7 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import com.starboardstudios.broadside.interfaces.Draggable;
 
 public class PlayController extends BaseController {
 
@@ -32,6 +26,7 @@ public class PlayController extends BaseController {
 		super.onCreate(savedInstanceState);
 		final View screen = ((LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
+        this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 		name = "PlayController";
@@ -44,10 +39,11 @@ public class PlayController extends BaseController {
 		 * Below is an example of how to add to the model without keylistener
 		 * logic! Don't delete!
 		 */
-		model.addUnit(new MainShip(model));
-		//TODO make this line not make clicking the continue button in upgrades screen crash
-        //model.addUnit(model.getMainShip().getMainCannon());
-        
+        if(model.getLevel()==1)
+        {
+		    model.addUnit(new MainShip(model));
+            model.addUnit(model.getMainShip().getMainCannon());
+        }
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -73,11 +69,11 @@ public class PlayController extends BaseController {
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
 
                     ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
+                    System.out.println("drop registered");
 
 
 
-				}
-				v.invalidate();
+                }
 				return true;
 
 			}

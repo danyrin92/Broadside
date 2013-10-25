@@ -29,8 +29,9 @@ public class UpgradeController extends BaseController {
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
+        this.activityScreen = screen;
 
-		// get and display mainShip
+        // get and display mainShip
 		mainShip = model.getMainShip();
 		// TODO: spawn ship in correctly...
 		
@@ -41,28 +42,27 @@ public class UpgradeController extends BaseController {
 
             e.printStackTrace();
         }
-		screen.setVisibility(View.VISIBLE);
-        screen.setOnDragListener(new View.OnDragListener() {
+        screen.setVisibility(View.VISIBLE);
+       screen.setOnDragListener(new View.OnDragListener() {
 
             @Override
             public boolean onDrag(View v, DragEvent event) {
+                System.out.print("Drag");
 
                 ((Draggable) event.getLocalState()).midDrag(event.getX(),event.getY());
 
                 if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
 
-                    ((Draggable) event.getLocalState()).dragStarted();
+                    ((Draggable)event.getLocalState()).dragStarted();
 
                 } else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
 
                 } else if (event.getAction() == DragEvent.ACTION_DROP) {
 
-                    ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
-
-
-
+                    ((Draggable)event.getLocalState()).endDrag(event.getX(), event.getY());
+                     System.out.println("drop registered");
                 }
-                v.invalidate();
+
                 return true;
 
             }

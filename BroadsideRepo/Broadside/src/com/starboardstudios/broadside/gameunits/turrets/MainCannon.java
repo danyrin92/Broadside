@@ -4,7 +4,6 @@ package com.starboardstudios.broadside.gameunits.turrets;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -22,12 +21,12 @@ public class MainCannon extends Turret {
 		this.x=x;this.y=y; this.cooldown = 10; this.currentCooldown = 0;
 		projectile = new CannonBall(model);
 		fireSpeed = 15;
-		    imageView.setImageResource(drawable.main_cannon); //Set to image
-	        imageView.setAdjustViewBounds(true);
-	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
-          
+	    imageView.setImageResource(drawable.main_cannon); //Set to image
+	    imageView.setAdjustViewBounds(true);
+	    imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
+           /**
 	        //TODO: move over to draggable
-	        /** imageView.setOnTouchListener(new View.OnTouchListener() {
+	         imageView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                 	imageView.getParent().requestDisallowInterceptTouchEvent(true);
@@ -45,8 +44,7 @@ public class MainCannon extends Turret {
                    }
                     return false;
                 }
-            });  */
-	         System.out.println("Turret Created");
+            });  	         System.out.println("Turret Created");  */
 	    }
 	
 		
@@ -115,8 +113,6 @@ public class MainCannon extends Turret {
 
     @Override
     public void endDrag(float x, float y) {
-
-
         int centerX = (getImage().getLeft() + getImage().getRight()) / 2;
         int centerY = (getImage().getTop() + getImage().getBottom()) / 2;
         setPosition((int)(x-centerX),(int)(y-centerY));
