@@ -13,6 +13,7 @@ import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.util.LevelManager;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
 
@@ -189,6 +190,9 @@ public class Model extends Thread {
             }catch(Exception e){
                 units.add(unit);
               //maintain mainship turret list
+                if (unit instanceof Turret) {
+                	getMainShip().addTurret((Turret) unit);
+                }
             }
             
             if (currentActivity.name.equalsIgnoreCase("PlayController")) {

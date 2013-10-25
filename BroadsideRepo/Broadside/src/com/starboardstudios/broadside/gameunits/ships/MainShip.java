@@ -128,6 +128,10 @@ public class MainShip extends CombatUnit {
 		return turrets;
 	}
 	
+	public void addTurret(Turret turret) {
+		turrets.add(turret);
+	}
+	
 	public MainCannon getMainCannon(){
 		return mainCannon;
 		
