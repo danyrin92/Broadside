@@ -10,15 +10,32 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Model extends Thread {
-
+	//BaseShips: 000 to 099
+	final static int ID_EASYSHIP = 000;
+	final static int ID_MEDIUMSHIP = 001;
+	final static int ID_HARDSHIP = 002;
+	
+	//BaseAircraft: 100 to 199
+	final static int ID_EASYAIRCRAFT = 100;
+	
+	//BaseSubmarine: 200 to 299
+	final static int ID_EASYSUBMARINE = 200;
+	
 	private BaseController currentActivity;
 	public Context context;
 
@@ -39,6 +56,9 @@ public class Model extends Thread {
 	
 	/** Below will contain all projectiles in the game. All types of projectiles extend projectile */
     private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+    
+    /** Unit buffer from LevelManager Spawn*/
+    private ArrayList<BaseUnit> unitBuffer = new ArrayList<BaseUnit>();
     
 	public Model(Context context) {
 		this.context = context;
@@ -87,6 +107,22 @@ public class Model extends Thread {
         }
 
         if (currentActivity != null) {
+        	if(currentActivity.name.equalsIgnoreCase("PlayController")) {
+        		/** Spawn in Units */
+        		LevelManager.update();
+        		
+        		Runnable updateUnitBufferTask = new Runnable() {
+        			@Override
+        			public void run() {
+        				for(int i = 0; i < unitBuffer.size(); i++) {
+        					addUnit(unitBuffer.remove(i));
+        				}
+        			}
+        		};
+        		runOnMain(updateUnitBufferTask);
+    
+        	}
+        		
 			for (int x = 0; x < units.size(); x++) {
 				units.get(x).update();
 			}
@@ -96,6 +132,7 @@ public class Model extends Thread {
 
 			/** Below is how to show text to screen */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+				
 				/** Below grabs appropriate TextView object */
 				final TextView health = (TextView) currentActivity
 						.findViewById(R.id.HealthView);
@@ -109,7 +146,6 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateHealthTask);
-
 			}
 			
 			/** Displays level text and booty to screen */
@@ -207,6 +243,66 @@ public class Model extends Thread {
 
 		}
 
+	}
+	
+	public void addUnit(final int id, int delay, final int amount) {
+		final Timer timer = new Timer();
+		final Model model = this;
+		
+		TimerTask task = new TimerTask() {
+			int count = 0;
+			BaseUnit unit;
+			@Override
+			public void run() {
+				count++;
+				switch (id) {
+					//BaseShips
+					case ID_EASYSHIP:
+						unit = new EasyShip(model);
+						unit.setPosition(((int) (getScreenX()) + 75),
+								((int) (getScreenY() * .4)));
+						unitBuffer.add(unit);
+						break;
+				
+					case ID_MEDIUMSHIP:
+						unit = new MediumShip(model);
+						unit.setPosition(((int) (model.getScreenX()) + 75),
+									((int) (model.getScreenY() * .4)));
+						unitBuffer.add(unit);
+						break;
+				
+					case ID_HARDSHIP:
+						unit = new HardShip(model);
+						unit.setPosition(((int) (model.getScreenX()) + 75),
+									((int) (model.getScreenY() * .4)));
+						unitBuffer.add(unit);
+						break;
+				
+						//BaseAircraft
+					case ID_EASYAIRCRAFT:
+						unit = new EasyAircraft(model);
+						unit.setPosition(((int) (model.getScreenX()) + 75),
+									((int) (model.getScreenY() * .4)));
+						unitBuffer.add(unit);
+						break;
+				
+						//BaseSubmarine	
+					case ID_EASYSUBMARINE:
+						unit = new EasySubmarine(model);
+						unit.setPosition(((int) (model.getScreenX()) + 75),
+									((int) (model.getScreenY() * .4)));
+						unitBuffer.add(unit);
+						break;
+				}
+				
+				if (count >= amount) {
+					timer.cancel();
+					timer.purge();
+					return;
+				}
+			};
+		};
+		timer.schedule(task, delay, delay);
 	}
 
 

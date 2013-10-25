@@ -17,6 +17,16 @@ import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.interfaces.Draggable;
 
 public class PlayController extends BaseController {
+	//BaseShips: 000 to 099
+	final static int ID_EASYSHIP = 000;
+	final static int ID_MEDIUMSHIP = 001;
+	final static int ID_HARDSHIP = 002;
+	
+	//BaseAircraft: 100 to 199
+	final static int ID_EASYAIRCRAFT = 100;
+	
+	//BaseSubmarine: 200 to 299
+	final static int ID_EASYSUBMARINE = 200;
 
 	@SuppressLint("NewApi")
 	public Model model;
@@ -109,34 +119,34 @@ public class PlayController extends BaseController {
 
 		switch (spawnnum) {
 		case 0:
-			EasyShip es = new EasyShip(model);
-			es.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
-			model.addUnit(es);
+			//EasyShip es = new EasyShip(model);
+			//es.setPosition(((int) (model.getScreenX()) + 75),
+			//		((int) (model.getScreenY() * .4)));
+			model.addUnit(ID_EASYSHIP, 2000, 3);
 			break;
 		case 1:
-			MediumShip ms = new MediumShip(model);
-			ms.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
-			model.addUnit(ms);
+			//MediumShip ms = new MediumShip(model);
+			//ms.setPosition(((int) (model.getScreenX()) + 75),
+			//		((int) (model.getScreenY() * .4)));
+			model.addUnit(ID_MEDIUMSHIP, 2000, 3);
 			break;
 		case 2:
-			HardShip hs = new HardShip(model);
-			hs.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
-			model.addUnit(hs);
+			//HardShip hs = new HardShip(model);
+			//hs.setPosition(((int) (model.getScreenX()) + 75),
+			//		((int) (model.getScreenY() * .4)));
+			model.addUnit(ID_HARDSHIP, 2000, 3);
 			break;
 		case 3:
-			EasySubmarine esub = new EasySubmarine(model);
-			esub.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
-			model.addUnit(esub);
+			//EasySubmarine esub = new EasySubmarine(model);
+			//esub.setPosition(((int) (model.getScreenX()) + 75),
+			//		((int) (model.getScreenY() * .4)));
+			model.addUnit(ID_EASYSUBMARINE, 2000, 3);
 			break;
 		case 4:
-			EasyAircraft ea = new EasyAircraft(model);
-			ea.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
-			model.addUnit(ea);
+			//EasyAircraft ea = new EasyAircraft(model);
+			//ea.setPosition(((int) (model.getScreenX()) + 75),
+			//		((int) (model.getScreenY() * .4)));
+			model.addUnit(ID_EASYAIRCRAFT, 2000, 3);
 			break;
 
 		}
