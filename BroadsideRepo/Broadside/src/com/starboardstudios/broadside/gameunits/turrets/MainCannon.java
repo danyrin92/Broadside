@@ -1,9 +1,5 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
-import java.util.ArrayList;
-
-import android.content.ClipData;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -99,5 +95,27 @@ public class MainCannon extends Turret {
          //TODO: Turrent available drop.
     }
 
-   
+
+    @Override
+    public void dragStarted() {
+
+    }
+
+    @Override
+    public void midDrag(float x, float y) {
+
+    }
+
+    @Override
+    public void endDrag(float x, float y) {
+
+
+        int centerX = (getImage().getLeft() + getImage().getRight()) / 2;
+        int centerY = (getImage().getTop() + getImage().getBottom()) / 2;
+        setPosition((int)(x-centerX),(int)(y-centerY));
+        getImage().setVisibility(View.VISIBLE);
+
+    }
+
+
 }

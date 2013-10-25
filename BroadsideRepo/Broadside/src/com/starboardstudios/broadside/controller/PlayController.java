@@ -3,7 +3,6 @@ package com.starboardstudios.broadside.controller;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.*;
 import com.starboardstudios.broadside.R;
@@ -15,7 +14,7 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+import com.starboardstudios.broadside.interfaces.Draggable;
 
 public class PlayController extends BaseController {
 
@@ -57,40 +56,17 @@ public class PlayController extends BaseController {
 			public boolean onDrag(View v, DragEvent event) {
 
 				if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
-					System.out.println("Begin Drag ");
-					v.setBackgroundColor(Color.RED);
-					((MainCannon) event.getLocalState()).getImage()
-							.setColorFilter(Color.RED);
-					((MainCannon) event.getLocalState()).getImage()
-							.setVisibility(View.INVISIBLE);
+
+					((Draggable) event.getLocalState()).dragStarted();
+
 				} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
-					System.out.println("Begin Drag 2 ");
-					v.setBackgroundColor(Color.GREEN);
+
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
-					// TODO: Replace with correct superclass which can cast all
-					// draggable types, probably create a draggable interface.
-					int centerX = (((MainCannon) event.getLocalState())
-							.getImage().getLeft() + ((MainCannon) event
-							.getLocalState()).getImage().getRight()) / 2;
-					int centerY = (((MainCannon) event.getLocalState())
-							.getImage().getTop() + ((MainCannon) event
-							.getLocalState()).getImage().getBottom()) / 2;
 
-					// ((MainCannon) event.getLocalState()).setPosition(((int)
-					// (event.getX()-screen.getX())), (int)
-					// (event.getY()-screen.getY()));
-					((MainCannon) event.getLocalState()).setPosition(
-							((int) (event.getX() - centerX)),
-							(int) (event.getY() - centerY));
-					((MainCannon) event.getLocalState()).getImage()
-							.clearColorFilter();
-					((MainCannon) event.getLocalState()).getImage()
-							.setVisibility(View.VISIBLE);
+                    ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
 
-					System.out.println("Begin Drop ");
-					v.setBackgroundColor(Color.GREEN);
-					System.out.println("Location:" + event.getX() + "  "
-							+ event.getY());
+
+
 				}
 				v.invalidate();
 				return true;

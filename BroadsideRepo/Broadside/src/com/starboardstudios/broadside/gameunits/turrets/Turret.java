@@ -1,12 +1,12 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
 import android.content.Context;
-
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.interfaces.Draggable;
 
-public abstract class Turret extends BaseUnit {
+public abstract class Turret extends BaseUnit implements Draggable {
 	protected Model model;
 	protected int x, y, z;
 	protected int xFireSpeed, yFireSpeed, zFireSpeed;

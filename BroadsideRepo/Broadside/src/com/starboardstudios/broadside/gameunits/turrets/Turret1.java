@@ -154,4 +154,19 @@ public class Turret1 extends Turret {
         this.x=x;
         this.y=y;
     }
+
+    @Override
+    public void dragStarted() {
+
+    }
+
+    @Override
+    public void midDrag(int x, int y) {
+
+    }
+
+    @Override
+    public void endDrag(int x, int y) {
+
+    }
 }
