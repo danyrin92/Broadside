@@ -25,14 +25,13 @@ public class Model extends Thread {
 
 	private BaseController currentActivity;
 	public Context context;
-	
-	private int level;
-	private LevelManager levelManager;
+
 	/** Starting difficulty is 1.
 	 * Modifier that indicates the number of times the player has made it past the max level subtracted by 1.
 	 * Intended to help emulate infinite levels. 
 	 */
 	protected int difficulty; 
+	private int level;
 	
 	private int booty; //currency
 	private int numTurretTypes;
@@ -58,10 +57,8 @@ public class Model extends Thread {
 		this.turretCosts[5] = 100;
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
-		/** Sets level to 1 in constructor */
-		this.levelManager = new LevelManager(this);
-		
-		this.levelManager.start();
+		this.level = 1;
+	
 		this.start();
 	}
 
@@ -241,8 +238,6 @@ public class Model extends Thread {
 
                      }
                  }
-
-
          }
 
 
@@ -357,20 +352,23 @@ public class Model extends Thread {
     {
     	units.remove(unit);
     }
-    /** To be deleted or made private when LevelManager is working */
+  
 	public int getLevel() {
 		return level;
 	}
-	 /** To be deleted or made private when LevelManager is working */
+	
 	public void setLevel(int lvl) {
 		level = lvl;
 	}
 	
-	 /** To be deleted or made private when LevelManager is working */
-	public void updateLevel() {
-		level += 1;
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
 	}
 	
+	public int getDifficulty() {
+		return difficulty;
+	}
+		
 	/**for currency system*/
 	public int getBooty() {
 		return booty;
@@ -386,194 +384,6 @@ public class Model extends Thread {
 	
 	public int getTurretCostAt(int index) {
 		return turretCosts[index];
-	}
-	
-	/**
-	 * (tentative description. Change as necessary)
-	 * 
-	 * Manages levels and spawning based on parsing a file.
-	 * A line of enemy units to spawn delimited by spaces followed by
-	 * a next line with the amount of seconds until the next spawn wave.
-	 * 
-	 * If in the text file delay == 0 then the level is on the final wave
-	 * 
-	 * private final class
-	 */
-	private final class LevelManager extends Thread {
-		final int MAXLEVEL = 1; 
-		
-		//BaseShips: 000 to 099
-		final int ID_EASYSHIP = 000;
-		final int ID_MEDIUMSHIP = 001;
-		final int ID_HARDSHIP = 002;
-		
-		//BaseAircraft: 100 to 199
-		final int ID_EASYAIRCRAFT = 100;
-		
-		//BaseSubmarine: 200 to 299
-		final int ID_EASYSUBMARINE = 200;
-		
-		/** For knowing when to go to the next level */
-		boolean finalWave = false;
-		boolean stillAlive;
-		
-		/** Amount of delay until the next wave in milliseconds*/
-		int delay;
-		
-		/** Needed for added units to the model */
-		Model model;
-		
-		/** Stores unit ID's for next Wave of enemies to spawn */
-		ArrayList<integer> nextWaveUnits = new ArrayList<integer>();
-		
-		/**
-		 * Default Constructor
-		 * Sets level to 1;
-		 * 
-		 * @param model
-		 */
-		public LevelManager(Model model) {
-			this.model = model;
-			delay = 10000; //10 secs. waiting for ship 
-			level = 1;
-			//TODO: Then load in level 1
-		}
-		
-		/**
-		 * Constructor with set the starting level
-		 * 
-		 * @param model
-		 * @param startingLevel
-		 */
-		public LevelManager(Model model,int startingLevel) {
-			this.model = model;
-			delay = 10000; //10 secs. waiting for ship 
-			level = startingLevel;
-			//TODO: Then load in the apprioiate file
-		}
-		
-		/** For timing the spawning of units and reading the level */
-		@Override
-		public void run() {
-			
-			System.out.println("LevelManager Started ");
-			while (true) {
-				if (currentActivity != null) {
-					if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-						if (finalWave == true) {
-							/** Check if there are any enemies left before going to the next level */
-						
-							delay = 2000; /** Needed for sleep while on the final wave. Arbiltarily picked amount  */
-							stillAlive = false;
-							for(int i = 0; i < units.size(); i++) {
-								if ((units.get(i) instanceof CombatUnit == true) & (units.get(i) instanceof MainShip == false ) ) {
-									stillAlive = true;
-									break;
-								}	
-							}
-							if (stillAlive == false) {
-								nextLevel();
-							}
-						} else {
-							nextWave(); //read next two lines from the level text. Gets units to add and next delay.
-						}
-					}
-				}
-			
-				try {
-					Thread.sleep(delay);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		
-		/**
-		 * TODO: Get LevelManager update method working for unit spawning and level management.
-		 * 		Must implement a real time delay for wave spawning. 
-		 */
-		public void nextWave() {
-			
-		}
-		
-		/**
-		 * Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-		 */
-		private void nextLevel() {
-			//TODO: Increment level. Set the reader location to zero. Change file to next level. Go to upgrade screen.
-			/** Loop levels to minic infinite levels.
-			 * Use difficulty parameter to adjust difficulty  
-			 */
-			
-			delay = 100; /** Reset the delay after it was changed in the final wave loop */
-			
-			if (level < MAXLEVEL) {
-				level += 1;
-			} else {
-				difficulty += 1;
-				level = 1;
-			}
-		}
-		
-		/**
-		 * Spawn unit based off of integer.
-		 * 
-		 *  Hundreds place represents type:
-		 *  	0 = BaseShip
-		 *  	1 = BaseAircraft
-		 *  	2 = BaseSubmarine
-		 *  Tens and single digits place represent the specific type.
-		 *  
-		 *  ID given as a final in level manager
-		 *  
-		 * @param id
-		 */
-		private void spawn(int id) {
-			if ((currentActivity.name.equalsIgnoreCase("PlayController"))) {
-				if (id > 300) {
-					return;
-				} else {
-					/** Increases the spawn amount by difficulty */
-					for(int i = 0; i < difficulty; i++) {
-						switch (id) {
-							//BaseShips
-							case ID_EASYSHIP:
-								model.addUnit(new EasyShip(model));
-								break;
-						
-							case ID_MEDIUMSHIP:
-								model.addUnit(new MediumShip(model));
-								break;
-						
-							case ID_HARDSHIP:
-								model.addUnit(new HardShip(model));
-								break;
-						
-							//BaseAircraft
-							case ID_EASYAIRCRAFT:
-								model.addUnit(new EasyAircraft(model));
-								break;
-						
-							//BaseSubmarine	
-							case ID_EASYSUBMARINE:
-								model.addUnit(new EasySubmarine(model));
-								break;
-					
-						}
-					}
-				}
-			}
-		}
-		
-		/** 
-		 * TODO: Add parser 
-		 * */
-		
-		/**
-		 * TODO: Add interpreter
-		 */
-		
 	}
 	
 	
