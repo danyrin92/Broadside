@@ -121,5 +121,6 @@ public abstract class LevelManager {
 				newLevel = false;
 				return levelArray[level][10];
 			}
+			return levelArray[level][10];
 		}	
 	}
