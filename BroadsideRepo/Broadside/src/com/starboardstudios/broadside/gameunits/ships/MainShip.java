@@ -39,7 +39,7 @@ public class MainShip extends CombatUnit {
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
 
 		/** Starting position. As for now on the left. */
-		x = -((int) (model.getScreenX() * .225));
+		x = -((int) (model.getScreenX() * .325));
 		y = ((int) (model.getScreenY() * .7));
 
 		health = 100;
