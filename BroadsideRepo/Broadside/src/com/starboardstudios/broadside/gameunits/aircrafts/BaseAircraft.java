@@ -14,7 +14,7 @@ public abstract class BaseAircraft extends CombatUnit {
 
 	/** Random value for choosing pathing track */
 	Random rand = new Random();
-	int random = rand.nextInt(2);
+	int random = rand.nextInt(3);
 	int moveCount = 0;
 
 	public BaseAircraft(Model model) {
