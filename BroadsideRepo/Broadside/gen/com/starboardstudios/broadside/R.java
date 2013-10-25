@@ -42,37 +42,37 @@ public final class R {
         public static final int waves=0x7f02001c;
     }
     public static final class id {
-        public static final int BootyView=0x7f040011;
-        public static final int FrameLayout01=0x7f04000b;
-        public static final int FrameLayout02=0x7f040009;
-        public static final int FrameLayout03=0x7f040002;
-        public static final int HealthView=0x7f040003;
-        public static final int ImageView01=0x7f04000c;
-        public static final int ImageView02=0x7f04000a;
-        public static final int ImageView03=0x7f040004;
-        public static final int LevelView=0x7f040010;
-        public static final int RelativeLayout1=0x7f040015;
-        public static final int SpawnEnemy=0x7f04000e;
-        public static final int UpgradeScreen=0x7f04000f;
-        public static final int addObject2=0x7f04000d;
-        public static final int addShip=0x7f040013;
-        public static final int addTurret=0x7f040014;
-        public static final int button1=0x7f040018;
-        public static final int button2=0x7f04001b;
-        public static final int button3=0x7f040017;
-        public static final int button4=0x7f04001c;
-        public static final int button5=0x7f040019;
-        public static final int button6=0x7f04001d;
-        public static final int frameLayout1=0x7f040007;
-        public static final int frameLayout2=0x7f040005;
-        public static final int imageView1=0x7f040008;
-        public static final int imageView2=0x7f040006;
-        public static final int imageView3=0x7f040001;
-        public static final int inner_frame=0x7f040012;
-        public static final int nxtLvl=0x7f04001a;
-        public static final int play_frame=0x7f040000;
-        public static final int textView2=0x7f04001e;
-        public static final int upgrade_frame=0x7f040016;
+        public static final int BootyView=0x7f050011;
+        public static final int FrameLayout01=0x7f05000b;
+        public static final int FrameLayout02=0x7f050009;
+        public static final int FrameLayout03=0x7f050002;
+        public static final int HealthView=0x7f050003;
+        public static final int ImageView01=0x7f05000c;
+        public static final int ImageView02=0x7f05000a;
+        public static final int ImageView03=0x7f050004;
+        public static final int LevelView=0x7f050010;
+        public static final int RelativeLayout1=0x7f050015;
+        public static final int SpawnEnemy=0x7f05000e;
+        public static final int UpgradeScreen=0x7f05000f;
+        public static final int addObject2=0x7f05000d;
+        public static final int addShip=0x7f050013;
+        public static final int addTurret=0x7f050014;
+        public static final int button1=0x7f050018;
+        public static final int button2=0x7f05001b;
+        public static final int button3=0x7f050017;
+        public static final int button4=0x7f05001c;
+        public static final int button5=0x7f050019;
+        public static final int button6=0x7f05001d;
+        public static final int frameLayout1=0x7f050007;
+        public static final int frameLayout2=0x7f050005;
+        public static final int imageView1=0x7f050008;
+        public static final int imageView2=0x7f050006;
+        public static final int imageView3=0x7f050001;
+        public static final int inner_frame=0x7f050012;
+        public static final int nxtLvl=0x7f05001a;
+        public static final int play_frame=0x7f050000;
+        public static final int textView2=0x7f05001e;
+        public static final int upgrade_frame=0x7f050016;
     }
     public static final class layout {
         public static final int credits_view=0x7f030000;
@@ -84,9 +84,12 @@ public final class R {
         public static final int test_controller_view=0x7f030006;
         public static final int upgrade_view=0x7f030007;
     }
+    public static final class raw {
+        public static final int broadside_levels=0x7f040000;
+    }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int title_item_detail=0x7f050001;
+        public static final int app_name=0x7f060000;
+        public static final int title_item_detail=0x7f060001;
     }
     public static final class style {
         /** 
@@ -110,10 +113,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }

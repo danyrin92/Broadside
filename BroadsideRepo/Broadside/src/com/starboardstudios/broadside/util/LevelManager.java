@@ -21,6 +21,7 @@ public abstract class LevelManager {
 		//BaseSubmarine: 200 to 299
 		final int ID_EASYSUBMARINE = 200;
 		
+		//Ships, then Airplane, then Submarine. Each difficulty with the delay after it.
 		int[][] levelArray = new int[][]{{4,5,2,1,3,5,0,0,0,0},{2,4,5,1,3,5,0,0,0,0}};
 		
 		/** For knowing when to go to the next level */
