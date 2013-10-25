@@ -181,7 +181,6 @@ public class Model extends Thread {
 	public void addUnit(BaseUnit unit) {
 		if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 				(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
-
             System.out.println("Adding unit to class "+ unit.toString() );
             try{
                 Projectile p = (Projectile)unit;
@@ -204,11 +203,8 @@ public class Model extends Thread {
                	((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame)) 
     					.addView(unit.getImage());
             }
-
 		}
-
 	}
-
 
     /**
      * Checks all projectiles for collisions by checking rect bounds, then redefining if necessary.
@@ -227,7 +223,6 @@ public class Model extends Thread {
                      if(tempUnit.getImage().getDrawable().getBounds().contains(bounds))
                      {
 
-
                          if(checkCollision(tempProjectile, tempUnit))
                          {
 
@@ -235,12 +230,9 @@ public class Model extends Thread {
                              tempUnit.collide(tempProjectile);
                          }
 
-
                      }
                  }
          }
-
-
      }
 
     /**

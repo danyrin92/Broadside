@@ -91,7 +91,7 @@ public abstract class LevelManager {
 		/** Interface for model*/
 		public static void update() {
 			if (newLevel == true) {
-				startLevel(model.getLevel());
+				//startLevel(model.getLevel());
 				newLevel = false;
 			}
 		}	
