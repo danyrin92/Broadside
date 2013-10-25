@@ -16,7 +16,7 @@ import java.util.TimerTask;
 
 public abstract class LevelManager {
 		final static int MAXLEVEL = 2; 
-		
+		static int level = 0;
 		//BaseShips: 000 to 099
 		final static int ID_EASYSHIP = 000;
 		final static int ID_MEDIUMSHIP = 001;
@@ -89,10 +89,38 @@ public abstract class LevelManager {
 		}
 
 		/** Interface for model*/
-		public static void update() {
+		public static int update() {
 			if (newLevel == true) {
-				//startLevel(model.getLevel());
+				level = model.getLevel();
+				
+				//EasyShip es = new EasyShip(model);
+				//es.setPosition(((int) (model.getScreenX()) + 75),
+				//((int) (model.getScreenY() * .4)));
+				model.addUnit(000, levelArray[level][1], levelArray[level][0]);
+				
+				//MediumShip ms = new MediumShip(model);
+				//ms.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(001, levelArray[level][3],  levelArray[level][2]);
+				
+				//HardShip hs = new HardShip(model);
+				//hs.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(002, levelArray[level][5],  levelArray[level][4]);
+				
+				//EasySubmarine esub = new EasySubmarine(model);
+				//esub.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(100, levelArray[level][7],  levelArray[level][6]);
+				
+				//EasyAircraft ea = new EasyAircraft(model);
+				//ea.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(200, levelArray[level][9],  levelArray[level][8]);
+				
 				newLevel = false;
+				return levelArray[level][10];
 			}
+			return levelArray[level][10];
 		}	
 	}
