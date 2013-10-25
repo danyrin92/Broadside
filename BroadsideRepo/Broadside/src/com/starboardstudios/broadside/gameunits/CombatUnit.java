@@ -81,172 +81,94 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	/**
-	 * PathOne should be a box around the screen
-	 * 
-	 * NOTES: Max X: (int) (model.getScreenx() * .8) MinX: (int)
-	 * (model.getScreenx() * .3) MaxY: 0 MinY: (int) (model.getScreenx() * .7)
-	 * 
-	 * Normal speed: xSpeed = (int) (model.getScreenX() * .003);
-	 * 
-	 * Spawn location: x = (int) (model.getScreenX()) + 75) y = (int)
-	 * (model.getScreenY() * .4);
-	 * 
-	 * 
-	 * NODE VISUAL: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-	 * 
-	 * */
-
+	 * HERE BE THE PATHING METHODS! Each "go" method makes the object go to a
+	 * node and sets it's flag to true.
+	 */
 	protected void goOne() {
-		int speed = (int) (model.getScreenX() * .003);
-
-		if (x > ((int) (model.getScreenX() * .3)) && y > 0) {
-			xSpeed = -(speed / 2);
-			ySpeed = -(speed / 2);
-			return;
-		}
-		if (x > ((int) (model.getScreenX() * .3)))
-			xSpeed = -speed;
-		else
-			xSpeed = 0;
-		if (y > 0)
-			ySpeed = -speed;
-		else
-			ySpeed = 0;
-		if (x <= ((int) (model.getScreenX() * .3)) && y >= 0)
-			onen = true;
-
+		onen = setPath((int) (model.getScreenX() * .3), 0);
 	}
 
 	protected void goTwo() {
-
+		twon = setPath(percentX(.33), 0);
 	}
 
 	protected void goThree() {
-
+		threen = setPath(percentX(.66), 0);
 	}
 
 	protected void goFour() {
-		int speed = (int) (model.getScreenX() * .003);
-
-		if (x < ((int) (model.getScreenX() * .8)) && y > 0) {
-			xSpeed = (speed / 2);
-			ySpeed = -(speed / 2);
-			return;
-		}
-		if (x < ((int) (model.getScreenX() * .8)))
-			xSpeed = speed;
-		else
-			xSpeed = 0;
-		if (y > 0)
-			ySpeed = -speed;
-		else
-			ySpeed = 0;
-		if (x >= ((int) (model.getScreenX() * .8)) && y <= 0)
-			fourn = true;
+		fourn = setPath((int) (model.getScreenX() * .8), 0);
 	}
 
 	protected void goFive() {
+		fiven = setPath(percentX(0), percentY(.25));
 
 	}
 
 	protected void goSix() {
-
+		sixn = setPath(percentX(.33), percentY(.25));
 	}
 
 	protected void goSeven() {
-
+		sevenn = setPath(percentX(.66), percentY(.25));
 	}
 
 	protected void goEight() {
-
+		eightn = setPath(percentX(1), percentY(.25));
 	}
 
 	protected void goNine() {
-
+		ninen = setPath(percentX(0), percentY(.5));
 	}
 
 	protected void goTen() {
-
+		tenn = setPath(percentX(.33), percentY(.5));
 	}
 
 	protected void goEleven() {
-
+		elevenn = setPath(percentX(.66), percentY(.5));
 	}
 
 	protected void goTwelve() {
-
+		twelven = setPath(percentX(1), percentY(.5));
 	}
 
 	protected void goThirteen() {
-
+		thirteenn = setPath(percentX(0), percentY(.75));
 	}
 
 	protected void goFourteen() {
-
+		fourteenn = setPath(percentX(.33), percentY(.75));
 	}
 
 	protected void goFifteen() {
-
+		fifteenn = setPath(percentX(.66), percentY(.75));
 	}
 
 	protected void goSixteen() {
-
+		sixteenn = setPath(percentX(1), percentY(.75));
 	}
 
 	protected void goSeventeen() {
-		int speed = (int) (model.getScreenX() * .003);
-
-		if (x > ((int) (model.getScreenX() * .3))
-				&& y < (int) (model.getScreenY() * .7)) {
-			xSpeed = -(speed / 2);
-			ySpeed = (speed / 2);
-			return;
-		}
-
-		if (x > ((int) (model.getScreenX() * .3)))
-			xSpeed = -speed;
-		else
-			xSpeed = 0;
-		if (y < (int) (model.getScreenY() * .7))
-			ySpeed = speed;
-		else
-			ySpeed = 0;
-		if (x <= ((int) (model.getScreenX() * .3))
-				&& y >= (model.getScreenY() * .7))
-			seventeenn = true;
-
+		seventeenn = setPath(percentX(0), percentY(1));
 	}
 
-	protected void goEightteen() {
-
+	protected void goEighteen() {
+		eighteenn = setPath(percentX(.33), percentY(1));
 	}
 
 	protected void goNineteen() {
-
+		nineteenn = setPath(percentX(.66), percentY(1));
 	}
 
 	protected void goTwenty() {
-		int speed = (int) (model.getScreenX() * .003);
-
-		if (x < ((int) (model.getScreenX() * .8)) && y < (model.getScreenY() * .7)) {
-			xSpeed = (speed/2);
-			ySpeed = (speed/2);
-		}
-
-		if (x < ((int) (model.getScreenX() * .8)))
-			xSpeed = speed;
-		else
-			xSpeed = 0;
-		if (y < (model.getScreenY() * .7))
-			ySpeed = speed;
-		else
-			ySpeed = 0;
-		if (x >= ((int) (model.getScreenX() * .8))
-				&& y >= (model.getScreenY() * .7))
-			twentyn = true;
-
+		twentyn = setPath((int) (model.getScreenX() * .8),
+				(int) (model.getScreenY() * .7));
 	}
 
+	/**
+	 * Clean nodes lets you reset all nodes after a path has been completed
+	 */
 	protected void cleanNodes() {
 		onen = false;
 		twon = false;
@@ -273,6 +195,11 @@ public abstract class CombatUnit extends BaseUnit {
 		twentyn = false;
 	}
 
+	/**
+	 * BELOW BE THE PATHING SCRIPTS Pretty self explanatory. Feel free to go ham
+	 * group and make as many as you want Just call these in an objects update
+	 * method and it should path accordingly
+	 */
 	protected void pathOne() {
 		if (!fourn)
 			goFour();
@@ -300,4 +227,127 @@ public abstract class CombatUnit extends BaseUnit {
 			cleanNodes();
 	}
 
+	/**
+	 * Crazy ass path. testing all nodes.
+	 */
+	protected void pathThree() {
+		if (!threen)
+			goThree();
+		else if (!ninen)
+			goNine();
+		else if (!fourteenn)
+			goFourteen();
+
+		else if (!twelven)
+			goTwelve();
+		else if (!seventeenn)
+			goSeventeen();
+		else if (!thirteenn) {
+			System.out.println("I think it's breaking...");
+			goThirteen();
+		}
+
+		else if (!sevenn)
+			goSeven();
+		else if (!sixteenn)
+			goSixteen();
+
+		else if (!eighteenn)
+			goEighteen();
+
+		else if (!fourn)
+			goFour();
+		else if (!fiven)
+			goFive();
+		else if (!twentyn)
+			goTwenty();
+		else if (!eightn)
+			goEight();
+		else if (!twon)
+			goTwo();
+		else if (!nineteenn)
+			goNineteen();
+		else if (!fifteenn)
+			goFifteen();
+		else if (!onen)
+			goOne();
+		else if (!sixn)
+			goSix();
+		else if (!elevenn)
+			goEleven();
+		else if (!tenn)
+			goTen();
+		else
+			cleanNodes();
+
+	}
+
+	/**
+	 * Used to set the units xSpeed and ySpeed based upon a coordinate that it's
+	 * trying to reach
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	boolean setPath(int x, int y) {
+		int speed = (int) (model.getScreenX() * .003);
+
+		if (this.x < x)
+			xSpeed = (int) (model.getScreenX() * .003);
+		else if (this.x > x)
+			xSpeed = -(int) (model.getScreenX() * .003);
+		else
+			xSpeed = 0;
+
+		if (this.y < y)
+			ySpeed = (int) (model.getScreenX() * .003);
+		else if (this.y > y)
+			ySpeed = -(int) (model.getScreenX() * .003);
+		else
+			ySpeed = 0;
+
+		if (compare(this.x, x) && compare(this.y, y))
+			return true;
+
+		else
+			return false;
+
+	}
+
+	/**
+	 * There was an issue with setPath() where the resolution of the screen was
+	 * too precise and didn't allow an unforgiving comparison. This method
+	 * allows for a more forgiving comparison.
+	 * 
+	 * @param num1
+	 * @param num2
+	 * @return
+	 */
+	boolean compare(int num1, int num2) {
+		if ((num1 + 5) > num2 && (num1 - 5) < num2)
+			return true;
+		else
+			return false;
+
+	}
+
+	/**
+	 * Oh my god. Stuff wont work. I'm cheating and making these methods
+	 * 
+	 * @return
+	 */
+	int percentX(double percent) {
+		int num = (int) (model.getScreenX() * .8)
+				- (int) (model.getScreenX() * .3);
+		num = (int) (num * percent);
+		return (num + (int) (model.getScreenX() * .3));
+
+	}
+
+	int percentY(double percent) {
+		int num = (int) (model.getScreenY() * .7);
+		num = (int) (num * percent);
+		return num;
+	}
 }

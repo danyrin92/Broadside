@@ -47,9 +47,6 @@ public class EasyShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-		int speed = Math.abs(xSpeed) + Math.abs(ySpeed);
-		System.out.println("Speed: " + speed);
-		
 		x = x + xSpeed;
 		y = y + ySpeed;
 
@@ -58,6 +55,9 @@ public class EasyShip extends BaseShip {
 
 		if (random == 0)
 			pathTwo();
+
+		if (random == 2)
+			pathThree();
 
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);

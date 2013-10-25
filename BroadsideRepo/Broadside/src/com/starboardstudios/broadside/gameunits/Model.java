@@ -13,6 +13,7 @@ import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.util.LevelManager;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,7 @@ public class Model extends Thread {
 	 */
 	protected int difficulty; 
 	private int level;
+	private int numOfEnemies;
 	
 	private int booty; //currency
 	private int numTurretTypes;
@@ -77,7 +79,7 @@ public class Model extends Thread {
      * process movement, collisisons, etc.
      */
 	public void update() {
-
+		LevelManager.update();
         try{
             checkCollisions();
         } catch(Exception e)
@@ -188,6 +190,9 @@ public class Model extends Thread {
             }catch(Exception e){
                 units.add(unit);
               //maintain mainship turret list
+                if (unit instanceof Turret) {
+                	getMainShip().addTurret((Turret) unit);
+                }
             }
             
             if (currentActivity.name.equalsIgnoreCase("PlayController")) {
@@ -384,8 +389,18 @@ public class Model extends Thread {
 		return turretCosts[index];
 	}
 
-    public Activity getCurrentActivity()
+    public BaseController getCurrentActivity()
     {
         return currentActivity;
     }
+
+	public int getNumOfEnemies() {
+		return numOfEnemies;
+	}
+
+	public void setNumOfEnemies(int numOfEnemies) {
+		this.numOfEnemies = numOfEnemies;
+	}
+
+
 }

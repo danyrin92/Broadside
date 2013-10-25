@@ -57,6 +57,9 @@ public class EasyAircraft extends BaseAircraft {
 		if (random == 0)
 			pathTwo();
 
+		if (random == 2)
+			pathThree();
+
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
 		model.runOnMain(new Runnable() {
@@ -79,3 +82,4 @@ public class EasyAircraft extends BaseAircraft {
 	}
 
 }
+

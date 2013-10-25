@@ -56,6 +56,9 @@ public class HardShip extends BaseShip {
 		if (random == 0)
 			pathTwo();
 
+		if (random == 2)
+			pathThree();
+
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
 
