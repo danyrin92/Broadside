@@ -45,7 +45,8 @@ public class PlayController extends BaseController {
 		 * logic! Don't delete!
 		 */
 		model.addUnit(new MainShip(model));
-        model.addUnit(model.getMainShip().getMainCannon());
+		//TODO make this line not make clicking the continue button in upgrades screen crash
+        //model.addUnit(model.getMainShip().getMainCannon());
         
 		try {
 			Thread.sleep(20);
