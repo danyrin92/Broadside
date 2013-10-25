@@ -93,30 +93,30 @@ public abstract class LevelManager {
 			if (newLevel == true) {
 				level = model.getLevel();
 				
-				EasyShip es = new EasyShip(model);
-				es.setPosition(((int) (model.getScreenX()) + 75),
-				((int) (model.getScreenY() * .4)));
-				model.addUnit(es, levelArray[level][0], levelArray[level][1]);
+				//EasyShip es = new EasyShip(model);
+				//es.setPosition(((int) (model.getScreenX()) + 75),
+				//((int) (model.getScreenY() * .4)));
+				model.addUnit(000, levelArray[level][1], levelArray[level][0]);
 				
-				MediumShip ms = new MediumShip(model);
-				ms.setPosition(((int) (model.getScreenX()) + 75),
-						((int) (model.getScreenY() * .4)));
-				model.addUnit(ms, levelArray[level][2],  levelArray[level][3]);
+				//MediumShip ms = new MediumShip(model);
+				//ms.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(001, levelArray[level][3],  levelArray[level][2]);
 				
-				HardShip hs = new HardShip(model);
-				hs.setPosition(((int) (model.getScreenX()) + 75),
-						((int) (model.getScreenY() * .4)));
-				model.addUnit(hs, levelArray[level][4],  levelArray[level][5]);
+				//HardShip hs = new HardShip(model);
+				//hs.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(002, levelArray[level][5],  levelArray[level][4]);
 				
-				EasySubmarine esub = new EasySubmarine(model);
-				esub.setPosition(((int) (model.getScreenX()) + 75),
-						((int) (model.getScreenY() * .4)));
-				model.addUnit(esub, levelArray[level][6],  levelArray[level][7]);
+				//EasySubmarine esub = new EasySubmarine(model);
+				//esub.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(100, levelArray[level][7],  levelArray[level][6]);
 				
-				EasyAircraft ea = new EasyAircraft(model);
-				ea.setPosition(((int) (model.getScreenX()) + 75),
-						((int) (model.getScreenY() * .4)));
-				model.addUnit(ea, levelArray[level][8],  levelArray[level][9]);
+				//EasyAircraft ea = new EasyAircraft(model);
+				//ea.setPosition(((int) (model.getScreenX()) + 75),
+				//		((int) (model.getScreenY() * .4)));
+				model.addUnit(200, levelArray[level][9],  levelArray[level][8]);
 				
 				newLevel = false;
 				return levelArray[level][10];
