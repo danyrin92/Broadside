@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.starboardstudios.broadside.R;
 
-public class PauseController extends BaseController{
+public class PauseController extends BaseController {
 	
 	@SuppressLint("NewApi")
 	@Override

@@ -40,7 +40,142 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/cannon_ball.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/cannon_main.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/cannon_main_selected.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/cannon_main_shooting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/cannon_upgrade1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/credits_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/crew_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/easyaircraft.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/easyship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/easysubmarine.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/error.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/hardship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/leaders_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/load_game.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/main_cannon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/main_cannon_red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/mainship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/mainship_new.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/mediumship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/missile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/newgame_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/ocean.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/title.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/torpedo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/turret6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/tutorial_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/bin/res/drawable/waves.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gen/com/starboardstudios/broadside/R.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/libs/android-support-v4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/broadside_logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/cannon_ball.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/cannon_main.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/cannon_main_selected.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/cannon_main_shooting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/cannon_upgrade1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/credits_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/crew_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/easyaircraft.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/easyship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/easysubmarine.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/error.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/explosion_gif.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/hardship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/leaders_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/load_game.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/main_cannon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/main_cannon_red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/mainship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/mainship_new.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/mediumship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/missile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/newgame_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/ocean.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/title.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/torpedo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/turret6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/tutorial_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/drawable/waves.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/credits_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/home_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/leaderboard_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/options_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/pause_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/play_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/test_controller_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/layout/upgrade_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/raw/broadside_levels.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values-large/refs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values-sw600dp/refs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values-v11/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values-v14/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values/ids.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/res/values/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/app/BroadsideApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/BaseController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/CreditsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/HomeController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/LeaderBoardController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/OptionsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/PauseController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/UpgradeController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/Crew.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/interfaces/Draggable.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/controller/PlayController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/BaseUnit.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/CombatUnit.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/CombatUnit.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/aircrafts/BaseAircraft.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/aircrafts/BaseAircraft.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/aircrafts/EasyAircraft.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/aircrafts/EasyAircraft.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/projectile/CannonBall.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/CannonBall.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/projectile/Missile.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Missile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/projectile/Torpedo.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Torpedo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/BaseShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/BaseShip.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/EasyShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/EasyShip.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/HardShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/HardShip.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/MediumShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MediumShip.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/ships/Section.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/submarine/BaseSubmarine.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/submarine/BaseSubmarine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/submarine/EasySubmarine.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/submarine/EasySubmarine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret2.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret3.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret3.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret4.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret4.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret5.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret5.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/gameunits/turrets/Turret6.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret6.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/src/com/starboardstudios/broadside/util/LevelManager.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/BaseController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/CreditsController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/CreditsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/HomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/LeaderBoardController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/LeaderBoardController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/OptionsController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/OptionsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PauseController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PauseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -105,185 +240,27 @@
     <favorites_list name="Broadside" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43590975">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Crew.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Crew.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="13" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BaseShip.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/BaseShip.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="24" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="810">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EasyShip.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/EasyShip.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="13" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1365">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HardShip.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/HardShip.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="13" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1365">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="38" column="48" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="1830">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Model.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="438" column="33" selection-start="13357" selection-end="13357" vertical-scroll-proportion="0.22955975" vertical-offset="5631" max-vertical-offset="6585">
-                  <folding>
-                    <element signature="e#13421#13579#0" expanded="true" />
-                    <element signature="e#13568#13569#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Section.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="13" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="165">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MediumShip.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MediumShip.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="62" column="17" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1350">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BaseSubmarine.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/submarine/BaseSubmarine.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="24" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="780">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EasySubmarine.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/submarine/EasySubmarine.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="13" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1365">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Projectile.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="16" column="4" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1935">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main_cannon.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cannon_main.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/cannon_main.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cannon_main_sized.png" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/res/drawable/cannon_main_sized.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main_cannon_red.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon_red.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="error.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/error.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MainCannon.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="13" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1950">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="easyaircraft.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/easyaircraft.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Turret.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="22" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1575">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="credits_cloud.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/drawable/credits_cloud.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="main_cannon.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Projectile.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="0" selection-start="2239" selection-end="2239" vertical-scroll-proportion="0.5854657" vertical-offset="973" max-vertical-offset="2250">
+              <folding>
+                <element signature="e#2063#2236#0" expanded="true" />
+                <element signature="e#2230#2231#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -321,14 +298,14 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
         <option value="$PROJECT_DIR$/res/layout/upgrade_view.xml" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
+    <option name="width" value="1280" />
     <option name="height" value="1330" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -433,32 +410,6 @@
               <option name="myItemId" value="broadside" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -479,84 +430,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameunits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameunits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turrets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameunits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="submarine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameunits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ships" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -605,24 +478,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -740,6 +595,9 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.starboardstudios" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/raw" />
       <recent name="$PROJECT_DIR$/res/drawable" />
@@ -1162,6 +1020,7 @@
       <workItem from="1382682777220" duration="240000" />
       <workItem from="1382683116583" duration="159000" />
       <workItem from="1382683308941" duration="414000" />
+      <workItem from="1382687369812" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1291,7 +1150,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97620000" />
+    <option name="totallyTimeSpent" value="98392000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1314,7 +1173,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="1330" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6707416" order="3" side_tool="false" content_ui="tabs" />
@@ -1338,7 +1197,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17143993" sideWeight="0.39728683" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34927067" sideWeight="0.39728683" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32343236" sideWeight="0.16476153" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1384,6 +1243,36 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon_red.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/error.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/easyaircraft.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/cannon_main.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/credits_cloud.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/cannon_ball.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1414,33 +1303,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1935">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon_red.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1450,31 +1313,17 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/cannon_main_sized.png">
+    <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="48" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="1830">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="438" column="33" selection-start="13357" selection-end="13357" vertical-scroll-proportion="0.22955975" vertical-offset="5631" max-vertical-offset="6585">
+        <state line="106" column="0" selection-start="2239" selection-end="2239" vertical-scroll-proportion="0.5854657" vertical-offset="973" max-vertical-offset="2250">
           <folding>
-            <element signature="e#13421#13579#0" expanded="true" />
-            <element signature="e#13568#13569#0" expanded="true" />
+            <element signature="e#2063#2236#0" expanded="true" />
+            <element signature="e#2230#2231#0" expanded="true" />
           </folding>
         </state>
       </provider>

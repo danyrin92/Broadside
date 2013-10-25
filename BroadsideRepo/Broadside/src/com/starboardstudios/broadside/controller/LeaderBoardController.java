@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.starboardstudios.broadside.R;
 
-public class LeaderBoardController extends BaseController{
+public class LeaderBoardController extends BaseController {
 	
 	@SuppressLint("NewApi")
 	@Override

@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.starboardstudios.broadside.R;
+
 //COMMENT YO SHIT
-public class HomeController extends BaseController{
+public class HomeController extends BaseController {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){

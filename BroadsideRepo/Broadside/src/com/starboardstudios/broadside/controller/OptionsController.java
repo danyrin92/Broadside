@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.starboardstudios.broadside.R;
 
-public class OptionsController extends BaseController{
+public class OptionsController extends BaseController {
 	
 	@SuppressLint("NewApi")
 	@Override

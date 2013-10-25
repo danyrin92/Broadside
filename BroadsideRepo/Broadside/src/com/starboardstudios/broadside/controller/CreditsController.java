@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.starboardstudios.broadside.R;
 
-public class CreditsController extends BaseController{
+public class CreditsController extends BaseController {
 	
 	@SuppressLint("NewApi")
 	@Override
