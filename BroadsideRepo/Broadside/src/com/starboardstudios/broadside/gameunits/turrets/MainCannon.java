@@ -4,7 +4,8 @@ package com.starboardstudios.broadside.gameunits.turrets;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.starboardstudios.broadside.R.drawable;
+
+import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
@@ -21,7 +22,7 @@ public class MainCannon extends Turret {
 		this.x=x;this.y=y; this.cooldown = 10; this.currentCooldown = 0;
 		projectile = new CannonBall(model);
 		fireSpeed = 15;
-	    imageView.setImageResource(drawable.main_cannon); //Set to image
+	    imageView.setImageResource(R.drawable.main_cannon); //Set to image
 	    imageView.setAdjustViewBounds(true);
 	    imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
            /**
@@ -84,7 +85,7 @@ public class MainCannon extends Turret {
 	            public void run() {
 	                imageView.setX(x);
 	                imageView.setY(y);
-	    			imageView.setImageResource(drawable.main_cannon);
+	    			imageView.setImageResource(R.drawable.main_cannon);
 	            }
 	        });
 	        currentCooldown--;
