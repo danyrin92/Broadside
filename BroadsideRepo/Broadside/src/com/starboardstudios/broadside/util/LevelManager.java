@@ -29,7 +29,7 @@ public abstract class LevelManager {
 		final static int ID_EASYSUBMARINE = 200;
 		
 		//Ships, then Airplane, then Submarine. Each difficulty with the delay after it.
-		static int[][] levelArray = new int[100][10];
+		static int[][] levelArray = new int[100][11];
 		
 		/** For knowing when to go to the next level */
 		static boolean finalWave = false;
@@ -54,7 +54,6 @@ public abstract class LevelManager {
                 InputStream stream =  model.getCurrentActivity().getBaseContext().getResources().openRawResource(R.raw.broadside_levels);
                 InputStreamReader reader = new InputStreamReader(stream);
                 BufferedReader breader = new BufferedReader(reader);
-                System.out.println("BAHAHAHAHAHAH I WORKED");
 
                 int lineCounter = 0;
                 String line = null;
@@ -63,14 +62,21 @@ public abstract class LevelManager {
 					{
 						String[] fileLine = line.split(",");
 						System.out.print(fileLine.toString());
+						int numberShips = 0;
 						int counter = 0;
 						for(String lineInfo : fileLine)
 						{
+							if(Integer.parseInt(lineInfo) % 2 != 1)
+							{
+								numberShips += Integer.parseInt(lineInfo);
+							}
 							levelArray[lineCounter][counter] = Integer.parseInt(lineInfo);
 							counter++;
 						}
+						levelArray[lineCounter][counter] = numberShips;
 						lineCounter++;
 					}
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -78,7 +84,8 @@ public abstract class LevelManager {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
+			}
+			
 		}
 
 		/** Interface for model*/
@@ -145,10 +152,6 @@ public abstract class LevelManager {
 			timer.schedule(taskHardShip, 10000, levelArray[level][5]);
 			timer.schedule(taskEasyAircraft, 10000, levelArray[level][7]);
 			timer.schedule(taskEasySubmarine, 10000 , levelArray[level][9]);
-		}
-		
-		private static void startLevel() {
-			startLevel(model.getLevel());
 		}
 		
 		private static void startLevel(int level) {
