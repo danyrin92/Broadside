@@ -40,11 +40,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -132,7 +127,7 @@
           <file leaf-file-name="MainCannon.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="105" column="18" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.61849713" vertical-offset="860" max-vertical-offset="1725">
+                <state line="105" column="55" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.61849713" vertical-offset="860" max-vertical-offset="1725">
                   <folding />
                 </state>
               </provider>
@@ -1048,7 +1043,7 @@
       <workItem from="1382651411906" duration="148000" />
       <workItem from="1382655313823" duration="1578000" />
       <workItem from="1382657589817" duration="1205000" />
-      <workItem from="1382659176854" duration="1688000" />
+      <workItem from="1382659176854" duration="1728000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1150,11 +1145,15 @@
       <created>1382660394089</created>
       <updated>1382660394089</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Draggable">
+      <created>1382660891957</created>
+      <updated>1382660891957</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81468000" />
+    <option name="totallyTimeSpent" value="81508000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1234,7 +1233,8 @@
     <MESSAGE value="-Temp Undo" />
     <MESSAGE value="Added draggable interface" />
     <MESSAGE value="-Fixed Errors," />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fixed Errors," />
+    <MESSAGE value="Draggable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draggable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1344,7 +1344,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="18" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.61849713" vertical-offset="860" max-vertical-offset="1725">
+        <state line="105" column="55" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.61849713" vertical-offset="860" max-vertical-offset="1725">
           <folding />
         </state>
       </provider>
