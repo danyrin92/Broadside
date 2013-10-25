@@ -14,12 +14,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_weight="0.39" >
+            >
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center" >
+            android:layout_gravity="right|center" android:id="@id/upgrade">
 
             <Button
                 android:id="@+id/button3"
