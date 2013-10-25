@@ -79,7 +79,7 @@ public class Model extends Thread {
      * process movement, collisisons, etc.
      */
 	public void update() {
-		LevelManager.update();
+		numOfEnemies = LevelManager.update();
         try{
             checkCollisions();
         } catch(Exception e)
