@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_y="2dp"
+        android:gravity="top" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cropToPadding="true"
+            android:scaleType="fitEnd"
+            android:src="@drawable/waves" />
+
+        <FrameLayout
+            android:id="@+id/FrameLayout03"
+            android:layout_width="112dp"
+            android:layout_height="124dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/HealthView"
+            android:layout_marginRight="37dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/ImageView03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/leaders_cloud" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/HealthView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Broadside"
+            android:textAppearance="?android:attr/textAppearanceLargeInverse"
+            android:textColor="#000000"
+            android:textSize="50dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_x="0dp"
+        android:layout_y="-12dp" >
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="115dp"
+            android:layout_height="130dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/tutorial_cloud" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout1"
+            android:layout_width="116dp"
+            android:layout_height="126dp"
+            android:layout_weight="0.13" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:onClick="playGame"
+                android:src="@drawable/newgame_cloud" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/FrameLayout02"
+            android:layout_width="112dp"
+            android:layout_height="106dp"
+            android:layout_marginLeft="104dp"
+            android:layout_weight="0.53" >
+
+            <ImageView
+                android:id="@+id/ImageView02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/load_game" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/FrameLayout01"
+            android:layout_width="100dp"
+            android:layout_height="142dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/credits_cloud" />
+        </FrameLayout>
+    </LinearLayout>
+
+</AbsoluteLayout>
