@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.starboardstudios.broadside.app.*;
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.turrets.*;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 
 public class UpgradeController extends BaseController {
 
@@ -28,6 +26,9 @@ public class UpgradeController extends BaseController {
 		super.onCreate(savedInstanceState);
 		final View screen = ((LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.upgrade_view,null);
 		setContentView(R.layout.upgrade_view);
+
+
+
 
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();

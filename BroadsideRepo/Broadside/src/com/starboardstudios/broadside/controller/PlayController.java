@@ -5,23 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.DragEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
+import android.view.*;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
-import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
-import java.util.Random;
 
 public class PlayController extends BaseController {
 
@@ -128,7 +122,7 @@ public class PlayController extends BaseController {
 
 	/** For adding turret keylistener. */
 	public void addTurret(View view) {
-		model.addUnit(new MainCannon(model, new CannonBall(model, 20)));
+	//	model.addUnit(new MainCannon(model, new CannonBall(model, 20)));
 	}
 
 	/** Test method for spawning enemies */

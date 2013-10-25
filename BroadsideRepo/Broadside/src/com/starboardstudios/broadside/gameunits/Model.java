@@ -48,7 +48,8 @@ public class Model extends Thread {
 		this.context = context;
 		this.booty = 200;
 		/**This turret stuff should probably be done elsewhere...*/
-		this.numTurretTypes = 6;
+	    //TODO: Make currency values make more sense
+			this.numTurretTypes = 6;
 		this.turretCosts = new int[numTurretTypes+1];
 		this.turretCosts[1] = 50;
 		this.turretCosts[2] = 25;
@@ -193,7 +194,7 @@ public class Model extends Thread {
                 units.add(unit);
               //maintain mainship turret list
                 if (unit instanceof Turret) {
-                	getMainShip().addTurret((Turret) unit);
+                	//getMainShip().addTurret((Turret) unit);
                 }
             }
             

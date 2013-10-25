@@ -39,8 +39,11 @@
     </layouts>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
+    <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="-Fixed Errors,">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -99,128 +102,119 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="51" column="31" selection-start="1680" selection-end="1680" vertical-scroll-proportion="0.038290292" vertical-offset="557" max-vertical-offset="1680">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Broadside" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Model.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="59" selection-start="4773" selection-end="4773" vertical-scroll-proportion="0.19949174" vertical-offset="1613" max-vertical-offset="7455">
-              <folding>
-                <element signature="e#5367#5368#0" expanded="true" />
-                <element signature="e#5396#5397#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="options_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/options_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="play_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upgrade_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/upgrade_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_controller_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/test_controller_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/home_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leaderboard_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/leaderboard_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pause_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/pause_view.xml">
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="196" column="22" selection-start="6236" selection-end="6236" vertical-scroll-proportion="2.8169014" vertical-offset="0" max-vertical-offset="8115">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Draggable.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="2" column="0" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="play_view.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
+              <provider selected="true" editor-type-id="android-designer">
+                <state />
+              </provider>
+              <provider editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CombatUnit.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/CombatUnit.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="8" column="49" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="4635">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BaseUnit.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="7" column="22" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="600">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PauseController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PauseController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="65" column="80" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="2670">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UpgradeController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="30" column="0" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2160">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="broadside_logo.jpg" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/res/drawable/broadside_logo.jpg">
+              <provider selected="true" editor-type-id="images">
+                <state />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="easyaircraft.png" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/res/drawable/easyaircraft.png">
+              <provider selected="true" editor-type-id="images">
+                <state />
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="PlayController.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="124" column="6" selection-start="4211" selection-end="4211" vertical-scroll-proportion="0.32094595" vertical-offset="1230" max-vertical-offset="2325">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -233,7 +227,7 @@
         <option value="Alex Whiteside" />
       </list>
     </option>
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitLogSettings">
@@ -244,8 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/ProjectileBase.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/BasicEnemyShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/TestShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/submarine/BaseSubmarine.java" />
@@ -257,16 +249,18 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/CombatUnit.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/CannonBall.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/res/layout/upgrade_view.xml" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="2560" />
-    <option name="height" value="1333" />
+    <option name="height" value="1330" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -372,8 +366,26 @@
               <option name="myItemId" value="broadside" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gameunits" />
+              <option name="myItemId" value="Broadside" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Broadside" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="broadside" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="interfaces" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -396,10 +408,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameunits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turrets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -526,28 +534,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="broadside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1027,7 +1013,11 @@
       <workItem from="1382405182113" duration="4526000" />
       <workItem from="1382486082720" duration="571000" />
       <workItem from="1382590121349" duration="258000" />
-      <workItem from="1382591059200" duration="2346000" />
+      <workItem from="1382591059200" duration="3091000" />
+      <workItem from="1382651411906" duration="148000" />
+      <workItem from="1382655313823" duration="1578000" />
+      <workItem from="1382657589817" duration="1205000" />
+      <workItem from="1382659176854" duration="1208000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1117,11 +1107,19 @@
       <created>1382592479438</created>
       <updated>1382592479438</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="-Fixed Errors,">
+      <created>1382595774587</created>
+      <updated>1382595774587</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added draggable interface">
+      <created>1382659460650</created>
+      <updated>1382659460650</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76104000" />
+    <option name="totallyTimeSpent" value="80988000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1144,11 +1142,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1333" extended-state="6" />
+    <frame x="0" y="22" width="2560" height="1330" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6707416" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921812" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24422443" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6707416" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949877" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1162,7 +1160,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6683127" sideWeight="0.4582339" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30986476" sideWeight="0.6017442" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32674897" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921812" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24422443" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949877" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1199,7 +1197,9 @@
     <MESSAGE value="-Fixed Collision Properties" />
     <MESSAGE value="-Model adds previously added items to the view on screen change." />
     <MESSAGE value="-Temp Undo" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Temp Undo" />
+    <MESSAGE value="-Fixed Errors," />
+    <MESSAGE value="Added draggable interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added draggable interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1209,39 +1209,44 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/drawable/mediumship.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="994" selection-end="994" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/drawable/error.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/drawable/leaders_cloud.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/LeaderBoardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/drawable/main_cannon_red.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/OptionsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/drawable/easyship.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/credits_cloud.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/easyaircraft.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/broadside_logo.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PauseController.java">
@@ -1251,97 +1256,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Crew.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/BaseUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+        <state line="7" column="22" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/home_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/CombatUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="49" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4515">
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/leaderboard_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2160">
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/pause_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/test_controller_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/upgrade_view.xml">
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/options_view.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="31" selection-start="1680" selection-end="1680" vertical-scroll-proportion="0.038290292" vertical-offset="557" max-vertical-offset="1680">
+        <state line="2" column="0" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="59" selection-start="4773" selection-end="4773" vertical-scroll-proportion="0.19949174" vertical-offset="1613" max-vertical-offset="7455">
-          <folding>
-            <element signature="e#5367#5368#0" expanded="true" />
-            <element signature="e#5396#5397#0" expanded="true" />
-          </folding>
+        <state line="196" column="22" selection-start="6236" selection-end="6236" vertical-scroll-proportion="2.8169014" vertical-offset="0" max-vertical-offset="8115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="6" selection-start="4211" selection-end="4211" vertical-scroll-proportion="0.32094595" vertical-offset="1230" max-vertical-offset="2325">
+          <folding />
         </state>
       </provider>
     </entry>
