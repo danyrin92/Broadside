@@ -23,7 +23,7 @@ public class MainCannon extends Turret {
         me=this;
 		this.x=x;this.y=y; this.cooldown = 10; this.currentCooldown = 0;
 		cannonBall = new CannonBall(model);
-		fireSpeed = 1;
+		fireSpeed = 5;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
