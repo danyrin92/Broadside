@@ -1,25 +1,27 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
 	int cooldown, currentCooldown;
+	float angle; //90 to -90
     MainCannon me;
-    Projectile shotType;
     
 	public MainCannon(Model model, int x, int y) {
 		super(model, x, y);
         me=this;
 		this.x=x;this.y=y; this.cooldown = 10; this.currentCooldown = 0;
-		shotType= new CannonBall(model);
+		projectile = new CannonBall(model);
+		fireSpeed = 15;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
 	        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
@@ -48,9 +50,14 @@ public class MainCannon extends Turret {
 	    }
 	
 		
-		public void fireMainCannon(float xTarget, float yTarget){
+		public void fire(float xTarget, float yTarget){
 			if (currentCooldown == 0){
-				model.addUnit(shotType.create(model, x, y, xTarget, yTarget));
+				float yDifference = yTarget - y;
+				float xDifference = xTarget - x;
+				double angle = Math.atan(yDifference/xDifference);
+				float ySpeed = (float) Math.sin(angle)*fireSpeed;
+				float xSpeed = (float) Math.cos(angle)*fireSpeed;
+				model.addUnit(projectile.create(model, x, y, (int)xSpeed, (int)ySpeed));
 				currentCooldown=cooldown;
 			}
 		}

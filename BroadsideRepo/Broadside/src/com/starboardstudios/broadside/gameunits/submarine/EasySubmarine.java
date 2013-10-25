@@ -76,8 +76,7 @@ public class EasySubmarine extends BaseSubmarine {
 	}
 
 	void fire() {
-		model.addUnit(new Torpedo(model, 20, x, y, z, xFireSpeed, yFireSpeed,
-				zFireSpeed));
+		model.addUnit(new Torpedo(model, 20, x, y, xFireSpeed, yFireSpeed));
 	}
 
 }

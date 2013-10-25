@@ -1,6 +1,5 @@
 package com.starboardstudios.broadside.gameunits;
 
-import android.R.integer;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -10,15 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
-import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.ships.EasyShip;
-import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.gameunits.ships.MediumShip;
-import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
-
 import java.util.ArrayList;
 
 public class Model extends Thread {
@@ -190,9 +182,6 @@ public class Model extends Thread {
             }catch(Exception e){
                 units.add(unit);
               //maintain mainship turret list
-                if (unit instanceof Turret) {
-                	//getMainShip().addTurret((Turret) unit);
-                }
             }
             
             if (currentActivity.name.equalsIgnoreCase("PlayController")) {
@@ -384,12 +373,5 @@ public class Model extends Thread {
 	
 	public int getTurretCostAt(int index) {
 		return turretCosts[index];
-	}
-	
-	
+	}	
 }
-
-    
-
-    
-

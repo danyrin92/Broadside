@@ -4,7 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.*;
+import android.view.DragEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.DragEvent;
+import android.view.Window;
+import android.view.LayoutInflater;
+
+import com.starboardstudios.broadside.interfaces.Draggable;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -14,7 +21,6 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.interfaces.Draggable;
 
 public class PlayController extends BaseController {
 
@@ -24,8 +30,7 @@ public class PlayController extends BaseController {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final View screen = ((LayoutInflater) getBaseContext()
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
+		final View screen = ((LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
@@ -76,12 +81,12 @@ public class PlayController extends BaseController {
 
 			}
 		});
-        /**for firing the main cannon*/
+        /**FIRING LISTENER*/
         screen.setOnTouchListener(new View.OnTouchListener() {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				model.getMainShip().getMainCannon().fireMainCannon(event.getX(), event.getY());
+				model.getMainShip().getMainCannon().fire(event.getX(), event.getY());
 				return true;
 			}
 		});  
@@ -100,10 +105,6 @@ public class PlayController extends BaseController {
 	}
 
 	/** For adding turret keylistener. */
-	public void addTurret(View view) {
-	//	model.addUnit(new MainCannon(model, new CannonBall(model, 20)));
-	}
-
 	/** Test method for spawning enemies */
 	static int spawnnum = 0;
 

@@ -18,9 +18,7 @@ public class Turret2 extends Turret {
 	public Turret2(Model model, Projectile projectile) {
 		super(model, projectile, 2);
 		/*ARBITRARY VALUES*/
-		this.xFireSpeed = 20;
-		this.yFireSpeed = 0;
-		this.zFireSpeed = 0;
+		this.fireSpeed = 20;
         me=this;
 		x=35;y=35;z=0;
 		    imageView.setImageResource(drawable.turret2); //Set to image
@@ -54,9 +52,7 @@ public class Turret2 extends Turret {
 		public Turret2(Model model, Projectile projectile, int x, int y, int z) {
 		super(model, projectile, x, y, z);
 		/*ARBITRARY VALUES*/
-		this.xFireSpeed = 20;
-		this.yFireSpeed = 0;
-		this.zFireSpeed = 0;
+		this.fireSpeed = 20;
         me=this;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
@@ -87,7 +83,7 @@ public class Turret2 extends Turret {
 	         System.out.println("Turret1 Created");
 	    }
 		public Turret2(Model model, Projectile projectile, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-			super(model, projectile, x, y, z, xFireSpeed, yFireSpeed, zFireSpeed);
+			super(model, projectile, x, y, xFireSpeed, yFireSpeed);
 	        me=this;
 			    imageView.setImageResource(drawable.main_cannon); //Set to image
 		        imageView.setAdjustViewBounds(true);
@@ -154,4 +150,19 @@ public class Turret2 extends Turret {
         this.x=x;
         this.y=y;
     }
+	@Override
+	public void dragStarted() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void midDrag(float x, float y) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void endDrag(float x, float y) {
+		// TODO Auto-generated method stub
+		
+	}
 }

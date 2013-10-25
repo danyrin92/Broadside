@@ -3,7 +3,6 @@ package com.starboardstudios.broadside.gameunits.projectile;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 
@@ -12,7 +11,7 @@ public abstract class Projectile extends BaseUnit {
 	protected ImageView imageView;
 	protected int damage;
 	/** Added Z value for possible image scaling */
-	protected int z, xSpeed, ySpeed, zSpeed;
+	protected int z, xSpeed, ySpeed;
 	protected float xTarget, yTarget;
     public Model model;
 
@@ -31,14 +30,13 @@ public abstract class Projectile extends BaseUnit {
         imageView = new ImageView(context);
 
     }
-    public Projectile(Model model, int damage, int x, int y, int z)
+    public Projectile(Model model, int damage, int x, int y)
 	{
 		this.model = model;
 		this.context = model.context;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
-		this.z = z;
         imageView = new ImageView(context);
 
     }
@@ -62,17 +60,15 @@ public abstract class Projectile extends BaseUnit {
           imageView = new ImageView(context);
 
       }
-    public Projectile(Model model, int damage, int x, int y, int z, int xSpeed, int ySpeed, int zSpeed)
+    public Projectile(Model model, int damage, int x, int y, int xSpeed, int ySpeed)
 	{
 		this.model = model;
 		this.context = model.context;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
-		this.z = z;
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
-		this.zSpeed = zSpeed;
         imageView = new ImageView(context);
 
     }
@@ -83,13 +79,10 @@ public abstract class Projectile extends BaseUnit {
     }
     
     public void update() {
-
-    	if(x == xTarget && y == yTarget)
-			this.destroy();
+    	//TODO delete projectile once off screen
     	
         x = x + xSpeed;
 		y = y + ySpeed;
-		z = z + zSpeed;
 
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -156,17 +149,8 @@ public abstract class Projectile extends BaseUnit {
 	{
 		this.ySpeed = yVelo;
 	}
-	public int getzSpeed()
-	{
-		return zSpeed;
-	}
-	public void setzSpeed(int zVelo)
-	{
-		this.zSpeed = zVelo;
-	}
 	
 	public abstract int getDefaultDamage();
-	public abstract Projectile create(Model model, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed);
-	public abstract Projectile create(Model model, int damage, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed);
-	public abstract Projectile create(Model model2, int x, int y, float xTarget, float yTarget);
+	public abstract Projectile create(Model model, int x, int y, int xFireSpeed, int yFireSpeed);
+	public abstract Projectile create(Model model, int damage, int x, int y, int xFireSpeed, int yFireSpeed);
 }

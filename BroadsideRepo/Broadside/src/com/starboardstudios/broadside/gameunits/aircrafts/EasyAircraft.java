@@ -75,8 +75,7 @@ public class EasyAircraft extends BaseAircraft {
 	}
 
 	void fire() {
-		model.addUnit(new Missile(model, 20, x, y, z, xFireSpeed, yFireSpeed,
-				zFireSpeed));
+		model.addUnit(new Missile(model, 20, x, y, xFireSpeed, yFireSpeed));
 	}
 
 }

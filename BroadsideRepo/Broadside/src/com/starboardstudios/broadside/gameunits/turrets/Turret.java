@@ -9,7 +9,7 @@ import com.starboardstudios.broadside.interfaces.Draggable;
 public abstract class Turret extends BaseUnit implements Draggable {
 	protected Model model;
 	protected int x, y, z;
-	protected int xFireSpeed, yFireSpeed, zFireSpeed;
+	protected int fireSpeed;
 	protected Context context;
 	protected Projectile projectile;
 	boolean canAffect;
@@ -39,17 +39,14 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		this.z = z;
 	}
 
-	public Turret(Model model, Projectile projectile, int x, int y, int z,
-			int xFireSpeed, int yFireSpeed, int zFireSpeed) {
+	public Turret(Model model, Projectile projectile, int x, int y, int z, int fireSpeed) {
 		this.context = model.context;
 		this.model = model;
 		this.projectile = projectile;
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.xFireSpeed = xFireSpeed;
-		this.yFireSpeed = yFireSpeed;
-		this.zFireSpeed = zFireSpeed;
+		this.fireSpeed = fireSpeed;
 	}
 
 	public Turret(Model model, int x, int y) {
@@ -72,32 +69,9 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	}
 
 	void fire() {
+		//TODO turret directional firing
 		model.addUnit(projectile.create(model, projectile.getDefaultDamage(),
-				x, y, z, xFireSpeed, yFireSpeed, zFireSpeed));
-	}
-
-	public int getXFireSpeed() {
-		return this.xFireSpeed;
-	}
-
-	public void setXFireSpeed(int xFireSpeed) {
-		this.xFireSpeed = xFireSpeed;
-	}
-
-	public int getYFireSpeed() {
-		return this.yFireSpeed;
-	}
-
-	public void setYFireSpeed(int yFireSpeed) {
-		this.yFireSpeed = yFireSpeed;
-	}
-
-	public int getZFireSpeed() {
-		return this.zFireSpeed;
-	}
-
-	public void setZFireSpeed(int zFireSpeed) {
-		this.zFireSpeed = zFireSpeed;
+				x, y, fireSpeed, 0));
 	}
 
 	/**

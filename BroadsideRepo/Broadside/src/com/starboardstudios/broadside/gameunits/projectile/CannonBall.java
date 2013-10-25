@@ -16,10 +16,8 @@ public class CannonBall extends Projectile {
 		super(model, damage);
 		x = 0;
 		y = 0;
-		z = 0;
 		xSpeed = 0;
 		ySpeed = 0;
-		zSpeed = 0;
 
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
@@ -28,8 +26,8 @@ public class CannonBall extends Projectile {
 
 	}
 
-	public CannonBall(Model model, int damage, int x, int y, int z) {
-		super(model, damage, x, y, z);
+	public CannonBall(Model model, int damage, int x, int y) {
+		super(model, damage, x, y);
 
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
@@ -51,7 +49,7 @@ public class CannonBall extends Projectile {
 	
 	public CannonBall(Model model, int damage, int x, int y, int z, int xSpeed,
 			int ySpeed, int zSpeed) {
-		super(model, damage, x, y, z, xSpeed, ySpeed, zSpeed);
+		super(model, damage, x, y, xSpeed, ySpeed);
 
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
@@ -76,29 +74,20 @@ public class CannonBall extends Projectile {
 		return defaultDamage;
 	}
 
-	@Override
-	public Projectile create(Model model, int x, int y, int z, int xFireSpeed,
-			int yFireSpeed, int zFireSpeed) {
-		return new CannonBall(model, defaultDamage, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed);
-	}
-
-	@Override
-	public Projectile create(Model model, int damage, int x, int y, int z,
-			int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-		return new CannonBall(model, damage, x, y, z, xFireSpeed, yFireSpeed,
-				zFireSpeed);
-	}
 
 	@Override
 	public void setPosition(int x, int y) {
 
 	}
+	
+	@Override
+	public Projectile create(Model model, int x, int y, int xFireSpeed, int yFireSpeed) {
+		return new CannonBall(model, defaultDamage, x, y, xFireSpeed, yFireSpeed);
+	}
 
 	@Override
-	public Projectile create(Model model, int x, int y, float xTarget,
-			float yTarget) {
-		return new CannonBall(model, x, y, xTarget, yTarget);
+	public Projectile create(Model model, int damage, int x, int y, int xFireSpeed, int yFireSpeed) {
+		return new CannonBall(model, damage, x, y, xFireSpeed, yFireSpeed);
 	}
 	
 	
