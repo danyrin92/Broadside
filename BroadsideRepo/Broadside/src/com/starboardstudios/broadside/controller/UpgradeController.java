@@ -51,6 +51,8 @@ public class UpgradeController extends BaseController {
             @Override
             public boolean onDrag(View v, DragEvent event) {
 
+                ((Draggable) event.getLocalState()).midDrag(event.getX(),event.getY());
+
                 if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
 
                     ((Draggable) event.getLocalState()).dragStarted();

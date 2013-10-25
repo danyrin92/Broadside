@@ -40,6 +40,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -119,7 +120,7 @@
           <file leaf-file-name="Draggable.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="14" column="21" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+                <state line="10" column="47" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
                   <folding />
                 </state>
               </provider>
@@ -185,7 +186,7 @@
           <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="61" column="80" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="2310">
+                <state line="67" column="49" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2355">
                   <folding />
                 </state>
               </provider>
@@ -194,7 +195,7 @@
           <file leaf-file-name="UpgradeController.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="47" column="14" selection-start="1484" selection-end="1490" vertical-scroll-proportion="0.5105634" vertical-offset="75" max-vertical-offset="1800">
+                <state line="54" column="0" selection-start="1666" selection-end="2233" vertical-scroll-proportion="0.45774648" vertical-offset="180" max-vertical-offset="1830">
                   <folding />
                 </state>
               </provider>
@@ -207,7 +208,7 @@
           <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="74" column="21" selection-start="1786" selection-end="2308" vertical-scroll-proportion="0.5405405" vertical-offset="360" max-vertical-offset="1980">
+                <state line="50" column="25" selection-start="1764" selection-end="1764" vertical-scroll-proportion="0.2027027" vertical-offset="360" max-vertical-offset="2025">
                   <folding />
                 </state>
               </provider>
@@ -252,8 +253,8 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
       </list>
     </option>
@@ -1044,7 +1045,7 @@
       <workItem from="1382651411906" duration="148000" />
       <workItem from="1382655313823" duration="1578000" />
       <workItem from="1382657589817" duration="1205000" />
-      <workItem from="1382659176854" duration="1801000" />
+      <workItem from="1382659176854" duration="1980000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1154,11 +1155,15 @@
       <created>1382660911374</created>
       <updated>1382660911374</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Updated Upgrade Controller">
+      <created>1382660990383</created>
+      <updated>1382660990383</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81581000" />
+    <option name="totallyTimeSpent" value="81760000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1239,7 +1244,8 @@
     <MESSAGE value="Added draggable interface" />
     <MESSAGE value="-Fixed Errors," />
     <MESSAGE value="Draggable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Draggable" />
+    <MESSAGE value="Updated Upgrade Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Upgrade Controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1333,23 +1339,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="80" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="2310">
+        <state line="10" column="47" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/Draggable.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="21" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+        <state line="67" column="49" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2355">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="14" selection-start="1484" selection-end="1490" vertical-scroll-proportion="0.5105634" vertical-offset="75" max-vertical-offset="1800">
+        <state line="54" column="0" selection-start="1666" selection-end="2233" vertical-scroll-proportion="0.45774648" vertical-offset="180" max-vertical-offset="1830">
           <folding />
         </state>
       </provider>
