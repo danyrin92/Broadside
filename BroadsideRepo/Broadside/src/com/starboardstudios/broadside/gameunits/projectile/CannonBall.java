@@ -2,6 +2,7 @@ package com.starboardstudios.broadside.gameunits.projectile;
 
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 
 public class CannonBall extends Projectile {
@@ -89,6 +90,11 @@ public class CannonBall extends Projectile {
 	public Projectile create(Model model, int damage, int x, int y, int xFireSpeed, int yFireSpeed) {
 		return new CannonBall(model, damage, x, y, xFireSpeed, yFireSpeed);
 	}
+    @Override
+    public void collide(BaseUnit collidedWith)
+    {
+       model.removeUnit(this);
+    }
 	
 	
 }

@@ -1,5 +1,6 @@
 package com.starboardstudios.broadside.gameunits;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -11,6 +12,8 @@ import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.util.LevelManager;
+
 import java.util.ArrayList;
 
 public class Model extends Thread {
@@ -52,7 +55,7 @@ public class Model extends Thread {
 		this.level = 1;
 	
 		this.start();
-	}
+    }
 
 	@Override
 	public void run() {
@@ -143,6 +146,8 @@ public class Model extends Thread {
         context = current.getBaseContext();
 
        if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+           LevelManager.LevelReader(this);
+
            for(int x=0;x< units.size();x++)
            {
                ((ViewGroup)units.get(x).getImage().getParent()).removeView(units.get(x).getImage());
@@ -151,6 +156,7 @@ public class Model extends Thread {
            }
 
         }
+
     }
 
 	//not sure if this is necessary; attempting to pass model between activities
@@ -373,5 +379,10 @@ public class Model extends Thread {
 	
 	public int getTurretCostAt(int index) {
 		return turretCosts[index];
-	}	
+	}
+
+    public Activity getCurrentActivity()
+    {
+        return currentActivity;
+    }
 }

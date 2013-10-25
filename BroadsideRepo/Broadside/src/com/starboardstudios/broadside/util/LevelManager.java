@@ -1,23 +1,13 @@
 package com.starboardstudios.broadside.util;
 
-import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import android.R.integer;
-
-import com.starboardstudios.broadside.gameunits.CombatUnit;
+import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
-import com.starboardstudios.broadside.gameunits.ships.EasyShip;
-import com.starboardstudios.broadside.gameunits.ships.HardShip;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.gameunits.ships.MediumShip;
-import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 
-abstract class LevelManager {
+import java.io.*;
+import java.util.ArrayList;
+
+public abstract class LevelManager {
 		final int MAXLEVEL = 1; 
 		
 		//BaseShips: 000 to 099
@@ -53,21 +43,26 @@ abstract class LevelManager {
 		 * @param model
 		 */
 		
-		public static void LevelReader(){
+		public static void LevelReader(Model model){
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader("BroadsideLevels.txt"));
-				String line = null;
+                System.out.println(model.toString());
+                InputStream stream =  model.getCurrentActivity().getBaseContext().getResources().openRawResource(R.raw.broadside_levels);
+                InputStreamReader reader = new InputStreamReader(stream);
+                BufferedReader breader = new BufferedReader(reader);
+                System.out.println("BAHAHAHAHAHAH I WORKED");
+
+                String line = null;
 				try {
-					while ((line = reader.readLine()) != null)
+					while ((line = breader.readLine()) != null)
 					{
 						String[] fileLine = line.split(",");
-						
+						System.out.print(fileLine.toString());
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			} catch (FileNotFoundException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	

@@ -26,10 +26,6 @@ public class UpgradeController extends BaseController {
 		super.onCreate(savedInstanceState);
 		final View screen = ((LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.upgrade_view,null);
 		setContentView(R.layout.upgrade_view);
-
-
-
-
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
