@@ -22,7 +22,7 @@ public abstract class LevelManager {
 		final int ID_EASYSUBMARINE = 200;
 		
 		//Ships, then Airplane, then Submarine. Each difficulty with the delay after it.
-		int[][] levelArray = new int[][]{{4,5,2,1,3,5,0,0,0,0},{2,4,5,1,3,5,0,0,0,0}};
+		static int[][] levelArray = new int[100][10];
 		
 		/** For knowing when to go to the next level */
 		boolean finalWave = false;
@@ -52,12 +52,20 @@ public abstract class LevelManager {
                 BufferedReader breader = new BufferedReader(reader);
                 System.out.println("BAHAHAHAHAHAH I WORKED");
 
+                int lineCounter = 0;
                 String line = null;
 				try {
 					while ((line = breader.readLine()) != null)
 					{
 						String[] fileLine = line.split(",");
 						System.out.print(fileLine.toString());
+						int counter = 0;
+						for(String lineInfo : fileLine)
+						{
+							levelArray[lineCounter][counter] = Integer.parseInt(lineInfo);
+							counter++;
+						}
+						lineCounter++;
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
