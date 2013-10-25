@@ -1,10 +1,10 @@
 package com.starboardstudios.broadside.gameunits;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -17,8 +17,8 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
-import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -436,11 +436,18 @@ public class Model extends Thread {
      * Removes the requested unit from the model.
      * @param unit
      */
-    public void removeUnit(BaseUnit unit)
+    public void removeUnit(final BaseUnit unit)
     {
     	units.remove(unit);
-        ViewGroup vg = ((ViewGroup)currentActivity.activityScreen.getParent());
-        vg.removeView(unit.getImage());
+        runOnMain(new Runnable() {
+            @Override
+            public void run() {
+                unit.getImage().setVisibility(View.INVISIBLE);
+
+            }
+        });
+  //      ViewGroup vg = ((ViewGroup)currentActivity.activityScreen.getParent());
+//        vg.removeView(unit.getImage());
 
     }
   
