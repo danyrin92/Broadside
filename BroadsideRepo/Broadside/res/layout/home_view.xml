@@ -10,14 +10,6 @@
         android:layout_y="2dp"
         android:gravity="top" >
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:cropToPadding="true"
-            android:scaleType="fitEnd"
-            android:src="@drawable/waves" />
-
         <FrameLayout
             android:id="@+id/FrameLayout03"
             android:layout_width="112dp"
@@ -38,12 +30,26 @@
             android:id="@+id/HealthView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:text="Broadside"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
             android:textColor="#000000"
             android:textSize="50dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cropToPadding="true"
+            android:scaleType="fitEnd"
+            android:src="@drawable/waves" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/title" />
 
     </RelativeLayout>
 

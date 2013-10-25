@@ -2,7 +2,6 @@ package com.starboardstudios.broadside.gameunits.projectile;
 
 import android.content.Context;
 import android.widget.ImageView;
-
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 
@@ -91,6 +90,16 @@ public abstract class Projectile extends BaseUnit {
 			}
 
 		});
+        if(!model.getCurrentActivity().name.equalsIgnoreCase("PlayController"))
+        {
+        model.removeUnit(this);
+        }
+
+
+        if(x<300)
+        {
+            model.removeUnit(this);
+        }
 
 	}
     
