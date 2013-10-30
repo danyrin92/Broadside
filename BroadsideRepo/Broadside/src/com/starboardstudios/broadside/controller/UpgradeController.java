@@ -24,7 +24,9 @@ public class UpgradeController extends BaseController {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final View screen = ((LayoutInflater)getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.upgrade_view,null);
+		final View screen = ((LayoutInflater) getBaseContext()
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
+				R.layout.upgrade_view, null);
 		setContentView(R.layout.upgrade_view);
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
@@ -33,40 +35,34 @@ public class UpgradeController extends BaseController {
 		// get and display mainShip
 		mainShip = model.getMainShip();
 		// TODO: spawn ship in correctly...
+
+		try {
+			Thread.sleep(20);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
 		
-
-        try {
-            Thread.sleep(20);
-        } catch (InterruptedException e) {
-
-            e.printStackTrace();
-        }
+		/**DRAG LISTENER*/
 		screen.setVisibility(View.VISIBLE);
-        screen.setOnDragListener(new View.OnDragListener() {
+		screen.setOnDragListener(new View.OnDragListener() {
+			@Override
+			public boolean onDrag(View v, DragEvent event) {
+				((Draggable) event.getLocalState()).midDrag(event.getX(),
+						event.getY());
+				if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
+					((Draggable) event.getLocalState()).dragStarted();
+				} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
+					//
+				} else if (event.getAction() == DragEvent.ACTION_DROP) {
+					((Draggable) event.getLocalState()).endDrag(event.getX(),
+							event.getY());
+				}
+				v.invalidate();
+				return true;
 
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-
-                ((Draggable) event.getLocalState()).midDrag(event.getX(),event.getY());
-
-                if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
-
-                    ((Draggable) event.getLocalState()).dragStarted();
-
-                } else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
-
-                } else if (event.getAction() == DragEvent.ACTION_DROP) {
-
-                    ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
-
-
-
-                }
-                v.invalidate();
-                return true;
-
-            }
-        });
+			}
+		});
 	}
 
 	public void nextLevel(View view) {
@@ -75,54 +71,64 @@ public class UpgradeController extends BaseController {
 		startActivity(playIntent);
 	}
 
-	/** For implementing turret options... Will de-derpify later. */
+	/** For implementing turret options*/
 	public void addTurret1(View view) {
-		System.out.println("addturret1 clicked");
-		if (enoughBooty(1)) {
-			model.addUnit(new Turret1(model, new CannonBall(model, 20)));
-		}
+		addTurret(1); //Turret1
 	}
 
 	public void addTurret2(View view) {
-		System.out.println("addturret2 clicked");
-		if (enoughBooty(2)) {
-			model.addUnit(new Turret2(model, new CannonBall(model, 20)));
-		}
+		addTurret(2); //Turret2
 	}
 
 	public void addTurret3(View view) {
-		System.out.println("addturret3 clicked");
-		if (enoughBooty(3)) {
-			model.addUnit(new Turret3(model, new CannonBall(model, 20)));
-		}
+		addTurret(3); //Turret3
 	}
 
 	public void addTurret4(View view) {
-		System.out.println("addturret4 clicked");
-		if (enoughBooty(4)) {
-			model.addUnit(new Turret4(model, new CannonBall(model, 20)));
-		}
+		addTurret(4); //Turret4
 	}
 
 	public void addTurret5(View view) {
-		System.out.println("addturret5 clicked");
-		if (enoughBooty(5)) {
-			model.addUnit(new Turret5(model, new CannonBall(model, 20)));
-		}
+		addTurret(5); //Turret5
 	}
 
 	public void addTurret6(View view) {
-		System.out.println("addturret6 clicked");
-		if (enoughBooty(6)) {
-			model.addUnit(new Turret6(model, new CannonBall(model, 20)));
+		addTurret(6);  //Turret6
+	}
+
+	public void addTurret(int turretNum) {
+		if (enoughBooty(turretNum)) {
+			switch (turretNum) { //1-6
+			case 1:
+				model.addUnit(new Turret1(model, new CannonBall(model, 20) ) );
+				break;
+			case 2:
+				model.addUnit(new Turret2(model, new CannonBall(model, 20) ) );
+				break;
+			case 3:
+				model.addUnit(new Turret3(model, new CannonBall(model, 20) ) );
+				break;
+			case 4:
+				model.addUnit(new Turret4(model, new CannonBall(model, 20) ) );
+				break;
+			case 5:
+				model.addUnit(new Turret5(model, new CannonBall(model, 20) ) );
+				break;
+			case 6:
+				model.addUnit(new Turret6(model, new CannonBall(model, 20) ) );
+				break;
+			default:
+				System.out.println("Turret not implemented yet!");
+				break;
+			}
 		}
 	}
-	
+
 	public boolean enoughBooty(int turretNum) {
-		if (model.getBooty()>=model.getTurretCostAt(turretNum)) {
+		if (model.getBooty() >= model.getTurretCostAt(turretNum)) {
 			return true;
 		}
-		//TODO display "you don't have enough booty..."
+		// TODO display in-game "you don't have enough booty..."
 		return false;
 	}
 
