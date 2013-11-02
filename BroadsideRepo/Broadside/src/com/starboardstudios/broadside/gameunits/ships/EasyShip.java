@@ -48,7 +48,7 @@ public class EasyShip extends BaseShip {
 	 */
 	public void update() {
 		int speed = Math.abs(xSpeed) + Math.abs(ySpeed);
-		System.out.println("Speed: " + speed);
+		//sSystem.out.println("Speed: " + speed);
 		
 		x = x + xSpeed;
 		y = y + ySpeed;

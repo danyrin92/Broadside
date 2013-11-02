@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
@@ -218,13 +220,19 @@ public class Model extends Thread {
          for(int x =0;x<projectiles.size();x++)
          {
              Projectile tempProjectile = projectiles.get(x);
+             ImageView projectileImage= tempProjectile.getImage();
 
-             final Rect bounds =  tempProjectile.getImage().getDrawable().getBounds();
+             System.out.println(projectileImage.getX()+" " + projectileImage.getY() + " " +getScreenX()+ " " + getScreenY());
+             if(projectileImage.getX() > getScreenX() || projectileImage.getX() <0|| projectileImage.getY() <0 || projectileImage.getY() >getScreenY())
+             {
+                 System.out.println("Off Screen");
+                 removeUnit(tempProjectile);
+             }
+
+
                  for(int y=0; y<units.size();y++)
                  {
                      BaseUnit tempUnit = units.get(y);
-                     if(tempUnit.getImage().getDrawable().getBounds().contains(bounds))
-                     {
 
 
                          if(checkCollision(tempProjectile, tempUnit))
@@ -235,7 +243,7 @@ public class Model extends Thread {
                          }
 
 
-                     }
+
                  }
          }
 
@@ -349,7 +357,29 @@ public class Model extends Thread {
      */
     public void removeUnit(BaseUnit unit)
     {
-    	units.remove(unit);
+        System.out.println("removing unit "+unit.toString());
+    	try{
+        units.remove(unit);
+        }
+        catch (Exception e){}
+        try{
+            projectiles.remove(unit);
+        }
+        catch (Exception e){}
+        try{
+        if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+            ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+                    .removeView(unit.getImage());
+        }
+        }catch (Exception e){}
+        //this makes addTurret# in upgrade screen work
+        try{
+         if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
+            ((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
+                    .removeView(unit.getImage());
+        }
+        }catch (Exception e){}
+
     }
   
 	public int getLevel() {

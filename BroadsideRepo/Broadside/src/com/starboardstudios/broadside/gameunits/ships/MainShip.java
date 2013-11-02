@@ -100,7 +100,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 
 	@Override
 	public void collide(BaseUnit collidedWith) {
-
+                      System.out.println("Main Ship Collision");
 	}
 
 	@Override
@@ -109,14 +109,8 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 
 	/**
-	 * 
-	 * @param x
-	 *            x position of where to fire
-	 * @param y
-	 *            y position of where to fire
-	 * 
-	 *            Can then call fire with returned degreeAngle
-	 */
+	 *
+     */
 	/*void FireMain(int x, int y) {
 		int deltaX = x - this.x;
 		int deltaY = this.y - y;
