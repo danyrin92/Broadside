@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
-import com.starboardstudios.broadside.gameunits.turrets.*;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
+import com.starboardstudios.broadside.util.LevelManager;
 
 import java.util.ArrayList;
 
@@ -93,6 +93,10 @@ public class Model extends Thread {
 			}
 			for (int x = 0; x < projectiles.size(); x++) {
 				projectiles.get(x).update();
+                if(View.INVISIBLE ==projectiles.get(x).getImage().getVisibility())
+                {
+                                 System.out.println("Invisible Object");
+                }
 			}
 
 			/** Below is how to show text to screen */
@@ -180,6 +184,7 @@ public class Model extends Thread {
      * @param unit
      */
 	public void addUnit(BaseUnit unit) {
+        unit.getImage().setVisibility(View.VISIBLE);
 		if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 				(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
 
@@ -222,7 +227,6 @@ public class Model extends Thread {
              Projectile tempProjectile = projectiles.get(x);
              ImageView projectileImage= tempProjectile.getImage();
 
-             System.out.println(projectileImage.getX()+" " + projectileImage.getY() + " " +getScreenX()+ " " + getScreenY());
              if(projectileImage.getX() > getScreenX() || projectileImage.getX() <0|| projectileImage.getY() <0 || projectileImage.getY() >getScreenY())
              {
                  System.out.println("Off Screen");
@@ -238,8 +242,13 @@ public class Model extends Thread {
                          if(checkCollision(tempProjectile, tempUnit))
                          {
 
-                             tempProjectile.collide(tempUnit);
-                             tempUnit.collide(tempProjectile);
+                             if(tempProjectile.originatedMainShip && !MainShip.class.isInstance(tempUnit))
+                             {
+
+                                 System.out.println("Collided");
+                                tempProjectile.collide(tempUnit);
+                                tempUnit.collide(tempProjectile);
+                             }
                          }
 
 
