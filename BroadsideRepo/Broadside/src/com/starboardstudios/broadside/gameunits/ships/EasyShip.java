@@ -78,8 +78,11 @@ public class EasyShip extends BaseShip {
 	}
 
 	void fire() {
-		model.addUnit(new CannonBall(model, 20, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed));
+
+        CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
+                yFireSpeed, zFireSpeed);
+        temp.creator=this;
+		model.addUnit(temp);
 	}
 
 }

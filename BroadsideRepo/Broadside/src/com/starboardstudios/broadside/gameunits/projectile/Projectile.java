@@ -13,6 +13,7 @@ public abstract class Projectile extends BaseUnit {
 	protected float z, xSpeed, ySpeed;
 	protected float xTarget, yTarget;
 	public Model model;
+    public BaseUnit creator;
 
 	public Projectile(Model model) {
 		this.model = model;
