@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.RelativeLayout;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -42,10 +43,11 @@ public class UpgradeController extends BaseController {
 
 			e.printStackTrace();
 		}
-		
+
+        RelativeLayout layout =  (RelativeLayout)this.findViewById(R.id.upgrade);
 		/**DRAG LISTENER*/
 		screen.setVisibility(View.VISIBLE);
-		screen.setOnDragListener(new View.OnDragListener() {
+		layout.setOnDragListener(new View.OnDragListener() {
 			@Override
 			public boolean onDrag(View v, DragEvent event) {
 				((Draggable) event.getLocalState()).midDrag(event.getX(),
@@ -55,6 +57,7 @@ public class UpgradeController extends BaseController {
 				} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
 					//
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
+                    System.out.println("Dropped");
 					((Draggable) event.getLocalState()).endDrag(event.getX(),
 							event.getY());
 				}
