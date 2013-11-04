@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
-import com.starboardstudios.broadside.util.LevelManager;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
 
@@ -82,7 +83,7 @@ public class Model extends Thread {
 	public void update() {
 		LevelManager.update();
         try{
-            checkCollisions();
+         checkCollisions();
         } catch(Exception e)
         {
         }
@@ -93,10 +94,6 @@ public class Model extends Thread {
 			}
 			for (int x = 0; x < projectiles.size(); x++) {
 				projectiles.get(x).update();
-                if(View.INVISIBLE ==projectiles.get(x).getImage().getVisibility())
-                {
-                                 System.out.println("Invisible Object");
-                }
 			}
 
 			/** Below is how to show text to screen */
@@ -184,16 +181,19 @@ public class Model extends Thread {
      * @param unit
      */
 	public void addUnit(BaseUnit unit) {
-        unit.getImage().setVisibility(View.VISIBLE);
-		if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
+
+
+        if ((currentActivity.name.equalsIgnoreCase("PlayController"))||
 				(currentActivity.name.equalsIgnoreCase("UpgradeController"))) {
 
-            System.out.println("Adding unit to class "+ unit.toString() );
+         //   System.out.println("Adding unit to class "+ unit.toString() );
             try{
                 Projectile p = (Projectile)unit;
-                System.out.println("Adding Projectile To Model");
                 projectiles.add((Projectile)unit);
             }catch(Exception e){
+
+               // System.out.println("Unit Added: "+ unit.toString());
+
                 units.add(unit);
               //maintain mainship turret list
                 if (unit instanceof Turret) {
@@ -202,6 +202,9 @@ public class Model extends Thread {
             }
             
             if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+
+                unit.update();
+               // System.out.println("Original Location" + unit.getImage().getX()+unit.getImage().getY() );
            	((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 					.addView(unit.getImage());
             } 
@@ -227,9 +230,10 @@ public class Model extends Thread {
              Projectile tempProjectile = projectiles.get(x);
              ImageView projectileImage= tempProjectile.getImage();
 
+            // System.out.println(projectileImage.getX()+" " + projectileImage.getY() + " " +getScreenX()+ " " + getScreenY());
              if(projectileImage.getX() > getScreenX() || projectileImage.getX() <0|| projectileImage.getY() <0 || projectileImage.getY() >getScreenY())
              {
-                 System.out.println("Off Screen");
+               //  System.out.println("Unit is offscreen, removingOff Screen");
                  removeUnit(tempProjectile);
              }
 
@@ -238,20 +242,22 @@ public class Model extends Thread {
                  {
                      BaseUnit tempUnit = units.get(y);
 
+                      if(tempProjectile.creator instanceof  Turret)
+                      {
+                          tempProjectile.creator = getMainShip();
+                      }
+                      if(tempProjectile.creator != tempUnit)
+                      {
 
-                         if(checkCollision(tempProjectile, tempUnit))
+                        if(checkCollision(tempProjectile, tempUnit))
                          {
 
-                             if(tempProjectile.originatedMainShip && !MainShip.class.isInstance(tempUnit))
-                             {
-
-                                 System.out.println("Collided");
-                                tempProjectile.collide(tempUnit);
-                                tempUnit.collide(tempProjectile);
-                             }
+                            System.out.println("Collision Detected between " + tempUnit.toString() +" and "+ tempProjectile.toString());
+                             tempProjectile.collide(tempUnit);
+                             tempUnit.collide(tempProjectile);
                          }
 
-
+                      }
 
                  }
          }
@@ -268,20 +274,31 @@ public class Model extends Thread {
      */
      private boolean checkCollision(BaseUnit unit1, BaseUnit unit2)
      {
-         Rect bounds1 = unit1.getImage().getDrawable().getBounds();
-         Rect bounds2 = unit2.getImage().getDrawable().getBounds();
+         Rect bounds1 = new Rect(unit1.getImage().getLeft() + (int)unit1.x, unit1.getImage().getTop()+ (int)unit1.y, unit1.getImage().getRight()+ (int)unit1.x, unit1.getImage().getBottom()+ (int)unit1.y);
+         Rect bounds2 =  new Rect(unit2.getImage().getLeft()+ (int)unit2.x, unit2.getImage().getTop()+ (int)unit2.y, unit2.getImage().getRight()+ (int)unit2.x, unit2.getImage().getBottom()+ (int)unit2.y);
+        // System.out.println(bounds1.top + " " + bounds2.top);
 
          if( Rect.intersects(bounds1, bounds2) ){
              Rect collisionBounds = getCollisionBounds(bounds1, bounds2);
-             for (int i = collisionBounds.left; i < collisionBounds.right; i++) {
-                 for (int j = collisionBounds.top; j < collisionBounds.bottom; j++) {
+             int xOffset = (collisionBounds.right-collisionBounds.left)/5;
+             int yOffset = (collisionBounds.bottom-collisionBounds.top)/5;
+             int total =0;
+           for (int i = collisionBounds.left; i < collisionBounds.right; i++) {
+                for (int j = collisionBounds.top; j < collisionBounds.bottom; j++) {
+
+                    total ++;
                      int sprite1Pixel = getBitmapPixel(unit1, i, j);
                      int sprite2Pixel = getBitmapPixel(unit2, i, j);
                      if( isFilled(sprite1Pixel) && isFilled(sprite2Pixel)) {
+                         //System.out.println("successful: "+total);
                          return true;
                      }
+                     j=j+yOffset;
                  }
+                 i=i+xOffset;
              }
+            // System.out.println("unsuccessful: "+total);
+
          }
          return false;
 
@@ -364,9 +381,9 @@ public class Model extends Thread {
      * Removes the requested unit from the model.
      * @param unit
      */
-    public void removeUnit(BaseUnit unit)
+    public void removeUnit(final BaseUnit unit)
     {
-        System.out.println("removing unit "+unit.toString());
+       // System.out.println("removing unit "+unit.toString());
     	try{
         units.remove(unit);
         }
@@ -375,19 +392,38 @@ public class Model extends Thread {
             projectiles.remove(unit);
         }
         catch (Exception e){}
+
+
+
         try{
-        if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-            ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
-                    .removeView(unit.getImage());
-        }
+
+            runOnMain(new Runnable() {
+                @Override
+                public void run() {
+                  //  System.out.println("ID:"+ ((FrameLayout) currentActivity.findViewById(R.id.play_frame)).indexOfChild(unit.getImage()));
+                   // System.out.println("Removing Image from view: "+ unit.toString() + " Remaining Images: " + ((FrameLayout) currentActivity.findViewById(R.id.play_frame)).getChildCount());
+
+                   try{
+                    ViewGroup vg = (ViewGroup)unit.getImage().getParent();
+                    vg.removeView(unit.getImage());
+                   }catch (Exception e){}
+
+                   // System.out.println("Removing Image from view: " + unit.toString() + " Remaining Images: " + ((FrameLayout) currentActivity.findViewById(R.id.play_frame)).getChildCount());
+                }
+            });
+
+
+
+
         }catch (Exception e){}
         //this makes addTurret# in upgrade screen work
+        /**
         try{
          if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
             ((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
                     .removeView(unit.getImage());
         }
-        }catch (Exception e){}
+        }catch (Exception e){}           */
 
     }
   

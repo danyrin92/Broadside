@@ -39,7 +39,7 @@ import java.util.Random;
 
     public void collide(BaseUnit unit)
     {
-       x=0;
+      // unit.getImage().setVisibility(View.INVISIBLE);
     }
 
    

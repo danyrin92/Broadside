@@ -100,7 +100,6 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 
 	@Override
 	public void collide(BaseUnit collidedWith) {
-                      System.out.println("Main Ship Collision");
 	}
 
 	@Override

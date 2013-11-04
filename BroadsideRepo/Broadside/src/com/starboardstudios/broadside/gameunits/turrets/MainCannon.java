@@ -64,7 +64,9 @@ public class MainCannon extends Turret {
 		double angle = Math.atan(yDifference / xDifference);
 		float ySpeed = (float) Math.sin(angle) * fireSpeed;
 		float xSpeed = (float) Math.cos(angle) * fireSpeed;
-		model.addUnit(cannonBall.create(model, this.x+xOffset, this.y+yOffset, xSpeed, ySpeed));
+        Projectile temp =cannonBall.create(model, this.x+xOffset, this.y+yOffset, xSpeed, ySpeed);
+        temp.creator=this;
+		model.addUnit(temp);
 		//System.out.println("angle " + angle + " xTarget  " + xTarget
 		//+ " yTarget "+ yTarget);
 		// currentCooldown=cooldown;
