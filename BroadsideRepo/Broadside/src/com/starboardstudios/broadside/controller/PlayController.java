@@ -20,19 +20,76 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import android.app.AlertDialog;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class PlayController extends BaseController {
 
 	@SuppressLint("NewApi")
 	public Model model;
 
+	final Context context = this;
+	private Button pauseButton;
+
+	private View activityScreen;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final View screen = ((LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
+        this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
+		
+		pauseButton = (Button) findViewById(R.id.buttonAlert);
+		
+		//Listener for pauseButton
+		pauseButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+	 
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+					context);
+	 
+				// the Broadside title
+				alertDialogBuilder.setTitle("Broadside");
+	 
+				// the Game Paused message
+				alertDialogBuilder
+					.setMessage("Game Paused")
+					.setCancelable(false)
+					.setPositiveButton("Main Menu",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							// returns the user to
+							// the home view
+							PlayController.this.finish();
+						}
+					  })
+					.setNegativeButton("Resume Game",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							// closes the pause dialog
+							// and resumes game
+							dialog.cancel();
+						}
+					});
+	 
+					// creates alert dialog
+					AlertDialog alertDialog = alertDialogBuilder.create();
+	 
+					// actually shows the dialog
+					alertDialog.show();
+				}
+			});
+		
 		name = "PlayController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
@@ -43,11 +100,11 @@ public class PlayController extends BaseController {
 		 * Below is an example of how to add to the model without keylistener
 		 * logic! Don't delete!
 		 */
-		if (model.getLevel()==1) {
-			model.addUnit(new MainShip(model));
-			model.addUnit(model.getMainShip().getMainCannon());
-		}
-        
+        if(model.getLevel()==1)
+        {
+		    model.addUnit(new MainShip(model));
+            model.addUnit(model.getMainShip().getMainCannon());
+        }
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -73,11 +130,11 @@ public class PlayController extends BaseController {
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
 
                     ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
+                    System.out.println("drop registered");
 
 
 
-				}
-				v.invalidate();
+                }
 				return true;
 
 			}
