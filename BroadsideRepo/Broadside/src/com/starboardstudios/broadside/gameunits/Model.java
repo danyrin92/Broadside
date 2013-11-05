@@ -9,34 +9,47 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
+import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Model extends Thread {
 
 	private BaseController currentActivity;
 	public Context context;
 
-	/** Starting difficulty is 1.
-	 * Modifier that indicates the number of times the player has made it past the max level subtracted by 1.
-	 * Intended to help emulate infinite levels. 
+	/** Starting difficulty is 1.<br>
+	 * Modifier that indicates the number of times the player has made it past the max level subtracted by 1.<br>
+	 * Intended to help emulate infinite levels. <br>
 	 */
 	protected int difficulty; 
 	private int level;
+	/** End level condition when numOfEnemies == 0 */
 	private int numOfEnemies;
-	
+	/**For enemy unit spawning*/
+	private Timer timer;
+	/** If true, model is on a new level. */
+	private boolean newLevel;
+	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
+
 	private int booty; //currency
 	private int numTurretTypes;
 	private int[] turretCosts; //centralizes turret pricing
 	
-	/** Below will contain all units in the game. All units extend baseunit. */
+	/** Below will contain all units in the game. All units extend BaseUnit. */
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
 	
 	/** Below will contain all projectiles in the game. All types of projectiles extend projectile */
@@ -47,7 +60,7 @@ public class Model extends Thread {
 		this.booty = 200;
 		/**This turret stuff should probably be done elsewhere...*/
 	    //TODO: Make currency values make more sense
-			this.numTurretTypes = 6;
+		this.numTurretTypes = 6;
 		this.turretCosts = new int[numTurretTypes+1];
 		this.turretCosts[1] = 50;
 		this.turretCosts[2] = 25;
@@ -57,6 +70,8 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
+		this.setNewLevel(true);
+		this.timer = new Timer();
 	
 		this.start();
     }
@@ -81,7 +96,7 @@ public class Model extends Thread {
      * process movement, collisisons, etc.
      */
 	public void update() {
-		LevelManager.update();
+		
         try{
          checkCollisions();
         } catch(Exception e)
@@ -98,6 +113,18 @@ public class Model extends Thread {
 
 			/** Below is how to show text to screen */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+				LevelManager.update(this);
+				
+				Runnable emptySpawnBuffer = new Runnable() {
+					@Override
+					public void run() {
+						for (int x = spawnBuffer.size() - 1; x >= 0 ; x--) {
+			        		addUnit(spawnBuffer.remove(x));
+			        	}
+					}
+				};
+				runOnMain(emptySpawnBuffer);
+				
 				/** Below grabs appropriate TextView object */
 				final TextView health = (TextView) currentActivity
 						.findViewById(R.id.HealthView);
@@ -140,6 +167,125 @@ public class Model extends Thread {
 		}
 
 	}
+	
+	/**
+	 * Starts the spawning a unit at a periodic interval, delay, until total amount is reached.
+	 * 
+	 * @param ID int representing specific CombatUnit 
+	 * @param amount int total amount of the CombatUnit spawning
+	 * @param delay int amount of delay between each unit spawning in miliseconds
+	 */
+	public void startSpawn(final int ID, final int amount, final int delay) {
+		TimerTask taskUnitSpawn = null; 
+		final Model model = this;
+		
+		if (currentActivity.name.equals("PlayController")) {
+			
+			switch (ID) {
+			case LevelManager.ID_EASYSHIP:
+					taskUnitSpawn = new TimerTask() {
+						int totalAmount = amount;
+						
+						@Override
+						public void run() {
+							if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+								totalAmount--;
+								if (totalAmount >= 0) {
+									spawnBuffer.add(new EasyShip(model));
+									System.out.println("Easy Ship spawned. " + totalAmount + " remaining");
+								} else {
+									this.cancel();
+								}
+							} 
+						}
+					};
+				break;
+				
+			case LevelManager.ID_MEDIUMSHIP:
+				taskUnitSpawn = new TimerTask() {
+					int totalAmount = amount;
+					
+					@Override
+					public void run() {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							totalAmount--;
+							if (totalAmount >= 0) {
+								spawnBuffer.add(new MediumShip(model));
+								System.out.println("Medium Ship spawned. " + totalAmount + " remaining");
+							} else {
+								this.cancel();
+							}
+						} 
+					}
+				};
+				break;
+				
+			case LevelManager.ID_HARDSHIP:
+				taskUnitSpawn = new TimerTask() {
+					int totalAmount = amount;
+					
+					@Override
+					public void run() {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							totalAmount--;
+							if (totalAmount >= 0) {
+								spawnBuffer.add(new HardShip(model));
+								System.out.println("Hard Ship spawned. " + totalAmount + " remaining");
+							} else {
+								this.cancel();
+							}
+						} 
+					}
+				};
+				break;
+				
+			case LevelManager.ID_EASYAIRCRAFT:
+				taskUnitSpawn = new TimerTask() {
+					int totalAmount = amount;
+					
+					@Override
+					public void run() {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							totalAmount--;
+							if (totalAmount >= 0) {
+								spawnBuffer.add(new EasyAircraft(model));
+								System.out.println("Easy Aircraft spawned. " + totalAmount + " remaining");
+							} else {
+								this.cancel();
+							}
+						} 
+					}
+				};
+				break;
+				
+			case LevelManager.ID_EASYSUBMARINE:
+				taskUnitSpawn = new TimerTask() {
+					int totalAmount = amount;
+					
+					@Override
+					public void run() {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							totalAmount--;
+							if (totalAmount >= 0) {
+								spawnBuffer.add(new EasySubmarine(model));
+								System.out.println("Easy Submarine spawned. " + totalAmount + " remaining");
+							} else {
+								this.cancel();
+							}
+						} 
+					}
+				};
+				break;
+				
+			}
+			try {
+				timer.schedule(taskUnitSpawn, delay, delay);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 
     /**
      * Sets the current activity running on the application.
@@ -393,7 +539,7 @@ public class Model extends Thread {
         }
         catch (Exception e){}
 
-
+        
 
         try{
 
@@ -472,6 +618,17 @@ public class Model extends Thread {
 	public void setNumOfEnemies(int numOfEnemies) {
 		this.numOfEnemies = numOfEnemies;
 	}
+	
+	public Timer getTimer() {
+		return timer;
+	}
 
+	public boolean isNewLevel() {
+		return newLevel;
+	}
 
+	public void setNewLevel(boolean newLevel) {
+		this.newLevel = newLevel;
+	}
+	
 }
