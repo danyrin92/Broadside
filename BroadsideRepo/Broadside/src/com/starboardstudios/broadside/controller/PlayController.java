@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.LayoutInflater;
 
 import com.starboardstudios.broadside.interfaces.Draggable;
+import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
@@ -97,6 +98,7 @@ public class PlayController extends BaseController {
 		name = "PlayController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
+		LevelManager.startLevel(model);
 
 		System.out.print("Model Rendering");
 
@@ -111,6 +113,7 @@ public class PlayController extends BaseController {
             //TODO finish testing crew
             model.getMainShip().addCrew(new Crew(context, model));
             model.addUnit(model.getMainShip().getCrew().get(0));
+            
         }
 		try {
 			Thread.sleep(20);
@@ -161,6 +164,11 @@ public class PlayController extends BaseController {
 	
 	/** for getting the upgrades button to work... */
 	public void gotoUpgrades(View view) {
+		Intent gotoUpgrades = new Intent(this, com.starboardstudios.broadside.controller.UpgradeController.class);
+		startActivity(gotoUpgrades);
+	}
+	
+	public void gotoUpgrades() {
 		Intent gotoUpgrades = new Intent(this, com.starboardstudios.broadside.controller.UpgradeController.class);
 		startActivity(gotoUpgrades);
 	}

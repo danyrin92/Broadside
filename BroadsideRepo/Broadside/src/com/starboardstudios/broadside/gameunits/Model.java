@@ -43,8 +43,8 @@ public class Model extends Thread {
 	private int numOfEnemies;
 	/** For enemy unit spawning */
 	private Timer timer;
-	/** If true, model is on a new level. */
-	private boolean newLevel;
+	///** If true, model is on a new level. */
+	//private boolean newLevel;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
 	// Crew is property of mainship
 
@@ -76,7 +76,7 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
-		this.setNewLevel(true);
+		//this.setNewLevel(true);
 		this.timer = new Timer();
 
 		this.start();
@@ -124,7 +124,7 @@ public class Model extends Thread {
 
 			/** Spawn enemies */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-				LevelManager.update(this);
+				//LevelManager.update(this);
 
 				Runnable emptySpawnBuffer = new Runnable() {
 					@Override
@@ -658,7 +658,7 @@ public class Model extends Thread {
 	public Timer getTimer() {
 		return timer;
 	}
-
+/*
 	public boolean isNewLevel() {
 		return newLevel;
 	}
@@ -666,5 +666,5 @@ public class Model extends Thread {
 	public void setNewLevel(boolean newLevel) {
 		this.newLevel = newLevel;
 	}
-
+*/
 }

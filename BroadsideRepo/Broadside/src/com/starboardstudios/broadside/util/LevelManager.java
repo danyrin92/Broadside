@@ -1,6 +1,10 @@
 package com.starboardstudios.broadside.util;
 
 import android.R.integer;
+import android.content.Intent;
+
+import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
@@ -82,63 +86,67 @@ public abstract class LevelManager {
 				}	
 			}
 		}
-
+/* Old method of starting a new level
 		/** 
 		 * Interface for model<br>
 		 * Check if there is a new level. If so start new level
-		 */
+		 
 		public static void update(final Model model) {
 			if (model.isNewLevel()== true) {
 				startLevel(model);
 				model.setNewLevel(false);
 			}
 		}
+*/
+		
 		/**
 		 * Start level and start spawning timers in the model
 		 * @param level int representing the level
 		 */
-		private static void startLevel(final Model model) {
+		public static void startLevel(final Model model) {
 			//startTimers(level);
 			int level = model.getLevel();
+
+			model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
 			
-			if (model.isNewLevel() == true) {
-				model.setNewLevel(false);
-				
-				model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
-				
-				/** Start enemy spawning timers in the model */
-				model.startSpawn(ID_EASYSHIP,levelArray[level][0], levelArray[level][1]);
-				model.startSpawn(ID_MEDIUMSHIP, levelArray[level][2],levelArray[level][3]);
-				model.startSpawn(ID_HARDSHIP, levelArray[level][4], levelArray[level][5]);
-				model.startSpawn(ID_EASYAIRCRAFT, levelArray[level][6], levelArray[level][7]);
-				model.startSpawn(ID_EASYSUBMARINE, levelArray[level][8], levelArray[level][9]); 
-			
-				TimerTask waitForSuccess = new TimerTask() {
-					int level = model.getLevel();
-					@Override
-					public void run() {	
-						if (model.getCurrentActivity().name.equalsIgnoreCase("PlayController")) {	
-							/**Start timers for spawning enemies */
-							 if (model.getNumOfEnemies() <= 0) {
-								/** When all enemies have been defeated go to the next level */
-								/** Increment level*/
-								level = model.getLevel();
-								level++;
-								model.setLevel(level);
-								
-								/** Go to Upgrade then end program*/
-								//TODO: Switch to the upgrade screen from the LevelManager
-								
-								model.setNewLevel(true);
-								this.cancel();
-								return;
+			/** Start enemy spawning timers in the model */
+			model.startSpawn(ID_EASYSHIP,levelArray[level][0], levelArray[level][1]);
+			model.startSpawn(ID_MEDIUMSHIP, levelArray[level][2],levelArray[level][3]);
+			model.startSpawn(ID_HARDSHIP, levelArray[level][4], levelArray[level][5]);
+			model.startSpawn(ID_EASYAIRCRAFT, levelArray[level][6], levelArray[level][7]);
+			model.startSpawn(ID_EASYSUBMARINE, levelArray[level][8], levelArray[level][9]); 
+		
+			TimerTask waitForSuccess = new TimerTask() {
+				int level = model.getLevel();
+				@Override
+				public void run() {	
+					if (model.getCurrentActivity().name.equalsIgnoreCase("PlayController")) {	
+						/**Start timers for spawning enemies */
+						 if (model.getNumOfEnemies() <= 0) {
+							/** When all enemies have been defeated go to the next level */
+							/** Increment level*/
+							level = model.getLevel();
+							level++;
+							model.setLevel(level);
+							
+							/** Go to Upgrade then end program*/
+							//TODO: Switch to the upgrade screen from the LevelManager
+							try {
+								PlayController currentActivity = (PlayController)model.getCurrentActivity();
+								currentActivity.gotoUpgrades();
+							} catch (Exception e) {
+								e.printStackTrace();
 							}
+							
+							//model.setNewLevel(true);
+							this.cancel();
+							return;
 						}
 					}
-				};
-				/** Check that the player has beaten the game every two second */
-				model.getTimer().schedule(waitForSuccess,0,2000);
-			}
+				}
+			};
+			/** Check that the player has beaten the game every two second */
+			model.getTimer().schedule(waitForSuccess,0,2000);
 		}
 		
 //Currently kept as reference. To be deleted
