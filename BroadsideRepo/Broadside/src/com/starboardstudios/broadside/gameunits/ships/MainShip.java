@@ -17,11 +17,11 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	ImageView imageView; // Image for ship
 	private Model model;
 	private ArrayList<Section> sections;
-	private ArrayList<Crew> crew;
+	private ArrayList<Crew> crews = new ArrayList<Crew>();
+	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 	private MainCannon mainCannon;
 	private int waterLevel;
 	private boolean inPosition = false;
-	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 
 	public MainShip(Model model) {
 		super(model.context);
@@ -68,7 +68,11 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		else
 			ySpeed = 0;
 
+		//update turrets and crew
 		mainCannon.setPosition((float)(this.x+((model.getScreenX()*.325))),(float)(this.y+((model.getScreenX()*.3))));
+		for (int i=0; i<crews.size(); i++) {
+			crews.get(i).setPosition((float)(this.x+((model.getScreenX()*.345))),(float)(this.y+((model.getScreenX()*.3))));
+		}
 		
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -127,6 +131,14 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public MainCannon getMainCannon(){
 		return mainCannon;
 		
+	}
+	
+	public void addCrew(Crew crew) {
+		crews.add(crew);
+	}
+	
+	public ArrayList<Crew> getCrew() {
+		return crews;
 	}
 
 }

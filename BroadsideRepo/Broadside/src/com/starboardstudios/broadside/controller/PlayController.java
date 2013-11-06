@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import com.starboardstudios.broadside.interfaces.Draggable;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
+import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
@@ -43,11 +44,14 @@ public class PlayController extends BaseController {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		System.out.println("it gets this far... 1");
 		final View screen = ((LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
         this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
+		
+		System.out.println("it gets this far... 2");
 		
 		pauseButton = (Button) findViewById(R.id.buttonAlert);
 		
@@ -104,6 +108,9 @@ public class PlayController extends BaseController {
         {
 		    model.addUnit(new MainShip(model));
             model.addUnit(model.getMainShip().getMainCannon());
+            //TODO finish testing crew
+            model.getMainShip().addCrew(new Crew(context, model));
+            model.addUnit(model.getMainShip().getCrew().get(0));
         }
 		try {
 			Thread.sleep(20);
