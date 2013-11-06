@@ -42,12 +42,6 @@ public abstract class LevelManager {
 		/** Load levelArray only once */
 		static boolean hasLoadedLevelArray = false;
 		
-		/** Stores unit ID's for next Wave of enemies to spawn */
-		static ArrayList<integer> nextWaveUnits = new ArrayList<integer>();
-		
-		/** Timer for spawing enemy units */
-		static Timer timer;
-		
 		public static void LevelReader(Model model){
 			if (hasLoadedLevelArray == false) {
 				try {
@@ -73,6 +67,8 @@ public abstract class LevelManager {
 							lineCounter++;
 						}
 						
+						hasLoadedLevelArray = true;
+						
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -84,8 +80,6 @@ public abstract class LevelManager {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	
-				
-				hasLoadedLevelArray = true;
 			}
 		}
 
@@ -100,7 +94,7 @@ public abstract class LevelManager {
 			}
 		}
 		/**
-		 * Start level and 
+		 * Start level and start spawning timers in the model
 		 * @param level int representing the level
 		 */
 		private static void startLevel(final Model model) {

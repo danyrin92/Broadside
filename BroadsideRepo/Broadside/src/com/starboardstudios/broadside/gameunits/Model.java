@@ -122,7 +122,7 @@ public class Model extends Thread {
 				}
 			}
 
-			/** Below is how to show text to screen */
+			/** Spawn enemies */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
 				LevelManager.update(this);
 
@@ -135,7 +135,9 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(emptySpawnBuffer);
-
+				
+				
+				/** Below is how to show text to screen */
 				/** Below grabs appropriate TextView object */
 				final TextView health = (TextView) currentActivity
 						.findViewById(R.id.HealthView);
@@ -208,11 +210,10 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name
-								.equalsIgnoreCase("PlayController")) {
-							totalAmount--;
-							if (totalAmount >= 0) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyShip(model));
+								totalAmount--;
 								System.out.println("Easy Ship spawned. "
 										+ totalAmount + " remaining");
 							} else {
@@ -229,11 +230,10 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name
-								.equalsIgnoreCase("PlayController")) {
-							totalAmount--;
-							if (totalAmount >= 0) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							if (totalAmount > 0) {
 								spawnBuffer.add(new MediumShip(model));
+								totalAmount--;
 								System.out.println("Medium Ship spawned. "
 										+ totalAmount + " remaining");
 							} else {
@@ -250,11 +250,10 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name
-								.equalsIgnoreCase("PlayController")) {
-							totalAmount--;
-							if (totalAmount >= 0) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							if (totalAmount > 0) {
 								spawnBuffer.add(new HardShip(model));
+								totalAmount--;
 								System.out.println("Hard Ship spawned. "
 										+ totalAmount + " remaining");
 							} else {
@@ -271,11 +270,10 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name
-								.equalsIgnoreCase("PlayController")) {
-							totalAmount--;
-							if (totalAmount >= 0) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyAircraft(model));
+								totalAmount--;
 								System.out.println("Easy Aircraft spawned. "
 										+ totalAmount + " remaining");
 							} else {
@@ -292,11 +290,10 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name
-								.equalsIgnoreCase("PlayController")) {
-							totalAmount--;
-							if (totalAmount >= 0) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+							if (totalAmount > 0) {
 								spawnBuffer.add(new EasySubmarine(model));
+								totalAmount--;
 								System.out.println("Easy Submarine spawned. "
 										+ totalAmount + " remaining");
 							} else {
