@@ -130,7 +130,7 @@ public abstract class LevelManager {
 								//TODO: Switch to the upgrade screen from the LevelManager
 								
 								model.setNewLevel(true);
-								
+								this.cancel();
 								return;
 							}
 						}
