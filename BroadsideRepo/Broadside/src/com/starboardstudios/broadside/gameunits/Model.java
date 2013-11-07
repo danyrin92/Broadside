@@ -39,6 +39,7 @@ public class Model extends Thread {
 	 */
 	protected int difficulty;
 	private int level;
+	private boolean paused = false;
 	/** End level condition when numOfEnemies == 0 */
 	private int numOfEnemies;
 	/** For enemy unit spawning */
@@ -85,7 +86,9 @@ public class Model extends Thread {
 	public void run() {
 		System.out.println("Model Started ");
 		while (true) {
-			update();
+			if(!paused){
+				update();
+			}
 			try {
 				/** FPS modifier below */
 				Thread.sleep(10);
@@ -630,6 +633,9 @@ public class Model extends Thread {
 
 	public void setLevel(int lvl) {
 		level = lvl;
+	}
+	public void setPaused(boolean p) {
+		paused = p;
 	}
 
 	public void setDifficulty(int difficulty) {

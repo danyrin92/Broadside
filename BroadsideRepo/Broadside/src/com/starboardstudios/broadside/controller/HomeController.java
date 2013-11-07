@@ -19,9 +19,7 @@ public class HomeController extends BaseController {
 	
 	public void playGame(View view)
 	{
-		/**For clicking new game, to start a new game without crashing. Starts new model for new game.*/
 		((BroadsideApplication) this.getApplication()).clearModel();
-		
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}

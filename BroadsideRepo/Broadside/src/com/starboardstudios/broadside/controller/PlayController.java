@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import com.starboardstudios.broadside.interfaces.Draggable;
 import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -61,7 +62,8 @@ public class PlayController extends BaseController {
 			
 			@Override
 			public void onClick(View arg0) {
-	 
+				
+				model.setPaused(true);
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 					context);
 	 
@@ -70,8 +72,10 @@ public class PlayController extends BaseController {
 	 
 				// the Game Paused message
 				alertDialogBuilder
+					.setIcon(drawable.turret)
 					.setMessage("Game Paused")
 					.setCancelable(false)
+					
 					.setPositiveButton("Main Menu",new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
 							// returns the user to
@@ -79,10 +83,17 @@ public class PlayController extends BaseController {
 							PlayController.this.finish();
 						}
 					  })
+					 .setNeutralButton("Restart Level",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							// restarts the level
+							PlayController.this.finish();
+						}
+					  })
 					.setNegativeButton("Resume Game",new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
 							// closes the pause dialog
 							// and resumes game
+							model.setPaused(false);
 							dialog.cancel();
 						}
 					});
