@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.app.BroadsideApplication;
 
 //COMMENT YO SHIT
 public class HomeController extends BaseController {
@@ -18,6 +19,9 @@ public class HomeController extends BaseController {
 	
 	public void playGame(View view)
 	{
+		/**For clicking new game, to start a new game without crashing. Starts new model for new game.*/
+		((BroadsideApplication) this.getApplication()).clearModel();
+		
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}

@@ -76,7 +76,6 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
-		//this.setNewLevel(true);
 		this.timer = new Timer();
 
 		this.start();
@@ -610,6 +609,21 @@ public class Model extends Thread {
 
 	}
 
+	/**
+	 * Remove enemies from "units" ArrayList without removing MainShip
+	 * and remove the projectiles.
+	 */
+	public void removeAllEnemiesAndProjectile() {
+		/**Remove all enemy ships */
+		for(int x = units.size(); x >= 0; x--) {
+			if (!(units.get(x) instanceof MainShip)) {
+				units.remove(x);
+			}
+		}
+		projectiles = new ArrayList<Projectile>();
+		
+	}
+	
 	public int getLevel() {
 		return level;
 	}
@@ -658,13 +672,5 @@ public class Model extends Thread {
 	public Timer getTimer() {
 		return timer;
 	}
-/*
-	public boolean isNewLevel() {
-		return newLevel;
-	}
-
-	public void setNewLevel(boolean newLevel) {
-		this.newLevel = newLevel;
-	}
-*/
+	
 }
