@@ -32,6 +32,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.app.Dialog;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PlayController extends BaseController {
 
@@ -63,9 +66,36 @@ public class PlayController extends BaseController {
 			@Override
 			public void onClick(View arg0) {
 				
+				
+				
+				// custom dialog
+				final Dialog pauseDialog = new Dialog(context);
+				pauseDialog.setContentView(R.layout.pause_dialog);
+				pauseDialog.setTitle("Title...");
+	 
+				// set the custom dialog components - text, image and button
+				TextView text = (TextView) pauseDialog.findViewById(R.id.text);
+				text.setText("Android custom dialog example!");
+				ImageView image = (ImageView) pauseDialog.findViewById(R.id.image);
+				image.setImageResource(R.drawable.turret);
+	 
+				Button dialogButton = (Button) pauseDialog.findViewById(R.id.dialogButtonOK);
+				// if button is clicked, close the custom dialog
+				dialogButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						pauseDialog.dismiss();
+					}
+				});
+	 
+				pauseDialog.show();
+				
+				
+				
+				/*
 				model.setPaused(true);
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-					context);
+				AlertDialog.Builder alertDialogBuilder = new 
+						AlertDialog.Builder(context, 1);
 	 
 				// the Broadside title
 				alertDialogBuilder.setTitle("Broadside");
@@ -103,7 +133,8 @@ public class PlayController extends BaseController {
 	 
 					// actually shows the dialog
 					alertDialog.show();
-				}
+				*/
+			}
 			});
 		
 		name = "PlayController";

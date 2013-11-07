@@ -48,7 +48,7 @@ public final class R {
         public static final int waves=0x7f020022;
     }
     public static final class id {
-        public static final int BootyView=0x7f050012;
+        public static final int BootyView=0x7f050015;
         public static final int FrameLayout01=0x7f05000d;
         public static final int FrameLayout02=0x7f05000b;
         public static final int FrameLayout03=0x7f050002;
@@ -56,41 +56,45 @@ public final class R {
         public static final int ImageView01=0x7f05000e;
         public static final int ImageView02=0x7f05000c;
         public static final int ImageView03=0x7f050004;
-        public static final int LevelView=0x7f050011;
-        public static final int RelativeLayout1=0x7f050017;
-        public static final int SpawnEnemy=0x7f05000f;
-        public static final int UpgradeScreen=0x7f050010;
-        public static final int addShip=0x7f050015;
-        public static final int addTurret=0x7f050016;
-        public static final int button1=0x7f05001a;
-        public static final int button2=0x7f05001d;
-        public static final int button3=0x7f050019;
-        public static final int button4=0x7f05001e;
-        public static final int button5=0x7f05001b;
-        public static final int button6=0x7f05001f;
-        public static final int buttonAlert=0x7f050013;
+        public static final int LevelView=0x7f050014;
+        public static final int RelativeLayout1=0x7f05001a;
+        public static final int SpawnEnemy=0x7f050012;
+        public static final int UpgradeScreen=0x7f050013;
+        public static final int addShip=0x7f050018;
+        public static final int addTurret=0x7f050019;
+        public static final int button1=0x7f05001d;
+        public static final int button2=0x7f050020;
+        public static final int button3=0x7f05001c;
+        public static final int button4=0x7f050021;
+        public static final int button5=0x7f05001e;
+        public static final int button6=0x7f050022;
+        public static final int buttonAlert=0x7f050016;
+        public static final int dialogButtonOK=0x7f050010;
         public static final int frameLayout1=0x7f050009;
         public static final int frameLayout2=0x7f050007;
+        public static final int image=0x7f05000f;
         public static final int imageView1=0x7f05000a;
         public static final int imageView2=0x7f050008;
         public static final int imageView3=0x7f050005;
         public static final int imageView4=0x7f050006;
-        public static final int inner_frame=0x7f050014;
-        public static final int nxtLvl=0x7f05001c;
+        public static final int inner_frame=0x7f050017;
+        public static final int nxtLvl=0x7f05001f;
         public static final int play_frame=0x7f050000;
-        public static final int textView2=0x7f050020;
+        public static final int text=0x7f050011;
+        public static final int textView2=0x7f050023;
         public static final int upgrade=0x7f050001;
-        public static final int upgrade_frame=0x7f050018;
+        public static final int upgrade_frame=0x7f05001b;
     }
     public static final class layout {
         public static final int credits_view=0x7f030000;
         public static final int home_view=0x7f030001;
         public static final int leaderboard_view=0x7f030002;
         public static final int options_view=0x7f030003;
-        public static final int pause_view=0x7f030004;
-        public static final int play_view=0x7f030005;
-        public static final int test_controller_view=0x7f030006;
-        public static final int upgrade_view=0x7f030007;
+        public static final int pause_dialog=0x7f030004;
+        public static final int pause_view=0x7f030005;
+        public static final int play_view=0x7f030006;
+        public static final int test_controller_view=0x7f030007;
+        public static final int upgrade_view=0x7f030008;
     }
     public static final class raw {
         public static final int broadside_levels=0x7f040000;
