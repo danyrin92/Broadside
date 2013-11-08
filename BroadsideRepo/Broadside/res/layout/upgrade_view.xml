@@ -25,8 +25,8 @@
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/button1"
-                android:layout_below="@+id/button1"
+                android:layout_alignLeft="@+id/pause"
+                android:layout_below="@+id/pause"
                 android:onClick="addTurret3"
                 android:text="3 (50)" />
 
@@ -43,7 +43,7 @@
                 android:id="@+id/BootyView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/button1"
+                android:layout_alignLeft="@+id/pause"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
                 android:text="Booty: "
@@ -97,7 +97,7 @@
                 android:text="6 (200)" />
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/pauseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -105,7 +105,7 @@
                 android:src="@drawable/mainship" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/BootyView"

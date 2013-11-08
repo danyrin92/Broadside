@@ -23,13 +23,10 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import android.app.AlertDialog;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.app.Dialog;
@@ -43,7 +40,7 @@ public class PlayController extends BaseController {
 
 	final Context context = this;
 	private Button pauseButton;
-
+	
 	private View activityScreen;
 	
 	@Override
@@ -58,84 +55,48 @@ public class PlayController extends BaseController {
 		
 		System.out.println("it gets this far... 2");
 		
-		pauseButton = (Button) findViewById(R.id.buttonAlert);
+		pauseButton = (Button) findViewById(R.id.pause);
 		
 		//Listener for pauseButton
 		pauseButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
-				
-				
-				
-				// custom dialog
+
+				// pause dialog
+				model.setPaused(true);
 				final Dialog pauseDialog = new Dialog(context);
 				pauseDialog.setContentView(R.layout.pause_dialog);
-				pauseDialog.setTitle("Title...");
-	 
-				// set the custom dialog components - text, image and button
-				TextView text = (TextView) pauseDialog.findViewById(R.id.text);
-				text.setText("Android custom dialog example!");
-				ImageView image = (ImageView) pauseDialog.findViewById(R.id.image);
-				image.setImageResource(R.drawable.turret);
-	 
-				Button dialogButton = (Button) pauseDialog.findViewById(R.id.dialogButtonOK);
-				// if button is clicked, close the custom dialog
-				dialogButton.setOnClickListener(new OnClickListener() {
+				pauseDialog.setTitle("Paused...");
+				
+				ImageView resumeButton = (ImageView) pauseDialog.findViewById(R.id.imageView2);
+				resumeButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						pauseDialog.dismiss();
+						model.setPaused(false);
+					}
+				});
+				
+				ImageView restartButton = (ImageView) pauseDialog.findViewById(R.id.imageView3);
+				restartButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						pauseDialog.dismiss();
 					}
 				});
-	 
+				
+				ImageView mainmenuButton = (ImageView) pauseDialog.findViewById(R.id.imageView4);
+				mainmenuButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						PlayController.this.finish();
+					}
+				});
 				pauseDialog.show();
-				
-				
-				
-				/*
-				model.setPaused(true);
-				AlertDialog.Builder alertDialogBuilder = new 
-						AlertDialog.Builder(context, 1);
-	 
-				// the Broadside title
-				alertDialogBuilder.setTitle("Broadside");
-	 
-				// the Game Paused message
-				alertDialogBuilder
-					.setIcon(drawable.turret)
-					.setMessage("Game Paused")
-					.setCancelable(false)
-					
-					.setPositiveButton("Main Menu",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							// returns the user to
-							// the home view
-							PlayController.this.finish();
-						}
-					  })
-					 .setNeutralButton("Restart Level",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							// restarts the level
-							PlayController.this.finish();
-						}
-					  })
-					.setNegativeButton("Resume Game",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							// closes the pause dialog
-							// and resumes game
-							model.setPaused(false);
-							dialog.cancel();
-						}
-					});
-	 
-					// creates alert dialog
-					AlertDialog alertDialog = alertDialogBuilder.create();
-	 
-					// actually shows the dialog
-					alertDialog.show();
-				*/
 			}
-			});
+
+		});
 		
 		name = "PlayController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
