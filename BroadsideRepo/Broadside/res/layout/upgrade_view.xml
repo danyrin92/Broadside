@@ -4,8 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/broadside_logo"
-    android:orientation="vertical" android:clickable="true" android:focusable="true" android:longClickable="true"
-    android:focusableInTouchMode="true">
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:longClickable="true"
+    android:orientation="vertical" >
 
     <FrameLayout
         android:id="@+id/upgrade_frame"
@@ -13,42 +16,13 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-            >
+        android:layout_alignParentTop="true" >
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:id="@id/upgrade"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center" android:id="@id/upgrade">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/pause"
-                android:layout_below="@+id/pause"
-                android:onClick="addTurret3"
-                android:text="3 (50)" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/button3"
-                android:layout_below="@+id/button3"
-                android:onClick="addTurret5"
-                android:text="5 (100)" />
-
-            <TextView
-                android:id="@+id/BootyView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/pause"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="16dp"
-                android:text="Booty: "
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#FF0000" />
+            android:layout_gravity="right|center" >
 
             <Button
                 android:id="@+id/nxtLvl"
@@ -59,71 +33,163 @@
                 android:onClick="nextLevel"
                 android:text="Continue" />
 
+            <TableLayout
+                android:id="@+id/tableLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Turret:"
+                        android:textColor="#FF0000" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret1"
+                        android:text="1 (50)" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret2"
+                        android:text="2 (25)" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret3"
+                        android:text="3 (50)" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret4"
+                        android:text="4 (75)" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret5"
+                        android:text="5 (100)" />
+
+                    <Button
+                        android:id="@+id/button6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="addTurret6"
+                        android:text="6 (200)" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Manage Crew:"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#FF0000" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button7"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hire Crew" />
+
+                    <Button
+                        android:id="@+id/button8"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Heave Crew" />
+                </TableRow>
+            </TableLayout>
+
+            <RelativeLayout
+                android:id="@+id/shipframe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/BootyView" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mainship" />
+
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/LevelView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/nxtLvl"
-                android:layout_alignRight="@+id/BootyView"
+                android:layout_alignBottom="@+id/BootyView"
+                android:layout_marginRight="44dp"
+                android:layout_toLeftOf="@+id/tableLayout1"
                 android:text="Level: "
                 android:textColor="#FF0000"
                 android:typeface="monospace" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/button3"
-                android:layout_alignParentRight="true"
-                android:onClick="addTurret2"
-                android:text="2 (25)" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/button5"
-                android:layout_alignParentRight="true"
-                android:onClick="addTurret4"
-                android:text="4 (75)" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/button4"
-                android:onClick="addTurret6"
-                android:text="6 (200)" />
-
-            <ImageView
-                android:id="@+id/pauseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/mainship" />
-
-            <Button
-                android:id="@+id/pause"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/BootyView"
-                android:layout_toLeftOf="@+id/nxtLvl"
-                android:onClick="addTurret1"
-                android:text="1 (50)" />
-
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/BootyView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/BootyView"
                 android:layout_alignParentTop="true"
-                android:text="Add Turret:"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/LevelView"
+                android:text="Booty: "
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#FF0000" />
 
         </RelativeLayout>
-
     </FrameLayout>
 
 </RelativeLayout>
