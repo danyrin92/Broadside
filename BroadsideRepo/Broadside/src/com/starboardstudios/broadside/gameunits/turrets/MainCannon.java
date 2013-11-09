@@ -127,4 +127,8 @@ public class MainCannon extends Turret {
 
 	}
 
+	public void setImageView(ImageView image) {
+		imageView = image;
+	}
+
 }

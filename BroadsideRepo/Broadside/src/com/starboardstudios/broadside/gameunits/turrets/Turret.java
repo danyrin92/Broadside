@@ -1,6 +1,8 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
 import android.content.Context;
+import android.widget.ImageView;
+
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -103,4 +105,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		return turretCheck;
 
 	}
+	
+	public abstract void setImageView(ImageView image);
+
 }

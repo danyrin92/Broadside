@@ -55,6 +55,7 @@ public class Crew extends BaseUnit {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				imageView.setImageResource(drawable.crew_member);
 				//System.out.println(" x " + x + " y " + y);
 			}
 		});
@@ -80,6 +81,10 @@ public class Crew extends BaseUnit {
 	public void setPosition(float x, float y) {
 		this.x = x;
 		this.y = y;
+	}
+
+	public void setImageView(ImageView image) {
+		imageView = image;
 	}
 	
 }

@@ -168,4 +168,8 @@ public class Turret1 extends Turret {
         this.imageView.setVisibility(View.VISIBLE);
 		
 	}
+	@Override
+	public void setImageView(ImageView image) {
+		imageView = image;
+	}
 }

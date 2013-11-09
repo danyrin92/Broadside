@@ -44,8 +44,8 @@ public class Model extends Thread {
 	private int numOfEnemies;
 	/** For enemy unit spawning */
 	private Timer timer;
-	///** If true, model is on a new level. */
-	//private boolean newLevel;
+	// /** If true, model is on a new level. */
+	// private boolean newLevel;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
 	// Crew is property of mainship
 
@@ -77,6 +77,7 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
+		this.timer = new Timer();
 
 		this.start();
 	}
@@ -109,23 +110,25 @@ public class Model extends Thread {
 		}
 
 		if (currentActivity != null) {
-			for (int x = 0; x < units.size(); x++) {
-				units.get(x).update();
-			}
-			for (int x = 0; x < projectiles.size(); x++) {
-				projectiles.get(x).update();
-			}
-			//TODO Finalize
-			/** under testing for crew */
-			if (getMainShip() != null) {
-				for (int x = 0; x < getMainShip().getCrew().size(); x++) {
-					getMainShip().getCrew().get(x).update();
+			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+				for (int x = 0; x < units.size(); x++) {
+					units.get(x).update();
+				}
+				for (int x = 0; x < projectiles.size(); x++) {
+					projectiles.get(x).update();
+				}
+				// TODO Finalize
+				/** under testing for crew */
+				if (getMainShip() != null) {
+					for (int x = 0; x < getMainShip().getCrew().size(); x++) {
+						getMainShip().getCrew().get(x).update();
+					}
 				}
 			}
 
 			/** Spawn enemies */
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-				//LevelManager.update(this);
+				// LevelManager.update(this);
 
 				Runnable emptySpawnBuffer = new Runnable() {
 					@Override
@@ -136,8 +139,7 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(emptySpawnBuffer);
-				
-				
+
 				/** Below is how to show text to screen */
 				/** Below grabs appropriate TextView object */
 				final TextView health = (TextView) currentActivity
@@ -211,7 +213,8 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
+						if (currentActivity.name
+								.equalsIgnoreCase("PlayController")) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyShip(model));
 								totalAmount--;
@@ -231,7 +234,8 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
+						if (currentActivity.name
+								.equalsIgnoreCase("PlayController")) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new MediumShip(model));
 								totalAmount--;
@@ -251,7 +255,8 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
+						if (currentActivity.name
+								.equalsIgnoreCase("PlayController")) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new HardShip(model));
 								totalAmount--;
@@ -271,7 +276,8 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
+						if (currentActivity.name
+								.equalsIgnoreCase("PlayController")) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyAircraft(model));
 								totalAmount--;
@@ -291,7 +297,8 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
+						if (currentActivity.name
+								.equalsIgnoreCase("PlayController")) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasySubmarine(model));
 								totalAmount--;
@@ -369,18 +376,17 @@ public class Model extends Thread {
 				Projectile p = (Projectile) unit;
 				projectiles.add((Projectile) unit);
 			} catch (Exception e) {
-
-				// System.out.println("Unit Added: "+ unit.toString());
-
+				//System.out.println("Unit Added: " + unit.toString());
 				units.add(unit);
-				// maintain mainship turret list
+				// maintain mainship turret and crew lists
 				if (unit instanceof Turret) {
 					getMainShip().addTurret((Turret) unit);
+				} else if (unit instanceof Crew) {
+					getMainShip().addCrew((Crew) unit);
 				}
 			}
 
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
-
 				unit.update();
 				// System.out.println("Original Location" +
 				// unit.getImage().getX()+unit.getImage().getY() );
@@ -392,9 +398,12 @@ public class Model extends Thread {
 				((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
 						.addView(unit.getImage());
 			}
-
 		}
-
+	}
+	
+	public void addToUp(BaseUnit unit) {
+		((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
+		.addView(unit.getImage());
 	}
 
 	/**
@@ -612,21 +621,21 @@ public class Model extends Thread {
 	}
 
 	/**
-	 * Remove enemies from "units" ArrayList without removing MainShip
-	 * and remove the projectiles.
+	 * Remove enemies from "units" ArrayList without removing MainShip and
+	 * remove the projectiles.
 	 */
 	public void removeAllEnemiesAndProjectile() {
-		/**Remove all enemy ships */
-		for(int x = units.size() - 1; x >= 0; x--) {
+		/** Remove all enemy ships */
+		for (int x = units.size(); x >= 0; x--) {
 			if (!(units.get(x) instanceof MainShip)) {
-				removeUnit(units.get(x));
+				units.remove(x);
 			}
 		}
-		for(int x = projectiles.size()-1; x >= 0; x--) {
-			removeUnit(projectiles.get(x));
 		}
+		projectiles = new ArrayList<Projectile>();
+
 	}
-	
+
 	public int getLevel() {
 		return level;
 	}
@@ -634,6 +643,7 @@ public class Model extends Thread {
 	public void setLevel(int lvl) {
 		level = lvl;
 	}
+
 	public void setPaused(boolean p) {
 		paused = p;
 	}
@@ -678,15 +688,5 @@ public class Model extends Thread {
 	public Timer getTimer() {
 		return timer;
 	}
-	
-	public void setTimer(Timer timer) {
-		this.timer = timer;
-	}
-	
-	/**
-	 * Clears timer and assigns new null timer. 
-	 */
-	public void clearTimer() {
-		this.timer = new Timer();
-	}
+
 }

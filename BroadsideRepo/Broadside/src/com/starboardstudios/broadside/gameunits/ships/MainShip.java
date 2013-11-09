@@ -141,4 +141,8 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		return crews;
 	}
 
+	public void setImageView(ImageView upImage) {
+		this.imageView = upImage;
+	}
+
 }

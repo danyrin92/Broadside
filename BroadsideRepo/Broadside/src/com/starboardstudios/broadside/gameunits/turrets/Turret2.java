@@ -165,4 +165,8 @@ public class Turret2 extends Turret {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void setImageView(ImageView image) {
+		imageView = image;
+	}
 }

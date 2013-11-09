@@ -1,6 +1,10 @@
 package com.starboardstudios.broadside.controller;
 
+import java.util.ArrayList;
+
 import android.annotation.SuppressLint;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.app.BroadsideApplication;
+import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
@@ -20,6 +26,16 @@ public class UpgradeController extends BaseController {
 
 	private Model model;
 	private MainShip mainShip;
+	/**For renderMainShip()*/
+	private ImageView msPlay;
+	private ImageView msUp;
+	private ImageView mcPlay;
+	private ImageView mcUp;
+	private ArrayList<ImageView> crewPlays = new ArrayList<ImageView>();
+	private ArrayList<ImageView> crewUps = new ArrayList<ImageView>();
+	private ArrayList<ImageView> turretPlays = new ArrayList<ImageView>();
+	private ArrayList<ImageView> turretUps = new ArrayList<ImageView>();
+	/** ^ */
 
 	@SuppressLint("NewApi")
 	@Override
@@ -35,7 +51,8 @@ public class UpgradeController extends BaseController {
 
 		// get and display mainShip
 		mainShip = model.getMainShip();
-		// TODO: spawn ship in correctly...
+		renderMainShip();
+		
 
 		try {
 			Thread.sleep(20);
@@ -70,6 +87,7 @@ public class UpgradeController extends BaseController {
 
 	public void nextLevel(View view) {
 		model.setLevel(model.getLevel() + 1);
+		mainShip.setImageView(msPlay);
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}
@@ -133,6 +151,89 @@ public class UpgradeController extends BaseController {
 		}
 		// TODO display in-game "you don't have enough booty..."
 		return false;
+	}
+	
+	//render mainship, its crew and turrets in the upgrades screen
+	public void renderMainShip() {
+		savePlays(); //saves the play screen imageViews (identical save for context...)
+		createUps(); //creates upgrade screen compatible version of plays
+		/** set ups to objects and add to model*/
+		//mainship
+		mainShip.setImageView(msUp);
+		model.addToUp(mainShip);
+		//maincannon
+		mainShip.getMainCannon().setImageView(mcUp);
+		model.addToUp(mainShip.getMainCannon());
+		//crew loop
+		ArrayList<Crew> crew = mainShip.getCrew();
+		int numCrew = crew.size();
+		for (int i = 0; i < numCrew; i++) {
+			crew.get(i).setImageView(crewUps.get(i));
+			model.addToUp(crew.get(i));
+		}
+		//turrets loop
+		ArrayList<Turret> turrets = mainShip.getTurrets();
+		int numTurrets = turrets.size();
+		for (int i = 0; i < numTurrets; i++) {
+			turrets.get(i).setImageView(turretUps.get(i));
+			model.addToUp(turrets.get(i));
+		}
+	}
+	
+	//saves play screen imageViews of mainship, its crew and turrets
+	public void savePlays() {
+		//mainship
+		msPlay = mainShip.getImage();
+		msPlay.setTag(1);
+		//maincannon
+		mcPlay = mainShip.getMainCannon().getImage();
+		mcPlay.setTag(1);
+		//crew loop
+		ArrayList<Crew> crew = mainShip.getCrew();
+		int numCrew = crew.size();
+		for (int i = 0; i < numCrew; i++) {
+			crewPlays.add(crew.get(i).getImage());
+			crewPlays.get(i).setTag(1);
+		}
+		//turrets loop
+		ArrayList<Turret> turrets = mainShip.getTurrets();
+		int numTurrets = turrets.size();
+		for (int i = 0; i < numTurrets; i++) {
+			turretPlays.add(turrets.get(i).getImage());
+			turretPlays.get(i).setTag(1);
+		}
+	}
+	
+	//creates upgrade screen compatible version of plays (context changed)
+	public void createUps() {
+		//mainship
+		msUp = new ImageView(this);
+		msUp.setImageResource((Integer) msPlay.getTag());
+		msUp.setAdjustViewBounds(true);
+		msUp.setLayoutParams(msPlay.getLayoutParams());
+		//maincannon
+		mcUp = new ImageView(this);
+		mcUp.setImageResource((Integer) mcPlay.getTag());
+		mcUp.setAdjustViewBounds(true);
+		mcUp.setLayoutParams(mcPlay.getLayoutParams());
+		//crew loop
+		ArrayList<Crew> crew = mainShip.getCrew();
+		int numCrew = crew.size();
+		for (int i = 0; i < numCrew; i++) {
+			crewUps.add(new ImageView(this));
+			crewUps.get(i).setImageResource((Integer) crewPlays.get(i).getTag());
+			crewUps.get(i).setAdjustViewBounds(true);
+			crewUps.get(i).setLayoutParams(crewPlays.get(i).getLayoutParams());
+		}
+		//turrets loop
+		ArrayList<Turret> turrets = mainShip.getTurrets();
+		int numTurrets = turrets.size();
+		for (int i = 0; i < numTurrets; i++) {
+			turretUps.add(new ImageView(this));
+			turretUps.get(i).setImageResource((Integer) turretPlays.get(i).getTag());
+			turretUps.get(i).setAdjustViewBounds(true);
+			turretUps.get(i).setLayoutParams(turretPlays.get(i).getLayoutParams());
+		}
 	}
 
 }
