@@ -44,9 +44,8 @@ public class Model extends Thread {
 	private int numOfEnemies;
 	/** For enemy unit spawning */
 	private Timer timer;
-	// /** If true, model is on a new level. */
-	// private boolean newLevel;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
+	
 	// Crew is property of mainship
 
 	private int booty; // currency
@@ -626,12 +625,14 @@ public class Model extends Thread {
 	 */
 	public void removeAllEnemiesAndProjectile() {
 		/** Remove all enemy ships */
-		for (int x = units.size(); x >= 0; x--) {
+		for(int x = units.size() - 1; x >= 0; x--) {
 			if (!(units.get(x) instanceof MainShip)) {
-				units.remove(x);
+				removeUnit(units.get(x));
 			}
 		}
-		projectiles = new ArrayList<Projectile>();
+		for(int x = projectiles.size()-1; x >= 0; x--) {
+			removeUnit(projectiles.get(x));
+		}
 
 	}
 
@@ -686,6 +687,11 @@ public class Model extends Thread {
 
 	public Timer getTimer() {
 		return timer;
+	}
+
+	public void clearTimer() {
+		timer = new Timer();
+		
 	}
 
 }
