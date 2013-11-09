@@ -83,6 +83,8 @@ public class PlayController extends BaseController {
 					@Override
 					public void onClick(View v) {
 						pauseDialog.dismiss();
+						LevelManager.restartLevel(model);
+						model.setPaused(false);
 					}
 				});
 				

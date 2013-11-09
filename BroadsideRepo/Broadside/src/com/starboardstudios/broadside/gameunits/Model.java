@@ -77,7 +77,6 @@ public class Model extends Thread {
 		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
-		this.timer = new Timer();
 
 		this.start();
 	}
@@ -212,7 +211,7 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyShip(model));
 								totalAmount--;
@@ -232,7 +231,7 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new MediumShip(model));
 								totalAmount--;
@@ -252,7 +251,7 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new HardShip(model));
 								totalAmount--;
@@ -272,7 +271,7 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasyAircraft(model));
 								totalAmount--;
@@ -292,7 +291,7 @@ public class Model extends Thread {
 
 					@Override
 					public void run() {
-						if (currentActivity.name.equalsIgnoreCase("PlayController")) {
+						if (currentActivity.name.equalsIgnoreCase("PlayController") & paused == false) {
 							if (totalAmount > 0) {
 								spawnBuffer.add(new EasySubmarine(model));
 								totalAmount--;
@@ -618,13 +617,14 @@ public class Model extends Thread {
 	 */
 	public void removeAllEnemiesAndProjectile() {
 		/**Remove all enemy ships */
-		for(int x = units.size(); x >= 0; x--) {
+		for(int x = units.size() - 1; x >= 0; x--) {
 			if (!(units.get(x) instanceof MainShip)) {
-				units.remove(x);
+				removeUnit(units.get(x));
 			}
 		}
-		projectiles = new ArrayList<Projectile>();
-		
+		for(int x = projectiles.size()-1; x >= 0; x--) {
+			removeUnit(projectiles.get(x));
+		}
 	}
 	
 	public int getLevel() {
@@ -679,4 +679,14 @@ public class Model extends Thread {
 		return timer;
 	}
 	
+	public void setTimer(Timer timer) {
+		this.timer = timer;
+	}
+	
+	/**
+	 * Clears timer and assigns new null timer. 
+	 */
+	public void clearTimer() {
+		this.timer = new Timer();
+	}
 }

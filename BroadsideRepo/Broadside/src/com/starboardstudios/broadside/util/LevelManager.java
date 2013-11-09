@@ -54,7 +54,7 @@ public abstract class LevelManager {
 	            InputStreamReader reader = new InputStreamReader(stream);
 	            BufferedReader breader = new BufferedReader(reader);
 	            System.out.println("BAHAHAHAHAHAH I WORKED");
-	
+	            
 	            int lineCounter = 0;
 	            String line = null;
 				try {
@@ -94,6 +94,7 @@ public abstract class LevelManager {
 	public static void startLevel(final Model model) {
 		//startTimers(level);
 		int level = model.getLevel();
+		model.clearTimer();
 	
 		model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
 		
