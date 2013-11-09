@@ -631,7 +631,6 @@ public class Model extends Thread {
 				units.remove(x);
 			}
 		}
-		}
 		projectiles = new ArrayList<Projectile>();
 
 	}

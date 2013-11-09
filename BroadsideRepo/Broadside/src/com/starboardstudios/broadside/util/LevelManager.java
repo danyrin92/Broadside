@@ -94,7 +94,6 @@ public abstract class LevelManager {
 	public static void startLevel(final Model model) {
 		//startTimers(level);
 		int level = model.getLevel();
-		model.clearTimer();
 	
 		model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
 		
