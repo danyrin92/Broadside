@@ -142,6 +142,14 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public ArrayList<Crew> getCrew() {
 		return crews;
 	}
+	
+	public float getX() {
+		return imageView.getX();
+	}
+	
+	public float getY() {
+		return imageView.getY();
+	}
 
 	public void setImageView(ImageView upImage) {
 		this.imageView = upImage;

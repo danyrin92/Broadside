@@ -46,15 +46,12 @@ public class PlayController extends BaseController {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		System.out.println("it gets this far... 1");
 		final View screen = ((LayoutInflater) getBaseContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
 		this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
-
-		System.out.println("it gets this far... 2");
 
 		pauseButton = (Button) findViewById(R.id.pause);
 

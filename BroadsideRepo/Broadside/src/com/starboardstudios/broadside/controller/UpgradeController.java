@@ -46,7 +46,8 @@ public class UpgradeController extends BaseController {
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
-
+		setContentView(screen);
+		
 		// get and display mainShip
 		mainShip = model.getMainShip();
 		renderMainShip();
@@ -92,7 +93,16 @@ public class UpgradeController extends BaseController {
 	public void hire(View view) {
 		int cost = 25;
 		if (model.getBooty()>=cost) {
-			model.addUnit(new Crew(this, model));
+			Crew crew = new Crew(this, model);
+			model.addUnit(crew);
+			float offset = 0;
+			if (mainShip.getCrew().size()>0) {
+				offset = (float) (.02*(mainShip.getCrew().size()-1));
+			}
+			float x = (float)(mainShip.getX()+((model.getScreenX()*.345)));
+			float y = (float)(mainShip.getY() +((model.getScreenX()*(.3-offset))));
+			crew.setPosition(x,y);
+			crew.update();
 			model.spendBooty(cost);
 		}
 	}

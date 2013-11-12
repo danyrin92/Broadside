@@ -107,5 +107,13 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	}
 	
 	public abstract void setImageView(ImageView image);
+	
+	public float getX() {
+		return x;
+	}
+	
+	public float getY() {
+		return y;
+	}
 
 }
