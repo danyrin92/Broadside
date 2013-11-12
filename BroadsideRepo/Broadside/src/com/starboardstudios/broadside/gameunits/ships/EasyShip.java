@@ -29,18 +29,15 @@ public class EasyShip extends BaseShip {
 		 * Current onClick listener for testing firing. TODO: Delete and
 		 * implement periodic firing
 		 */
-		imageView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				fire();
-
-			}
-		});
 
 		imageView.setVisibility(View.VISIBLE);
 
 		/** Starting speed of the ship */
 		xSpeed = -(int) (model.getScreenX() * .003);
+
+		x = (int) (model.getScreenX() + 75);
+		y = (int) (model.getScreenY() * .4);
+
 	}
 
 	/**
@@ -48,8 +45,8 @@ public class EasyShip extends BaseShip {
 	 */
 	public void update() {
 		int speed = Math.abs(xSpeed) + Math.abs(ySpeed);
-		//sSystem.out.println("Speed: " + speed);
-		
+		// sSystem.out.println("Speed: " + speed);
+
 		x = x + xSpeed;
 		y = y + ySpeed;
 
@@ -58,6 +55,9 @@ public class EasyShip extends BaseShip {
 
 		if (random == 0)
 			pathTwo();
+
+		if (random == 2)
+			pathThree();
 
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
@@ -79,9 +79,9 @@ public class EasyShip extends BaseShip {
 
 	void fire() {
 
-        CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
-                yFireSpeed, zFireSpeed);
-        temp.creator=this;
+		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
+				yFireSpeed, zFireSpeed);
+		temp.creator = this;
 		model.addUnit(temp);
 	}
 

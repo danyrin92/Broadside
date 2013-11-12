@@ -3,15 +3,16 @@ package com.starboardstudios.broadside.gameunits.aircrafts;
 import android.view.View;
 import android.widget.ImageView;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 
 import java.util.Random;
 
-public abstract class BaseAircraft extends com.starboardstudios.broadside.gameunits.CombatUnit {
+public abstract class BaseAircraft extends CombatUnit {
 
 	/** Random value for choosing pathing track */
 	Random rand = new Random();
-	int random = rand.nextInt(2);
+	int random = rand.nextInt(3);
 	int moveCount = 0;
 
 	public BaseAircraft(Model model) {
@@ -20,6 +21,7 @@ public abstract class BaseAircraft extends com.starboardstudios.broadside.gameun
 
 		imageView.setVisibility(View.INVISIBLE);
 		imageView.setAdjustViewBounds(true);
+
 	}
 
 	@Override
@@ -33,7 +35,7 @@ public abstract class BaseAircraft extends com.starboardstudios.broadside.gameun
 	}
 
 	public void collide(BaseUnit unit) {
-		x = 0;
+		// unit.getImage().setVisibility(View.INVISIBLE);
 	}
 
 }

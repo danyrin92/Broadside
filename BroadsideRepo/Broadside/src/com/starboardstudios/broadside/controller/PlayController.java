@@ -40,24 +40,25 @@ public class PlayController extends BaseController {
 
 	final Context context = this;
 	private Button pauseButton;
-	
+
 	private View activityScreen;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		System.out.println("it gets this far... 1");
-		final View screen = ((LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
+		final View screen = ((LayoutInflater) getBaseContext()
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
-        this.activityScreen = screen;
+		this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
-		
+
 		System.out.println("it gets this far... 2");
-		
+
 		pauseButton = (Button) findViewById(R.id.pause);
-		
-		//Listener for pauseButton
+
+		// Listener for pauseButton
 		pauseButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -68,8 +69,9 @@ public class PlayController extends BaseController {
 				final Dialog pauseDialog = new Dialog(context);
 				pauseDialog.setContentView(R.layout.pause_dialog);
 				pauseDialog.setTitle("Paused...");
-				
-				ImageView resumeButton = (ImageView) pauseDialog.findViewById(R.id.imageView2);
+
+				ImageView resumeButton = (ImageView) pauseDialog
+						.findViewById(R.id.imageView2);
 				resumeButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -77,8 +79,9 @@ public class PlayController extends BaseController {
 						model.setPaused(false);
 					}
 				});
-				
-				ImageView restartButton = (ImageView) pauseDialog.findViewById(R.id.imageView3);
+
+				ImageView restartButton = (ImageView) pauseDialog
+						.findViewById(R.id.imageView3);
 				restartButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -87,8 +90,9 @@ public class PlayController extends BaseController {
 						model.setPaused(false);
 					}
 				});
-				
-				ImageView mainmenuButton = (ImageView) pauseDialog.findViewById(R.id.imageView4);
+
+				ImageView mainmenuButton = (ImageView) pauseDialog
+						.findViewById(R.id.imageView4);
 				mainmenuButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -99,7 +103,7 @@ public class PlayController extends BaseController {
 			}
 
 		});
-		
+
 		name = "PlayController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
@@ -111,14 +115,13 @@ public class PlayController extends BaseController {
 		 * Below is an example of how to add to the model without keylistener
 		 * logic! Don't delete!
 		 */
-        if(model.getLevel()==1)
-        {
-		    model.addUnit(new MainShip(model));
-            model.addUnit(model.getMainShip().getMainCannon());
-            //TODO finish testing crew
-            model.addUnit(new Crew(context, model));
-            
-        }
+		if (model.getLevel() == 1) {
+			model.addUnit(new MainShip(model));
+			model.addUnit(model.getMainShip().getMainCannon());
+			// TODO finish testing crew
+			model.addUnit(new Crew(context, model));
+
+		}
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -132,10 +135,10 @@ public class PlayController extends BaseController {
 			@Override
 			public boolean onDrag(View v, DragEvent event) {
 
-                ((Draggable) event.getLocalState()).midDrag(event.getX(),event.getY());
+				((Draggable) event.getLocalState()).midDrag(event.getX(),
+						event.getY());
 
-
-                if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
+				if (event.getAction() == DragEvent.ACTION_DRAG_STARTED) {
 
 					((Draggable) event.getLocalState()).dragStarted();
 
@@ -143,37 +146,40 @@ public class PlayController extends BaseController {
 
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
 
-                    ((Draggable) event.getLocalState()).endDrag(event.getX(), event.getY());
-                    System.out.println("drop registered");
+					((Draggable) event.getLocalState()).endDrag(event.getX(),
+							event.getY());
+					System.out.println("drop registered");
 
-
-
-                }
+				}
 				return true;
 
 			}
 		});
-        /**FIRING LISTENER*/
-        screen.setOnTouchListener(new View.OnTouchListener() {
-			
+		/** FIRING LISTENER */
+		screen.setOnTouchListener(new View.OnTouchListener() {
+
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				model.getMainShip().getMainCannon().fire(event.getX(), event.getY());
+				model.getMainShip().getMainCannon()
+						.fire(event.getX(), event.getY());
 				return true;
 			}
-		});  
-        
-        
+		});
+
 	}
-	
+
 	/** for getting the upgrades button to work... */
 	public void gotoUpgrades(View view) {
-		Intent gotoUpgrades = new Intent(this, com.starboardstudios.broadside.controller.UpgradeController.class);
+		Intent gotoUpgrades = new Intent(
+				this,
+				com.starboardstudios.broadside.controller.UpgradeController.class);
 		startActivity(gotoUpgrades);
 	}
-	
+
 	public void gotoUpgrades() {
-		Intent gotoUpgrades = new Intent(this, com.starboardstudios.broadside.controller.UpgradeController.class);
+		Intent gotoUpgrades = new Intent(
+				this,
+				com.starboardstudios.broadside.controller.UpgradeController.class);
 		startActivity(gotoUpgrades);
 	}
 
@@ -190,32 +196,22 @@ public class PlayController extends BaseController {
 		switch (spawnnum) {
 		case 0:
 			EasyShip es = new EasyShip(model);
-			es.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
 			model.addUnit(es);
 			break;
 		case 1:
 			MediumShip ms = new MediumShip(model);
-			ms.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
 			model.addUnit(ms);
 			break;
 		case 2:
 			HardShip hs = new HardShip(model);
-			hs.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
 			model.addUnit(hs);
 			break;
 		case 3:
 			EasySubmarine esub = new EasySubmarine(model);
-			esub.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
 			model.addUnit(esub);
 			break;
 		case 4:
 			EasyAircraft ea = new EasyAircraft(model);
-			ea.setPosition(((int) (model.getScreenX()) + 75),
-					((int) (model.getScreenY() * .4)));
 			model.addUnit(ea);
 			break;
 

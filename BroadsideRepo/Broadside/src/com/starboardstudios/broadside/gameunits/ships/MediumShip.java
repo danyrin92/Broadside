@@ -25,22 +25,13 @@ public class MediumShip extends BaseShip {
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .2)));
 
-		/**
-		 * Current onClick listener for testing firing. TODO: Delete and
-		 * implement periodic firing
-		 */
-		imageView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				fire();
-
-			}
-		});
-
 		imageView.setVisibility(View.VISIBLE);
 
 		/** Starting speed of the ship */
 		xSpeed = -(int) (model.getScreenX() * .003);
+
+		x = (int) (model.getScreenX() + 75);
+		y = (int) (model.getScreenY() * .4);
 	}
 
 	/**
@@ -55,6 +46,9 @@ public class MediumShip extends BaseShip {
 
 		if (random == 0)
 			pathTwo();
+
+		if (random == 2)
+			pathThree();
 
 		moveCount += Math.abs(xSpeed);
 		moveCount += Math.abs(ySpeed);
