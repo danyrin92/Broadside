@@ -70,8 +70,10 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 
 		//update turrets and crew
 		mainCannon.setPosition((float)(this.x+((model.getScreenX()*.325))),(float)(this.y+((model.getScreenX()*.3))));
+		float offset = 0; //for crew
 		for (int i=0; i<crews.size(); i++) {
-			crews.get(i).setPosition((float)(this.x+((model.getScreenX()*.345))),(float)(this.y+((model.getScreenX()*.3))));
+			offset = ((float)i)/50;
+			crews.get(i).setPosition((float)(this.x+((model.getScreenX()*.345))),(float)(this.y +((model.getScreenX()*(.3-offset)))));
 		}
 		
 		model.runOnMain(new Runnable() {

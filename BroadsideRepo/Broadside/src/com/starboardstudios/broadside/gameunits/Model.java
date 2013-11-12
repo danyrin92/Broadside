@@ -116,13 +116,6 @@ public class Model extends Thread {
 				for (int x = 0; x < projectiles.size(); x++) {
 					projectiles.get(x).update();
 				}
-				// TODO Finalize
-				/** under testing for crew */
-				if (getMainShip() != null) {
-					for (int x = 0; x < getMainShip().getCrew().size(); x++) {
-						getMainShip().getCrew().get(x).update();
-					}
-				}
 			}
 
 			/** Spawn enemies */
@@ -378,13 +371,12 @@ public class Model extends Thread {
 				//System.out.println("Unit Added: " + unit.toString());
 				units.add(unit);
 				// maintain mainship turret and crew lists
-				if (unit instanceof Turret) {
+				if (unit instanceof Turret && !(unit instanceof MainCannon)) {
 					getMainShip().addTurret((Turret) unit);
 				} else if (unit instanceof Crew) {
 					getMainShip().addCrew((Crew) unit);
 				}
 			}
-
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
 				unit.update();
 				// System.out.println("Original Location" +
@@ -578,6 +570,11 @@ public class Model extends Thread {
 		// System.out.println("removing unit "+unit.toString());
 		try {
 			units.remove(unit);
+			if (unit instanceof Turret) {
+				getMainShip().getTurrets().remove((Turret) unit);
+			} else if (unit instanceof Crew) {
+				getMainShip().getCrew().remove((Crew) unit);
+			} 
 		} catch (Exception e) {
 		}
 		try {
@@ -667,6 +664,10 @@ public class Model extends Thread {
 
 	public void spendBooty(int spentBooty) {
 		this.booty -= spentBooty;
+	}
+	
+	public void addBooty(int plunder) {
+		this.booty+=plunder;
 	}
 
 	public int getTurretCostAt(int index) {

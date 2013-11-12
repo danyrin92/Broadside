@@ -33,8 +33,6 @@ public class UpgradeController extends BaseController {
 	private ImageView mcUp;
 	private ArrayList<ImageView> crewPlays = new ArrayList<ImageView>();
 	private ArrayList<ImageView> crewUps = new ArrayList<ImageView>();
-	private ArrayList<ImageView> turretPlays = new ArrayList<ImageView>();
-	private ArrayList<ImageView> turretUps = new ArrayList<ImageView>();
 	/** ^ */
 
 	@SuppressLint("NewApi")
@@ -87,9 +85,25 @@ public class UpgradeController extends BaseController {
 
 	public void nextLevel(View view) {
 		model.setLevel(model.getLevel() + 1);
-		mainShip.setImageView(msPlay);
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
+	}
+	
+	public void hire(View view) {
+		int cost = 25;
+		if (model.getBooty()>=cost) {
+			model.addUnit(new Crew(this, model));
+			model.spendBooty(cost);
+		}
+	}
+	
+	public void heave(View view) {
+		ArrayList<Crew> crew = mainShip.getCrew();
+		int numCrew = crew.size();
+		if (numCrew>0) {
+			model.removeUnit(crew.get(numCrew-1));
+			model.addBooty(10);
+		}
 	}
 
 	/** For implementing turret options*/
@@ -171,13 +185,6 @@ public class UpgradeController extends BaseController {
 			crew.get(i).setImageView(crewUps.get(i));
 			model.addToUp(crew.get(i));
 		}
-		//turrets loop
-		ArrayList<Turret> turrets = mainShip.getTurrets();
-		int numTurrets = turrets.size();
-		for (int i = 0; i < numTurrets; i++) {
-			turrets.get(i).setImageView(turretUps.get(i));
-			model.addToUp(turrets.get(i));
-		}
 	}
 	
 	//saves play screen imageViews of mainship, its crew and turrets
@@ -194,13 +201,6 @@ public class UpgradeController extends BaseController {
 		for (int i = 0; i < numCrew; i++) {
 			crewPlays.add(crew.get(i).getImage());
 			crewPlays.get(i).setTag(1);
-		}
-		//turrets loop
-		ArrayList<Turret> turrets = mainShip.getTurrets();
-		int numTurrets = turrets.size();
-		for (int i = 0; i < numTurrets; i++) {
-			turretPlays.add(turrets.get(i).getImage());
-			turretPlays.get(i).setTag(1);
 		}
 	}
 	
@@ -224,15 +224,6 @@ public class UpgradeController extends BaseController {
 			crewUps.get(i).setImageResource((Integer) crewPlays.get(i).getTag());
 			crewUps.get(i).setAdjustViewBounds(true);
 			crewUps.get(i).setLayoutParams(crewPlays.get(i).getLayoutParams());
-		}
-		//turrets loop
-		ArrayList<Turret> turrets = mainShip.getTurrets();
-		int numTurrets = turrets.size();
-		for (int i = 0; i < numTurrets; i++) {
-			turretUps.add(new ImageView(this));
-			turretUps.get(i).setImageResource((Integer) turretPlays.get(i).getTag());
-			turretUps.get(i).setAdjustViewBounds(true);
-			turretUps.get(i).setLayoutParams(turretPlays.get(i).getLayoutParams());
 		}
 	}
 

@@ -48,7 +48,7 @@ public abstract class Projectile extends BaseUnit {
 		this.y = y;
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
-		if ((int) xSpeed != 0) {
+		/*if ((int) xSpeed != 0) {
 			if (xSpeed / (int) xSpeed >= 1.01) { // handle float to int
 													// conversion
 				this.xSpeed++;
@@ -58,7 +58,7 @@ public abstract class Projectile extends BaseUnit {
 			if (ySpeed / (int) ySpeed >= 1.01) {
 				this.ySpeed++;
 			}
-		}
+		}*/
 		//TODO maybe cast as int...
 
 		imageView = new ImageView(context);

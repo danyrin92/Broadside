@@ -120,6 +120,7 @@ public class PlayController extends BaseController {
 			model.addUnit(model.getMainShip().getMainCannon());
 			// TODO finish testing crew
 			model.addUnit(new Crew(context, model));
+			model.addUnit(new Crew(context, model));
 
 		}
 		try {
