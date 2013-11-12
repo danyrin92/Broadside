@@ -4,12 +4,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
@@ -17,10 +17,9 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
-import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.controller.BaseController;
-import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -327,6 +326,7 @@ public class Model extends Thread {
 			LevelManager.LevelReader(this);
 
 			for (int x = 0; x < units.size(); x++) {
+                System.out.println(units.get(x).toString());
 				((ViewGroup) units.get(x).getImage().getParent())
 						.removeView(units.get(x).getImage());
 				((FrameLayout) currentActivity.findViewById(R.id.play_frame))
@@ -334,6 +334,18 @@ public class Model extends Thread {
 			}
 
 		}
+        else if(currentActivity.name.equalsIgnoreCase("UpgradeController"))
+        {
+            System.out.println("Updating Upgrade Controller" + units.size());
+            for (int x = 0; x < units.size(); x++) {
+                System.out.println(units.get(x).toString());
+                ((ViewGroup) units.get(x).getImage().getParent())
+                        .removeView(units.get(x).getImage());
+                ((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
+                        .addView(units.get(x).getImage());
+            }
+
+        }
 
 	}
 
@@ -393,8 +405,8 @@ public class Model extends Thread {
 	}
 	
 	public void addToUp(BaseUnit unit) {
-		((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
-		.addView(unit.getImage());
+		addUnit(unit);
+
 	}
 
 	/**
@@ -448,7 +460,7 @@ public class Model extends Thread {
 	 *            Second Unit to test
 	 * @return
 	 */
-	private boolean checkCollision(BaseUnit unit1, BaseUnit unit2) {
+	public boolean checkCollision(BaseUnit unit1, BaseUnit unit2) {
 		Rect bounds1 = new Rect(unit1.getImage().getLeft() + (int) unit1.x,
 				unit1.getImage().getTop() + (int) unit1.y, unit1.getImage()
 						.getRight() + (int) unit1.x, unit1.getImage()

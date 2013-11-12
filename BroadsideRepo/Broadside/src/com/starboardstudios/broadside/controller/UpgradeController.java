@@ -1,19 +1,15 @@
 package com.starboardstudios.broadside.controller;
 
-import java.util.ArrayList;
-
 import android.annotation.SuppressLint;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -21,6 +17,8 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.turrets.*;
 import com.starboardstudios.broadside.interfaces.Draggable;
+
+import java.util.ArrayList;
 
 public class UpgradeController extends BaseController {
 
@@ -42,15 +40,15 @@ public class UpgradeController extends BaseController {
 		final View screen = ((LayoutInflater) getBaseContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.upgrade_view, null);
-		setContentView(R.layout.upgrade_view);
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
-		model.setCurrentActivity(this);
-		setContentView(screen);
-		
+        setContentView(screen);
+
+        model.setCurrentActivity(this);
+
 		// get and display mainShip
 		mainShip = model.getMainShip();
-		renderMainShip();
+		//renderMainShip();
 		
 
 		try {
@@ -179,9 +177,10 @@ public class UpgradeController extends BaseController {
 	
 	//render mainship, its crew and turrets in the upgrades screen
 	public void renderMainShip() {
-		savePlays(); //saves the play screen imageViews (identical save for context...)
+		/**
+        savePlays(); //saves the play screen imageViews (identical save for context...)
 		createUps(); //creates upgrade screen compatible version of plays
-		/** set ups to objects and add to model*/
+		/** set ups to objects and add to model
 		//mainship
 		mainShip.setImageView(msUp);
 		model.addToUp(mainShip);
@@ -194,12 +193,13 @@ public class UpgradeController extends BaseController {
 		for (int i = 0; i < numCrew; i++) {
 			crew.get(i).setImageView(crewUps.get(i));
 			model.addToUp(crew.get(i));
-		}
+		}         */
 	}
 	
 	//saves play screen imageViews of mainship, its crew and turrets
 	public void savePlays() {
-		//mainship
+	    /**
+			//mainship
 		msPlay = mainShip.getImage();
 		msPlay.setTag(1);
 		//maincannon
@@ -212,10 +212,12 @@ public class UpgradeController extends BaseController {
 			crewPlays.add(crew.get(i).getImage());
 			crewPlays.get(i).setTag(1);
 		}
+         */
 	}
 	
 	//creates upgrade screen compatible version of plays (context changed)
 	public void createUps() {
+		/**
 		//mainship
 		msUp = new ImageView(this);
 		msUp.setImageResource((Integer) msPlay.getTag());
@@ -234,7 +236,7 @@ public class UpgradeController extends BaseController {
 			crewUps.get(i).setImageResource((Integer) crewPlays.get(i).getTag());
 			crewUps.get(i).setAdjustViewBounds(true);
 			crewUps.get(i).setLayoutParams(crewPlays.get(i).getLayoutParams());
-		}
+		}         */
 	}
 
 }

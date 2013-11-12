@@ -40,7 +40,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="Collisions Update">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Broadside.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/jarlist.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/background.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/cannon_ball.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/cannon_main.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/cannon_main_selected.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/cannon_main_shooting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/cannon_upgrade1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/credits_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/crew_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/easyaircraft.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/easyship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/easysubmarine.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/error.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/hardship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/leaders_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/load_game.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/main_cannon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/main_cannon_red.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/mainship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/mediumship.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/missile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/newgame_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/ocean.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/title.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/torpedo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/turret6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/tutorial_cloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable/waves.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/starboardstudios/broadside/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -110,7 +149,7 @@
       <file leaf-file-name="Projectile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="25" selection-start="1029" selection-end="1067" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="2670">
+            <state line="33" column="51" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2670">
               <folding />
             </state>
           </provider>
@@ -119,7 +158,7 @@
       <file leaf-file-name="Missile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Missile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="75" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="1140">
+            <state line="48" column="75" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -128,28 +167,34 @@
       <file leaf-file-name="UpgradeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="29" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1905">
+            <state line="45" column="0" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="3405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Turret1.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LevelManager.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="0" selection-start="3640" selection-end="3640" vertical-scroll-proportion="0.33333334" vertical-offset="1073" max-vertical-offset="1980">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="174" column="0" selection-start="5067" selection-end="5067" vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2610">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Turret1.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="16" selection-start="4955" selection-end="4955" vertical-scroll-proportion="0.35031846" vertical-offset="1495" max-vertical-offset="2325">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upgrade_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/upgrade_view.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2010">
+            <state line="156" column="47" selection-start="5221" selection-end="5221" vertical-scroll-proportion="0.0" vertical-offset="1569" max-vertical-offset="2355">
               <folding />
             </state>
           </provider>
@@ -157,13 +202,13 @@
       </file>
       <file leaf-file-name="play_view.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
               <folding />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -188,16 +233,7 @@
       <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="61" selection-start="7882" selection-end="7882" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="6300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainCannon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2040">
+            <state line="342" column="36" selection-start="9519" selection-end="9519" vertical-scroll-proportion="0.0" vertical-offset="4268" max-vertical-offset="9615">
               <folding />
             </state>
           </provider>
@@ -236,20 +272,20 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/util/test.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/MainCannon.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java" />
         <option value="$PROJECT_DIR$/res/layout/upgrade_view.xml" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="2560" />
-    <option name="height" value="1330" />
+    <option name="height" value="1341" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -318,8 +354,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -980,6 +1016,10 @@
       <workItem from="1383439464783" duration="1062000" />
       <workItem from="1383523594418" duration="3224000" />
       <workItem from="1383599536477" duration="800000" />
+      <workItem from="1384217156452" duration="109000" />
+      <workItem from="1384217294721" duration="2693000" />
+      <workItem from="1384234907414" duration="22000" />
+      <workItem from="1384234951798" duration="1304000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1117,7 +1157,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105629000" />
+    <option name="totallyTimeSpent" value="109757000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1140,14 +1180,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
+    <frame x="0" y="22" width="2560" height="1341" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.6707416" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24422443" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24366312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6707416" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949877" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33442354" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1155,10 +1196,10 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15061729" sideWeight="0.44033414" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17079207" sideWeight="0.4582339" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17007358" sideWeight="0.4582339" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30986476" sideWeight="0.6017442" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32673267" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32920793" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33442354" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949877" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1173,7 +1214,6 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6707416" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.053410023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1212,16 +1252,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/drawable/error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/easyaircraft.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/credits_cloud.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1256,13 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="25" selection-start="1029" selection-end="1067" vertical-scroll-proportion="0.0" vertical-offset="1240" max-vertical-offset="2220">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/CannonBall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="31" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
@@ -1277,43 +1300,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="61" selection-start="7882" selection-end="7882" vertical-scroll-proportion="0.0" vertical-offset="3705" max-vertical-offset="7230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/play_view.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/upgrade_view.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="51" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="2220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/upgrade_view.xml">
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2010">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="47" selection-start="5221" selection-end="5221" vertical-scroll-proportion="0.0" vertical-offset="1160" max-vertical-offset="2355">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="0" selection-start="5067" selection-end="5067" vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="342" column="36" selection-start="9519" selection-end="9519" vertical-scroll-proportion="0.0" vertical-offset="4268" max-vertical-offset="9615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1905">
+        <state line="45" column="0" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="3405">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="16" selection-start="4955" selection-end="4955" vertical-scroll-proportion="0.35031846" vertical-offset="1495" max-vertical-offset="2325">
+        <state line="105" column="0" selection-start="3640" selection-end="3640" vertical-scroll-proportion="0.33333334" vertical-offset="1073" max-vertical-offset="1980">
           <folding />
         </state>
       </provider>
