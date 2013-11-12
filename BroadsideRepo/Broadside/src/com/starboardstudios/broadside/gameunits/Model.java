@@ -44,7 +44,7 @@ public class Model extends Thread {
 	/** For enemy unit spawning */
 	private Timer timer;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
-	
+
 	// Crew is property of mainship
 
 	private int booty; // currency
@@ -84,7 +84,7 @@ public class Model extends Thread {
 	public void run() {
 		System.out.println("Model Started ");
 		while (true) {
-			if(!paused){
+			if (!paused) {
 				update();
 			}
 			try {
@@ -326,26 +326,27 @@ public class Model extends Thread {
 			LevelManager.LevelReader(this);
 
 			for (int x = 0; x < units.size(); x++) {
-                System.out.println(units.get(x).toString());
+				System.out.println(units.get(x).toString());
 				((ViewGroup) units.get(x).getImage().getParent())
 						.removeView(units.get(x).getImage());
 				((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 						.addView(units.get(x).getImage());
 			}
 
-		}
-        else if(currentActivity.name.equalsIgnoreCase("UpgradeController"))
-        {
-            System.out.println("Updating Upgrade Controller" + units.size());
-            for (int x = 0; x < units.size(); x++) {
-                System.out.println(units.get(x).toString());
-                ((ViewGroup) units.get(x).getImage().getParent())
-                        .removeView(units.get(x).getImage());
-                ((FrameLayout) currentActivity.findViewById(R.id.upgrade_frame))
-                        .addView(units.get(x).getImage());
-            }
+		} else if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
+			System.out.println("Updating Upgrade Controller" + units.size());
+			for (int x = 0; x < units.size(); x++) {
+				System.out.println(units.get(x).toString());
+				if ((units.get(x) instanceof Turret)||(units.get(x) instanceof MainShip)||(units.get(x) instanceof Crew)) {
+					((ViewGroup) units.get(x).getImage().getParent())
+							.removeView(units.get(x).getImage());
+					((FrameLayout) currentActivity
+							.findViewById(R.id.upgrade_frame)).addView(units
+							.get(x).getImage());
+				}
+			}
 
-        }
+		}
 
 	}
 
@@ -380,7 +381,7 @@ public class Model extends Thread {
 				Projectile p = (Projectile) unit;
 				projectiles.add((Projectile) unit);
 			} catch (Exception e) {
-				//System.out.println("Unit Added: " + unit.toString());
+				// System.out.println("Unit Added: " + unit.toString());
 				units.add(unit);
 				// maintain mainship turret and crew lists
 				if (unit instanceof Turret && !(unit instanceof MainCannon)) {
@@ -403,7 +404,7 @@ public class Model extends Thread {
 			}
 		}
 	}
-	
+
 	public void addToUp(BaseUnit unit) {
 		addUnit(unit);
 
@@ -586,7 +587,7 @@ public class Model extends Thread {
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
 				getMainShip().getCrew().remove((Crew) unit);
-			} 
+			}
 		} catch (Exception e) {
 		}
 		try {
@@ -634,12 +635,12 @@ public class Model extends Thread {
 	 */
 	public void removeAllEnemiesAndProjectile() {
 		/** Remove all enemy ships */
-		for(int x = units.size() - 1; x >= 0; x--) {
+		for (int x = units.size() - 1; x >= 0; x--) {
 			if (!(units.get(x) instanceof MainShip)) {
 				removeUnit(units.get(x));
 			}
 		}
-		for(int x = projectiles.size()-1; x >= 0; x--) {
+		for (int x = projectiles.size() - 1; x >= 0; x--) {
 			removeUnit(projectiles.get(x));
 		}
 
@@ -677,9 +678,9 @@ public class Model extends Thread {
 	public void spendBooty(int spentBooty) {
 		this.booty -= spentBooty;
 	}
-	
+
 	public void addBooty(int plunder) {
-		this.booty+=plunder;
+		this.booty += plunder;
 	}
 
 	public int getTurretCostAt(int index) {
@@ -704,7 +705,7 @@ public class Model extends Thread {
 
 	public void clearTimer() {
 		timer = new Timer();
-		
+
 	}
 
 }
