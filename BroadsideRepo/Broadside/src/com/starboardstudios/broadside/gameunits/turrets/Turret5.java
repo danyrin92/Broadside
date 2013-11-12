@@ -162,8 +162,10 @@ public class Turret5 extends Turret {
 	}
 	@Override
 	public void endDrag(float x, float y) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-gerated method stub
+        this.setPosition((int)x,(int)y);
+        this.update();
+        this.imageView.setVisibility(View.VISIBLE);
 	}
 	
 	public void setImageView(ImageView image) {
