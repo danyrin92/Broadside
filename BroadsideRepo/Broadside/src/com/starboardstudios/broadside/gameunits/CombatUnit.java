@@ -11,8 +11,8 @@ public abstract class CombatUnit extends BaseUnit {
 	public ImageView imageView;
 
 	/** Variables intrinsic to combat units */
-	protected int xSpeed;
-	protected int ySpeed;
+	protected float xSpeed;
+	protected float ySpeed;
 	protected int health;
 	protected int xFireSpeed, yFireSpeed, zFireSpeed;
 
@@ -242,11 +242,8 @@ public abstract class CombatUnit extends BaseUnit {
 			goTwelve();
 		else if (!seventeenn)
 			goSeventeen();
-		else if (!thirteenn) {
-			System.out.println("I think it's breaking...");
+		else if (!thirteenn) 
 			goThirteen();
-		}
-
 		else if (!sevenn)
 			goSeven();
 		else if (!sixteenn)
@@ -291,21 +288,26 @@ public abstract class CombatUnit extends BaseUnit {
 	 * @return
 	 */
 	boolean setPath(int x, int y) {
-		int speed = (int) (model.getScreenX() * .003);
+		float speed = (float)(model.getScreenX() * .0015);
 
 		if (this.x < x)
-			xSpeed = (int) (model.getScreenX() * .003);
+			xSpeed = speed;
 		else if (this.x > x)
-			xSpeed = -(int) (model.getScreenX() * .003);
+			xSpeed = -speed;
 		else
 			xSpeed = 0;
 
 		if (this.y < y)
-			ySpeed = (int) (model.getScreenX() * .003);
+			ySpeed = speed;
 		else if (this.y > y)
-			ySpeed = -(int) (model.getScreenX() * .003);
+			ySpeed = -speed;
 		else
 			ySpeed = 0;
+		
+		if(xSpeed !=0 && ySpeed != 0){
+			xSpeed /= 1.41;
+			ySpeed /= 1.41;
+		}
 
 		if (compare(this.x, x) && compare(this.y, y))
 			return true;
