@@ -58,8 +58,8 @@ public class Crew extends BaseUnit {
 			System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed + " ySpeed: " + ySpeed);
 			System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget);
 			boolean closeEnough = (Math.sqrt(Math.pow((xTarget-x),2) + Math.pow((yTarget-y),2))<1);
-			if (closeEnough || Math.abs(x)>1000) {
-				if (xTarget==xStation&&yTarget==yStation) {
+			if (closeEnough) {
+				if (xTarget==xStation && yTarget==yStation) {
 					//repair complete
 					repairing = false;
 					xSpeed = ySpeed = 0;
@@ -79,8 +79,6 @@ public class Crew extends BaseUnit {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.crew_member);
-				//System.out.println(" x " + x + " y " + y);
 			}
 		});
 	}
@@ -129,7 +127,10 @@ public class Crew extends BaseUnit {
 		ySpeed = (float) Math.sin(angle) * moveSpeed;
 		xSpeed = (float) Math.cos(angle) * moveSpeed;
 		//repair
-		update();
+		repairing = true;
+		while (repairing) {
+			update();
+		}
 	}
 	
 	public void setStations(float X, float Y) {
