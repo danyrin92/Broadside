@@ -39,7 +39,7 @@ public class PlayController extends BaseController {
 	public Model model;
 
 	final Context context = this;
-	private Button pauseButton;
+	private ImageView pauseButton;
 
 	private View activityScreen;
 
@@ -53,7 +53,7 @@ public class PlayController extends BaseController {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 
-		pauseButton = (Button) findViewById(R.id.pause);
+		pauseButton = (ImageView) findViewById(R.id.pause);
 
 		// Listener for pauseButton
 		pauseButton.setOnClickListener(new OnClickListener() {
