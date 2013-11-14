@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/LinearLayout1"
-    android:layout_width="250dp"
+    android:layout_width="300dp"
     android:layout_height="100dp"
     android:orientation="vertical" >
 
@@ -24,7 +24,7 @@
         android:layout_weight="0.70" >
 
         <FrameLayout
-            android:layout_width="84dp"
+            android:layout_width="75dp"
             android:layout_height="match_parent" >
 
             <ImageView
@@ -37,7 +37,7 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="76dp"
+            android:layout_width="75dp"
             android:layout_height="match_parent" >
 
             <ImageView
@@ -50,7 +50,20 @@
         </FrameLayout>
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/options_cloud" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="75dp"
             android:layout_height="match_parent" >
 
             <ImageView

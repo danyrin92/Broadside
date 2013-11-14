@@ -96,6 +96,16 @@ public class PlayController extends BaseController {
 						PlayController.this.finish();
 					}
 				});
+				
+				ImageView optionsButton = (ImageView) pauseDialog
+						.findViewById(R.id.imageView5);
+				optionsButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						gotoOptions();
+					}
+				});
+				
 				pauseDialog.show();
 			}
 
@@ -179,6 +189,11 @@ public class PlayController extends BaseController {
 				this,
 				com.starboardstudios.broadside.controller.UpgradeController.class);
 		startActivity(gotoUpgrades);
+	}
+	
+	public void gotoOptions() {
+		Intent optionsIntent = new Intent(this, OptionsController.class);
+		startActivity(optionsIntent);
 	}
 
 	public void init() {
