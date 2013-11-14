@@ -105,6 +105,20 @@ public class UpgradeController extends BaseController {
 			model.addBooty(10);
 		}
 	}
+	
+	public void testRepair(View view) {
+		System.out.println("test repair");
+		//grab crewman
+		ArrayList<Crew> crew = mainShip.getCrew();
+		int numCrew = crew.size();
+		Crew c = crew.get(numCrew-1);
+		//designate target
+		float xTarget = 10;
+		float yTarget = 10;
+		//call repairAt
+		c.repairAt(xTarget,yTarget);
+		System.out.println("stopped");
+	}
 
 	/** For implementing turret options*/
 	public void addTurret1(View view) {
