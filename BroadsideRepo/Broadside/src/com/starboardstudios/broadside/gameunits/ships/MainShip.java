@@ -159,5 +159,9 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public void setImageView(ImageView upImage) {
 		this.imageView = upImage;
 	}
+	
+	public Crew getLastCrew() {
+		return crews.get(crews.size()-1);
+	}
 
 }

@@ -108,14 +108,11 @@ public class UpgradeController extends BaseController {
 	
 	public void testRepair(View view) {
 		System.out.println("test repair");
-		//grab crewman
-		ArrayList<Crew> crew = mainShip.getCrew();
-		int numCrew = crew.size();
-		Crew c = crew.get(numCrew-1);
 		//designate target
-		float xTarget = 10;
-		float yTarget = 10;
+		float xTarget = 300;
+		float yTarget = 300;
 		//call repairAt
+		Crew c = mainShip.getLastCrew();
 		c.repairAt(xTarget,yTarget);
 		System.out.println("stopped");
 	}

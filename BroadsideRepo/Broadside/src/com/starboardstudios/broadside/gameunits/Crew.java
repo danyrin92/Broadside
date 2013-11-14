@@ -57,8 +57,8 @@ public class Crew extends BaseUnit {
 		if (repairing) {
 			System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed + " ySpeed: " + ySpeed);
 			System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget);
-			boolean closeEnough = (Math.sqrt(Math.pow((xTarget-x),2) + Math.pow((yTarget-y),2))<1);
-			if (closeEnough) {
+			boolean closeEnough = Math.sqrt(Math.pow((xTarget-x),2) + Math.pow((yTarget-y),2)) < moveSpeed;
+			if (closeEnough /*|| Math.abs(x)>300*/) {
 				if (xTarget==xStation && yTarget==yStation) {
 					//repair complete
 					repairing = false;
@@ -71,6 +71,8 @@ public class Crew extends BaseUnit {
 					xTarget = xStation;
 					yTarget = yStation;
 					closeEnough = false;
+					//TODO remove this line
+					repairing = false; //for debugging; forces image to change
 				}
 			}
 		}
@@ -117,13 +119,15 @@ public class Crew extends BaseUnit {
 		float yDifference = yTarget - (this.y );
 		float xDifference = xTarget - (this.x );
 		double angle = Math.atan(yDifference / xDifference);;
-		if (xDifference>0 && yDifference<0) { //x+, y-
-			angle*=-1;
+		if (xDifference>0 && yDifference>0) { //x+, y+
+			//
 		} else if (xDifference<0 && yDifference>0) { //x-, y+
-			angle = 180 - angle;
-		} else if (xDifference<0 && yDifference<0) { //x-, y-
 			angle+=Math.PI;
-		}
+		} else if (xDifference>0 && yDifference<0) { //x+, y- 
+			
+		} else { //x-, y-
+			angle+=Math.PI;
+		} 
 		ySpeed = (float) Math.sin(angle) * moveSpeed;
 		xSpeed = (float) Math.cos(angle) * moveSpeed;
 		//repair
