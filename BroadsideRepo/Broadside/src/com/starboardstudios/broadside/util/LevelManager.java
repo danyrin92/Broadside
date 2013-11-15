@@ -1,25 +1,14 @@
 package com.starboardstudios.broadside.util;
 
-import android.R.integer;
-import android.content.Intent;
-
-import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.controller.PlayController;
-import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
-import com.starboardstudios.broadside.gameunits.ships.EasyShip;
-import com.starboardstudios.broadside.gameunits.ships.HardShip;
-import com.starboardstudios.broadside.gameunits.ships.MediumShip;
-import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class LevelManager {
-	private static int MAXLEVEL; 
+	private static int MAXLEVEL; //TODO: Assign value to max level
 	
 	//BaseShips: 000 to 099
 	public final static int ID_EASYSHIP = 000;
@@ -99,11 +88,12 @@ public abstract class LevelManager {
 		model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
 		
 		/** Start enemy spawning timers in the model */
-		model.startSpawn(ID_EASYSHIP,levelArray[level][0], levelArray[level][1]);
-		model.startSpawn(ID_MEDIUMSHIP, levelArray[level][2],levelArray[level][3]);
-		model.startSpawn(ID_HARDSHIP, levelArray[level][4], levelArray[level][5]);
-		model.startSpawn(ID_EASYAIRCRAFT, levelArray[level][6], levelArray[level][7]);
-		model.startSpawn(ID_EASYSUBMARINE, levelArray[level][8], levelArray[level][9]); 
+		int difficulty = model.getDifficulty();
+		model.startSpawn(ID_EASYSHIP, difficulty*levelArray[level][0], levelArray[level][1]);
+		model.startSpawn(ID_MEDIUMSHIP, difficulty*levelArray[level][2],levelArray[level][3]);
+		model.startSpawn(ID_HARDSHIP, difficulty*levelArray[level][4], levelArray[level][5]);
+		model.startSpawn(ID_EASYAIRCRAFT, difficulty*levelArray[level][6], levelArray[level][7]);
+		model.startSpawn(ID_EASYSUBMARINE, difficulty*levelArray[level][8], levelArray[level][9]); 
 	
 		TimerTask waitForSuccess = new TimerTask() {
 			@Override

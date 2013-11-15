@@ -24,12 +24,6 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -596,7 +590,7 @@ public class Model extends Thread implements Serializable{
 			units.remove(unit);
 			if ((unit instanceof BaseShip) || (unit instanceof BaseAircraft) || (unit instanceof BaseSubmarine)) {
 				numOfEnemies--;
-				System.out.println("Enemy removed. Current numOfEnemies = " + numOfEnemies) ;
+				System.out.println("Enemy " + unit.toString() + " removed. Current numOfEnemies = " + numOfEnemies) ;
 			}
 			
 			if (unit instanceof Turret) {

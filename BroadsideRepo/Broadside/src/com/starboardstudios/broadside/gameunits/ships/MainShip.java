@@ -3,6 +3,7 @@ package com.starboardstudios.broadside.gameunits.ships;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.R.drawable;
@@ -129,10 +130,28 @@ public class MainShip extends
 		return imageView;
 	}
 
-	@Override
-	public void collide(BaseUnit collidedWith) {
+	public void collide(BaseUnit unit) {
+		if (unit instanceof Projectile) {
+			if ((((Projectile)unit).creator instanceof BaseShip) || (((Projectile)unit).creator instanceof BaseAircraft) 
+					|| (((Projectile)unit).creator instanceof BaseShip)) {
+				damage(((Projectile) unit).getDamage());
+			}
+		}
 	}
-
+	
+	public void damage(int damage) {
+		health -= damage;
+		//TODO: Add animation to the damage method
+		if (health < 0) {
+			destroy();
+		}
+	}
+	
+	public void destroy() {
+		//TODO: Add animations to the destroy method
+		model.removeUnit(this);
+	}
+	
 	@Override
 	public void setPosition(int x, int y) {
 
@@ -182,10 +201,6 @@ public class MainShip extends
 
 	public Crew getLastCrew() {
 		return crews.get(crews.size() - 1);
-	}
-	
-	public void destroy() {
-		//TODO: Make destory method in MainShip funcational
 	}
 
 }

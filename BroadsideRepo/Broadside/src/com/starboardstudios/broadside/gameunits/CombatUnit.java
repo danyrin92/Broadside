@@ -40,7 +40,11 @@ public abstract class CombatUnit extends BaseUnit {
 		imageView.setImageResource(drawable.error);
 
 	}
-
+	
+	void collide() {}
+	
+	void damage() {}
+	
 	public void destroy() {
 		model.removeUnit(this);
 	}
