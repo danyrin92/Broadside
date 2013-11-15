@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content" >
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret1"
@@ -147,14 +147,6 @@
                         android:layout_height="wrap_content"
                         android:onClick="heave"
                         android:text="Heave (+10)" />
-
-                    <Button
-                        android:id="@+id/button9"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="testRepair"
-                        android:text="test Repair" />
 
                 </TableRow>
             </TableLayout>

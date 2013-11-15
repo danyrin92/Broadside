@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
 /**
  * @author comcc_000, 11/5
 This is just a first draft of crew. Classes affected are crew, mainship, model, and playcontroller.
@@ -24,6 +25,9 @@ public class Crew extends BaseUnit {
 	private float xStation, yStation;
 	private float xTarget, yTarget;
 	private float moveSpeed, xSpeed, ySpeed;
+	private float repairRate;
+	private double angle;
+	boolean repairTrip;
 	boolean repairing;
 	private Context context;
 	private Model model;
@@ -41,38 +45,51 @@ public class Crew extends BaseUnit {
 		imageView.setVisibility(View.VISIBLE);
 		//initialize other stuff
 		x = y = xSpeed = ySpeed = 0;
-		moveSpeed = 1;
+		moveSpeed = (float) 1;
+		repairRate = (float) .1;
+		repairTrip = false;
 		repairing = false;
 	}
 	
 	//methods
 	public void update() {
-		// TODO work on moving crew members
 		System.out.println("Crew updating...");
 		
-		//move
-		x = x + xSpeed;
-		y = y + ySpeed;
+		if (!repairing) {
+			//move
+			x = x + xSpeed;
+			y = y + ySpeed;
+			//TODO play move animation
+
+		} else if (repairing) {
+			//TODO repair
+			if (false) { //if damage left to fix
+				//play repair animation
+				//increase health
+			} else {
+				repairing = false;
+			}
+		}
 		
-		if (repairing) {
+		if (repairTrip) {
 			System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed + " ySpeed: " + ySpeed);
-			System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget);
+			System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget + " angle: " + angle);
 			boolean closeEnough = Math.sqrt(Math.pow((xTarget-x),2) + Math.pow((yTarget-y),2)) < moveSpeed;
 			if (closeEnough /*|| Math.abs(x)>300*/) {
 				if (xTarget==xStation && yTarget==yStation) {
 					//repair complete
-					repairing = false;
-					xSpeed = ySpeed = 0;
+					repairTrip = false;
+					angle = xSpeed = ySpeed = 0;
 				} else {
-					//TODO repair
+					//Stop and commence repair
+					repairing = true;
 					//Return to station
 					xSpeed = -xSpeed;
 					ySpeed = -ySpeed;
+					angle+=180; //turn around
 					xTarget = xStation;
 					yTarget = yStation;
 					closeEnough = false;
-					//TODO remove this line
-					repairing = false; //for debugging; forces image to change
 				}
 			}
 		}
@@ -81,6 +98,7 @@ public class Crew extends BaseUnit {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				imageView.setRotation((float) angle);
 			}
 		});
 	}
@@ -118,7 +136,7 @@ public class Crew extends BaseUnit {
 		this.yTarget = yTarget;
 		float yDifference = yTarget - (this.y );
 		float xDifference = xTarget - (this.x );
-		double angle = Math.atan(yDifference / xDifference);;
+		angle = Math.atan(yDifference / xDifference);;
 		if (xDifference>0 && yDifference>0) { //x+, y+
 			//
 		} else if (xDifference<0 && yDifference>0) { //x-, y+
@@ -130,11 +148,19 @@ public class Crew extends BaseUnit {
 		} 
 		ySpeed = (float) Math.sin(angle) * moveSpeed;
 		xSpeed = (float) Math.cos(angle) * moveSpeed;
+		//convert angle from radians to degrees for rotations
+		angle = (angle*180)/(Math.PI);
+		if (xDifference>0 && yDifference>0) { //x+,y+
+			angle = 180-angle;
+		} else if (xDifference<0 && yDifference>0) { //x-,y+
+			angle = 360-angle;
+		} else if (xDifference>0 && yDifference<0) { //x+, y- 
+			angle = 360-angle;
+		} else { //x-, y-
+			angle = 180-angle;
+		} 
 		//repair
-		repairing = true;
-		while (repairing) {
-			update();
-		}
+		repairTrip = true;
 	}
 	
 	public void setStations(float X, float Y) {
@@ -142,8 +168,8 @@ public class Crew extends BaseUnit {
 		yStation = Y;
 	}
 
-	public boolean getRepairing() {
-		return repairing;
+	public boolean getRepairTrip() {
+		return repairTrip;
 	}
 
 	public float getXTarget() {

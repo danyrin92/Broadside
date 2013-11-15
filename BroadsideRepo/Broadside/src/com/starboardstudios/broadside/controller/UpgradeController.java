@@ -105,17 +105,6 @@ public class UpgradeController extends BaseController {
 			model.addBooty(10);
 		}
 	}
-	
-	public void testRepair(View view) {
-		System.out.println("test repair");
-		//designate target
-		float xTarget = 300;
-		float yTarget = 300;
-		//call repairAt
-		Crew c = mainShip.getLastCrew();
-		c.repairAt(xTarget,yTarget);
-		System.out.println("stopped");
-	}
 
 	/** For implementing turret options*/
 	public void addTurret1(View view) {
