@@ -1,5 +1,9 @@
 package com.starboardstudios.broadside.controller;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -78,6 +82,21 @@ public class UpgradeController extends BaseController {
 		model.setLevel(model.getLevel() + 1);
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
+		
+		String fileName = "modelFile.bin";
+		try {
+			ObjectOutputStream os = new ObjectOutputStream(new
+					FileOutputStream(fileName));
+			os.writeObject(model);
+			os.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void hire(View view) {

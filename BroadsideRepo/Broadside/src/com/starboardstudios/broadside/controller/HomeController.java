@@ -23,4 +23,11 @@ public class HomeController extends BaseController {
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}
+	
+	public void loadGame(View view)
+	{
+		((BroadsideApplication) this.getApplication()).loadModel();
+		Intent playIntent = new Intent(this, PlayController.class);
+		startActivity(playIntent);
+	}
 }

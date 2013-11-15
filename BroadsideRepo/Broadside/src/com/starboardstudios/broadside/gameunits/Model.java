@@ -21,15 +21,22 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Model extends Thread {
+public class Model extends Thread implements java.io.Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private BaseController currentActivity;
 	public Context context;
-
+	
 	/**
 	 * Starting difficulty is 1.<br>
 	 * Modifier that indicates the number of times the player has made it past
@@ -707,5 +714,6 @@ public class Model extends Thread {
 		timer = new Timer();
 
 	}
+	
 
 }
