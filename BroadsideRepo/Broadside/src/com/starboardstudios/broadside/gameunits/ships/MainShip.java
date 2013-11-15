@@ -12,16 +12,17 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
-public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUnit {
+public class MainShip extends
+		com.starboardstudios.broadside.gameunits.CombatUnit {
 
 	ImageView imageView; // Image for ship
 	private Model model;
-	private ArrayList<Section> sections;
 	private ArrayList<Crew> crews = new ArrayList<Crew>();
 	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 	private MainCannon mainCannon;
 	private int waterLevel;
 	private boolean inPosition = false;
+	private Section bow,midship,stern;
 
 	public MainShip(Model model) {
 		super(model.context);
@@ -42,11 +43,27 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		y = ((int) (model.getScreenY() * .7));
 
 		health = 100;
-		mainCannon = new MainCannon(model,(float)(this.x+((model.getScreenX()*.325))),(float)(this.y+((model.getScreenX()*.3)))) ;
+		mainCannon = new MainCannon(model,
+				(float) (this.x + ((model.getScreenX() * .325))),
+				(float) (this.y + ((model.getScreenX() * .3))));
+		
+		/** Sections... As of now just to localize visuals 
+		 * (get shot in stern a lot, fires appear in stern, etc.*/
+		float x = (float) (model.getScreenX() * .325);
+		float y = (float) model.getScreenY();
+		bow = new Section(model,x,y*(float).1);
+		midship = new Section(model,x,y*(float).4);
+		stern = new Section(model,x,y*(float).7);
 	}
 
 	protected void Damage(Projectile p) {
 		health = health - p.getDamage();
+	}
+	
+	protected void Damage(Projectile p, Section s) {
+		Damage(p);
+		//manage section
+		s.damage(p);
 	}
 
 	public void setVelocity(int xSpeed, int ySpeed) {
@@ -63,24 +80,27 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (y > -(model.getScreenY() * .2))
+		if (y > -(model.getScreenY() * .2)) {
 			ySpeed = -(int) (model.getScreenY() * .003);
-		else
+			
+			// update turrets and crew
+			mainCannon.setPosition(
+					(float) (this.x + ((model.getScreenX() * .325))),
+					(float) (this.y + ((model.getScreenX() * .3))));
+			float offset = 0; // for crew
+			float crewX;
+			float crewY;
+			for (int i = 0; i < crews.size(); i++) {
+				offset = ((float) i) / 50;
+				crewX = (float) (this.x + ((model.getScreenX() * .345)));
+				crewY = (float) (this.y + ((model.getScreenX() * (.3 - offset))));
+				crews.get(i).setPosition(crewX, crewY);
+				crews.get(i).setStations(crewX, crewY);
+			}
+		} else {
 			ySpeed = 0;
-
-		//update turrets and crew
-		mainCannon.setPosition((float)(this.x+((model.getScreenX()*.325))),(float)(this.y+((model.getScreenX()*.3))));
-		float offset = 0; //for crew
-		float crewX;
-		float crewY;
-		for (int i=0; i<crews.size(); i++) {
-			offset = ((float)i)/50;
-			crewX = (float)(this.x+((model.getScreenX()*.345)));
-			crewY = (float)(this.y +((model.getScreenX()*(.3-offset))));
-			crews.get(i).setPosition(crewX,crewY);
-			crews.get(i).setStations(crewX,crewY);
 		}
-		
+
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
@@ -91,8 +111,8 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		});
 
 	}
-	
-	/** test to put mainShip onto upgrades screen*/
+
+	/** test to put mainShip onto upgrades screen */
 	public void spawn() {
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -121,37 +141,37 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	/**
 	 *
      */
-	/*void FireMain(int x, int y) {
-		int deltaX = x - this.x;
-		int deltaY = this.y - y;
-		double degreeAngle = Math.atan((deltaY / deltaX)) * 180 / Math.PI;
-	}*/
+	/*
+	 * void FireMain(int x, int y) { int deltaX = x - this.x; int deltaY =
+	 * this.y - y; double degreeAngle = Math.atan((deltaY / deltaX)) * 180 /
+	 * Math.PI; }
+	 */
 
 	public ArrayList<Turret> getTurrets() {
 		return turrets;
 	}
-	
+
 	public void addTurret(Turret turret) {
 		turrets.add(turret);
 	}
-	
-	public MainCannon getMainCannon(){
+
+	public MainCannon getMainCannon() {
 		return mainCannon;
-		
+
 	}
-	
+
 	public void addCrew(Crew crew) {
 		crews.add(crew);
 	}
-	
+
 	public ArrayList<Crew> getCrew() {
 		return crews;
 	}
-	
+
 	public float getX() {
 		return imageView.getX();
 	}
-	
+
 	public float getY() {
 		return imageView.getY();
 	}
@@ -159,9 +179,9 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public void setImageView(ImageView upImage) {
 		this.imageView = upImage;
 	}
-	
+
 	public Crew getLastCrew() {
-		return crews.get(crews.size()-1);
+		return crews.get(crews.size() - 1);
 	}
 
 }

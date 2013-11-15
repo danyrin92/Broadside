@@ -43,9 +43,7 @@ public class UpgradeController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		
-		// get and display mainShip
 		mainShip = model.getMainShip();
-		//renderMainShip();	
 
 		try {
 			Thread.sleep(20);
@@ -123,17 +121,6 @@ public class UpgradeController extends BaseController {
 			model.removeUnit(crew.get(numCrew-1));
 			model.addBooty(10);
 		}
-	}
-	
-	public void testRepair(View view) {
-		System.out.println("test repair");
-		//designate target
-		float xTarget = 300;
-		float yTarget = 300;
-		//call repairAt
-		Crew c = mainShip.getLastCrew();
-		c.repairAt(xTarget,yTarget);
-		System.out.println("stopped");
 	}
 
 	/** For implementing turret options*/
