@@ -37,5 +37,10 @@ public abstract class BaseSubmarine extends CombatUnit {
 	public void collide(BaseUnit unit) {
 		// unit.getImage().setVisibility(View.INVISIBLE);
 	}
+	
+	public void destroy() {
+		//TODO: Make destory method in BaseSubmarine functional
+		
+	}
 
 }

@@ -82,5 +82,4 @@ public class EasyAircraft extends BaseAircraft {
 		temp.creator = this;
 		model.addUnit(temp);
 	}
-
 }

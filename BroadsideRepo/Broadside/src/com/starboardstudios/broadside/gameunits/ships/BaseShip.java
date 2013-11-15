@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 import java.util.Random;
 
@@ -36,6 +37,23 @@ public abstract class BaseShip extends CombatUnit {
 
 	public void collide(BaseUnit unit) {
 		// unit.getImage().setVisibility(View.INVISIBLE);
+		if (unit instanceof Projectile) {
+			if (((Projectile)unit).creator instanceof MainShip) {
+				damage(((Projectile) unit).getDamage());
+			}
+		}
+	}
+	
+	public void damage(int damage) {
+		health -= damage;
+		if (health < 0) {
+			destroy();
+		}
+	}
+	
+	public void destroy() {
+		//TODO: Make destroy method in BaseShip functional
+		model.removeUnit(this);
 	}
 
 }

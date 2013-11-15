@@ -183,5 +183,9 @@ public class MainShip extends
 	public Crew getLastCrew() {
 		return crews.get(crews.size() - 1);
 	}
+	
+	public void destroy() {
+		//TODO: Make destory method in MainShip funcational
+	}
 
 }

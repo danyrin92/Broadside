@@ -37,5 +37,8 @@ public abstract class BaseAircraft extends CombatUnit {
 	public void collide(BaseUnit unit) {
 		// unit.getImage().setVisibility(View.INVISIBLE);
 	}
-
+	public void destroy() {
+		//TODO: Make destroy method in BaseAircraft functional
+	}
+	
 }

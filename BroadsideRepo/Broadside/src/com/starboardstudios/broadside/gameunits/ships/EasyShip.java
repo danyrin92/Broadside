@@ -78,9 +78,9 @@ public class EasyShip extends BaseShip {
 		double num2 = Math.pow(ySpeed, 2);
 		double toSqrt = num2+num1;
 		double currspeed = Math.sqrt(toSqrt);
-		System.out.println("XSpeed is: " + xSpeed);
-		System.out.println("Yspeed is: " + ySpeed);
-		System.out.println("Current speed is..." + currspeed);
+		//System.out.println("XSpeed is: " + xSpeed);
+		//System.out.println("Yspeed is: " + ySpeed);
+		//System.out.println("Current speed is..." + currspeed);
 
 	}
 

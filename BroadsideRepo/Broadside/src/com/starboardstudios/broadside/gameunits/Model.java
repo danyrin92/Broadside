@@ -10,12 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.ships.BaseShip;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
+import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
@@ -591,6 +594,11 @@ public class Model extends Thread implements Serializable{
 		// System.out.println("removing unit "+unit.toString());
 		try {
 			units.remove(unit);
+			if ((unit instanceof BaseShip) || (unit instanceof BaseAircraft) || (unit instanceof BaseSubmarine)) {
+				numOfEnemies--;
+				System.out.println("Enemy removed. Current numOfEnemies = " + numOfEnemies) ;
+			}
+			
 			if (unit instanceof Turret) {
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {

@@ -41,14 +41,8 @@ public abstract class CombatUnit extends BaseUnit {
 
 	}
 
-	void destroy() {
-		/**
-		 * TODO: Destroy should actually be the same in all units, minus an
-		 * animation. How do you remove objects from the model properly?
-		 * 
-		 * The logic is that if they're deleted from the model, they are
-		 * functionally destroyed.
-		 */
+	public void destroy() {
+		model.removeUnit(this);
 	}
 
 	void GoTo(int x, int y) {

@@ -77,7 +77,6 @@ public class UpgradeController extends BaseController {
 	}
 
 	public void nextLevel(View view) {
-		model.setLevel(model.getLevel() + 1);
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 		
