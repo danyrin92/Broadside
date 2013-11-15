@@ -27,11 +27,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Model extends Thread implements java.io.Serializable{
+public class Model extends Thread implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private BaseController currentActivity;

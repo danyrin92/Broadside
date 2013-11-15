@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 
 import android.app.Application;
+import android.content.Context;
+
 import com.starboardstudios.broadside.gameunits.Model;
 
 /**
@@ -17,7 +19,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 public class BroadsideApplication extends Application {
 
     private Model globalModel;
-
+    
     public BroadsideApplication()
     {
         super();
@@ -31,35 +33,27 @@ public class BroadsideApplication extends Application {
     {
            globalModel= new Model(this.getBaseContext());
     }
-    public void saveModel()
+    public void saveModel(Context context)
     {
 		String fileName = "modelFile.bin";
 		try {
-			ObjectOutputStream os = new ObjectOutputStream(new
-					FileOutputStream(fileName));
+			FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+			ObjectOutputStream os = new ObjectOutputStream(fos);
 			os.writeObject(globalModel);
 			os.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("YO FILE AINT WRITTEN HOMIE!!!");
 		}
     }
-    public void loadModel()
+    public void loadModel(Context context)
     {
     	String fileName = "modelFile.bin";
     	try {
-			ObjectInputStream is = new ObjectInputStream(new FileInputStream(fileName));
+    		FileInputStream fis = context.openFileInput(fileName);
+			ObjectInputStream is = new ObjectInputStream(fis);
 			globalModel = (Model) is.readObject();
 			is.close();
-    	} catch (StreamCorruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("COULD NOT FIND FILE");
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

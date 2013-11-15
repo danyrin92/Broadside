@@ -1,13 +1,17 @@
 package com.starboardstudios.broadside.controller;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
+import com.starboardstudios.broadside.gameunits.Model;
 
 //COMMENT YO SHIT
 public class HomeController extends BaseController {
+	
+	private Model model;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -15,6 +19,8 @@ public class HomeController extends BaseController {
 		intent.setPackage(getPackageName());
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_view);
+		model = ((BroadsideApplication) this.getApplication()).getModel();
+		model.setCurrentActivity(this);
 	}
 	
 	public void playGame(View view)
@@ -26,7 +32,7 @@ public class HomeController extends BaseController {
 	
 	public void loadGame(View view)
 	{
-		((BroadsideApplication) this.getApplication()).loadModel();
+		((BroadsideApplication) this.getApplication()).loadModel(model.context);
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}

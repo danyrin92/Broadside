@@ -81,7 +81,7 @@ public class UpgradeController extends BaseController {
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 		
-		((BroadsideApplication) this.getApplication()).saveModel();
+		((BroadsideApplication) this.getApplication()).saveModel(model.context);
 		
 	}
 	
