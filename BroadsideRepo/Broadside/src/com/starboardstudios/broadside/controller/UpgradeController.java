@@ -81,19 +81,7 @@ public class UpgradeController extends BaseController {
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 		
-		String fileName = "modelFile.bin";
-		try {
-			ObjectOutputStream os = new ObjectOutputStream(new
-					FileOutputStream(fileName));
-			os.writeObject(model);
-			os.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		((BroadsideApplication) this.getApplication()).saveModel();
 		
 	}
 	

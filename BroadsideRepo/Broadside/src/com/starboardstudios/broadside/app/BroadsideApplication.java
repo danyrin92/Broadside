@@ -2,8 +2,10 @@ package com.starboardstudios.broadside.app;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
 
 import android.app.Application;
@@ -28,6 +30,22 @@ public class BroadsideApplication extends Application {
     public void clearModel()
     {
            globalModel= new Model(this.getBaseContext());
+    }
+    public void saveModel()
+    {
+		String fileName = "modelFile.bin";
+		try {
+			ObjectOutputStream os = new ObjectOutputStream(new
+					FileOutputStream(fileName));
+			os.writeObject(globalModel);
+			os.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     public void loadModel()
     {
