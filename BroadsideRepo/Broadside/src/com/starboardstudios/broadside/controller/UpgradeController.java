@@ -39,9 +39,7 @@ public class UpgradeController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		
-		// get and display mainShip
 		mainShip = model.getMainShip();
-		//renderMainShip();	
 
 		try {
 			Thread.sleep(20);

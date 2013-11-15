@@ -119,18 +119,6 @@ public class PlayController extends BaseController {
 
 		});
 
-		/**For test repair*/
-		/*test = (ImageView) findViewById(R.id.test);
-		test.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Show PopupWindow
-				showPopup();
-				// Everything after this will be handled in `doneInput(String)`
-				// method
-			}
-		});*/
-
 		name = "PlayController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
@@ -156,34 +144,34 @@ public class PlayController extends BaseController {
 
 			e.printStackTrace();
 		}
-		// TODO probably delete this old draggable code
-		/*
-		 * screen.setVisibility(View.VISIBLE); screen.setOnDragListener(new
-		 * View.OnDragListener() {
-		 * 
-		 * @Override public boolean onDrag(View v, DragEvent event) {
-		 * ((Draggable) event.getLocalState()).midDrag(event.getX(),
-		 * event.getY()); if (event.getAction() ==
-		 * DragEvent.ACTION_DRAG_STARTED) { ((Draggable)
-		 * event.getLocalState()).dragStarted(); } else if (event.getAction() ==
-		 * DragEvent.ACTION_DRAG_ENTERED) { } else if (event.getAction() ==
-		 * DragEvent.ACTION_DROP) { ((Draggable)
-		 * event.getLocalState()).endDrag(event.getX(), event.getY());
-		 * System.out.println("drop registered"); } return true;
-		 * 
-		 * } });
-		 */
 		/** FIRING LISTENER */
 		screen.setOnTouchListener(new View.OnTouchListener() {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				model.getMainShip().getMainCannon()
-						.fire(event.getX(), event.getY());
+				boolean showCoordinates = true; //make true to plot coordinates on clicked point
+				if (showCoordinates) {
+					// printout x and y
+					float x = event.getX();
+					float y = event.getY();
+					float screenX = model.getScreenX();
+					float screenY = model.getScreenY();
+					float xCoeff = x / model.getScreenX();
+					float yCoeff = y / model.getScreenY();
+					System.out.println("X: " + x + " Y: " + y);
+					System.out.println("ScreenX: " + screenX + " ScreenY: "
+							+ screenY);
+					System.out.println("xCoeff: " + xCoeff + " yCoeff: "
+							+ yCoeff);
+					// pause
+					model.setPaused(true);
+				} else {
+					model.getMainShip().getMainCannon()
+							.fire(event.getX(), event.getY());
+				}
 				return true;
 			}
 		});
-
 	}
 
 	/** for getting the upgrades button to work... */
@@ -204,17 +192,6 @@ public class PlayController extends BaseController {
 	public void gotoOptions() {
 		Intent optionsIntent = new Intent(this, OptionsController.class);
 		startActivity(optionsIntent);
-	}
-
-	public void testRepair(View view) {
-		System.out.println("test repair");
-		// designate target
-		float xTarget = 300;
-		float yTarget = 300;
-		// call repairAt
-		Crew c = model.getMainShip().getLastCrew();
-		c.repairAt(xTarget, yTarget);
-		System.out.println("stopped");
 	}
 
 	public void init() {
@@ -390,8 +367,10 @@ public class PlayController extends BaseController {
 		int yTarget = Integer.parseInt(targets[1]);
 
 		// Work with it // For example, show a Toast
-		Toast.makeText(this, "Most recent crew member heading to (" + xTarget + ", " + yTarget + ") and back.",
-				Toast.LENGTH_LONG).show();
+		Toast.makeText(
+				this,
+				"Most recent crew member heading to (" + xTarget + ", "
+						+ yTarget + ") and back.", Toast.LENGTH_LONG).show();
 		System.out.println("test repair");
 		// call repairAt
 		Crew c = model.getMainShip().getLastCrew();

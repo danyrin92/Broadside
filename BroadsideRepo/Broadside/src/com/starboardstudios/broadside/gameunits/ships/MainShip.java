@@ -17,12 +17,12 @@ public class MainShip extends
 
 	ImageView imageView; // Image for ship
 	private Model model;
-	private ArrayList<Section> sections;
 	private ArrayList<Crew> crews = new ArrayList<Crew>();
 	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 	private MainCannon mainCannon;
 	private int waterLevel;
 	private boolean inPosition = false;
+	private Section bow,midship,stern;
 
 	public MainShip(Model model) {
 		super(model.context);
@@ -46,10 +46,24 @@ public class MainShip extends
 		mainCannon = new MainCannon(model,
 				(float) (this.x + ((model.getScreenX() * .325))),
 				(float) (this.y + ((model.getScreenX() * .3))));
+		
+		/** Sections... As of now just to localize visuals 
+		 * (get shot in stern a lot, fires appear in stern, etc.*/
+		float x = (float) (model.getScreenX() * .325);
+		float y = (float) model.getScreenY();
+		bow = new Section(model,x,y*(float).1);
+		midship = new Section(model,x,y*(float).4);
+		stern = new Section(model,x,y*(float).7);
 	}
 
 	protected void Damage(Projectile p) {
 		health = health - p.getDamage();
+	}
+	
+	protected void Damage(Projectile p, Section s) {
+		Damage(p);
+		//manage section
+		s.damage(p);
 	}
 
 	public void setVelocity(int xSpeed, int ySpeed) {
