@@ -40,7 +40,7 @@ public class BroadsideApplication extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("COULD NOT FIND FILE");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

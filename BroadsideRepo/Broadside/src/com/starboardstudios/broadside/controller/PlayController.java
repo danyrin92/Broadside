@@ -101,7 +101,7 @@ public class PlayController extends BaseController {
 				mainmenuButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						PlayController.this.finish();
+						gotoMMenu();
 					}
 				});
 
@@ -191,6 +191,11 @@ public class PlayController extends BaseController {
 
 	public void gotoOptions() {
 		Intent optionsIntent = new Intent(this, OptionsController.class);
+		startActivity(optionsIntent);
+	}
+	
+	public void gotoMMenu() {
+		Intent optionsIntent = new Intent(this, HomeController.class);
 		startActivity(optionsIntent);
 	}
 
