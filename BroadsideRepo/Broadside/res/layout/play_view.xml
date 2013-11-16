@@ -22,14 +22,6 @@
             android:typeface="monospace" />
 
         <Button
-            android:id="@+id/SpawnEnemy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:onClick="spawnEnemies"
-            android:text="Spawn Enemy" />
-
-        <Button
             android:id="@+id/UpgradeScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

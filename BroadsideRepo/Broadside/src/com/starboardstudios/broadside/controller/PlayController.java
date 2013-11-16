@@ -222,8 +222,8 @@ public class PlayController extends BaseController {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				boolean showCoordinates = true; //make true to plot coordinates on clicked point
-				if (showCoordinates) {
+				//boolean showCoordinates = true; //make true to plot coordinates on clicked point
+				//if (showCoordinates) {
 					// printout x and y
 					float x = event.getX();
 					float y = event.getY();
@@ -231,17 +231,17 @@ public class PlayController extends BaseController {
 					float screenY = model.getScreenY();
 					float xCoeff = x / model.getScreenX();
 					float yCoeff = y / model.getScreenY();
-					System.out.println("X: " + x + " Y: " + y);
-					System.out.println("ScreenX: " + screenX + " ScreenY: "
-							+ screenY);
-					System.out.println("xCoeff: " + xCoeff + " yCoeff: "
-							+ yCoeff);
+					//System.out.println("X: " + x + " Y: " + y);
+				//	System.out.println("ScreenX: " + screenX + " ScreenY: "
+				//			+ screenY);
+				//	System.out.println("xCoeff: " + xCoeff + " yCoeff: "
+				//			+ yCoeff);
 					// pause
-					model.setPaused(true);
-				} else {
+					//model.setPaused(true);
+				//} else {
 					model.getMainShip().getMainCannon()
 							.fire(event.getX(), event.getY());
-				}
+				//}
 				return true;
 			}
 		});

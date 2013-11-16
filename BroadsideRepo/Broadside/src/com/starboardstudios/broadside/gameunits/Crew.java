@@ -53,7 +53,7 @@ public class Crew extends BaseUnit {
 	
 	//methods
 	public void update() {
-		System.out.println("Crew updating...");
+		//System.out.println("Crew updating...");
 		
 		if (!repairing) {
 			//move
@@ -72,8 +72,8 @@ public class Crew extends BaseUnit {
 		}
 		
 		if (repairTrip) {
-			System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed + " ySpeed: " + ySpeed);
-			System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget + " angle: " + angle);
+			//System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed + " ySpeed: " + ySpeed);
+			//System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget + " angle: " + angle);
 			boolean closeEnough = Math.sqrt(Math.pow((xTarget-x),2) + Math.pow((yTarget-y),2)) < moveSpeed;
 			if (closeEnough /*|| Math.abs(x)>300*/) {
 				if (xTarget==xStation && yTarget==yStation) {
