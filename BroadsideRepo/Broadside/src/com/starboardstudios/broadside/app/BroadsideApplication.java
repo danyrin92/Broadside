@@ -35,7 +35,7 @@ public class BroadsideApplication extends Application {
     }
     public void saveModel(Context context)
     {
-		String fileName = "modelFile.bin";
+		/*String fileName = "modelFile.bin";
 		try {
 			FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
 			ObjectOutputStream os = new ObjectOutputStream(fos);
@@ -44,11 +44,11 @@ public class BroadsideApplication extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("YO FILE AINT WRITTEN HOMIE!!!");
-		}
+		}*/
     }
     public void loadModel(Context context)
     {
-    	String fileName = "modelFile.bin";
+    	/*String fileName = "modelFile.bin";
     	try {
     		FileInputStream fis = context.openFileInput(fileName);
 			ObjectInputStream is = new ObjectInputStream(fis);
@@ -60,7 +60,7 @@ public class BroadsideApplication extends Application {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
     }
 
 

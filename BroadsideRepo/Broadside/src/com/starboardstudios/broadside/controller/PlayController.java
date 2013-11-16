@@ -1,5 +1,12 @@
 package com.starboardstudios.broadside.controller;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +15,7 @@ import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.LayoutInflater;
@@ -49,8 +57,6 @@ public class PlayController extends BaseController {
 	private ImageView pauseButton;
 	private Button loadButton;
 	private Button saveButton;
-	private boolean saveSucess;
-
 	private View activityScreen;
 	PopupWindow popupWindow;
 
@@ -67,19 +73,68 @@ public class PlayController extends BaseController {
 		saveButton = (Button) findViewById(R.id.save);
 		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
-
+		
 		saveButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				saveSucess = Model.saveModel(context, model);
-				if(saveSucess){
+				try {
+					FileOutputStream fou = openFileOutput("level.bin", MODE_PRIVATE);
+					OutputStreamWriter osw = new OutputStreamWriter(fou);
+					osw.write(model.getLevel() + model.getBooty());
+					osw.flush();
+					osw.close();
+					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 					model.setPaused(true);
 				}
 			}
 			
 		});
 		
+		loadButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				try {
+					FileInputStream fin = openFileInput("level.bin");
+					InputStreamReader isr = new InputStreamReader(fin);
+					int level = isr.read();
+					isr.close();
+					Toast.makeText(context, Integer.toString(level), Toast.LENGTH_LONG).show();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				}
+			}
+			
+		});
+		
+		
+		pauseButton.setOnTouchListener(new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                	pauseButton.setImageResource(R.drawable.pausemenu_selected);
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                	pauseButton.setImageResource(R.drawable.pausemenu);
+                }
+                return false;
+            }
+        });
 		
 		// Listener for pauseButton
 		pauseButton.setOnClickListener(new OnClickListener() {

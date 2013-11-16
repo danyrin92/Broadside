@@ -34,9 +34,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Model extends Thread implements Serializable{
+public class Model extends Thread{
 
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private BaseController currentActivity;
 	public Context context;
 	
@@ -655,7 +655,8 @@ public class Model extends Thread implements Serializable{
 		}
 
 	}
-
+	
+	/*
 	public static boolean saveModel(Context context, Model model) {
 	    try {
 	        FileOutputStream fos = context.openFileOutput("model.txt", Context.MODE_PRIVATE);
@@ -686,6 +687,7 @@ public class Model extends Thread implements Serializable{
 	    }
 	    return null;
 	}
+	*/
 	
 	public int getLevel() {
 		return level;
