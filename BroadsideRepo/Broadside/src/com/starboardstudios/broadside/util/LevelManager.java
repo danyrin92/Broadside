@@ -87,7 +87,7 @@ public abstract class LevelManager {
 		model.clearTimer();
 	
 		/** Start enemy spawning timers in the model */
-		int difficulty = (int) Math.floor(level/ MAXLEVEL) + 1;
+		int difficulty = model.getDifficulty();
 		System.out.println("Spawn ammount modifier = " + difficulty);
 		int row = (level - 1) % MAXLEVEL;
 		System.out.println("Row in Levelmanager equals " + row);
@@ -97,7 +97,8 @@ public abstract class LevelManager {
 		model.startSpawn(ID_EASYAIRCRAFT, difficulty*levelArray[row][6], levelArray[row][7]);
 		model.startSpawn(ID_EASYSUBMARINE, difficulty*levelArray[row][8], levelArray[row][9]); 
 	
-		model.setNumOfEnemies(difficulty*(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]));
+		model.setNumOfEnemies(difficulty*(levelArray[row][0] + levelArray[row][2] + levelArray[row][4]+ levelArray[row][6] + levelArray[row][8]));
+		System.out.println("Total number of enemies that will spawn is " + model.getNumOfEnemies());
 		
 		TimerTask waitForSuccess = new TimerTask() {
 			@Override
@@ -106,11 +107,14 @@ public abstract class LevelManager {
 					/**Start timers for spawning enemies */
 					 if (model.getNumOfEnemies() <= 0) {
 						/** When all enemies have been defeated go to the next level */
-						/** Increment level*/
-						 int level = model.getLevel() + 1;
+						 int level = model.getLevel();
 						 
 						 /** Manages infinite level by increasing difficulty in the model */
-						 model.setLevel(level);
+						 if ((level % (MAXLEVEL)) == 0) {
+								 model.setDifficulty(model.getDifficulty() + 1);
+						 }
+						 
+						 model.setLevel(++level);
 						/** Go to Upgrade then end program*/
 						try {
 							PlayController currentActivity = (PlayController)model.getCurrentActivity();
@@ -133,9 +137,9 @@ public abstract class LevelManager {
 	 * Clears all spawning timers and enemy units from the model. 
 	 * Then restart the level.
 	 */
-		public static void restartLevel(Model model) {
-			model.getTimer().cancel();
-			model.removeAllEnemiesAndProjectile();
-			startLevel(model);
-		}
+	public static void restartLevel(Model model) {
+		model.getTimer().cancel();
+		model.removeAllEnemiesAndProjectile();
+		startLevel(model);
 	}
+}
