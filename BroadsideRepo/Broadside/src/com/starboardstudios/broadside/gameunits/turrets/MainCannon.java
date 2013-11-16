@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,7 +15,7 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
 	int cooldown, currentCooldown;
-	float angle; // 90 to -90
+	float angle; 
 	MainCannon me;
 	Projectile cannonBall;
 
@@ -22,13 +24,13 @@ public class MainCannon extends Turret {
 		me = this;
 		this.x = x;
 		this.y = y;
-		this.cooldown = 10;
+		this.cooldown = 120;
 		this.currentCooldown = 0;
 		cannonBall = new CannonBall(model);
 		fireSpeed = 5;
 		imageView.setImageResource(drawable.main_cannon); // Set to image
 		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams(150, 150)); // Set
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int)(model.getScreenX()*.15), (int)(model.getScreenY()*.15))); // Set
 																			// size
 
 		// TODO: move over to draggable
@@ -55,22 +57,24 @@ public class MainCannon extends Turret {
 	}
 
 	public void fire(float xTarget, float yTarget) {
-		// if (currentCooldown == 0){ why am I broken
-		//Offsets found through trial
-		int xOffset = 155-80; //barrel tip at ~155, this.x is 80
-		int yOffset = 193-144; //barrel tip at ~193, this.y is 144
-		float yDifference = yTarget - (this.y + xOffset);
-		float xDifference = xTarget - (this.x + yOffset);
-		double angle = Math.atan(yDifference / xDifference);
+		if (currentCooldown == 0){ 
+		float yDifference = (yTarget - this.y);//rotation of the cannon
+		float xDifference = (xTarget - this.x);
+		double cannonAngle = Math.atan(yDifference / xDifference);
+		imageView.setRotation((float)(cannonAngle*180/Math.PI));
+		//offset cannonball to tip of barrel where (model.getScreenX()*.15) is the length of the cannon
+		float xOffset = (float)(this.x + (model.getScreenX()*.15)*Math.cos(cannonAngle));
+		float yOffset = (float)(this.y + (model.getScreenX()*.15)*Math.sin(cannonAngle));
+		double angle = Math.atan((yTarget - yOffset)/ (xTarget - xOffset));
 		float ySpeed = (float) Math.sin(angle) * fireSpeed;
 		float xSpeed = (float) Math.cos(angle) * fireSpeed;
-        Projectile temp =cannonBall.create(model, this.x+xOffset, this.y+yOffset, xSpeed, ySpeed);
+        Projectile temp =cannonBall.create(model, xOffset, yOffset, xSpeed, ySpeed);
         temp.creator=this;
 		model.addUnit(temp);
-		//System.out.println("angle " + angle + " xTarget  " + xTarget
-		//+ " yTarget "+ yTarget);
-		// currentCooldown=cooldown;
-		// }
+		imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+		System.out.println("angle " + angle +" thisx" +this.x+" thisy "+ this.y+ " xTarget  " + xTarget+ " yTarget "+ yTarget+"xDiff"+xDifference+"ydiff"+yDifference);
+		currentCooldown=cooldown;
+		}
 	}
 
 	public void setPosition(float x, float y) {
@@ -92,9 +96,13 @@ public class MainCannon extends Turret {
 				imageView.setX(x);
 				imageView.setY(y);
 				imageView.setImageResource(drawable.main_cannon);
+				if (currentCooldown > 0)
+					currentCooldown--;
+				if (currentCooldown ==0)
+					imageView.setColorFilter(null);
 			}
 		});
-		currentCooldown--;
+		
 	}
 
 	@Override

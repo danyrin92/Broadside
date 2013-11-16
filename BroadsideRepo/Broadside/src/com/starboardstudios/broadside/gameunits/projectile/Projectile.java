@@ -39,6 +39,7 @@ public abstract class Projectile extends BaseUnit {
 
 	}
 
+	//used for main cannon projectiles
 	public Projectile(Model model, int damage, float x, float y, float xSpeed,
 			float ySpeed) {
 		this.model = model;
@@ -48,19 +49,6 @@ public abstract class Projectile extends BaseUnit {
 		this.y = y;
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
-		/*if ((int) xSpeed != 0) {
-			if (xSpeed / (int) xSpeed >= 1.01) { // handle float to int
-													// conversion
-				this.xSpeed++;
-			}
-		}
-		if ((int) ySpeed != 0) {
-			if (ySpeed / (int) ySpeed >= 1.01) {
-				this.ySpeed++;
-			}
-		}*/
-		//TODO maybe cast as int...
-
 		imageView = new ImageView(context);
 
 	}
@@ -90,23 +78,12 @@ public abstract class Projectile extends BaseUnit {
 
 		model.runOnMain(new Runnable() {
 			public void run() {
-
-
                     imageView.setX(x);
 				    imageView.setY(y);
 
-
-
-
-
 				//System.out.println(" x " + x + " y " + y);
-
-
 			}
-
 		});
-
-
 	}
 
 	public ImageView getImage() {
