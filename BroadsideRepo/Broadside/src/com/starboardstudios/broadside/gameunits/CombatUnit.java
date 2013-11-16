@@ -41,9 +41,9 @@ public abstract class CombatUnit extends BaseUnit {
 
 	}
 	
-	void collide() {}
+	public void collide() {}
 	
-	void damage() {}
+	public void damage(int damage) {}
 	
 	public void destroy() {
 		model.removeUnit(this);
