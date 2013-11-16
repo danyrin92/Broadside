@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.TimerTask;
 
 public abstract class LevelManager {
-	private static int MAXLEVEL; //TODO: Assign value to max level
+	private static int MAXLEVEL;
 	
 	//BaseShips: 000 to 099
 	public final static int ID_EASYSHIP = 000;
@@ -26,8 +26,9 @@ public abstract class LevelManager {
 	 * Even columns are the total amount of that type of unit that column represents.<br> 
 	 * Odd columns are delays between each spawn till the total amount define in the previous even column.<br> 
 	 * Delay is in miliseconds <br>
+	 * Order: EasyShip, MediumShip, HardShip, EasyAircraft, EasySubmarine <br>
 	 *<p>
-	 * Example:<br>
+	 * Example case:<br>
 	 * 	Column 0 is EasyShip total amount then Column 1 is the delay between each one spawned till total amount reached. 
 	 */
 	static int[][] levelArray = new int[100][10];
@@ -42,7 +43,7 @@ public abstract class LevelManager {
 	            InputStream stream =  model.getCurrentActivity().getBaseContext().getResources().openRawResource(R.raw.broadside_levels);
 	            InputStreamReader reader = new InputStreamReader(stream);
 	            BufferedReader breader = new BufferedReader(reader);
-	            System.out.println("BAHAHAHAHAHAH I WORKED");
+	            System.out.println("BufferReader for Levemanager Successful");
 	            
 	            int lineCounter = 0;
 	            String line = null;
@@ -85,16 +86,19 @@ public abstract class LevelManager {
 		int level = model.getLevel();
 		model.clearTimer();
 	
-		model.setNumOfEnemies(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]);
-		
 		/** Start enemy spawning timers in the model */
-		int difficulty = model.getDifficulty();
-		model.startSpawn(ID_EASYSHIP, difficulty*levelArray[level][0], levelArray[level][1]);
-		model.startSpawn(ID_MEDIUMSHIP, difficulty*levelArray[level][2],levelArray[level][3]);
-		model.startSpawn(ID_HARDSHIP, difficulty*levelArray[level][4], levelArray[level][5]);
-		model.startSpawn(ID_EASYAIRCRAFT, difficulty*levelArray[level][6], levelArray[level][7]);
-		model.startSpawn(ID_EASYSUBMARINE, difficulty*levelArray[level][8], levelArray[level][9]); 
+		int difficulty = (int) Math.floor(level/ MAXLEVEL) + 1;
+		System.out.println("Spawn ammount modifier = " + difficulty);
+		int row = (level - 1) % MAXLEVEL;
+		System.out.println("Row in Levelmanager equals " + row);
+		model.startSpawn(ID_EASYSHIP, difficulty*levelArray[row][0], levelArray[row][1]);
+		model.startSpawn(ID_MEDIUMSHIP, difficulty*levelArray[row][2],levelArray[row][3]);
+		model.startSpawn(ID_HARDSHIP, difficulty*levelArray[row][4], levelArray[row][5]);
+		model.startSpawn(ID_EASYAIRCRAFT, difficulty*levelArray[row][6], levelArray[row][7]);
+		model.startSpawn(ID_EASYSUBMARINE, difficulty*levelArray[row][8], levelArray[row][9]); 
 	
+		model.setNumOfEnemies(difficulty*(levelArray[level][0] + levelArray[level][2] + levelArray[level][4]+ levelArray[level][6] + levelArray[level][8]));
+		
 		TimerTask waitForSuccess = new TimerTask() {
 			@Override
 			public void run() {	
@@ -103,8 +107,10 @@ public abstract class LevelManager {
 					 if (model.getNumOfEnemies() <= 0) {
 						/** When all enemies have been defeated go to the next level */
 						/** Increment level*/
-						 model.setLevel(model.getLevel() + 1);
-						
+						 int level = model.getLevel() + 1;
+						 
+						 /** Manages infinite level by increasing difficulty in the model */
+						 model.setLevel(level);
 						/** Go to Upgrade then end program*/
 						try {
 							PlayController currentActivity = (PlayController)model.getCurrentActivity();

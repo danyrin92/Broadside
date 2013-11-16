@@ -36,7 +36,6 @@ public abstract class BaseAircraft extends CombatUnit {
 		this.ySpeed = ySpeed;
 	}
 
-	@Override
 	public void collide(BaseUnit unit) {
 		if (unit instanceof Projectile) {
 			if (((Projectile)unit).creator instanceof MainShip) {
@@ -45,7 +44,6 @@ public abstract class BaseAircraft extends CombatUnit {
 		}
 	}
 	
-	@Override
 	public void damage(int damage) {
 		health -= damage;
 		//TODO: Add animation to the damage method
@@ -54,7 +52,6 @@ public abstract class BaseAircraft extends CombatUnit {
 		}
 	}
 	
-	@Override
 	public void destroy() {
 		//TODO: Add animations to the destroy method
 		model.removeUnit(this);
