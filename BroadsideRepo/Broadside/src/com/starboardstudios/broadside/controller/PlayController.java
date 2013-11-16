@@ -47,6 +47,9 @@ public class PlayController extends BaseController {
 
 	final Context context = this;
 	private ImageView pauseButton;
+	private Button loadButton;
+	private Button saveButton;
+	private boolean saveSucess;
 
 	private View activityScreen;
 	PopupWindow popupWindow;
@@ -60,9 +63,24 @@ public class PlayController extends BaseController {
 		this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
-
+		
+		saveButton = (Button) findViewById(R.id.save);
+		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
 
+		saveButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				saveSucess = Model.saveModel(context, model);
+				if(saveSucess){
+					model.setPaused(true);
+				}
+			}
+			
+		});
+		
+		
 		// Listener for pauseButton
 		pauseButton.setOnClickListener(new OnClickListener() {
 

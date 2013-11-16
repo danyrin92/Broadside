@@ -81,6 +81,23 @@
                 android:onClick="showPopup"
                 android:text="test Repair" />
 
+            <Button
+                android:id="@+id/load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/BootyView"
+                android:layout_marginTop="22dp"
+                android:text="Load" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/load"
+                android:text="Save" />
+
         </RelativeLayout>
     </FrameLayout>
 

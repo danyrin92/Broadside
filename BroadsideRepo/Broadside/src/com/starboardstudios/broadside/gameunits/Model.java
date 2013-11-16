@@ -24,6 +24,17 @@ import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
 
+<<<<<<< HEAD
+=======
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+>>>>>>> refs/remotes/origin/gh-pages
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -656,6 +667,37 @@ public class Model extends Thread implements Serializable{
 
 	}
 
+	public static boolean saveModel(Context context, Model model) {
+	    try {
+	        FileOutputStream fos = context.openFileOutput("model.txt", Context.MODE_PRIVATE);
+	        ObjectOutputStream oos = new ObjectOutputStream(fos);
+	        oos.writeObject(model);
+	        oos.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	    return true;
+	}
+
+	public static Model getModel(Context context) {
+	    try {
+	        FileInputStream fis = context.openFileInput("model.txt");
+	        ObjectInputStream is = new ObjectInputStream(fis);
+	        Object readObject = is.readObject();
+	        is.close();
+
+	        if(readObject != null && readObject instanceof Model) {
+	            return (Model) readObject;
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
+	
 	public int getLevel() {
 		return level;
 	}
