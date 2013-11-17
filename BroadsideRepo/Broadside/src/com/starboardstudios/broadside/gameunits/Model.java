@@ -39,7 +39,9 @@ import java.util.TimerTask;
 
 public class Model extends Thread{
 
-	//private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private BaseController currentActivity;
 	public Context context;
 	
@@ -379,6 +381,24 @@ public class Model extends Thread{
 		currentActivity.runOnUiThread(x);
 	}
 
+	/**
+	 * returns the units currently
+	 * in the model so that they
+	 * can be saved
+	 */
+	public ArrayList<BaseUnit> getUnits() {
+		return units;
+	}
+	
+	/**
+	 * takes in the units which are
+	 * loaded so that they can be put into
+	 * the model
+	 */
+	public void setUnits(ArrayList<BaseUnit> newUnits) {
+		units = newUnits;
+	}
+	
 	/**
 	 * Adds the passed unit to the model.
 	 * 

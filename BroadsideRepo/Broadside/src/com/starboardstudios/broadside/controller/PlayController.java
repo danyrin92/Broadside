@@ -8,22 +8,28 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.DragEvent;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.LayoutInflater;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.starboardstudios.broadside.interfaces.Draggable;
-import com.starboardstudios.broadside.util.LevelManager;
 import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -33,20 +39,7 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.app.Dialog;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.starboardstudios.broadside.util.LevelManager;
 
 public class PlayController extends BaseController {
 
@@ -57,7 +50,6 @@ public class PlayController extends BaseController {
 	private ImageView pauseButton;
 	private Button loadButton;
 	private Button saveButton;
-	private View activityScreen;
 	PopupWindow popupWindow;
 
 	@Override
@@ -66,7 +58,6 @@ public class PlayController extends BaseController {
 		final View screen = ((LayoutInflater) getBaseContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
-		this.activityScreen = screen;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 		
@@ -74,6 +65,9 @@ public class PlayController extends BaseController {
 		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
 		
+		/**
+		 * When the Save button clicked
+		 */
 		saveButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -81,7 +75,14 @@ public class PlayController extends BaseController {
 				try {
 					FileOutputStream fou = openFileOutput("level.bin", MODE_PRIVATE);
 					OutputStreamWriter osw = new OutputStreamWriter(fou);
-					osw.write(model.getLevel() + model.getBooty());
+					osw.write(model.getLevel());
+					osw.flush();
+					osw.close();
+					
+					fou = openFileOutput("booty.bin", MODE_PRIVATE);
+					osw = new OutputStreamWriter(fou);
+					osw.write(model.getBooty());
+
 					osw.flush();
 					osw.close();
 					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
@@ -98,6 +99,9 @@ public class PlayController extends BaseController {
 			
 		});
 		
+		/**
+		 * When the Load button is clicked
+		 */
 		loadButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -106,8 +110,15 @@ public class PlayController extends BaseController {
 					FileInputStream fin = openFileInput("level.bin");
 					InputStreamReader isr = new InputStreamReader(fin);
 					int level = isr.read();
+					fin = openFileInput("booty.bin");
+					isr = new InputStreamReader(fin);
+					int booty = isr.read();
 					isr.close();
-					Toast.makeText(context, Integer.toString(level), Toast.LENGTH_LONG).show();
+					
+					Toast.makeText(context, Integer.toString(level) + " " + Integer.toString(booty), Toast.LENGTH_LONG).show();
+					model.removeAllEnemiesAndProjectile();
+					model.setLevel(level);
+					model.setBooty(booty);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -121,7 +132,10 @@ public class PlayController extends BaseController {
 			
 		});
 		
-		
+		/**
+		 * Switches the ImageView of the pause button
+		 * when it is clicked
+		 */
 		pauseButton.setOnTouchListener(new OnTouchListener() {
 
             @Override
@@ -136,18 +150,20 @@ public class PlayController extends BaseController {
             }
         });
 		
-		// Listener for pauseButton
+		/**
+		 * The pause dialog
+		 */
 		pauseButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 
-				// pause dialog
 				model.setPaused(true);
 				final Dialog pauseDialog = new Dialog(context);
 				pauseDialog.setContentView(R.layout.pause_dialog);
 				pauseDialog.setTitle("Paused...");
 
+				//Resume Button
 				ImageView resumeButton = (ImageView) pauseDialog
 						.findViewById(R.id.imageView2);
 				resumeButton.setOnClickListener(new OnClickListener() {
@@ -158,6 +174,7 @@ public class PlayController extends BaseController {
 					}
 				});
 
+				//Restart Button
 				ImageView restartButton = (ImageView) pauseDialog
 						.findViewById(R.id.imageView3);
 				restartButton.setOnClickListener(new OnClickListener() {
@@ -168,7 +185,8 @@ public class PlayController extends BaseController {
 						model.setPaused(false);
 					}
 				});
-
+				
+				//Main Menu Button
 				ImageView mainmenuButton = (ImageView) pauseDialog
 						.findViewById(R.id.imageView4);
 				mainmenuButton.setOnClickListener(new OnClickListener() {
@@ -177,7 +195,8 @@ public class PlayController extends BaseController {
 						gotoMMenu();
 					}
 				});
-
+				
+				//Options Button
 				ImageView optionsButton = (ImageView) pauseDialog
 						.findViewById(R.id.imageView5);
 				optionsButton.setOnClickListener(new OnClickListener() {

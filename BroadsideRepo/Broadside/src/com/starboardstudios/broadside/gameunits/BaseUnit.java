@@ -1,13 +1,19 @@
 package com.starboardstudios.broadside.gameunits;
 
+import java.io.Serializable;
+
 import android.widget.ImageView;
 
 /**
  * Created by Alex on 9/26/13.
  */
-public abstract class BaseUnit {
+public abstract class BaseUnit{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected float x, y, z;
 
 
