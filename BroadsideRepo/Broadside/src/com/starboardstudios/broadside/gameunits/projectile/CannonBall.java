@@ -2,8 +2,11 @@ package com.starboardstudios.broadside.gameunits.projectile;
 
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public class CannonBall extends Projectile {
 	private int defaultDamage = 20;
@@ -78,7 +81,7 @@ public class CannonBall extends Projectile {
 
 	@Override
 	public void setPosition(int x, int y) {
-
+		
 	}
 	
 	@Override
@@ -93,7 +96,15 @@ public class CannonBall extends Projectile {
     @Override
     public void collide(BaseUnit collidedWith)
     {
-       model.removeUnit(this);
+    	if(creator instanceof MainShip) {
+    		if (!((MainShip)collidedWith instanceof MainShip) && !((Turret)collidedWith instanceof Turret)) {
+    			destroy();
+    		}
+    	} else if ((creator instanceof CombatUnit) && !(creator instanceof MainShip)) {
+    		if ((MainShip)collidedWith instanceof MainShip) {
+    			destroy();
+    		}
+    	}
     }
 	
 	

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public abstract class Projectile extends BaseUnit {
 	protected Context context;

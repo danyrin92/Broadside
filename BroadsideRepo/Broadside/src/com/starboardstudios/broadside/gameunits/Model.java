@@ -474,8 +474,8 @@ public class Model extends Thread{
 						System.out.println("Collision Detected between "
 								+ tempUnit.toString() + " and "
 								+ tempProjectile.toString());
-						tempProjectile.collide(tempUnit);
 						tempUnit.collide(tempProjectile);
+						tempProjectile.collide(tempUnit);
 					}
 
 				}
@@ -594,7 +594,6 @@ public class Model extends Thread{
 
 	public int getShipHealth() {
 		int health = getMainShip().getHealth();
-
 		return health;
 	}
 

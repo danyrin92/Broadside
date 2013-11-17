@@ -40,6 +40,7 @@ public abstract class BaseSubmarine extends CombatUnit {
 		if (unit instanceof Projectile) {
 			if (((Projectile)unit).creator instanceof MainShip) {
 				damage(((Projectile) unit).getDamage());
+				unit.collide(this);
 			}
 		}
 	}

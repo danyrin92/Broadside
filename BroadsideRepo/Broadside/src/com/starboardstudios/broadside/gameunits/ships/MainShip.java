@@ -149,6 +149,7 @@ public class MainShip extends
 	
 	public void destroy() {
 		//TODO: Add animations to the destroy method
+		
 		model.removeUnit(this);
 	}
 	
