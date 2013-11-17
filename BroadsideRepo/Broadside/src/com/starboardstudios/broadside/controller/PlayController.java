@@ -39,6 +39,7 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
 
 public class PlayController extends BaseController {
@@ -64,91 +65,6 @@ public class PlayController extends BaseController {
 		saveButton = (Button) findViewById(R.id.save);
 		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
-		
-		/**
-		 * When the Save button clicked
-		 */
-		saveButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				try {
-					FileOutputStream fou = openFileOutput("level.bin", MODE_PRIVATE);
-					OutputStreamWriter osw = new OutputStreamWriter(fou);
-					osw.write(model.getLevel());
-					osw.flush();
-					osw.close();
-					
-					fou = openFileOutput("booty.bin", MODE_PRIVATE);
-					osw = new OutputStreamWriter(fou);
-					osw.write(model.getBooty());
-
-					osw.flush();
-					osw.close();
-					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
-		});
-		
-		/**
-		 * When the Load button is clicked
-		 */
-		loadButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				try {
-					FileInputStream fin = openFileInput("level.bin");
-					InputStreamReader isr = new InputStreamReader(fin);
-					int level = isr.read();
-					fin = openFileInput("booty.bin");
-					isr = new InputStreamReader(fin);
-					int booty = isr.read();
-					isr.close();
-					
-					Toast.makeText(context, Integer.toString(level) + " " + Integer.toString(booty), Toast.LENGTH_LONG).show();
-					model.removeAllEnemiesAndProjectile();
-					model.setLevel(level);
-					model.setBooty(booty);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
-		});
-		
-		/**
-		 * Switches the ImageView of the pause button
-		 * when it is clicked
-		 */
-		pauseButton.setOnTouchListener(new OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
-                	pauseButton.setImageResource(R.drawable.pausemenu_selected);
-                }
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                	pauseButton.setImageResource(R.drawable.pausemenu);
-                }
-                return false;
-            }
-        });
 		
 		/**
 		 * The pause dialog
@@ -222,6 +138,7 @@ public class PlayController extends BaseController {
 		 * Below is an example of how to add to the model without keylistener
 		 * logic! Don't delete!
 		 */
+		
 		if (model.getLevel() == 1) {
 			model.addUnit(new MainShip(model));
 			model.addUnit(model.getMainShip().getMainCannon());
@@ -236,6 +153,94 @@ public class PlayController extends BaseController {
 
 			e.printStackTrace();
 		}
+		
+		/**
+		 * When the Save button clicked
+		 */
+		saveButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				try {
+					FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
+					OutputStreamWriter osw = new OutputStreamWriter(fou);
+					osw.write(model.getLevel());
+					osw.write(model.getBooty());
+					osw.write(model.numCrew);
+					osw.flush();
+					osw.close();
+					
+					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				}
+			}
+			
+		});
+		
+		/**
+		 * When the Load button is clicked
+		 */
+		loadButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				try {
+					FileInputStream fin = openFileInput("savedLevel.bin");
+					InputStreamReader isr = new InputStreamReader(fin);
+					int level = isr.read();
+					int booty = isr.read();
+					int numCrew = isr.read();
+					isr.close();
+					
+					Toast.makeText(context, Integer.toString(level) 
+							+ " " + Integer.toString(booty)
+							+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
+					model.removeAllEnemiesAndProjectile();
+					model.addUnit(model.getMainShip().getMainCannon());
+					model.setLevel(level - 1);
+					model.setBooty(booty);
+					for (int c = numCrew; c > 0; c--)
+						model.addUnit(new Crew(context, model));
+
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.setPaused(true);
+				}
+			}
+			
+		});
+		
+		/**
+		 * Switches the ImageView of the pause button
+		 * when it is clicked
+		 */
+		pauseButton.setOnTouchListener(new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                	pauseButton.setImageResource(R.drawable.pausemenu_selected);
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                	pauseButton.setImageResource(R.drawable.pausemenu);
+                }
+                return false;
+            }
+        });
+		
+		
 		/** FIRING LISTENER */
 		screen.setOnTouchListener(new View.OnTouchListener() {
 

@@ -44,7 +44,7 @@ public class Model extends Thread{
 	 */
 	private BaseController currentActivity;
 	public Context context;
-	
+	public int numCrew = 0;
 	/**
 	 * Starting difficulty is 1.<br>
 	 * Modifier that indicates the number of times the player has made it past
@@ -421,6 +421,7 @@ public class Model extends Thread{
 					getMainShip().addTurret((Turret) unit);
 				} else if (unit instanceof Crew) {
 					getMainShip().addCrew((Crew) unit);
+					numCrew++;
 				}
 			}
 			if (currentActivity.name.equalsIgnoreCase("PlayController")) {
