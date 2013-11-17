@@ -49,8 +49,6 @@ public class PlayController extends BaseController {
 
 	final Context context = this;
 	private ImageView pauseButton;
-	private Button loadButton;
-	private Button saveButton;
 	PopupWindow popupWindow;
 
 	@Override
@@ -62,8 +60,6 @@ public class PlayController extends BaseController {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 		
-		saveButton = (Button) findViewById(R.id.save);
-		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
 		
 		/**
@@ -142,8 +138,6 @@ public class PlayController extends BaseController {
 		if (model.getLevel() == 1) {
 			if (((BroadsideApplication) this.getApplication()).load) {
 				((BroadsideApplication) this.getApplication()).loadModel(context);
-				Intent playIntent = new Intent(this, PlayController.class);
-				startActivity(playIntent);
 				((BroadsideApplication) this.getApplication()).load = false;
 			}
 			else {
@@ -161,47 +155,6 @@ public class PlayController extends BaseController {
 
 			e.printStackTrace();
 		}
-		
-		/**
-		 * When the Save button clicked
-		 */
-		saveButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				try {
-					FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
-					OutputStreamWriter osw = new OutputStreamWriter(fou);
-					osw.write(model.getLevel());
-					osw.write(model.getBooty());
-					osw.write(model.numCrew);
-					osw.flush();
-					osw.close();
-					
-					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
-		});
-		
-		/**
-		 * When the Load button is clicked
-		 */
-		loadButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				loadGame();
-			}	
-		});
 		
 		/**
 		 * Switches the ImageView of the pause button

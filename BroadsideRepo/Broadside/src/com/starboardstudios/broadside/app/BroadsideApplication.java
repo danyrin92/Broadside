@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.util.LevelManager;
 
 /**
  * Created by alex on 10/16/13.
@@ -65,9 +66,9 @@ public class BroadsideApplication extends Application {
 					+ " " + Integer.toString(booty)
 					+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
 			globalModel.addUnit(new MainShip(globalModel));
-			//globalModel.removeAllEnemiesAndProjectile();
-			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			globalModel.setLevel(level);
+			LevelManager.restartLevel(globalModel);
+			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			globalModel.setBooty(booty);
 			for (int c = numCrew; c > 0; c--)
 				globalModel.addUnit(new Crew(context, globalModel));
@@ -76,6 +77,11 @@ public class BroadsideApplication extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Toast.makeText(context, "You have no saved Games", Toast.LENGTH_LONG).show();
+			globalModel.addUnit(new MainShip(globalModel));
+			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
+			// TODO finish testing crew
+			globalModel.addUnit(new Crew(context, globalModel));
+			globalModel.addUnit(new Crew(context, globalModel));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
