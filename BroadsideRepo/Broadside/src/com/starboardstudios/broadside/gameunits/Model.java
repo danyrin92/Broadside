@@ -46,6 +46,7 @@ public class Model extends Thread{
 	public Context context;
 	public int numCrew = 0;
 	public boolean load;
+	
 	/**
 	 * Starting difficulty is 1.<br>
 	 * Modifier that indicates the number of times the player has made it past
@@ -59,6 +60,7 @@ public class Model extends Thread{
 	private int numOfEnemies;
 	/** For enemy unit spawning */
 	private Timer timer;
+	private int modFPS = 10;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
 
 	// Crew is property of mainship
@@ -105,7 +107,7 @@ public class Model extends Thread{
 			}
 			try {
 				/** FPS modifier below */
-				Thread.sleep(10);
+				Thread.sleep(modFPS);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -751,6 +753,10 @@ public class Model extends Thread{
 
 	public void setNumOfEnemies(int numOfEnemies) {
 		this.numOfEnemies = numOfEnemies;
+	}
+	
+	public void setFPS(int rate){
+		this.modFPS = rate;
 	}
 
 	public Timer getTimer() {
