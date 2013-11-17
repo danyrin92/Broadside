@@ -7,6 +7,7 @@ import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.R.drawable;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
@@ -132,8 +133,7 @@ public class MainShip extends
 
 	public void collide(BaseUnit unit) {
 		if (unit instanceof Projectile) {
-			if ((((Projectile)unit).creator instanceof BaseShip) || (((Projectile)unit).creator instanceof BaseAircraft) 
-					|| (((Projectile)unit).creator instanceof BaseShip)) {
+			if ( (((Projectile)unit).creator instanceof CombatUnit) && !(((Projectile)unit).creator instanceof MainShip) ){
 				damage(((Projectile) unit).getDamage());
 			}
 		}
@@ -142,7 +142,7 @@ public class MainShip extends
 	public void damage(int damage) {
 		health -= damage;
 		//TODO: Add animation to the damage method
-		if (health < 0) {
+		if (health <= 0) {
 			destroy();
 		}
 	}

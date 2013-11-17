@@ -85,7 +85,6 @@ public class EasyShip extends BaseShip {
 	}
 
 	void fire() {
-
 		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
 				yFireSpeed, zFireSpeed);
 		temp.creator = this;
