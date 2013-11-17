@@ -104,6 +104,7 @@ public class UpgradeController extends BaseController {
 		if (numCrew>0) {
 			model.removeUnit(crew.get(numCrew-1));
 			model.addBooty(10);
+			model.numCrew--;
 		}
 	}
 

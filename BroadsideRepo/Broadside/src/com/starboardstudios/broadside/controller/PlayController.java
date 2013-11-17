@@ -140,13 +140,21 @@ public class PlayController extends BaseController {
 		 */
 		
 		if (model.getLevel() == 1) {
-			model.addUnit(new MainShip(model));
-			model.addUnit(model.getMainShip().getMainCannon());
-			// TODO finish testing crew
-			model.addUnit(new Crew(context, model));
-			model.addUnit(new Crew(context, model));
-
+			if (((BroadsideApplication) this.getApplication()).load) {
+				((BroadsideApplication) this.getApplication()).loadModel(context);
+				Intent playIntent = new Intent(this, PlayController.class);
+				startActivity(playIntent);
+				((BroadsideApplication) this.getApplication()).load = false;
+			}
+			else {
+				model.addUnit(new MainShip(model));
+				model.addUnit(model.getMainShip().getMainCannon());
+				// TODO finish testing crew
+				model.addUnit(new Crew(context, model));
+				model.addUnit(new Crew(context, model));
+			}
 		}
+		
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -191,35 +199,8 @@ public class PlayController extends BaseController {
 
 			@Override
 			public void onClick(View arg0) {
-				try {
-					FileInputStream fin = openFileInput("savedLevel.bin");
-					InputStreamReader isr = new InputStreamReader(fin);
-					int level = isr.read();
-					int booty = isr.read();
-					int numCrew = isr.read();
-					isr.close();
-					
-					Toast.makeText(context, Integer.toString(level) 
-							+ " " + Integer.toString(booty)
-							+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
-					model.removeAllEnemiesAndProjectile();
-					model.addUnit(model.getMainShip().getMainCannon());
-					model.setLevel(level - 1);
-					model.setBooty(booty);
-					for (int c = numCrew; c > 0; c--)
-						model.addUnit(new Crew(context, model));
-
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
+				loadGame();
+			}	
 		});
 		
 		/**
@@ -461,6 +442,12 @@ public class PlayController extends BaseController {
 		// Show the popup window
 		popupWindow.showAtLocation(llContainer, Gravity.CENTER, 0, 0);
 
+	}
+	
+	public void loadGame() {
+		if (((BroadsideApplication) this.getApplication()).load)
+		((BroadsideApplication) this.getApplication()).loadModel(context);
+		((BroadsideApplication) this.getApplication()).load = false;
 	}
 
 	public void doneInput(String input) {
