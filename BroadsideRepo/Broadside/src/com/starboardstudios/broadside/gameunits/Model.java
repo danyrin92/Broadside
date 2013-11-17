@@ -619,6 +619,9 @@ public class Model extends Thread{
 			if ((unit instanceof BaseShip) || (unit instanceof BaseAircraft) || (unit instanceof BaseSubmarine)) {
 				numOfEnemies--;
 				System.out.println("Enemy " + unit.toString() + " removed. Current numOfEnemies = " + numOfEnemies) ;
+				if (numOfEnemies <= 0) {
+					LevelManager.nextLevel(this);
+				}
 			}
 			
 			if (unit instanceof Turret) {

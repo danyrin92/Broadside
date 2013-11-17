@@ -479,5 +479,13 @@ public class PlayController extends BaseController {
 		c.repairAt(xTarget, yTarget);
 		System.out.println("stopped");
 	}
+	
+	public void failState() {
+		
+	}
+	
+	public void restartLevel() {
+		LevelManager.restartLevel(model);
+	}
 
 }
