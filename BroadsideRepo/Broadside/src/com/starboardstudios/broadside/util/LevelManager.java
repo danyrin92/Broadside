@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 public abstract class LevelManager {
 	private static int MAXLEVEL;
-	private static int DELAY_TO_UPGRADE = 3000; // In milliseconds
+	private static int DELAY_TO_UPGRADE = 30; // In milliseconds
 	
 	//BaseShips: 000 to 099
 	public final static int ID_EASYSHIP = 000;
@@ -149,14 +149,11 @@ public abstract class LevelManager {
 	/** go to the next level */
 	public static void nextLevel(final Model model) {
 		if (model.getCurrentActivity().name.equalsIgnoreCase("PlayController")) {	
-			int level = model.getLevel();
-			 
+			
 			 /** Manages infinite level by increasing difficulty in the model  */
-			 if ((level % (MAXLEVEL)) == 0) {
+			 if ((model.getLevel() % (MAXLEVEL)) == 0) {
 					 model.setDifficulty(model.getDifficulty() + 1);
 			 }
-			 
-			 model.setLevel(++level);
 			 
 			 /** delay before going to the next Level */
 			 TimerTask waitToGoToUpgrade = new TimerTask() {
@@ -169,12 +166,12 @@ public abstract class LevelManager {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					
+					model.setLevel(model.getLevel() + 1);
 					this.cancel();
 					return;
 				}
 			 };
-			model.getTimer().schedule(waitToGoToUpgrade,DELAY_TO_UPGRADE,0);
+			model.getTimer().schedule(waitToGoToUpgrade,DELAY_TO_UPGRADE,DELAY_TO_UPGRADE);
 		}
 	}
 }
