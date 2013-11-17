@@ -4,11 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ public class UpgradeController extends BaseController {
 
 	private Model model;
 	private MainShip mainShip;
+	final Context context = this;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -44,6 +47,26 @@ public class UpgradeController extends BaseController {
 		model.setCurrentActivity(this);
 		
 		mainShip = model.getMainShip();
+		
+		try {
+			FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
+			OutputStreamWriter osw = new OutputStreamWriter(fou);
+			osw.write(model.getLevel());
+			osw.write(model.getBooty());
+			osw.write(model.numCrew);
+			osw.flush();
+			osw.close();
+			
+			Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			model.setPaused(true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			model.setPaused(true);
+		}
 
 		try {
 			Thread.sleep(20);
@@ -104,6 +127,7 @@ public class UpgradeController extends BaseController {
 		if (numCrew>0) {
 			model.removeUnit(crew.get(numCrew-1));
 			model.addBooty(10);
+			model.numCrew--;
 		}
 	}
 

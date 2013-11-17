@@ -45,6 +45,7 @@ public class Model extends Thread{
 	private BaseController currentActivity;
 	public Context context;
 	public int numCrew = 0;
+	public boolean load;
 	/**
 	 * Starting difficulty is 1.<br>
 	 * Modifier that indicates the number of times the player has made it past
@@ -380,24 +381,6 @@ public class Model extends Thread{
 	public void runOnMain(Runnable x) {
 		currentActivity.runOnUiThread(x);
 	}
-
-	/**
-	 * returns the units currently
-	 * in the model so that they
-	 * can be saved
-	 */
-	public ArrayList<BaseUnit> getUnits() {
-		return units;
-	}
-	
-	/**
-	 * takes in the units which are
-	 * loaded so that they can be put into
-	 * the model
-	 */
-	public void setUnits(ArrayList<BaseUnit> newUnits) {
-		units = newUnits;
-	}
 	
 	/**
 	 * Adds the passed unit to the model.
@@ -437,11 +420,6 @@ public class Model extends Thread{
 						.addView(unit.getImage());
 			}
 		}
-	}
-
-	public void addToUp(BaseUnit unit) {
-		addUnit(unit);
-
 	}
 
 	/**
@@ -628,6 +606,8 @@ public class Model extends Thread{
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
 				getMainShip().getCrew().remove((Crew) unit);
+			} else if (unit instanceof Fire) {
+				((Fire)unit).getSect().removeFire((Fire)unit);
 			}
 		} catch (Exception e) {
 		}

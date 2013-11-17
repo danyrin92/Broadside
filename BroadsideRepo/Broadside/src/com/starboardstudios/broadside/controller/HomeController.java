@@ -32,7 +32,8 @@ public class HomeController extends BaseController {
 	
 	public void loadGame(View view)
 	{
-		((BroadsideApplication) this.getApplication()).loadModel(model.context);
+		((BroadsideApplication) this.getApplication()).clearModel();
+		((BroadsideApplication) this.getApplication()).load = true;
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}

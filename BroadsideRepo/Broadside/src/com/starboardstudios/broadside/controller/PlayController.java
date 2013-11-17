@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -32,6 +33,7 @@ import android.widget.Toast;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
+import com.starboardstudios.broadside.gameunits.Fire;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
@@ -49,8 +51,6 @@ public class PlayController extends BaseController {
 
 	final Context context = this;
 	private ImageView pauseButton;
-	private Button loadButton;
-	private Button saveButton;
 	PopupWindow popupWindow;
 
 	@Override
@@ -62,8 +62,6 @@ public class PlayController extends BaseController {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(screen);
 		
-		saveButton = (Button) findViewById(R.id.save);
-		loadButton = (Button) findViewById(R.id.load);
 		pauseButton = (ImageView) findViewById(R.id.pause);
 		
 		/**
@@ -140,87 +138,25 @@ public class PlayController extends BaseController {
 		 */
 		
 		if (model.getLevel() == 1) {
-			model.addUnit(new MainShip(model));
-			model.addUnit(model.getMainShip().getMainCannon());
-			// TODO finish testing crew
-			model.addUnit(new Crew(context, model));
-			model.addUnit(new Crew(context, model));
-
+			if (((BroadsideApplication) this.getApplication()).load) {
+				((BroadsideApplication) this.getApplication()).loadModel(context);
+				((BroadsideApplication) this.getApplication()).load = false;
+			}
+			else {
+				model.addUnit(new MainShip(model));
+				model.addUnit(model.getMainShip().getMainCannon());
+				// TODO finish testing crew
+				model.addUnit(new Crew(context, model));
+				model.addUnit(new Crew(context, model));
+			}
 		}
+		
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
 		}
-		
-		/**
-		 * When the Save button clicked
-		 */
-		saveButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				try {
-					FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
-					OutputStreamWriter osw = new OutputStreamWriter(fou);
-					osw.write(model.getLevel());
-					osw.write(model.getBooty());
-					osw.write(model.numCrew);
-					osw.flush();
-					osw.close();
-					
-					Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
-		});
-		
-		/**
-		 * When the Load button is clicked
-		 */
-		loadButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				try {
-					FileInputStream fin = openFileInput("savedLevel.bin");
-					InputStreamReader isr = new InputStreamReader(fin);
-					int level = isr.read();
-					int booty = isr.read();
-					int numCrew = isr.read();
-					isr.close();
-					
-					Toast.makeText(context, Integer.toString(level) 
-							+ " " + Integer.toString(booty)
-							+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
-					model.removeAllEnemiesAndProjectile();
-					model.addUnit(model.getMainShip().getMainCannon());
-					model.setLevel(level - 1);
-					model.setBooty(booty);
-					for (int c = numCrew; c > 0; c--)
-						model.addUnit(new Crew(context, model));
-
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					model.setPaused(true);
-				}
-			}
-			
-		});
 		
 		/**
 		 * Switches the ImageView of the pause button
@@ -295,6 +231,12 @@ public class PlayController extends BaseController {
 		Intent optionsIntent = new Intent(this, HomeController.class);
 		startActivity(optionsIntent);
 	}
+	
+	public void addFire(Fire fire,float x,float y) {
+		model.addUnit(fire);
+		fire.setPosition(x,y);
+		model.update();
+	}
 
 	public void init() {
 
@@ -333,6 +275,39 @@ public class PlayController extends BaseController {
 		if (spawnnum > 4)
 			spawnnum = 0;
 
+	}
+	
+	public void testSections(View view) {
+		//these values close enough for now...
+		float x = (float) (model.getScreenX() * .325 * .4);
+		float y = (float) model.getScreenY();
+		Crew crew1 = new Crew(this, model);
+		model.addUnit(crew1);
+		Crew crew2 = new Crew(this, model);
+		model.addUnit(crew2);
+		Crew crew3 = new Crew(this, model);
+		model.addUnit(crew3);
+		crew1.setPosition(x,y*(float).1);
+		crew2.setPosition(x,y*(float).4);
+		crew3.setPosition(x,y*(float).7);
+		crew1.update();
+		crew2.update();
+		crew3.update();
+	}
+	
+	public void testFires(View view) {
+		float x = (float) (model.getScreenX() * .325 * .4);
+		float y = (float) model.getScreenY()*(float).1;
+		Fire fire = new Fire(model);
+		addFire(fire,x,y);
+	}
+	
+	public void testPatrol(View view) {
+		ArrayList<Crew> crews = model.getMainShip().getCrew();
+		int numCrew = crews.size();
+		for (int i=0; i<numCrew; i++) {
+			crews.get(i).patrol();
+		}
 	}
 
 	public void showPopup(View view) {
@@ -461,6 +436,12 @@ public class PlayController extends BaseController {
 		// Show the popup window
 		popupWindow.showAtLocation(llContainer, Gravity.CENTER, 0, 0);
 
+	}
+	
+	public void loadGame() {
+		if (((BroadsideApplication) this.getApplication()).load)
+		((BroadsideApplication) this.getApplication()).loadModel(context);
+		((BroadsideApplication) this.getApplication()).load = false;
 	}
 
 	public void doneInput(String input) {
