@@ -22,14 +22,13 @@ public class MainShip extends
 	private ArrayList<Crew> crews = new ArrayList<Crew>();
 	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 	private MainCannon mainCannon;
-	private int waterLevel;
 	private boolean inPosition = false;
 	private Section bow,midship,stern;
+	private int maxHealth;
 
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
-		this.waterLevel = 0;
 		imageView = new ImageView(model.context);
 
 		/** PNG to be used as image */
@@ -51,21 +50,12 @@ public class MainShip extends
 		
 		/** Sections... As of now just to localize visuals 
 		 * (get shot in stern a lot, fires appear in stern, etc.*/
-		float x = (float) (model.getScreenX() * .325);
+		float x = (float) (model.getScreenX() * .325 *.4);
 		float y = (float) model.getScreenY();
-		bow = new Section(model,x,y*(float).1);
-		midship = new Section(model,x,y*(float).4);
-		stern = new Section(model,x,y*(float).7);
-	}
-
-	protected void Damage(Projectile p) {
-		health = health - p.getDamage();
-	}
-	
-	protected void Damage(Projectile p, Section s) {
-		Damage(p);
-		//manage section
-		s.damage(p);
+		health = maxHealth = 1000;
+		bow = new Section(model,x,y*(float).1, health/2);
+		midship = new Section(model,x,y*(float).4, health/2);
+		stern = new Section(model,x,y*(float).7, health/2);
 	}
 
 	public void setVelocity(int xSpeed, int ySpeed) {
@@ -114,18 +104,6 @@ public class MainShip extends
 
 	}
 
-	/** test to put mainShip onto upgrades screen */
-	public void spawn() {
-		model.runOnMain(new Runnable() {
-			public void run() {
-				imageView.setX(x);
-				imageView.setY(y);
-				imageView.setImageResource(drawable.mainship);
-			}
-
-		});
-	}
-
 	@Override
 	public ImageView getImage() {
 		return imageView;
@@ -133,23 +111,26 @@ public class MainShip extends
 
 	public void collide(BaseUnit unit) {
 		if (unit instanceof Projectile) {
-			if ( (((Projectile)unit).creator instanceof CombatUnit) && !(((Projectile)unit).creator instanceof MainShip) ){
-				damage(((Projectile) unit).getDamage());
+			if ((((Projectile)unit).creator instanceof BaseShip) || (((Projectile)unit).creator instanceof BaseAircraft) 
+					|| (((Projectile)unit).creator instanceof BaseShip)) {
+				damage((Projectile) unit);
 			}
 		}
 	}
 	
-	public void damage(int damage) {
-		health -= damage;
-		//TODO: Add animation to the damage method
-		if (health <= 0) {
-			destroy();
+	protected void damage(Projectile p) {
+		if (health > 0) {
+			health -= p.getDamage();
+			//TODO: Add animation to the damage method
+		} else {
+			//TODO implement destroy();
 		}
+		//Manage section
+		determineSection(p.getY()).damage(p);
 	}
 	
 	public void destroy() {
-		//TODO: Add animations to the destroy method
-		
+		//TODO: Add animations to the destroy method	
 		model.removeUnit(this);
 	}
 	
@@ -202,6 +183,63 @@ public class MainShip extends
 
 	public Crew getLastCrew() {
 		return crews.get(crews.size() - 1);
+	}
+	
+	public Crew getNextAvailableCrew() {
+		boolean busy;
+		for (int i=0; i<crews.size(); i++) {
+			busy = crews.get(i).getBusy();
+			if (!busy) {
+				return crews.get(i);
+			}
+		}
+		return null; //all busy
+	}
+
+	public Section getBow() {
+		return bow;
+	}
+
+	public void setBow(Section bow) {
+		this.bow = bow;
+	}
+
+	public Section getMidship() {
+		return midship;
+	}
+
+	public void setMidship(Section midship) {
+		this.midship = midship;
+	}
+
+	public Section getStern() {
+		return stern;
+	}
+
+	public void setStern(Section stern) {
+		this.stern = stern;
+	}
+	
+	public Section determineSection(float y) {
+		float yCoeff = y / model.getScreenY ();
+		if (yCoeff<(float).25) { //bow
+			//System.out.println("Bow hit");
+			return bow;
+		} else if (yCoeff<(float).5) { //midship
+			//System.out.println("MidShip hit");
+			return midship;
+		} else { //stern
+			//System.out.println("Stern hit");
+			return stern;
+		}
+	}
+
+	public void addHealth(int repairHealthBar) {
+		if (health+repairHealthBar>maxHealth) {
+			health = maxHealth;
+		} else {
+			health+=repairHealthBar;
+		}
 	}
 
 }

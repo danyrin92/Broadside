@@ -422,11 +422,6 @@ public class Model extends Thread{
 		}
 	}
 
-	public void addToUp(BaseUnit unit) {
-		addUnit(unit);
-
-	}
-
 	/**
 	 * Checks all projectiles for collisions by checking rect bounds, then
 	 * redefining if necessary. Calls objects' collide methods if found.
@@ -608,6 +603,8 @@ public class Model extends Thread{
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
 				getMainShip().getCrew().remove((Crew) unit);
+			} else if (unit instanceof Fire) {
+				((Fire)unit).getSect().removeFire((Fire)unit);
 			}
 		} catch (Exception e) {
 		}

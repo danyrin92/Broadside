@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -32,6 +33,7 @@ import android.widget.Toast;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
+import com.starboardstudios.broadside.gameunits.Fire;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
@@ -229,6 +231,12 @@ public class PlayController extends BaseController {
 		Intent optionsIntent = new Intent(this, HomeController.class);
 		startActivity(optionsIntent);
 	}
+	
+	public void addFire(Fire fire,float x,float y) {
+		model.addUnit(fire);
+		fire.setPosition(x,y);
+		model.update();
+	}
 
 	public void init() {
 
@@ -267,6 +275,39 @@ public class PlayController extends BaseController {
 		if (spawnnum > 4)
 			spawnnum = 0;
 
+	}
+	
+	public void testSections(View view) {
+		//these values close enough for now...
+		float x = (float) (model.getScreenX() * .325 * .4);
+		float y = (float) model.getScreenY();
+		Crew crew1 = new Crew(this, model);
+		model.addUnit(crew1);
+		Crew crew2 = new Crew(this, model);
+		model.addUnit(crew2);
+		Crew crew3 = new Crew(this, model);
+		model.addUnit(crew3);
+		crew1.setPosition(x,y*(float).1);
+		crew2.setPosition(x,y*(float).4);
+		crew3.setPosition(x,y*(float).7);
+		crew1.update();
+		crew2.update();
+		crew3.update();
+	}
+	
+	public void testFires(View view) {
+		float x = (float) (model.getScreenX() * .325 * .4);
+		float y = (float) model.getScreenY()*(float).1;
+		Fire fire = new Fire(model);
+		addFire(fire,x,y);
+	}
+	
+	public void testPatrol(View view) {
+		ArrayList<Crew> crews = model.getMainShip().getCrew();
+		int numCrew = crews.size();
+		for (int i=0; i<numCrew; i++) {
+			crews.get(i).patrol();
+		}
 	}
 
 	public void showPopup(View view) {
