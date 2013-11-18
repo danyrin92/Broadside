@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
@@ -15,18 +16,17 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 public class MainCannon extends Turret {
 	public ImageView imageView = new ImageView(context);
 	int cooldown, currentCooldown;
-	float angle; 
+	float angle; // 90 to -90
 	MainCannon me;
-	Projectile cannonBall;
 
 	public MainCannon(Model model, float x, float y) {
 		super(model, x, y);
 		me = this;
 		this.x = x;
 		this.y = y;
-		this.cooldown = 120;
+		this.cooldown = 10;
 		this.currentCooldown = 0;
-		cannonBall = new CannonBall(model);
+		this.projectile = new Missile(model);
 		fireSpeed = 5;
 		imageView.setImageResource(drawable.main_cannon); // Set to image
 		imageView.setAdjustViewBounds(true);
@@ -68,8 +68,8 @@ public class MainCannon extends Turret {
 		double angle = Math.atan((yTarget - yOffset)/ (xTarget - xOffset));
 		float ySpeed = (float) Math.sin(angle) * fireSpeed;
 		float xSpeed = (float) Math.cos(angle) * fireSpeed;
-        Projectile temp =cannonBall.create(model, xOffset, yOffset, xSpeed, ySpeed);
-        temp.creator=this;
+        Projectile temp = projectile.create(model, projectile.getDefaultDamage(), this.x, this.y, fireSpeed, angle);
+        temp.creator = this;
 		model.addUnit(temp);
 		imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 		System.out.println("angle " + angle +" thisx" +this.x+" thisy "+ this.y+ " xTarget  " + xTarget+ " yTarget "+ yTarget+"xDiff"+xDifference+"ydiff"+yDifference);

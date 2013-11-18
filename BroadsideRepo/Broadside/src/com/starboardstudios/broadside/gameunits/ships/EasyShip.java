@@ -8,6 +8,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
 public class EasyShip extends BaseShip {
+	private float fireSpeed;
 
 	public EasyShip(Model model) {
 		super(model);
@@ -16,7 +17,7 @@ public class EasyShip extends BaseShip {
 		health = 10;
 
 		/** Projectile speed */
-		xFireSpeed = -(int) (model.getScreenX() * .005);
+		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyShip */
 		imageView.setImageResource(drawable.easyship);
@@ -44,7 +45,9 @@ public class EasyShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-
+		int speed = Math.abs(xSpeed) + Math.abs(ySpeed);
+		//sSystem.out.println("Speed: " + speed);
+		
 		x = x + xSpeed;
 		y = y + ySpeed;
 
@@ -85,8 +88,7 @@ public class EasyShip extends BaseShip {
 	}
 
 	void fire() {
-		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed);
+        CannonBall temp = new CannonBall(model, 20, x, y, fireSpeed, 0);
 		temp.creator = this;
 		model.addUnit(temp);
 	}

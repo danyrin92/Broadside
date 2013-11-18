@@ -3,6 +3,8 @@ package com.starboardstudios.broadside.gameunits.aircrafts;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.starboardstudios.broadside.gameunits.projectile.EnemyMissile;
+import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
@@ -14,14 +16,12 @@ public class EasyAircraft extends BaseAircraft {
 
 		/** Unique variables for an EasyAircraft */
 		health = 10;
+		fireSpeed = -(float) (model.getScreenX() * .005);
 
-		/** Projectile speed */
-		xFireSpeed = -(int) (model.getScreenX() * .005);
-
-		/** Art asset assigned to EasyShip */
+		/** Art asset assigned to EasyAircraft */
 		imageView.setImageResource(drawable.easyaircraft);
 
-		/** Scale of the EasyShip type */
+		/** Scale of the EasyAircraft type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 
@@ -32,7 +32,7 @@ public class EasyAircraft extends BaseAircraft {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
+		/** Starting speed of the submarine */
 		xSpeed = -(int) (model.getScreenX() * .003);
 
 		x = (int) (model.getScreenX() + 75);
@@ -76,10 +76,7 @@ public class EasyAircraft extends BaseAircraft {
 	}
 
 	void fire() {
-
-		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed);
-		temp.creator = this;
-		model.addUnit(temp);
+		model.addUnit(new EnemyMissile(model, 20, x, y, fireSpeed));
 	}
+
 }

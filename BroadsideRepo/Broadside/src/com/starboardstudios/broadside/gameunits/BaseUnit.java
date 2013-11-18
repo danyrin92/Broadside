@@ -7,8 +7,9 @@ import android.widget.ImageView;
 /**
  * Created by Alex on 9/26/13.
  */
-public abstract class BaseUnit{
-	
+public abstract class BaseUnit {
+	public float x, y;
+
 	
 	/**
 	 * 

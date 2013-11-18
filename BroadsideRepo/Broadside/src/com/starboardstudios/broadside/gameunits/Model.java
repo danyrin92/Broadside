@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -24,6 +25,9 @@ import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
 import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
+import com.starboardstudios.broadside.R;
+import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -38,7 +42,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Model extends Thread{
+public class Model extends Thread {
 
 	/**
 	 * 

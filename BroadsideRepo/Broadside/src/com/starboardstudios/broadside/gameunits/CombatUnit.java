@@ -14,7 +14,7 @@ public abstract class CombatUnit extends BaseUnit {
 	protected float xSpeed;
 	protected float ySpeed;
 	protected int health;
-	protected int xFireSpeed, yFireSpeed, zFireSpeed;
+	protected float fireSpeed;
 
 	/**
 	 * Boolean values used in pathing to see if a node has been visited. It

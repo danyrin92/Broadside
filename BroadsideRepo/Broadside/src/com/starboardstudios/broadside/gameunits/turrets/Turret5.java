@@ -49,8 +49,8 @@ public class Turret5 extends Turret {
 
 	         System.out.println("Turret1 is Created");
 	    }
-		public Turret5(Model model, Projectile projectile, int x, int y, int z) {
-		super(model, projectile, x, y, z);
+		public Turret5(Model model, Projectile projectile, float x, float y) {
+		super(model, projectile, x, y);
 		/*ARBITRARY VALUES*/
 		this.fireSpeed = 20;
         me=this;
@@ -82,13 +82,13 @@ public class Turret5 extends Turret {
 
 	         System.out.println("Turret1 Created");
 	    }
-		public Turret5(Model model, Projectile projectile, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-			super(model, projectile, x, y, xFireSpeed, yFireSpeed);
+		public Turret5(Model model, Projectile projectile, float x, float y, float fireSpeed) {
+			super(model, projectile, x, y, fireSpeed);
 	        me=this;
 			    imageView.setImageResource(drawable.main_cannon); //Set to image
 		        imageView.setAdjustViewBounds(true);
 		        imageView.setLayoutParams(new LinearLayout.LayoutParams(150,150)); //Set size
-	           imageView.setOnTouchListener(new View.OnTouchListener() {
+	            imageView.setOnTouchListener(new View.OnTouchListener() {
 	                @Override
 	                public boolean onTouch(View view, MotionEvent motionEvent) {
 	                	imageView.getParent().requestDisallowInterceptTouchEvent(true);

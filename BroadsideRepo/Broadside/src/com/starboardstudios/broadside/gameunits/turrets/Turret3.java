@@ -49,8 +49,8 @@ public class Turret3 extends Turret {
 
 	         System.out.println("Turret1 is Created");
 	    }
-		public Turret3(Model model, Projectile projectile, int x, int y, int z) {
-		super(model, projectile, x, y, z);
+		public Turret3(Model model, Projectile projectile, float x, float y) {
+		super(model, projectile, x, y);
 		/*ARBITRARY VALUES*/
 		this.fireSpeed = 20;
         me=this;
@@ -82,8 +82,8 @@ public class Turret3 extends Turret {
 
 	         System.out.println("Turret1 Created");
 	    }
-		public Turret3(Model model, Projectile projectile, int x, int y, int z, int xFireSpeed, int yFireSpeed, int zFireSpeed) {
-			super(model, projectile, x, y, xFireSpeed, yFireSpeed);
+		public Turret3(Model model, Projectile projectile, float x, float y, float fireSpeed) {
+			super(model, projectile, x, y, fireSpeed);
 	        me=this;
 			    imageView.setImageResource(drawable.main_cannon); //Set to image
 		        imageView.setAdjustViewBounds(true);

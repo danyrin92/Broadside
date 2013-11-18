@@ -8,6 +8,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
 public class MediumShip extends BaseShip {
+	private float fireSpeed;
 
 	public MediumShip(Model model) {
 		super(model);
@@ -16,7 +17,7 @@ public class MediumShip extends BaseShip {
 		health = 50;
 
 		/** Projectile speed */
-		xFireSpeed = -(int) (model.getScreenX() * .005);
+		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to MediumShip */
 		imageView.setImageResource(drawable.mediumship);

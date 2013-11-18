@@ -2,14 +2,15 @@ package com.starboardstudios.broadside.gameunits.projectile;
 
 import android.content.Context;
 import android.widget.ImageView;
+
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public abstract class Projectile extends BaseUnit {
 	protected Context context;
 	protected ImageView imageView;
 	protected int damage;
+	protected float speed, angle;
 	/** Added Z value for possible image scaling */
 	protected float z, xSpeed, ySpeed;
 	protected float xTarget, yTarget;
@@ -30,39 +31,28 @@ public abstract class Projectile extends BaseUnit {
 
 	}
 
-	public Projectile(Model model, int damage, int x, int y) {
+	/* Using this constructor for Missiles */
+	public Projectile(Model model, int damage, float x, float y) {
 		this.model = model;
 		this.context = model.context;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
+
 		imageView = new ImageView(context);
 
 	}
-
-	//used for main cannon projectiles
-	public Projectile(Model model, int damage, float x, float y, float xSpeed,
-			float ySpeed) {
+	
+	public Projectile(Model model, int damage, float x, float y, float speed, float angle) {
 		this.model = model;
 		this.context = model.context;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
-		imageView = new ImageView(context);
-
-	}
-
-	public Projectile(Model model, int damage, int x, int y, int xSpeed,
-			int ySpeed) {
-		this.model = model;
-		this.context = model.context;
-		this.damage = damage;
-		this.x = x;
-		this.y = y;
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
+		this.speed = speed;
+		this.angle = angle;
+		this.ySpeed = (float) Math.sin(angle) * speed;
+		this.xSpeed = (float) Math.cos(angle) * speed;
 		imageView = new ImageView(context);
 
 	}
@@ -81,8 +71,6 @@ public abstract class Projectile extends BaseUnit {
 			public void run() {
                     imageView.setX(x);
 				    imageView.setY(y);
-
-				//System.out.println(" x " + x + " y " + y);
 			}
 		});
 	}
@@ -139,12 +127,6 @@ public abstract class Projectile extends BaseUnit {
 	public void setySpeed(int yVelo) {
 		this.ySpeed = yVelo;
 	}
-
 	public abstract int getDefaultDamage();
-
-	public abstract Projectile create(Model model, float x, float y,
-			float xFireSpeed, float yFireSpeed);
-
-	public abstract Projectile create(Model model, int damage, float x,
-			float y, int xFireSpeed, int yFireSpeed);
+	public abstract Projectile create(Model model, int damage, float x,	float y, float fireSpeed, float angle);
 }

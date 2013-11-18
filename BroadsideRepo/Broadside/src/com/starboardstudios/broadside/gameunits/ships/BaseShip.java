@@ -9,8 +9,8 @@ import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 import java.util.Random;
 
-public abstract class BaseShip extends CombatUnit {
-
+  public abstract class BaseShip extends CombatUnit {
+	  
 	/** Random value for choosing pathing track */
 	Random rand = new Random();
 	int random = rand.nextInt(3);

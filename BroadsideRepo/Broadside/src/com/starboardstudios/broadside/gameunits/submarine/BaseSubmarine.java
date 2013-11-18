@@ -10,7 +10,7 @@ import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 import java.util.Random;
 
-public abstract class BaseSubmarine extends CombatUnit {
+  public abstract class BaseSubmarine extends com.starboardstudios.broadside.gameunits.CombatUnit {
 
 	/** Random value for choosing pathing track */
 	Random rand = new Random();
@@ -23,8 +23,9 @@ public abstract class BaseSubmarine extends CombatUnit {
 
 		imageView.setVisibility(View.INVISIBLE);
 		imageView.setAdjustViewBounds(true);
-
 	}
+
+	
 
 	@Override
 	public ImageView getImage() {

@@ -5,20 +5,19 @@ import android.widget.LinearLayout;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
 public class EasySubmarine extends BaseSubmarine {
+	private float fireSpeed;
 
 	public EasySubmarine(Model model) {
 		super(model);
 
 		/** Unique variables for an EasySubmarine */
 		health = 10;
+		fireSpeed = -(float) (model.getScreenX() * .005);
 
-		/** Projectile speed */
-		xFireSpeed = -(int) (model.getScreenX() * .005);
-
-		/** Art asset assigned to EasyShip */
+		/** Art asset assigned to EasySubmarine */
 		imageView.setImageResource(drawable.easysubmarine);
 
 		/** Scale of the EasyShip type */
@@ -32,7 +31,7 @@ public class EasySubmarine extends BaseSubmarine {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
+		/** Starting speed of the submarine */
 		xSpeed = -(int) (model.getScreenX() * .003);
 
 		x = (int) (model.getScreenX() + 75);
@@ -75,11 +74,7 @@ public class EasySubmarine extends BaseSubmarine {
 	}
 
 	void fire() {
-
-		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed);
-		temp.creator = this;
-		model.addUnit(temp);
+		model.addUnit(new Torpedo(model, 20, x, y, fireSpeed, 0));
 	}
 
 }

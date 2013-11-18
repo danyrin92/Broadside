@@ -27,18 +27,8 @@ public class Torpedo extends Projectile {
 
 	}
 
-	public Torpedo(Model model, int damage, int x, int y) {
-		super(model, damage, x, y);
-
-		imageView.setImageResource(drawable.torpedo);
-		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .7), scaleFactor));
-
-	}
-
-	public Torpedo(Model model, int damage, float x, float y, float xSpeed, float ySpeed) {
-		super(model, damage, x, y, xSpeed, ySpeed);
+	public Torpedo(Model model, int damage, float x, float y, float fireSpeed, float angle) {
+		super(model, damage, x, y, fireSpeed, angle);
 
 		imageView.setImageResource(drawable.torpedo);
 		imageView.setAdjustViewBounds(true);
@@ -55,15 +45,9 @@ public class Torpedo extends Projectile {
 	public void setPosition(int x, int y) {
 
 	}
-
-
+	
 	@Override
-	public Projectile create(Model model, float x, float y, float xFireSpeed, float yFireSpeed) {
-		return new Torpedo(model, defaultDamage, x, y, xFireSpeed, yFireSpeed);
-	}
-
-	@Override
-	public Projectile create(Model model, int damage, float x, float y, int xFireSpeed, int yFireSpeed) {
-		return new Torpedo(model, damage, x, y, xFireSpeed, yFireSpeed);
+	public Projectile create(Model model, int damage, float x, float y, float fireSpeed, float angle) {
+		return new Torpedo(model, damage, x, y, fireSpeed, angle);
 	}
 }

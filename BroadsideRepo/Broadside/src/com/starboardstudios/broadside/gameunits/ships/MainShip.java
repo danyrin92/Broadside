@@ -14,8 +14,7 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
-public class MainShip extends
-		com.starboardstudios.broadside.gameunits.CombatUnit {
+public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUnit {
 
 	ImageView imageView; // Image for ship
 	private Model model;
