@@ -164,7 +164,9 @@ public class Model extends Thread{
 				Runnable updateHealthTask = new Runnable() {
 					@Override
 					public void run() {
-						health.setText("Health: " + getShipHealth());
+						int x = getShipHealth();
+						x = (x > 0) ? x : 0;		
+						health.setText("Health: " + x);
 					}
 				};
 				runOnMain(updateHealthTask);

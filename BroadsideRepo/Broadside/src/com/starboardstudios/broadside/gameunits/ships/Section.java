@@ -119,12 +119,14 @@ public class Section {
 	}
 	
 	private void despawnFires() {
+		/*
 		if (fires.size()>0) {
 			int numFiresToDespawn = maxHealthBars - numHealthBars + 1; //TODO: Can cause array out of bounds errors
 			for (int i= numFiresToDespawn - 1; i >= 0; i--) {
 				model.removeUnit(fires.get(i));
 			}
 		}
+		*/
 	}
 	
 	private void despawnAllFires() {
