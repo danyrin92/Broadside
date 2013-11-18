@@ -6,8 +6,10 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 
 public class CannonBall extends Projectile {
-	private int defaultDamage = 10;
-	private int scaleFactor = (int) (model.getScreenY() * .065);
+	private int defaultDamage = 20;
+	private int scaleFactor = (int) (model.getScreenY() * .03);
+	 
+
 
 	public CannonBall(Model model) {
 		super(model);

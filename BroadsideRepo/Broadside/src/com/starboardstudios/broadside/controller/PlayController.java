@@ -310,6 +310,10 @@ public class PlayController extends BaseController {
 			crews.get(i).patrol();
 		}
 	}
+	
+	public void testDeath(View view) {
+		model.getMainShip().setHealth(100);
+	}
 
 	public void showPopup(View view) {
 
