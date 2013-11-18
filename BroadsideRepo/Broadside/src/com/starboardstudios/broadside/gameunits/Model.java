@@ -777,7 +777,12 @@ public class Model extends Thread{
 	public void goToFailState() {
 		paused = true;
 		if(currentActivity instanceof PlayController) {
-			((PlayController)currentActivity).failState();
+			runOnMain( new Runnable() {
+				@Override
+				public void run() {
+					((PlayController)currentActivity).failState();
+				}
+			});
 		}
 	}
 

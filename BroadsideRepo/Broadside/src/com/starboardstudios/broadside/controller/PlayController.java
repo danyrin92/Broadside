@@ -474,18 +474,19 @@ public class PlayController extends BaseController {
 		failStateDialog.setContentView(R.layout.fail_state_dialog);
 		
 		//Restart Button
-		ImageView restartButton = (ImageView) failStateDialog
+		Button restartButton = (Button) failStateDialog
 				.findViewById(R.id.restart);
 		restartButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				LevelManager.restartLevel(model);
 				failStateDialog.dismiss();
+				LevelManager.restartLevel(model);
+				model.setPaused(false);
 			}
 		});
 
 		//SaveLevel Button
-		ImageView saveThenMainMenuButton = (ImageView) failStateDialog
+		Button saveThenMainMenuButton = (Button) failStateDialog
 				.findViewById(R.id.saveThenMainMenu);
 		saveThenMainMenuButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -498,7 +499,7 @@ public class PlayController extends BaseController {
 		});
 		
 		//Main Menu Button
-		ImageView mainMenuButton = (ImageView) failStateDialog
+		Button mainMenuButton = (Button) failStateDialog
 				.findViewById(R.id.mainMenu);
 		mainMenuButton.setOnClickListener(new OnClickListener() {
 			@Override
