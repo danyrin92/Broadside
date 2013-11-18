@@ -124,13 +124,15 @@ public class MainShip extends
 			//TODO: Add animation to the damage method
 		} else {
 			//TODO implement destroy();
+			destroy();
 		}
 		//Manage section
 		determineSection(p.getY()).damage(p);
 	}
 	
 	public void destroy() {
-		//TODO: Add animations to the destroy method	
+		//TODO: Add animations to the destroy method
+		model.goToFailState();
 		model.removeUnit(this);
 	}
 	

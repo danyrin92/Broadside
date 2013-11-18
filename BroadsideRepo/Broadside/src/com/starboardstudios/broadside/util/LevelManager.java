@@ -143,7 +143,17 @@ public abstract class LevelManager {
 	public static void restartLevel(Model model) {
 		model.getTimer().cancel();
 		model.removeAllEnemiesAndProjectile();
-		startLevel(model);
+		model.removeUnit(model.getMainShip());
+		model.addUnit(model.getPrevMainShip());
+		if (model.getLevel() != 1) {
+			try {
+				PlayController currentActivity = (PlayController)model.getCurrentActivity();
+				currentActivity.gotoUpgrades();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	/** go to the next level */
@@ -154,6 +164,8 @@ public abstract class LevelManager {
 			 if ((model.getLevel() % (MAXLEVEL)) == 0) {
 					 model.setDifficulty(model.getDifficulty() + 1);
 			 }
+			 
+			 model.setPrevMainShip(model.getMainShip());
 			 
 			 /** delay before going to the next Level */
 			 TimerTask waitToGoToUpgrade = new TimerTask() {

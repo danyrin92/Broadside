@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
+import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
@@ -60,6 +61,8 @@ public class Model extends Thread{
 	/** For enemy unit spawning */
 	private Timer timer;
 	private ArrayList<CombatUnit> spawnBuffer = new ArrayList<CombatUnit>();
+	/** A previous version of the MainShip for restarting Level */
+	private MainShip prevMainShip;
 
 	// Crew is property of mainship
 
@@ -760,6 +763,24 @@ public class Model extends Thread{
 	public void clearTimer() {
 		timer = new Timer();
 
+	}
+
+	/** To be called from MainShip when MainShip's health is below zero.
+	 * Gets Playcontroller to trigger FailState Dialog.
+	 */
+	public void goToFailState() {
+		paused = true;
+		if(currentActivity instanceof PlayController) {
+			((PlayController)currentActivity).failState();
+		}
+	}
+
+	public MainShip getPrevMainShip() {
+		return prevMainShip;
+	}
+
+	public void setPrevMainShip(MainShip prevMainShip) {
+		this.prevMainShip = prevMainShip;
 	}
 	
 

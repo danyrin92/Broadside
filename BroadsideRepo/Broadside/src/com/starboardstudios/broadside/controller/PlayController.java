@@ -144,6 +144,7 @@ public class PlayController extends BaseController {
 			}
 			else {
 				model.addUnit(new MainShip(model));
+				model.setPrevMainShip(new MainShip(model));
 				model.addUnit(model.getMainShip().getMainCannon());
 				// TODO finish testing crew
 				model.addUnit(new Crew(context, model));
@@ -460,9 +461,55 @@ public class PlayController extends BaseController {
 		c.repairAt(xTarget, yTarget);
 		System.out.println("stopped");
 	}
-	
+	/** 
+	 * Triggered a MainShip's health is below zero.<br>
+	 * Brings up 3 choices: <br>
+	 * 		-Restart the Level <br>
+	 * 		-Save Game at current level<br>
+	 * 		-Go to the Main Menu<br>
+	 */
 	public void failState() {
+		model.setPaused(true);
+		final Dialog failStateDialog = new Dialog(context);
+		failStateDialog.setContentView(R.layout.fail_state_dialog);
 		
+		//Restart Button
+		ImageView restartButton = (ImageView) failStateDialog
+				.findViewById(R.id.restart);
+		restartButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				LevelManager.restartLevel(model);
+				failStateDialog.dismiss();
+			}
+		});
+
+		//SaveLevel Button
+		ImageView saveThenMainMenuButton = (ImageView) failStateDialog
+				.findViewById(R.id.saveThenMainMenu);
+		saveThenMainMenuButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				LevelManager.restartLevel(model);
+				//TODO: Then save game
+				gotoMMenu();
+				failStateDialog.dismiss();
+			}
+		});
+		
+		//Main Menu Button
+		ImageView mainMenuButton = (ImageView) failStateDialog
+				.findViewById(R.id.mainMenu);
+		mainMenuButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				gotoMMenu();
+				failStateDialog.dismiss();
+			}
+		});
+		
+		failStateDialog.show();
+		this.showDialog(R.layout.fail_state_dialog);
 	}
 	
 	public void restartLevel() {
