@@ -14,7 +14,9 @@ public abstract class BaseUnit {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected float x, y, z;
+	protected float x;
+	public float y;
+	protected float z;
 
 
     /**

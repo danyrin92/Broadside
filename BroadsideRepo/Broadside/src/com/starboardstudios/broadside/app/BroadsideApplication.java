@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
 
 import android.app.Application;
@@ -41,16 +42,21 @@ public class BroadsideApplication extends Application {
     }
     public void saveModel(Context context)
     {
-		/*String fileName = "modelFile.bin";
-		try {
-			FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-			ObjectOutputStream os = new ObjectOutputStream(fos);
-			os.writeObject(globalModel);
-			os.close();
-		} catch (IOException e) {
+    	try {
+			FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
+			OutputStreamWriter osw = new OutputStreamWriter(fou);
+			osw.write(globalModel.getLevel());
+			osw.write(globalModel.getBooty());
+			osw.write(globalModel.numCrew);
+			osw.flush();
+			osw.close();
+			
+			Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
+		}  catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("YO FILE AINT WRITTEN HOMIE!!!");
-		}*/
+			Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
+		}
     }
     public void loadModel(Context context)
     {
@@ -66,6 +72,7 @@ public class BroadsideApplication extends Application {
 					+ " " + Integer.toString(booty)
 					+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
 			globalModel.addUnit(new MainShip(globalModel));
+			globalModel.setPrevMainShip(new MainShip(globalModel));
 			globalModel.setLevel(level);
 			LevelManager.restartLevel(globalModel);
 			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
@@ -78,6 +85,7 @@ public class BroadsideApplication extends Application {
 			e.printStackTrace();
 			Toast.makeText(context, "You have no saved Games", Toast.LENGTH_LONG).show();
 			globalModel.addUnit(new MainShip(globalModel));
+			globalModel.setPrevMainShip(new MainShip(globalModel));
 			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			// TODO finish testing crew
 			globalModel.addUnit(new Crew(context, globalModel));
@@ -85,7 +93,7 @@ public class BroadsideApplication extends Application {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			globalModel.setPaused(true);
+			Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
 		}
     }
 

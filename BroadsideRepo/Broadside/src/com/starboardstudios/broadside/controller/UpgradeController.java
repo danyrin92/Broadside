@@ -45,29 +45,16 @@ public class UpgradeController extends BaseController {
 		name = "UpgradeController";
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
-		
 		mainShip = model.getMainShip();
 		
-		try {
-			FileOutputStream fou = openFileOutput("savedLevel.bin", MODE_PRIVATE);
-			OutputStreamWriter osw = new OutputStreamWriter(fou);
-			osw.write(model.getLevel());
-			osw.write(model.getBooty());
-			osw.write(model.numCrew);
-			osw.flush();
-			osw.close();
-			
-			Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			model.setPaused(true);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			model.setPaused(true);
+		((BroadsideApplication) this.getApplication()).saveModel(context);
+		if (((BroadsideApplication) this.getApplication()).load)
+		{
+			Intent plaIntent = new Intent(this, PlayController.class);
+			startActivity(plaIntent);
+			((BroadsideApplication) this.getApplication()).load = false;
 		}
-
+			
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -100,6 +87,7 @@ public class UpgradeController extends BaseController {
 	}
 
 	public void nextLevel(View view) {
+		((BroadsideApplication) this.getApplication()).saveModel(context);
 		Intent plaIntent = new Intent(this, PlayController.class);
 		startActivity(plaIntent);
 	}

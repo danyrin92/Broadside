@@ -153,7 +153,6 @@ public abstract class LevelManager {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
 	/** go to the next level */
