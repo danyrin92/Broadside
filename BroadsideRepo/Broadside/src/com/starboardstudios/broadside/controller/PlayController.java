@@ -478,15 +478,12 @@ public class PlayController extends BaseController {
 				.findViewById(R.id.restart);
 		restartButton.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				runOnUiThread(new Runnable() {
-					@Override
-					public void run() {	
-						failStateDialog.dismiss();
-						LevelManager.restartLevel(model);
-						model.setPaused(false);
-					}
-				});
+			public void onClick(View v) {	
+				failStateDialog.dismiss();
+				LevelManager.restartLevel(model);
+				gotoUpgrades();
+				model.setPaused(false);
+
 			}
 		});
 

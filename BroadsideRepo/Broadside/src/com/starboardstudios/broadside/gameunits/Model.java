@@ -601,7 +601,7 @@ public class Model extends Thread{
 		// System.out.println("removing unit "+unit.toString());
 		try {
 			units.remove(unit);
-			if ((unit instanceof BaseShip) || (unit instanceof BaseAircraft) || (unit instanceof BaseSubmarine)) {
+			if ((unit instanceof CombatUnit) && !(unit instanceof MainShip)) {
 				numOfEnemies--;
 				System.out.println("Enemy " + unit.toString() + " removed. Current numOfEnemies = " + numOfEnemies) ;
 				if (numOfEnemies <= 0) {
