@@ -39,7 +39,7 @@ public class MainCannon extends Turret {
 		 * 
 		 * @Override public boolean onTouch(View view, MotionEvent motionEvent)
 		 *           {
-		 *           imageView.getParent().requestDisallowInterceptTouchEvent(true
+		 *           imageView.getParent().errequestDisallowInterceptTouchEvent(true
 		 *           );
 		 * 
 		 *           if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
