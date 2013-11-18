@@ -18,6 +18,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	double range;
 	protected int cost;
 	protected int damageMultiplier;
+	protected int cooldown;
 
 	public Turret(Model model) {
 		this.context = model.context;

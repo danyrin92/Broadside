@@ -65,7 +65,7 @@ public class MainCannon extends Turret {
 		//offset cannonball to tip of barrel where (model.getScreenX()*.15) is the length of the cannon
 		float xOffset = (float)(this.x + (model.getScreenX()*.15)*Math.cos(cannonAngle));
 		float yOffset = (float)(this.y + (model.getScreenX()*.15)*Math.sin(cannonAngle));
-		double angle = Math.atan((yTarget - yOffset)/ (xTarget - xOffset));
+		float angle = (float) Math.atan((yTarget - yOffset)/ (xTarget - xOffset));
 		float ySpeed = (float) Math.sin(angle) * fireSpeed;
 		float xSpeed = (float) Math.cos(angle) * fireSpeed;
         Projectile temp = projectile.create(model, projectile.getDefaultDamage(), this.x, this.y, fireSpeed, angle);

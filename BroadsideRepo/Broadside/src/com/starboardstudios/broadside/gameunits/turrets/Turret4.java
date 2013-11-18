@@ -19,6 +19,7 @@ public class Turret4 extends Turret {
 		super(model, projectile, 4);
 		/*ARBITRARY VALUES*/
 		this.fireSpeed = 20;
+		this.cooldown = 120;
         me=this;
 		x=35;y=35;z=0;
 		    imageView.setImageResource(drawable.turret4); //Set to image
@@ -53,6 +54,7 @@ public class Turret4 extends Turret {
 		super(model, projectile, x, y);
 		/*ARBITRARY VALUES*/
 		this.fireSpeed = 20;
+		this.cooldown = 120;
         me=this;
 		    imageView.setImageResource(drawable.main_cannon); //Set to image
 	        imageView.setAdjustViewBounds(true);
@@ -84,6 +86,7 @@ public class Turret4 extends Turret {
 	    }
 		public Turret4(Model model, Projectile projectile, float x, float y, float fireSpeed) {
 			super(model, projectile, x, y, fireSpeed);
+			this.cooldown = 120;
 	        me=this;
 			    imageView.setImageResource(drawable.main_cannon); //Set to image
 		        imageView.setAdjustViewBounds(true);
@@ -126,6 +129,10 @@ public class Turret4 extends Turret {
 	    public void update()
 	    {
             // System.out.println("Updating Main Cannon");
+	    	if (cooldown == 0) {
+	    		cooldown = 120;
+	    		fire();
+	    	} else cooldown--;
 	        model.runOnMain(new Runnable() {
 	            @Override
 	            public void run() {
