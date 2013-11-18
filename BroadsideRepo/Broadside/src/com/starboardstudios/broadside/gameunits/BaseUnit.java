@@ -8,7 +8,6 @@ import android.widget.ImageView;
  * Created by Alex on 9/26/13.
  */
 public abstract class BaseUnit {
-	public float x, y;
 
 	
 	/**
@@ -36,5 +35,13 @@ public abstract class BaseUnit {
     public abstract void collide(BaseUnit collidedWith);
 
     public abstract void setPosition(int x, int y);
+
+	public float getX() {
+		return x;
+	}
+
+	public float getY() {
+		return y;
+	}
 
 }

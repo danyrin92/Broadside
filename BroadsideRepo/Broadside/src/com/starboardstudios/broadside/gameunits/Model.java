@@ -799,6 +799,10 @@ public class Model extends Thread {
 	public void setPrevMainShip(MainShip prevMainShip) {
 		this.prevMainShip = prevMainShip;
 	}
+
+	public ArrayList<BaseUnit> getUnits() {
+		return units;
+	}
 	
 
 }

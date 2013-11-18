@@ -69,10 +69,7 @@ public class MediumShip extends BaseShip {
 	}
 
 	void fire() {
-		CannonBall temp = new CannonBall(model, 20, x, y, z, xFireSpeed,
-				yFireSpeed, zFireSpeed);
-		temp.creator = this;
-		model.addUnit(temp);
+		model.addUnit(new CannonBall(model, 20, x, y, fireSpeed, 0));
 	}
 
 }
