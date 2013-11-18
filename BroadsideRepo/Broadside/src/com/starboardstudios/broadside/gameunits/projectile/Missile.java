@@ -103,13 +103,17 @@ public class Missile extends Projectile {
 		float yDistance = Math.abs(target.getY() - this.y);
 		float distance = (float) Math.sqrt(xDistance*xDistance + yDistance*yDistance);
 		float targetAngle = (float) Math.acos((target.getX() - this.x)/distance);
-		float angleDifference = this.angle - targetAngle;
 		System.out.println("this x: " + this.x + ". this y: " + this.y);
 		System.out.println("target x: " + target.getX() + ". target y: " + target.getY());
 		System.out.println("angle: " + this.angle);
 		System.out.println("target angle: " + targetAngle);
-		if (angleDifference > 0) this.angle--;
-		else this.angle++;
+		if (target.getY() < this.y) { //target above missile
+			if (Math.abs(angle) > targetAngle) this.angle += 0.025;
+			else this.angle -= 0.025;
+		} else { //target below missile
+			if (Math.abs(angle) > targetAngle) this.angle -= 0.025;
+			else this.angle += 0.025;
+		}
 		float ySpeed = (float) Math.sin(angle) * speed;
 		float xSpeed = (float) Math.cos(angle) * speed;
 		
