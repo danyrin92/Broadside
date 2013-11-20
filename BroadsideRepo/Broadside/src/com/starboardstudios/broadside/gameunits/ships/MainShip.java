@@ -25,6 +25,49 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	private Section bow,midship,stern;
 	private int maxHealth;
 
+	public MainShip(Model model, boolean b) {
+		super(model.context);
+		this.model = model;
+		imageView = new ImageView(model.context);
+
+		/** PNG to be used as image */
+		imageView.setImageResource(drawable.mainship);
+		imageView.setAdjustViewBounds(true);
+
+		/** Determines rendering size of object */
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
+
+		/** Starting position. As for now on the left. */
+		x = -((int) (model.getScreenX() * .225));
+		y = (float) -(model.getScreenY() * .2);
+
+		health = 100;
+		mainCannon = new MainCannon(model,
+				(float) (this.x + ((model.getScreenX() * .325))),
+				(float) (this.y + ((model.getScreenX() * .3))));
+		
+		/** Sections... As of now just to localize visuals 
+		 * (get shot in stern a lot, fires appear in stern, etc.*/
+		float x = (float) (model.getScreenX() * .325 *.4);
+		float y = (float) model.getScreenY();
+		health = maxHealth = 1000;
+		bow = new Section(model,x,y*(float).1, health/2);
+		midship = new Section(model,x,y*(float).4, health/2);
+		stern = new Section(model,x,y*(float).7, health/2);
+		y = (float) -(model.getScreenY() * .2);
+		float offset = 0; // for crew
+		float crewX;
+		float crewY;
+		for (int i = 0; i < crews.size(); i++) {
+			offset = ((float) i) / 50;
+			crewX = (float) (this.x + ((model.getScreenX() * .345)));
+			crewY = (float) (this.y + ((model.getScreenX() * (.3 - offset))));
+			crews.get(i).setPosition(crewX, crewY);
+			crews.get(i).setStations(crewX, crewY);
+		}
+	}
+	
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
@@ -43,7 +86,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		y = ((int) (model.getScreenY() * .7));
 
 		health = 100;
-		mainCannon = new MainCannon(model,
+		mainCannon.setPosition(
 				(float) (this.x + ((model.getScreenX() * .325))),
 				(float) (this.y + ((model.getScreenX() * .3))));
 		
@@ -102,7 +145,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		});
 
 	}
-
+	
 	@Override
 	public ImageView getImage() {
 		return imageView;

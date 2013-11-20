@@ -60,6 +60,7 @@ public class PlayController extends BaseController {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.
 		setContentView(screen);
 		
 		pauseButton = (ImageView) findViewById(R.id.pause);
@@ -73,7 +74,7 @@ public class PlayController extends BaseController {
 			public void onClick(View arg0) {
 
 				model.setPaused(true);
-				final Dialog pauseDialog = new Dialog(context);
+				final Dialog pauseDialog = new Dialog(context,android.R.style.Theme_Translucent_NoTitleBar);
 				pauseDialog.setContentView(R.layout.pause_dialog);
 				pauseDialog.setTitle("Paused...");
 

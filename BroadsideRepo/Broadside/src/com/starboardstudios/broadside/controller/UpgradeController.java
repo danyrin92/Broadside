@@ -48,12 +48,7 @@ public class UpgradeController extends BaseController {
 		mainShip = model.getMainShip();
 		
 		((BroadsideApplication) this.getApplication()).saveModel(context);
-		if (((BroadsideApplication) this.getApplication()).load)
-		{
-			Intent plaIntent = new Intent(this, PlayController.class);
-			startActivity(plaIntent);
-			((BroadsideApplication) this.getApplication()).load = false;
-		}
+		((BroadsideApplication) this.getApplication()).load = false;
 			
 		try {
 			Thread.sleep(20);

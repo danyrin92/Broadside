@@ -68,17 +68,26 @@ public class BroadsideApplication extends Application {
 			int numCrew = isr.read();
 			isr.close();
 			
+			LevelManager.loadLevel(globalModel);
 			Toast.makeText(context, Integer.toString(level) 
 					+ " " + Integer.toString(booty)
 					+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
-			globalModel.addUnit(new MainShip(globalModel));
-			globalModel.setPrevMainShip(new MainShip(globalModel));
+			MainShip mainShip = new MainShip(globalModel, true);
+			globalModel.addUnit(mainShip);
+			globalModel.setPrevMainShip(mainShip);
+			for (int c = numCrew; c > 0; c--)
+			{
+				Crew crew = new Crew(this, globalModel);
+				globalModel.addUnit(crew);
+				float offset = (float) (.02*(mainShip.getCrew().size()-1));
+				float x = (float)(mainShip.getX()+((globalModel.getScreenX()*.345)));
+				float y = (float)(mainShip.getY() +((globalModel.getScreenX()*(.3-offset))));
+				crew.setPosition(x,y);
+				crew.update();
+			}
 			globalModel.setLevel(level);
-			LevelManager.restartLevel(globalModel);
 			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			globalModel.setBooty(booty);
-			for (int c = numCrew; c > 0; c--)
-				globalModel.addUnit(new Crew(context, globalModel));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

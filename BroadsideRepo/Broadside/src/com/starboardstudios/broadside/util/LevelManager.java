@@ -155,6 +155,17 @@ public abstract class LevelManager {
 		}
 	}
 	
+	public static void loadLevel(Model model) {
+		model.getTimer().cancel();
+		model.removeAllEnemiesAndProjectile();
+			try {
+				PlayController currentActivity = (PlayController)model.getCurrentActivity();
+				currentActivity.gotoUpgrades();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+	
 	/** go to the next level */
 	public static void nextLevel(final Model model) {
 		if (model.getCurrentActivity().name.equalsIgnoreCase("PlayController")) {	
