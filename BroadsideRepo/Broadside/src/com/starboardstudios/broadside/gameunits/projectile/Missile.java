@@ -98,15 +98,14 @@ public class Missile extends Projectile {
 			selectTarget();
 			return;
 		}
-		// TODO delete projectile once off screen
-		float xDistance = Math.abs(target.getX() - this.x);
-		float yDistance = Math.abs(target.getY() - this.y);
+		float targetX = (target.getImage().getWidth()/2) + target.getX();
+		float targetY = (target.getImage().getHeight()/2) + target.getY();
+		float missileX = (this.imageView.getWidth()/2) + this.x;
+		float missileY = (this.imageView.getHeight()/2) + this.y; 
+		float xDistance = targetX - missileX;
+		float yDistance = targetY - missileY;
 		float distance = (float) Math.sqrt(xDistance*xDistance + yDistance*yDistance);
-		float targetAngle = (float) Math.acos((target.getX() - this.x)/distance);
-		System.out.println("this x: " + this.x + ". this y: " + this.y);
-		System.out.println("target x: " + target.getX() + ". target y: " + target.getY());
-		System.out.println("angle: " + this.angle);
-		System.out.println("target angle: " + targetAngle);
+		float targetAngle = (float) Math.acos(xDistance/distance);
 		if (target.getY() < this.y) { //target above missile
 			if (Math.abs(angle) > targetAngle) this.angle += 0.025;
 			else this.angle -= 0.025;
@@ -122,6 +121,7 @@ public class Missile extends Projectile {
 
 				model.runOnMain(new Runnable() {
 					public void run() {
+							imageView.setRotation((float)(angle*180/Math.PI)+180);
 		                    imageView.setX(x);
 						    imageView.setY(y);
 					}
