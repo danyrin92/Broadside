@@ -86,7 +86,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		y = ((int) (model.getScreenY() * .7));
 
 		health = 100;
-		mainCannon.setPosition(
+		mainCannon = new MainCannon(model,
 				(float) (this.x + ((model.getScreenX() * .325))),
 				(float) (this.y + ((model.getScreenX() * .3))));
 		
