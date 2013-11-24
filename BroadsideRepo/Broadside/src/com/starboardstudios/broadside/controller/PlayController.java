@@ -13,6 +13,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -63,6 +64,14 @@ public class PlayController extends BaseController {
 		this.
 		setContentView(screen);
 		
+		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
+		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
+		TextView LevelTextView = (TextView)findViewById(R.id.LevelView);
+		TextView HealthTextView = (TextView)findViewById(R.id.HealthView);
+	    BootyTextView.setTypeface(myTypeface);
+	    LevelTextView.setTypeface(myTypeface);
+	    HealthTextView.setTypeface(myTypeface);
+	    
 		pauseButton = (ImageView) findViewById(R.id.pause);
 		
 		/**

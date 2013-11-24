@@ -201,7 +201,6 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateBootyTask);
-
 			}
 		}
 
