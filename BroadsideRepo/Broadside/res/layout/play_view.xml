@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:text="Health: "
-            android:textColor="#FF0000"
+            android:textColor="#6F4242"
+            android:textSize="30sp"
             android:typeface="monospace" />
 
         <Button
@@ -34,25 +35,14 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/LevelView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical|center_horizontal|right"
-                android:text="Level: "
-                android:textColor="#FF0000"
-                android:typeface="monospace" />
-
-            <TextView
                 android:id="@+id/BootyView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/LevelView"
                 android:layout_below="@+id/LevelView"
                 android:text="Booty: "
-                android:textColor="#FF0000" />
+                android:textColor="#6F4242"
+                android:textSize="30sp" />
 
             <RelativeLayout
                 android:id="@+id/RelativeLayout1"
@@ -80,6 +70,19 @@
                 android:layout_centerVertical="true"
                 android:onClick="showPopup"
                 android:text="Test Death" />
+
+            <TextView
+                android:id="@+id/LevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:gravity="center_vertical|center_horizontal|right"
+                android:text="Level: "
+                android:textColor="#6F4242"
+                android:textSize="30sp"
+                android:typeface="monospace" />
 
         </RelativeLayout>
     </FrameLayout>
