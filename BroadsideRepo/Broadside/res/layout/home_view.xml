@@ -97,10 +97,10 @@
 
             <ImageView
                 android:id="@+id/ImageView02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="95dp"
+                android:layout_height="96dp"
                 android:onClick="loadGame"
-                android:src="@drawable/load_game" />
+                android:src="@drawable/load_game" android:layout_gravity="right|center_vertical"/>
 
         </FrameLayout>
 
