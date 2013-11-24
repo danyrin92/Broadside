@@ -42,18 +42,20 @@ public final class R {
         public static final int pausemenu_selected=0x7f02001c;
         public static final int restart_cloud=0x7f02001d;
         public static final int resume_cloud=0x7f02001e;
-        public static final int title=0x7f02001f;
-        public static final int title_pause=0x7f020020;
-        public static final int torpedo=0x7f020021;
-        public static final int turret=0x7f020022;
-        public static final int turret1=0x7f020023;
-        public static final int turret2=0x7f020024;
-        public static final int turret3=0x7f020025;
-        public static final int turret4=0x7f020026;
-        public static final int turret5=0x7f020027;
-        public static final int turret6=0x7f020028;
-        public static final int tutorial_cloud=0x7f020029;
-        public static final int waves=0x7f02002a;
+        public static final int startgame_button=0x7f02001f;
+        public static final int startgame_button_selected=0x7f020020;
+        public static final int title=0x7f020021;
+        public static final int title_pause=0x7f020022;
+        public static final int torpedo=0x7f020023;
+        public static final int turret=0x7f020024;
+        public static final int turret1=0x7f020025;
+        public static final int turret2=0x7f020026;
+        public static final int turret3=0x7f020027;
+        public static final int turret4=0x7f020028;
+        public static final int turret5=0x7f020029;
+        public static final int turret6=0x7f02002a;
+        public static final int tutorial_cloud=0x7f02002b;
+        public static final int waves=0x7f02002c;
     }
     public static final class id {
         public static final int BootyView=0x7f050020;
