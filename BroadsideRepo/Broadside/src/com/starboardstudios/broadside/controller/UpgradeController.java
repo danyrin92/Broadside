@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.starboardstudios.broadside.R;
@@ -33,12 +34,14 @@ public class UpgradeController extends BaseController {
 	private Model model;
 	private MainShip mainShip;
 	final Context context = this;
+	View screen;
+	private int numTurretsAdded = 0;
 
 	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final View screen = ((LayoutInflater) getBaseContext()
+		screen = ((LayoutInflater) getBaseContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.upgrade_view, null);
 		setContentView(R.layout.upgrade_view);
@@ -46,10 +49,10 @@ public class UpgradeController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		mainShip = model.getMainShip();
-		
-		((BroadsideApplication) this.getApplication()).saveModel(context);
+
+		// ((BroadsideApplication) this.getApplication()).saveModel(context);
 		((BroadsideApplication) this.getApplication()).load = false;
-			
+
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
@@ -57,8 +60,9 @@ public class UpgradeController extends BaseController {
 			e.printStackTrace();
 		}
 
-        RelativeLayout layout =  (RelativeLayout)this.findViewById(R.id.upgrade);
-		/**DRAG LISTENER*/
+		RelativeLayout layout = (RelativeLayout) this
+				.findViewById(R.id.upgrade);
+		/** DRAG LISTENER */
 		screen.setVisibility(View.VISIBLE);
 		layout.setOnDragListener(new View.OnDragListener() {
 			@Override
@@ -70,9 +74,11 @@ public class UpgradeController extends BaseController {
 				} else if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED) {
 					//
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
-                    System.out.println("Dropped");
-					((Draggable) event.getLocalState()).endDrag(event.getX(),
-							event.getY());
+					System.out.println("Dropped");
+					if (!((Draggable) event.getLocalState()).endDrag(event.getX(),
+							event.getY())) { //invalid placement off mainship
+						removeRefundLastTurret();
+					}
 				}
 				v.invalidate();
 				return true;
@@ -82,97 +88,110 @@ public class UpgradeController extends BaseController {
 	}
 
 	public void nextLevel(View view) {
-		((BroadsideApplication) this.getApplication()).saveModel(context);
+		// ((BroadsideApplication) this.getApplication()).saveModel(context);
 		Intent plaIntent = new Intent(this, PlayController.class);
 		startActivity(plaIntent);
 	}
 	
+	public void removeTurret(View view) {
+		removeRefundLastTurret();
+	}
+	
+	public void removeRefundLastTurret() {
+		Turret turret = mainShip.getLastTurret();
+		if (turret!=null && !(turret instanceof MainCannon)) {
+			if (numTurretsAdded>0) {
+				model.addBooty(turret.getCost());
+			} else { //return half price rounded down if not bought this level
+				model.addBooty(turret.getCost()/2);
+			}
+			model.removeUnit(turret);
+		}
+	}
+
 	public void hire(View view) {
 		int cost = 25;
-		if (model.getBooty()>=cost) {
+		if (model.getBooty() >= cost) {
 			Crew crew = new Crew(this, model);
 			model.addUnit(crew);
 			float offset = 0;
-			if (mainShip.getCrew().size()>0) {
-				offset = (float) (.02*(mainShip.getCrew().size()-1));
+			if (mainShip.getCrew().size() > 0) {
+				offset = (float) (.02 * (mainShip.getCrew().size() - 1));
 			}
-			float x = (float)(mainShip.getX()+((model.getScreenX()*.345)));
-			float y = (float)(mainShip.getY() +((model.getScreenX()*(.3-offset))));
-			crew.setPosition(x,y);
+			float x = (float) (mainShip.getX() + ((model.getScreenX() * .345)));
+			float y = (float) (mainShip.getY() + ((model.getScreenX() * (.3 - offset))));
+			crew.setPosition(x, y);
 			crew.update();
 			model.spendBooty(cost);
 		}
 	}
-	
+
 	public void heave(View view) {
 		ArrayList<Crew> crew = mainShip.getCrew();
 		int numCrew = crew.size();
-		if (numCrew>0) {
-			model.removeUnit(crew.get(numCrew-1));
+		if (numCrew > 0) {
+			model.removeUnit(crew.get(numCrew - 1));
 			model.addBooty(10);
 			model.numCrew--;
 		}
 	}
 
-	/** For implementing turret options*/
+	/** For implementing turret options */
 	public void addTurret1(View view) {
-		addTurret(1); //Turret1
+		addTurret(1); // Turret1
 	}
 
 	public void addTurret2(View view) {
-		addTurret(2); //Turret2
+		addTurret(2); // Turret2
 	}
 
 	public void addTurret3(View view) {
-		addTurret(3); //Turret3
+		addTurret(3); // Turret3
 	}
 
 	public void addTurret4(View view) {
-		addTurret(4); //Turret4
+		addTurret(4); // Turret4
 	}
 
 	public void addTurret5(View view) {
-		addTurret(5); //Turret5
+		addTurret(5); // Turret5
 	}
 
 	public void addTurret6(View view) {
-		addTurret(6);  //Turret6
+		addTurret(6); // Turret6
 	}
 
 	public void addTurret(int turretNum) {
-		if (enoughBooty(turretNum)) {
-			switch (turretNum) { //1-6
-			case 1:
-				model.addUnit(new Turret1(model, new CannonBall(model, 20) ) );
-				break;
-			case 2:
-				model.addUnit(new Turret2(model, new CannonBall(model, 20) ) );
-				break;
-			case 3:
-				model.addUnit(new Turret3(model, new CannonBall(model, 20) ) );
-				break;
-			case 4:
-				model.addUnit(new Turret4(model, new CannonBall(model, 20) ) );
-				break;
-			case 5:
-				model.addUnit(new Turret5(model, new CannonBall(model, 20) ) );
-				break;
-			case 6:
-				model.addUnit(new Turret6(model, new CannonBall(model, 20) ) );
-				break;
-			default:
-				System.out.println("Turret not implemented yet!");
-				break;
-			}
+		Turret turret = null;
+		switch (turretNum) { // 1-6
+		case 1:
+			turret = new Cannon(model);
+			break;
+		case 2:
+			turret = new Turret2(model);
+			break;
+		case 3:
+			turret = new TorpedoLauncher(model);
+			break;
+		case 4:
+			turret = new Turret4(model);
+			break;
+		case 5:
+			turret = new MissileLauncher(model);
+			break;
+		case 6:
+			turret = new Turret6(model);
+			break;
+		default:
+			System.out.println("Turret not implemented yet!");
+			break;
 		}
-	}
-
-	public boolean enoughBooty(int turretNum) {
-		if (model.getBooty() >= model.getTurretCostAt(turretNum)) {
-			return true;
+		if (model.enoughBooty(turret)) {
+			model.addUnit(turret);
+			numTurretsAdded++;
+		} else {
+			model.addBooty(turret.getCost()); //refund if needed
 		}
-		// TODO display in-game "you don't have enough booty..."
-		return false;
 	}
 
 }

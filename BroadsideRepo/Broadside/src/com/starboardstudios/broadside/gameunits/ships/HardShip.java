@@ -8,13 +8,13 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 
 public class HardShip extends BaseShip {
-	private float fireSpeed;
 
 	public HardShip(Model model) {
 		super(model);
 
 		/** Unique variables for a HardShip */
 		health = 100;
+		projectile = new CannonBall(model, 40);
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);
@@ -67,10 +67,6 @@ public class HardShip extends BaseShip {
 
 		});
 
-	}
-
-	void fire() {
-		model.addUnit(new CannonBall(model, 20, x, y, fireSpeed, 0));
 	}
 
 }

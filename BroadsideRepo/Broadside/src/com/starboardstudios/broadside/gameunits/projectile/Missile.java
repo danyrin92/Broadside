@@ -6,47 +6,43 @@ import android.widget.LinearLayout;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.*;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public class Missile extends Projectile {
 	private BaseUnit target;
 	private int defaultDamage = 20;
 	private int scaleFactor = (int) (model.getScreenY() * .08);
-	
-	public Missile(Model model) {
-		super(model);
-		imageView.setImageResource(drawable.missile);
-	}
 
 	public Missile(Model model, int damage) {
-		super(model, damage);
-		
-		x = 0;
-		y = 0;
-		xSpeed = 0;
-		ySpeed = 0;
-
+		super(model);
+		this.damage = defaultDamage = 20;
+		if (damage != -1) {
+			this.damage = damage;
+		}
 		imageView.setImageResource(drawable.missile);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model.getScreenX() * .7), scaleFactor));
 
 	}
 
-	public Missile(Model model, int damage, float x, float y, float speed) {
-		super(model, damage, x, y);
-		
-		this.speed = speed;
-
+	public Missile(Model model, int damage, float x, float y, float speed, float angle) {
+		super(model, damage, x, y, speed, angle);
 		imageView.setImageResource(drawable.missile);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model.getScreenX() * .05), scaleFactor)); 
-		
+		if (xSpeed>0) {
+			imageView.setRotation(180); //spin to face enemy...
+		}
 		//Checking if target is found
 		if ((target=selectTarget()) != null) {
 			System.out.println("TARGET FOUND!!!!!!!!!!!!!!!!!!!!!!!!");
-		} else {
-			
-		}
-
+		} 
+	}
+	
+	@Override
+	public Projectile create(Model model, int damage, float x, float y, float fireSpeed, float angle) {
+		return new Missile(model, damage, x, y, fireSpeed, angle);
 	}
 	
 	private BaseUnit selectTarget() {
@@ -127,19 +123,4 @@ public class Missile extends Projectile {
 					}
 				});
 	}
-	
-	public int getDefaultDamage() {
-		return defaultDamage;
-	}
-
-	@Override
-	public void setPosition(int x, int y) {
-
-	}
-
-	@Override
-	public Projectile create(Model model, int damage, float x, float y, float fireSpeed, float angle) {
-		return new Missile(model, damage, x, y, fireSpeed);
-	}
-	
 }

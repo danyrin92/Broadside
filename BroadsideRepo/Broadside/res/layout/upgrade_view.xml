@@ -49,8 +49,10 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Add Turret:"
+                        android:layout_gravity="center"
+                        android:text="Manage Turrets:"
                         android:textColor="#FF0000" />
+
                 </TableRow>
 
                 <TableRow
@@ -59,18 +61,22 @@
                     android:layout_height="wrap_content" >
 
                     <Button
-                        android:id="@+id/test"
+                        android:id="@+id/Button01"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:onClick="addTurret1"
-                        android:text="1 (50)" />
+                        android:text="Cannon (50)" />
 
                     <Button
-                        android:id="@+id/save"
+                        android:id="@+id/button2"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret2"
-                        android:text="2 (25)" />
+                        android:text="2 (50)" />
+
                 </TableRow>
 
                 <TableRow
@@ -79,18 +85,22 @@
                     android:layout_height="wrap_content" >
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/Button02"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:onClick="addTurret3"
-                        android:text="3 (50)" />
+                        android:text="Torpedo Launcher (50)" />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/Button04"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret4"
                         android:text="4 (75)" />
+
                 </TableRow>
 
                 <TableRow
@@ -99,18 +109,38 @@
                     android:layout_height="wrap_content" >
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/Button03"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:onClick="addTurret5"
-                        android:text="5 (100)" />
+                        android:text="Missile Launcher (100)" />
 
                     <Button
-                        android:id="@+id/button6"
+                        android:id="@+id/Button05"
+                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret6"
                         android:text="6 (200)" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/button1"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:onClick="removeTurret"
+                        android:text="Remove Turret (+Half Cost)" />
+
                 </TableRow>
 
                 <TableRow
@@ -122,9 +152,11 @@
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Manage Crew:"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#FF0000" />
+
                 </TableRow>
 
                 <TableRow
@@ -149,6 +181,7 @@
                         android:text="Heave (+10)" />
 
                 </TableRow>
+
             </TableLayout>
 
             <TextView

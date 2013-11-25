@@ -3,7 +3,6 @@ package com.starboardstudios.broadside.gameunits.aircrafts;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.starboardstudios.broadside.gameunits.projectile.EnemyMissile;
 import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -16,6 +15,7 @@ public class EasyAircraft extends BaseAircraft {
 
 		/** Unique variables for an EasyAircraft */
 		health = 10;
+		projectile = new Missile(model, 30);
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyAircraft */
@@ -73,10 +73,6 @@ public class EasyAircraft extends BaseAircraft {
 
 		});
 
-	}
-
-	void fire() {
-		model.addUnit(new EnemyMissile(model, 20, x, y, fireSpeed));
 	}
 
 }

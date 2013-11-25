@@ -9,25 +9,27 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
-//Turret 1
-public class Turret2 extends Turret {
-	Turret2 me;
+//Turret 5
+public class MissileLauncher extends Turret {
+	MissileLauncher me;
 
-	public Turret2(Model model) {
+	public MissileLauncher(Model model) {
 		super(model);
-		turretNum = 2;
+		turretNum = 5;
 		me = this;
+		this.projectile = new Missile(model, 20);
 		/* ARBITRARY VALUES */
-		this.fireSpeed = 3;
-		this.cooldown = 180;
-		spendSetCost(50);	
-		this.projectile = new CannonBall(model, -1);
+		this.fireSpeed = 5;
+		this.cooldown = currentCooldown = 180;
+		spendSetCost(100);	
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.turret5); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -37,22 +39,24 @@ public class Turret2 extends Turret {
 			@Override
 			public boolean onTouch(View view, MotionEvent motionEvent) {
 				imageView.getParent().requestDisallowInterceptTouchEvent(true);
+
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 					System.out.println(view.toString());
+
 					ClipData data = ClipData.newPlainText("", "");
 					View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
 							imageView);
 					view.startDrag(data, shadowBuilder, me, 0);
 					view.setVisibility(View.INVISIBLE);
+
 					return true;
 				}
 				return false;
 			}
 		});
-		System.out.println("Turret1 is Created");
+		System.out.println("MissileLauncher is Created");
 	}
 
-	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {
 		// System.out.println("Updating Turret1");
 		model.runOnMain(new Runnable() {
@@ -64,6 +68,7 @@ public class Turret2 extends Turret {
 					currentCooldown--;
 				} else {
 					imageView.setColorFilter(null);
+					fire();
 				}
 			}
 		});	

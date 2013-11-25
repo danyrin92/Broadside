@@ -4,66 +4,41 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public abstract class Projectile extends BaseUnit {
 	protected Context context;
 	protected ImageView imageView;
-	protected int damage;
-	protected float speed, angle;
-	/** Added Z value for possible image scaling */
-	protected float z, xSpeed, ySpeed;
-	protected float xTarget, yTarget;
 	public Model model;
     public BaseUnit creator;
-
+	protected int damage, defaultDamage;
+	protected float speed, angle, z, xSpeed, ySpeed, xTarget, yTarget;
+	
+    /*Used by subclasses*/
 	public Projectile(Model model) {
 		this.model = model;
 		this.context = model.context;
 		imageView = new ImageView(context);
 	}
-
-	public Projectile(Model model, int damage) {
-		this.model = model;
-		this.context = model.context;
-		this.damage = damage;
-		imageView = new ImageView(context);
-
-	}
-
-	/* Using this constructor for Missiles */
-	public Projectile(Model model, int damage, float x, float y) {
-		this.model = model;
-		this.context = model.context;
-		this.damage = damage;
-		this.x = x;
-		this.y = y;
-
-		imageView = new ImageView(context);
-
-	}
 	
+	/*Used by cannonballs, torpedoes, and missiles*/
 	public Projectile(Model model, int damage, float x, float y, float speed, float angle) {
 		this.model = model;
 		this.context = model.context;
-		this.damage = damage;
 		this.x = x;
 		this.y = y;
+		this.damage = damage;
 		this.speed = speed;
 		this.angle = angle;
 		this.ySpeed = (float) Math.sin(angle) * speed;
 		this.xSpeed = (float) Math.cos(angle) * speed;
 		imageView = new ImageView(context);
-
-	}
-
-	public void collide(BaseUnit collidedWith) {
-		this.destroy();
 	}
 
 	public void update() {
-		// TODO delete projectile once off screen
-
 		x = x + xSpeed;
 		y = y + ySpeed;
 
@@ -74,6 +49,25 @@ public abstract class Projectile extends BaseUnit {
 			}
 		});
 	}
+	
+	@Override
+	public void collide(BaseUnit collidedWith) {
+		if (creator instanceof MainShip) {
+			if (!((MainShip) collidedWith instanceof MainShip)&& !((Turret) collidedWith instanceof Turret)) {
+				destroy();
+			}
+		} else if ((creator instanceof CombatUnit)&& !(creator instanceof MainShip)) {
+			if ((MainShip) collidedWith instanceof MainShip) {
+				destroy();
+			}
+		}
+	}
+
+	@Override
+	public void setPosition(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 
 	public ImageView getImage() {
 		return imageView;
@@ -81,7 +75,6 @@ public abstract class Projectile extends BaseUnit {
 
 	public void destroy() {
 		model.removeUnit(this);
-
 	}
 
 	public int getDamage() {
@@ -127,6 +120,10 @@ public abstract class Projectile extends BaseUnit {
 	public void setySpeed(int yVelo) {
 		this.ySpeed = yVelo;
 	}
-	public abstract int getDefaultDamage();
+	public int getDefaultDamage() {
+		return defaultDamage;
+	}
+	
+	//for avoiding instanceof checks when using fire methods
 	public abstract Projectile create(Model model, int damage, float x,	float y, float fireSpeed, float angle);
 }

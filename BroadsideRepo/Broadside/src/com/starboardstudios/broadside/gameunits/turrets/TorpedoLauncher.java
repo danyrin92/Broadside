@@ -10,24 +10,25 @@ import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
-//Turret 1
-public class Turret2 extends Turret {
-	Turret2 me;
+//Turret 3
+public class TorpedoLauncher extends Turret {
+	TorpedoLauncher me;
 
-	public Turret2(Model model) {
+	public TorpedoLauncher(Model model) {
 		super(model);
-		turretNum = 2;
+		turretNum = 3;
 		me = this;
+		this.projectile = new Torpedo(model, -1);
 		/* ARBITRARY VALUES */
-		this.fireSpeed = 3;
-		this.cooldown = 180;
+		this.fireSpeed = 5;
+		this.cooldown = currentCooldown = 180;
 		spendSetCost(50);	
-		this.projectile = new CannonBall(model, -1);
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.turret3); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -49,10 +50,9 @@ public class Turret2 extends Turret {
 				return false;
 			}
 		});
-		System.out.println("Turret1 is Created");
+		System.out.println("TorpedoLauncher is Created");
 	}
 
-	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {
 		// System.out.println("Updating Turret1");
 		model.runOnMain(new Runnable() {
@@ -64,6 +64,7 @@ public class Turret2 extends Turret {
 					currentCooldown--;
 				} else {
 					imageView.setColorFilter(null);
+					fire();
 				}
 			}
 		});	

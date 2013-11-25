@@ -6,15 +6,16 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class EasyShip extends BaseShip {
-	private float fireSpeed;
 
 	public EasyShip(Model model) {
 		super(model);
 
 		/** Unique variables for an EasyShip */
 		health = 10;
+		projectile = new CannonBall(model, -1); //default damage
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);
@@ -85,12 +86,6 @@ public class EasyShip extends BaseShip {
 		//System.out.println("Yspeed is: " + ySpeed);
 		//System.out.println("Current speed is..." + currspeed);
 
-	}
-
-	void fire() {
-        CannonBall temp = new CannonBall(model, 20, x, y, fireSpeed, 0);
-		temp.creator = this;
-		model.addUnit(temp);
 	}
 
 }

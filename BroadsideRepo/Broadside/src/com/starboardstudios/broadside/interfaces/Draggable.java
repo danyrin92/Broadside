@@ -12,7 +12,7 @@ public interface Draggable
     public abstract void midDrag(float x,float y);
 
 
-    public abstract void endDrag(float x, float y);
+    public abstract boolean endDrag(float x, float y);
 
 
 

@@ -12,18 +12,18 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 //Turret 1
-public class Turret2 extends Turret {
-	Turret2 me;
+public class Cannon extends Turret {
+	Cannon me;
 
-	public Turret2(Model model) {
+	public Cannon(Model model) {
 		super(model);
-		turretNum = 2;
+		turretNum = 1;
 		me = this;
 		/* ARBITRARY VALUES */
 		this.fireSpeed = 3;
 		this.cooldown = 180;
 		spendSetCost(50);	
-		this.projectile = new CannonBall(model, -1);
+		this.projectile = new CannonBall(model, 20);
 		size = (float) .125;
 		
 		/* Image */
@@ -49,7 +49,7 @@ public class Turret2 extends Turret {
 				return false;
 			}
 		});
-		System.out.println("Turret1 is Created");
+		System.out.println("Cannon is Created");
 	}
 
 	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/

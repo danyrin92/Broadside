@@ -5,12 +5,11 @@ import android.widget.LinearLayout;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+import com.starboardstudios.broadside.gameunits.turrets.*;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
@@ -283,6 +282,21 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		} else {
 			health+=repairHealthBar;
 		}
+	}
+	
+	public void fireBroadside(float x, float y) {
+		for (int i = 0; i < turrets.size(); i++) {
+			if (turrets.get(i) instanceof Cannon) {
+				turrets.get(i).fire(x,y);
+			}
+		}
+	}
+	
+	public Turret getLastTurret() {
+		if (turrets.size()>0) {
+			return turrets.get(turrets.size()-1);
+		}
+		return null;
 	}
 
 }

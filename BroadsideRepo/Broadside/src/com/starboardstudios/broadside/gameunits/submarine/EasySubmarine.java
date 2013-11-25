@@ -8,13 +8,13 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
 public class EasySubmarine extends BaseSubmarine {
-	private float fireSpeed;
 
 	public EasySubmarine(Model model) {
 		super(model);
 
 		/** Unique variables for an EasySubmarine */
 		health = 10;
+		projectile = new Torpedo(model, 20);
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasySubmarine */
@@ -71,10 +71,6 @@ public class EasySubmarine extends BaseSubmarine {
 
 		});
 
-	}
-
-	void fire() {
-		model.addUnit(new Torpedo(model, 20, x, y, fireSpeed, 0));
 	}
 
 }
