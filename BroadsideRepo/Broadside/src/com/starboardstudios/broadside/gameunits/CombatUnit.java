@@ -8,14 +8,12 @@ import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public abstract class CombatUnit extends BaseUnit {
 
+	
 	public ImageView imageView;
-
 	/** Variables intrinsic to combat units */
-	protected float xSpeed;
-	protected float ySpeed;
+	protected Projectile projectile;
+	protected float xSpeed, ySpeed, fireSpeed;
 	protected int health;
-	protected float fireSpeed;
-
 	/**
 	 * Boolean values used in pathing to see if a node has been visited. It
 	 * looks crazy, but I promise it will make sense
@@ -28,10 +26,10 @@ public abstract class CombatUnit extends BaseUnit {
 			twelven = false, thirteenn = false, fourteenn = false,
 			fifteenn = false, sixteenn = false, seventeenn = false,
 			eighteenn = false, nineteenn = false, twentyn = false;
-
 	protected Context context;
 	protected Model model;
 
+	
 	public CombatUnit(Context c) {
 		this.context = c;
 
@@ -346,4 +344,11 @@ public abstract class CombatUnit extends BaseUnit {
 		num = (int) (num * percent);
 		return num;
 	}
+	
+	protected void fire() {
+        Projectile temp = projectile.create(model, projectile.getDamage(), x, y, fireSpeed, 0);
+		temp.creator = this;
+		model.addUnit(temp);
+	}
+	
 }

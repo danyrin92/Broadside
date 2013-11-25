@@ -212,6 +212,7 @@ public class PlayController extends BaseController {
 				} else {
 					model.getMainShip().getMainCannon()
 							.fire(event.getX(), event.getY());
+					model.getMainShip().fireBroadside(event.getX(), event.getY());
 				}
 				return true;
 			}

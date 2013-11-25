@@ -14,7 +14,9 @@ import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
+import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 import com.starboardstudios.broadside.gameunits.ships.BaseShip;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
@@ -73,8 +75,6 @@ public class Model extends Thread {
 	// Crew is property of mainship
 
 	private int booty; // currency
-	private int numTurretTypes;
-	private int[] turretCosts; // centralizes turret pricing
 
 	/** Below will contain all units in the game. All units extend BaseUnit. */
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
@@ -88,16 +88,6 @@ public class Model extends Thread {
 	public Model(Context context) {
 		this.context = context;
 		this.booty = 200;
-		/** This turret stuff should probably be done elsewhere... */
-		// TODO: Make currency values make more sense
-		this.numTurretTypes = 6;
-		this.turretCosts = new int[numTurretTypes + 1];
-		this.turretCosts[1] = 50;
-		this.turretCosts[2] = 25;
-		this.turretCosts[3] = 50;
-		this.turretCosts[4] = 75;
-		this.turretCosts[5] = 100;
-		this.turretCosts[6] = 200;
 		this.difficulty = 1;
 		this.level = 1;
 		this.timer = new Timer();
@@ -201,6 +191,7 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateBootyTask);
+
 			}
 		}
 
@@ -452,23 +443,17 @@ public class Model extends Thread {
 
 			for (int y = 0; y < units.size(); y++) {
 				BaseUnit tempUnit = units.get(y);
-
 				if (tempProjectile.creator instanceof Turret) {
 					tempProjectile.creator = getMainShip();
 				}
 				if (tempProjectile.creator != tempUnit) {
-
 					if (checkCollision(tempProjectile, tempUnit)) {
-
-						System.out.println("Collision Detected between "
-								+ tempUnit.toString() + " and "
+						System.out.println("Collision Detected between " + tempUnit.toString() + " and "
 								+ tempProjectile.toString());
 						tempUnit.collide(tempProjectile);
 						tempProjectile.collide(tempUnit);
 					}
-
 				}
-
 			}
 		}
 
@@ -513,7 +498,15 @@ public class Model extends Thread {
 				}
 				i = i + xOffset;
 			}
-			// System.out.println("unsuccessful: "+total);
+			/**The problem with missiles/turrets can be traced to their wonky imageView padding and rects. 
+			 * This work around seems to works well.*/
+			if (unit1 instanceof Torpedo && total==25) {
+				//System.out.println("Torpedo collision unsuccessful: "+total);
+				return true;
+			} else if (unit1 instanceof Missile && total==25) {
+				//System.out.println("Missile collision unsuccessful: "+total);
+				return true;
+			}
 
 		}
 		return false;
@@ -611,7 +604,7 @@ public class Model extends Thread {
 					LevelManager.nextLevel(this);
 				}
 			}
-			
+			//handle mainShip lists
 			if (unit instanceof Turret) {
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
@@ -746,9 +739,12 @@ public class Model extends Thread {
 	public void addBooty(int plunder) {
 		this.booty += plunder;
 	}
-
-	public int getTurretCostAt(int index) {
-		return turretCosts[index];
+	
+	public boolean enoughBooty(Turret turret) { //paid before check, undone if needed
+		if (turret != null && booty >= 0) {
+			return true;
+		}
+		return false;
 	}
 
 	public BaseController getCurrentActivity() {
