@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="right|center"
-            android:background="@drawable/upgrade_screen" >
+            android:background="@drawable/background" >
 
             <Button
                 android:id="@+id/nxtLvl"
@@ -52,7 +52,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Manage Turrets:"
-                        android:textColor="#FF0000" />
+                        android:textColor="#6F4242"
+                        android:textSize="30sp" />
 
                 </TableRow>
 
@@ -159,7 +160,8 @@
                         android:layout_gravity="center"
                         android:text="Manage Crew:"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#FF0000" />
+                        android:textColor="#6F4242"
+                        android:textSize="30sp" />
 
                 </TableRow>
 
@@ -198,8 +200,9 @@
                 android:layout_marginRight="44dp"
                 android:layout_toLeftOf="@+id/tableLayout1"
                 android:text="Level: "
-                android:textColor="#FF0000"
-                android:typeface="monospace" />
+                android:textColor="#6F4242"
+                android:typeface="monospace" 
+                android:textSize="30sp"/>
 
             <TextView
                 android:id="@+id/BootyView"
@@ -210,7 +213,8 @@
                 android:layout_toLeftOf="@+id/LevelView"
                 android:text="Booty: "
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#FF0000" />
+                android:textColor="#6F4242"
+                android:textSize="30sp" />
 
         </RelativeLayout>
     </FrameLayout>

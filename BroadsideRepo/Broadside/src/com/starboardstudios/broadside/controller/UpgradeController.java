@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.starboardstudios.broadside.R;
@@ -49,6 +51,16 @@ public class UpgradeController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		mainShip = model.getMainShip();
+		
+		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
+		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
+		TextView LevelTextView = (TextView)findViewById(R.id.LevelView); 
+		TextView manageTurretsTextView = (TextView)findViewById(R.id.textView2); //textView3
+		TextView manageCrewTextView = (TextView)findViewById(R.id.textView3);
+	    BootyTextView.setTypeface(myTypeface);
+	    LevelTextView.setTypeface(myTypeface);
+	    manageTurretsTextView.setTypeface(myTypeface);
+	    manageCrewTextView.setTypeface(myTypeface);
 
 		// ((BroadsideApplication) this.getApplication()).saveModel(context);
 		((BroadsideApplication) this.getApplication()).load = false;
