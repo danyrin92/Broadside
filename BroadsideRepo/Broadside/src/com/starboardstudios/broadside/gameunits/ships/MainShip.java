@@ -181,15 +181,6 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 
 	}
 
-	/**
-	 *
-     */
-	/*
-	 * void FireMain(int x, int y) { int deltaX = x - this.x; int deltaY =
-	 * this.y - y; double degreeAngle = Math.atan((deltaY / deltaX)) * 180 /
-	 * Math.PI; }
-	 */
-
 	public ArrayList<Turret> getTurrets() {
 		return turrets;
 	}
@@ -285,9 +276,14 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 	
 	public void fireBroadside(float x, float y) {
+		Turret turret;
 		for (int i = 0; i < turrets.size(); i++) {
-			if (turrets.get(i) instanceof Cannon) {
-				turrets.get(i).fire(x,y);
+			turret = turrets.get(i);
+			if (turret instanceof Cannon || turret instanceof LaserCannon) {
+				if (turret instanceof LaserCannon) {
+					System.out.println("Laser cannon fired...");
+				}
+				turret.fireBurst(x,y);
 			}
 		}
 	}

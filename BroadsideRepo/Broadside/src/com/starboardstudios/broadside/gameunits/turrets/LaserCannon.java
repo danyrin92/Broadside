@@ -9,25 +9,27 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Laser;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 //Turret 1
-public class Turret6 extends Turret {
-	Turret6 me;
+public class LaserCannon extends Turret {
+	LaserCannon me;
 
-	public Turret6(Model model) {
+	public LaserCannon(Model model) {
 		super(model);
 		turretNum = 6;
 		me = this;
 		/* ARBITRARY VALUES */
-		this.fireSpeed = 3;
-		this.cooldown = 180;
-		spendSetCost(50);	
-		this.projectile = new CannonBall(model, -1);
+		shotsPerBurst = numShotsLeftInBurst = 3;
+		this.fireSpeed = 15;
+		this.cooldown = 300;
+		spendSetCost(200);	
+		this.projectile = new Laser(model, -1);
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.turret6); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -49,12 +51,11 @@ public class Turret6 extends Turret {
 				return false;
 			}
 		});
-		System.out.println("Turret1 is Created");
+		System.out.println("Laser Cannon is Created");
 	}
 
 	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {
-		// System.out.println("Updating Turret1");
 		model.runOnMain(new Runnable() {
 			@Override
 			public void run() {

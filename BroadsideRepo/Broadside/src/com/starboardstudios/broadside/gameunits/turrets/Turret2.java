@@ -52,7 +52,6 @@ public class Turret2 extends Turret {
 		System.out.println("Turret1 is Created");
 	}
 
-	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {
 		// System.out.println("Updating Turret1");
 		model.runOnMain(new Runnable() {

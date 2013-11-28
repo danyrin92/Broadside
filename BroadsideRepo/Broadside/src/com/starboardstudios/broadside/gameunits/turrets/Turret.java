@@ -26,6 +26,8 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	protected float fireSpeed, size;
 	double range;
 	protected int cost, turretNum, cooldown, currentCooldown;
+	protected int shotsPerBurst = 1;
+	protected int numShotsLeftInBurst = shotsPerBurst;
 	
 	//Constructors
 	/*Used by Main Cannon*/
@@ -51,7 +53,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		return this.projectile;
 	}
 
-	/*Used by mainCannon and turret1/cannon*/
+	/*Used by mainCannon, turret1/cannon, minelauncher, and laser cannon*/
 	public Projectile fire(float xTarget, float yTarget) { //fire at designated target
 		if (currentCooldown == 0){ 
 			//determine center of turret image and firing angle
@@ -78,6 +80,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 			Projectile tempProj = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
 			tempProj.creator = this;
 			model.addUnit(tempProj);
+			tempProj.getImage().setRotation((float)(angle*(180/Math.PI)));
 			//handle cooldown
 			imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 			currentCooldown=cooldown;
@@ -95,9 +98,29 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		Projectile temp = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
 		temp.creator = this;
 		model.addUnit(temp);
-		imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
+		//imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 		currentCooldown=cooldown;
 		//System.out.println("MainShip input damage: " + projectile.getDamage());
+	}
+	
+	/*Used by laser cannon*/
+	public void fireBurst(float xTarget, float yTarget) {
+		int burstCooldown, burstCurrentCooldown;
+		burstCurrentCooldown = burstCooldown = 100;
+		while (numShotsLeftInBurst > 0) {
+			if(fire(xTarget,yTarget)!=null) { //actually fired
+				numShotsLeftInBurst--;
+				if (numShotsLeftInBurst > 0) { //burst not over
+					burstCurrentCooldown = burstCooldown;
+				}
+			} else { //update burst cooldown and check to see if ready to fire
+				burstCurrentCooldown--;
+				if (burstCurrentCooldown == 0) {
+					currentCooldown = 0;
+				}
+			}
+		}
+		numShotsLeftInBurst = shotsPerBurst; //reset
 	}
 	
 	/*Used by swivel*/

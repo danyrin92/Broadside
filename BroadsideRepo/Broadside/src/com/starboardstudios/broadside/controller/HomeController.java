@@ -25,6 +25,7 @@ public class HomeController extends BaseController {
 		
 		/**play music*/
 		MediaPlayer mp = MediaPlayer.create(this,R.raw.fighting_the_storm);
+		//http://www.newgrounds.com/audio/listen/556463
         mp.start();
 	}
 	

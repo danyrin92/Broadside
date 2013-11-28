@@ -22,7 +22,8 @@
             android:id="@id/upgrade"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center" >
+            android:layout_gravity="right|center"
+            android:background="@drawable/upgrade_screen" >
 
             <Button
                 android:id="@+id/nxtLvl"
@@ -125,7 +126,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret6"
-                        android:text="6 (200)"
+                        android:text="Laser Cannon (200)"
                         android:textSize="12sp" />
 
                 </TableRow>

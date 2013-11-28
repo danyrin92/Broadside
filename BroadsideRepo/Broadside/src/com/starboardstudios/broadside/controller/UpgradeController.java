@@ -180,7 +180,7 @@ public class UpgradeController extends BaseController {
 			turret = new MissileLauncher(model);
 			break;
 		case 6:
-			turret = new Turret6(model);
+			turret = new LaserCannon(model);
 			break;
 		default:
 			System.out.println("Turret not implemented yet!");

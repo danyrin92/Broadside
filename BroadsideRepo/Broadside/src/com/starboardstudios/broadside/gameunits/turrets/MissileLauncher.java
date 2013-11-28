@@ -61,7 +61,6 @@ public class MissileLauncher extends Turret {
 	}
 
 	public void update() {
-		// System.out.println("Updating Turret1");
 		model.runOnMain(new Runnable() {
 			@Override
 			public void run() {
