@@ -49,27 +49,9 @@ public class Missile extends Projectile {
 			ArrayList<BaseUnit> units = model.getUnits();
 			BaseUnit unit = null;
 			float minDistance,xDistance,yDistance,distance;
-			minDistance = 0;
-			//Check if there are units. Calculate distance from first target
-			if (units.size() > 0) {
-				if (units.get(0) instanceof CombatUnit) {
-					if (units.get(0).getX() > this.x) {
-						unit = units.get(0);
-						xDistance = Math
-								.abs(units.get(0).getX() - this.x);
-						yDistance = Math
-								.abs(units.get(0).getY() - this.y);
-						minDistance = (float) Math.sqrt(xDistance * xDistance
-								+ yDistance * yDistance);
-					} else {
-						minDistance = -1;
-					}
-				}
-			} else {
-				return null;
-			}
-			//Determine which unit is closest
-			for(int i = 1; i < units.size(); i++) {
+			distance = minDistance = model.getScreenX();
+			//Check if there are units. Find closest Unit.
+			for(int i=0; i < units.size(); i++) {
 				if (units.get(i) instanceof CombatUnit) {
 					if (units.get(i).getX() > this.x) {
 						xDistance = Math
@@ -78,7 +60,7 @@ public class Missile extends Projectile {
 								.abs(units.get(i).getY() - this.y);
 						distance = (float) Math.sqrt(xDistance
 								* xDistance + yDistance * yDistance);
-						if (distance < minDistance || minDistance == -1) {
+						if (distance < minDistance) {
 							minDistance = distance;
 							unit = units.get(i);
 						}

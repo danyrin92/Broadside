@@ -2,6 +2,7 @@ package com.starboardstudios.broadside.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import com.starboardstudios.broadside.R;
@@ -21,6 +22,10 @@ public class HomeController extends BaseController {
 		setContentView(R.layout.home_view);
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
+		
+		/**play music*/
+		MediaPlayer mp = MediaPlayer.create(this,R.raw.fighting_the_storm);
+        mp.start();
 	}
 	
 	public void playGame(View view)

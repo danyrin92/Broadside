@@ -177,6 +177,9 @@ public abstract class LevelManager {
 			 
 			 model.setPrevMainShip(model.getMainShip());
 			 
+			 //TODO remove this line after testing mineLauncher
+			 model.removeAllEnemiesAndProjectile();
+			 
 			 /** delay before going to the next Level */
 			 TimerTask waitToGoToUpgrade = new TimerTask() {
 				 @Override

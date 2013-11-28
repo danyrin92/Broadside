@@ -14,6 +14,7 @@ import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
+import com.starboardstudios.broadside.gameunits.projectile.Mine;
 import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
@@ -448,8 +449,8 @@ public class Model extends Thread {
 				}
 				if (tempProjectile.creator != tempUnit) {
 					if (checkCollision(tempProjectile, tempUnit)) {
-						System.out.println("Collision Detected between " + tempUnit.toString() + " and "
-								+ tempProjectile.toString());
+						/*System.out.println("Collision Detected between " + tempUnit.toString() + " and "
+								+ tempProjectile.toString());*/
 						tempUnit.collide(tempProjectile);
 						tempProjectile.collide(tempUnit);
 					}
@@ -505,6 +506,8 @@ public class Model extends Thread {
 				return true;
 			} else if (unit1 instanceof Missile && total==25) {
 				//System.out.println("Missile collision unsuccessful: "+total);
+				return true;
+			} else if (unit1 instanceof Mine && total == 25) {
 				return true;
 			}
 
@@ -616,7 +619,14 @@ public class Model extends Thread {
 		}
 		try {
 			projectiles.remove(unit);
+			//handle minelauncher list
+			if (unit instanceof Mine) {
+				(((Mine) unit).getMineLauncher()).removeMine((Mine) unit);
+			}
 		} catch (Exception e) {
+			if (unit instanceof Mine) {
+				System.out.println("remove mine failed...");
+			}
 		}
 
 		try {
@@ -660,7 +670,7 @@ public class Model extends Thread {
 	public void removeAllEnemiesAndProjectile() {
 		/** Remove all enemy ships */
 		for (int x = units.size() - 1; x >= 0; x--) {
-			if (!(units.get(x) instanceof MainShip)) {
+			if (!(units.get(x) instanceof MainShip) && (units.get(x) instanceof CombatUnit)) {
 				removeUnit(units.get(x));
 			}
 		}

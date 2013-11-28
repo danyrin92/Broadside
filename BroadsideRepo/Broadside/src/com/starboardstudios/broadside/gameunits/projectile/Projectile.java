@@ -14,7 +14,7 @@ public abstract class Projectile extends BaseUnit {
 	protected ImageView imageView;
 	public Model model;
     public BaseUnit creator;
-	protected int damage, defaultDamage;
+	protected int damage, defaultDamage, targetX, targetY;
 	protected float speed, angle, z, xSpeed, ySpeed, xTarget, yTarget;
 	
     /*Used by subclasses*/
@@ -124,6 +124,12 @@ public abstract class Projectile extends BaseUnit {
 		return defaultDamage;
 	}
 	
+	public void setTarget(float x, float y) {
+		this.xTarget = x;
+		this.yTarget = y;
+	}
+	
 	//for avoiding instanceof checks when using fire methods
 	public abstract Projectile create(Model model, int damage, float x,	float y, float fireSpeed, float angle);
+
 }

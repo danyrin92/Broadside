@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.starboardstudios.broadside.gameunits.BaseUnit;
+import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -49,7 +52,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	}
 
 	/*Used by mainCannon and turret1/cannon*/
-	public void fire(float xTarget, float yTarget) { //fire at designated target
+	public Projectile fire(float xTarget, float yTarget) { //fire at designated target
 		if (currentCooldown == 0){ 
 			//determine center of turret image and firing angle
 			float centerX = imageView.getX();
@@ -72,17 +75,19 @@ public abstract class Turret extends BaseUnit implements Draggable {
 			float startY = centerY+yOffset;
 			imageView.setRotation((float)(angle*(180/Math.PI)));
 			//spawn projectile
-			Projectile temp = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
-			temp.creator = this;
-			model.addUnit(temp);
+			Projectile tempProj = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
+			tempProj.creator = this;
+			model.addUnit(tempProj);
 			//handle cooldown
 			imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 			currentCooldown=cooldown;
 			//printDebugInfo(xTarget, yTarget, xDifference, yDifference);
+			return tempProj;
 		}
+		return null;
 	}
 	
-	/*Used by torpedo and missile launchers*/
+	/*Used by torpedo and missile launchers(turrets 3 and 5)*/
 	public void fire() { //simply fire straight ahead
 		float startX = this.x;
 		float startY = this.y;
@@ -92,16 +97,39 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		model.addUnit(temp);
 		imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 		currentCooldown=cooldown;
-		System.out.println("MainShip input damage: " + projectile.getDamage());
+		//System.out.println("MainShip input damage: " + projectile.getDamage());
+	}
+	
+	/*Used by swivel*/
+	public void fireSwivel() { //fires at closest target within range
+		//lock on should be used here
+	}
+	
+	protected BaseUnit selectTarget(int range) {
+		ArrayList<BaseUnit> units = model.getUnits();
+		BaseUnit unit = null;
+		float minDistance,xDistance,yDistance,distance;
+		distance = minDistance = model.getScreenX();
+		//Check if there are units. Find closest Unit.
+		for(int i=0; i < units.size(); i++) {
+			if (units.get(i) instanceof CombatUnit) {
+				if (units.get(i).getX() > this.x) {
+					xDistance = Math
+							.abs(units.get(i).getX() - this.x);
+					yDistance = Math
+							.abs(units.get(i).getY() - this.y);
+					distance = (float) Math.sqrt(xDistance
+							* xDistance + yDistance * yDistance);
+					if (distance < minDistance) {
+						minDistance = distance;
+						unit = units.get(i);
+					}
+				}
+			}
+		}
+		return unit;
 	}
 
-	/**
-	 * Checks if x and y coordinate are a valid place to put a turret
-	 * 
-	 * @param x         x coordinate to check
-	 * @param y		    y coordinate to check
-	 * @return 			boolean for if it's a correct place
-	 */
 	public boolean turretCheck(float x, float y) {
 		if (model.checkCollision(this, model.getMainShip())) {
 			return true;

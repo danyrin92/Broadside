@@ -174,7 +174,7 @@ public class UpgradeController extends BaseController {
 			turret = new TorpedoLauncher(model);
 			break;
 		case 4:
-			turret = new Turret4(model);
+			turret = new MineLauncher(model);
 			break;
 		case 5:
 			turret = new MissileLauncher(model);
