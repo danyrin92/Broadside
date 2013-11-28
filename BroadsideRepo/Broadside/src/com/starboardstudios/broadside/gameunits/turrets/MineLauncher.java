@@ -14,7 +14,7 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Mine;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
-//Turret 1
+//Turret 4
 public class MineLauncher extends Turret {
 	MineLauncher me;
 	private int maxMines, minesDeployed, minefieldCenterX, numRows, numColumns;

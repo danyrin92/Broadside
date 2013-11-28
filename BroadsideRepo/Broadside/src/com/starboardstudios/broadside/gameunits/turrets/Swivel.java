@@ -11,23 +11,24 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
-//Turret 1
-public class Turret2 extends Turret {
-	Turret2 me;
+//Turret 2
+public class Swivel extends Turret {
+	Swivel me;
 
-	public Turret2(Model model) {
+	public Swivel(Model model) {
 		super(model);
 		turretNum = 2;
 		me = this;
 		/* ARBITRARY VALUES */
 		this.fireSpeed = 3;
-		this.cooldown = 180;
-		spendSetCost(50);	
-		this.projectile = new CannonBall(model, -1);
+		this.cooldown = 60;
+		spendSetCost(25);	
+		range = 300;
+		this.projectile = new CannonBall(model, 5);
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.turret2); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -62,6 +63,8 @@ public class Turret2 extends Turret {
 				if (currentCooldown > 0) {
 					currentCooldown--;
 				} else {
+					imageView.setColorFilter(null);
+					fireAtClosestTarget();
 					imageView.setColorFilter(null);
 				}
 			}

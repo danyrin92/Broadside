@@ -14,8 +14,10 @@ public abstract class Projectile extends BaseUnit {
 	protected ImageView imageView;
 	public Model model;
     public BaseUnit creator;
-	protected int damage, defaultDamage, targetX, targetY;
-	protected float speed, angle, z, xSpeed, ySpeed, xTarget, yTarget;
+    protected Turret turret;
+	protected int damage, defaultDamage;
+	protected float speed, angle, z, xSpeed, ySpeed, xTarget, yTarget, startX, startY;
+	protected float range = -1;
 	
     /*Used by subclasses*/
 	public Projectile(Model model) {
@@ -28,8 +30,8 @@ public abstract class Projectile extends BaseUnit {
 	public Projectile(Model model, int damage, float x, float y, float speed, float angle) {
 		this.model = model;
 		this.context = model.context;
-		this.x = x;
-		this.y = y;
+		this.x = startX = x;
+		this.y = startY = y;
 		this.damage = damage;
 		this.speed = speed;
 		this.angle = angle;
@@ -41,6 +43,10 @@ public abstract class Projectile extends BaseUnit {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
+		boolean maxRange = Math.sqrt(Math.pow((startX - x), 2) + Math.pow((startY - y), 2)) > range;
+		if (range!=-1 && maxRange) {
+			destroy();
+		}
 
 		model.runOnMain(new Runnable() {
 			public void run() {
@@ -127,6 +133,11 @@ public abstract class Projectile extends BaseUnit {
 	public void setTarget(float x, float y) {
 		this.xTarget = x;
 		this.yTarget = y;
+	}
+	
+	public void setTurret(Turret turret) {
+		this.turret = turret;
+		this.range = turret.getRange();
 	}
 	
 	//for avoiding instanceof checks when using fire methods

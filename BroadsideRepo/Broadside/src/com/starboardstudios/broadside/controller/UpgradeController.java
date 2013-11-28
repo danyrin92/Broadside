@@ -180,7 +180,7 @@ public class UpgradeController extends BaseController {
 			turret = new Cannon(model);
 			break;
 		case 2:
-			turret = new Turret2(model);
+			turret = new Swivel(model);
 			break;
 		case 3:
 			turret = new TorpedoLauncher(model);

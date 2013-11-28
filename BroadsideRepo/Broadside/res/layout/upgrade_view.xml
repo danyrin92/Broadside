@@ -77,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="addTurret2"
-                        android:text="2 (50)"
+                        android:text="Swivel (25)"
                         android:textSize="12sp" />
 
                 </TableRow>

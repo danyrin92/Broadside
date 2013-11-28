@@ -64,6 +64,7 @@ public class TorpedoLauncher extends Turret {
 				} else {
 					imageView.setColorFilter(null);
 					fire();
+					imageView.setColorFilter(null);
 				}
 			}
 		});	

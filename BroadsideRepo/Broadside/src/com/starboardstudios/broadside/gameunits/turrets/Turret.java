@@ -24,7 +24,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	protected ImageView imageView;
 	/**numbers*/
 	protected float fireSpeed, size;
-	double range;
+	protected float range = -1; //infinite unless specified
 	protected int cost, turretNum, cooldown, currentCooldown;
 	protected int shotsPerBurst = 1;
 	protected int numShotsLeftInBurst = shotsPerBurst;
@@ -79,6 +79,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 			//spawn projectile
 			Projectile tempProj = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
 			tempProj.creator = this;
+			tempProj.setTurret(this);
 			model.addUnit(tempProj);
 			tempProj.getImage().setRotation((float)(angle*(180/Math.PI)));
 			//handle cooldown
@@ -97,6 +98,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		float angle = 0;
 		Projectile temp = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
 		temp.creator = this;
+		temp.setTurret(this);
 		model.addUnit(temp);
 		//imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 		currentCooldown=cooldown;
@@ -124,11 +126,18 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	}
 	
 	/*Used by swivel*/
-	public void fireSwivel() { //fires at closest target within range
-		//lock on should be used here
+	public void fireAtClosestTarget() { //fires at closest target within range
+		BaseUnit target = selectTarget();
+		if (target!=null) { //there is a target to shoot at
+			if (withinRange(target)) {
+				float targetX = target.getX();
+				float targetY = target.getY();
+				fire(targetX, targetY);
+			}
+		}
 	}
 	
-	protected BaseUnit selectTarget(int range) {
+	protected BaseUnit selectTarget() {
 		ArrayList<BaseUnit> units = model.getUnits();
 		BaseUnit unit = null;
 		float minDistance,xDistance,yDistance,distance;
@@ -178,6 +187,16 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	
 	public int getCost() {
 		return cost;
+	}
+
+	public float getRange() {
+		return range;
+	}
+	
+	public boolean withinRange(BaseUnit target) {
+		float targetX = target.getX();
+		float targetY = target.getY();
+		return Math.sqrt(Math.pow((targetX - x), 2) + Math.pow((targetY - y), 2)) <= range;
 	}
 
 }

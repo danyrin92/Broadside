@@ -12,7 +12,7 @@ import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Laser;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
-//Turret 1
+//Turret 6
 public class LaserCannon extends Turret {
 	LaserCannon me;
 
