@@ -6,22 +6,30 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.util.LevelManager;
 
 //COMMENT YO SHIT
 public class HomeController extends BaseController {
 	
 	private Model model;
 	final Context context = this;
+	private EditText edittext;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -37,7 +45,7 @@ public class HomeController extends BaseController {
 		//http://www.newgrounds.com/audio/listen/556463
         mp.start();
         
-        /**load player's username**/
+        /**LOAD PLAYER USER NAME**/
         FileInputStream fin;
 		try {
 			fin = openFileInput("username.bin");
@@ -46,7 +54,31 @@ public class HomeController extends BaseController {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Toast.makeText(context, "Save Name", Toast.LENGTH_LONG).show();
+			
+			/** USER NAME DIALOG IMPLEMENTED HERE **/
+			final Dialog usernameDialog = new Dialog(context,android.R.style.Theme_WallpaperSettings);
+			usernameDialog.setContentView(R.layout.username_change);
+			usernameDialog.setTitle("You have not chosen a User Name");
+			
+			Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
+			TextView InstrView = (TextView)usernameDialog.findViewById(R.id.descView);
+			InstrView.setTypeface(myTypeface);
+
+			//Text Field where user enters username
+			edittext = (EditText) findViewById(R.id.editText1);
+
+			//OK Button
+			ImageView okButton = (ImageView) usernameDialog
+					.findViewById(R.id.imageView1);
+			okButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					usernameDialog.dismiss();
+				}
+			});
+			usernameDialog.show();
+			
+			Toast.makeText(context, "User Name Saved", Toast.LENGTH_LONG).show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

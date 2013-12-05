@@ -64,8 +64,7 @@ public class PlayController extends BaseController {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		this.
-		setContentView(screen);
+		this.setContentView(screen);
 		
 		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
 		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
@@ -86,7 +85,7 @@ public class PlayController extends BaseController {
 			public void onClick(View arg0) {
 
 				model.setPaused(true);
-				final Dialog pauseDialog = new Dialog(context,android.R.style.Theme_Translucent_NoTitleBar);
+				final Dialog pauseDialog = new Dialog(context,android.R.style.Theme_WallpaperSettings);
 				pauseDialog.setContentView(R.layout.pause_dialog);
 				pauseDialog.setTitle("Paused...");
 
