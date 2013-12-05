@@ -1,10 +1,18 @@
 package com.starboardstudios.broadside.controller;
 
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -13,6 +21,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 public class HomeController extends BaseController {
 	
 	private Model model;
+	final Context context = this;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -27,6 +36,22 @@ public class HomeController extends BaseController {
 		MediaPlayer mp = MediaPlayer.create(this,R.raw.fighting_the_storm);
 		//http://www.newgrounds.com/audio/listen/556463
         mp.start();
+        
+        /**load player's username**/
+        FileInputStream fin;
+		try {
+			fin = openFileInput("username.bin");
+			DataInputStream isr = new DataInputStream(fin);
+			((BroadsideApplication) this.getApplication()).username = isr.readUTF();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Toast.makeText(context, "Save Name", Toast.LENGTH_LONG).show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Toast.makeText(context, "Error", Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	public void playGame(View view)

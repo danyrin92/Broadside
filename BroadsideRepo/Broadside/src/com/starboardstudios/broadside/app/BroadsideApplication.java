@@ -26,6 +26,7 @@ public class BroadsideApplication extends Application {
 
     private Model globalModel;
     public Boolean load = false;
+    public String username;
     
     public BroadsideApplication()
     {
