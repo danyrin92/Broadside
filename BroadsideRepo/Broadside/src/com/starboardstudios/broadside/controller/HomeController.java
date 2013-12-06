@@ -1,6 +1,7 @@
 package com.starboardstudios.broadside.controller;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -51,6 +52,7 @@ public class HomeController extends BaseController {
 			fin = openFileInput("username.bin");
 			DataInputStream isr = new DataInputStream(fin);
 			((BroadsideApplication) this.getApplication()).username = isr.readUTF();
+			Toast.makeText(context, "Welcome Back " + ((BroadsideApplication) this.getApplication()).username, Toast.LENGTH_LONG).show();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +67,7 @@ public class HomeController extends BaseController {
 			InstrView.setTypeface(myTypeface);
 
 			//Text Field where user enters username
-			edittext = (EditText) findViewById(R.id.editText1);
+			edittext = (EditText)usernameDialog.findViewById(R.id.editText1);
 
 			//OK Button
 			ImageView okButton = (ImageView) usernameDialog
@@ -74,11 +76,26 @@ public class HomeController extends BaseController {
 				@Override
 				public void onClick(View v) {
 					usernameDialog.dismiss();
+					/** SAVE PLAYER USER NAME **/
+					try {
+						DataOutputStream out = 
+						new DataOutputStream(openFileOutput("username.bin", Context.MODE_PRIVATE));
+						String user = edittext.getText().toString();
+						out.writeUTF(user);
+						out.close();
+						Toast.makeText(context, "Welcome " + user, Toast.LENGTH_LONG).show();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			});
 			usernameDialog.show();
 			
-			Toast.makeText(context, "User Name Saved", Toast.LENGTH_LONG).show();
+			//Toast.makeText(context, "User Name Saved", Toast.LENGTH_LONG).show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
