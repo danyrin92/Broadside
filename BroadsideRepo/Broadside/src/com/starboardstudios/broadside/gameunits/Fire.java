@@ -11,7 +11,6 @@ import com.starboardstudios.broadside.gameunits.ships.Section;
 public class Fire extends BaseUnit{
 	// properties
 	private ImageView imageView;
-	private float x, y;
 	private Context context;
 	private Model model;
 	private Section sect;
@@ -60,7 +59,7 @@ public class Fire extends BaseUnit{
 		this.y = y;
 		this.sect = model.getMainShip().determineSection(y);
 		sect.addFire(this);
-		//TODO call repairAt
+		//TODO possibly remove
 		Crew crew = model.getMainShip().getNextAvailableCrew();
 		if (crew!=null) {
 			crew.repairAt(x, y);

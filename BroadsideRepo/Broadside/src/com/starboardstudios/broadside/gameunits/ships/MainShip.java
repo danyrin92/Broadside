@@ -15,12 +15,12 @@ import java.util.ArrayList;
 
 public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUnit {
 
-	ImageView imageView; // Image for ship
+	private ImageView imageView; 
 	private Model model;
 	private ArrayList<Crew> crews = new ArrayList<Crew>();
 	private ArrayList<Turret> turrets = new ArrayList<Turret>();
 	private MainCannon mainCannon;
-	private boolean inPosition = false;
+	private boolean invulnerable = false;
 	private Section bow,midship,stern;
 	private int maxHealth;
 
@@ -70,33 +70,21 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public MainShip(Model model) {
 		super(model.context);
 		this.model = model;
+		//Image
 		imageView = new ImageView(model.context);
-
-		/** PNG to be used as image */
 		imageView.setImageResource(drawable.mainship);
 		imageView.setAdjustViewBounds(true);
-
-		/** Determines rendering size of object */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
-
-		/** Starting position. As for now on the left. */
 		x = -((int) (model.getScreenX() * .225));
 		y = ((int) (model.getScreenY() * .7));
-
-		health = 100;
+		//MainCannon added here
 		mainCannon = new MainCannon(model,
 				(float) (this.x + ((model.getScreenX() * .325))),
 				(float) (this.y + ((model.getScreenX() * .3))));
-		
-		/** Sections... As of now just to localize visuals 
-		 * (get shot in stern a lot, fires appear in stern, etc.*/
-		float x = (float) (model.getScreenX() * .325 *.4);
-		float y = (float) model.getScreenY();
+		//Sections (health and centers set here)
 		health = maxHealth = 1000;
-		bow = new Section(model,x,y*(float).1, health/2);
-		midship = new Section(model,x,y*(float).4, health/2);
-		stern = new Section(model,x,y*(float).7, health/2);
+		setupSections();
 	}
 
 	public void setVelocity(int xSpeed, int ySpeed) {
@@ -160,15 +148,16 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 	
 	protected void damage(Projectile p) {
-		if (health > 0) {
-			health -= p.getDamage();
-			//TODO: Add animation to the damage method
-		} else {
-			//TODO implement destroy();
-			destroy();
+		if (!invulnerable) {
+			if (health > 0) {
+				health -= p.getDamage();
+				//Manage section
+				determineSection(p.getY()).damage(p);
+			} else {
+				//TODO implement destroy();
+				destroy();
+			}
 		}
-		//Manage section
-		determineSection(p.getY()).damage(p);
 	}
 	
 	public void destroy() {
@@ -256,14 +245,22 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public Section determineSection(float y) {
 		float yCoeff = y / model.getScreenY ();
 		if (yCoeff<(float).25) { //bow
-			//System.out.println("Bow hit");
 			return bow;
 		} else if (yCoeff<(float).5) { //midship
-			//System.out.println("MidShip hit");
 			return midship;
 		} else { //stern
-			//System.out.println("Stern hit");
 			return stern;
+		}
+	}
+	
+	public String determineSectionName(float y) {
+		float yCoeff = y / model.getScreenY ();
+		if (yCoeff<(float).25) { //bow
+			return "Bow";
+		} else if (yCoeff<(float).5) { //midship
+			return "Midship";
+		} else { //stern
+			return "Stern";
 		}
 	}
 
@@ -280,10 +277,13 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		for (int i = 0; i < turrets.size(); i++) {
 			turret = turrets.get(i);
 			if (turret instanceof Cannon || turret instanceof LaserCannon) {
+				//TODO clean up
 				if (turret instanceof LaserCannon) {
-					System.out.println("Laser cannon fired...");
+					//System.out.println("Laser cannon fired...");
+					turret.fireBurst(x,y);
+				} else {
+					turret.fire(x,y);
 				}
-				turret.fireBurst(x,y);
 			}
 		}
 	}
@@ -293,6 +293,26 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 			return turrets.get(turrets.size()-1);
 		}
 		return null;
+	}
+	
+	public void toggleInvulnerablity() {
+		invulnerable = !invulnerable;
+	}
+	
+	public int getNumCrew() {
+		return crews.size();
+	}
+	
+	public void setupSections() {
+		float x = (float) (model.getScreenX() * .325 *.4);
+		float y = (float) model.getScreenY();
+		bow = new Section(model,x,y*(float).1, health/3);
+		midship = new Section(model,x,y*(float).4, health/3+1);
+		stern = new Section(model,x,y*(float).7, health/3);
+	}  
+	
+	public void updateHealth() {
+		health = bow.getHealth() + midship.getHealth() + stern.getHealth();
 	}
 
 }

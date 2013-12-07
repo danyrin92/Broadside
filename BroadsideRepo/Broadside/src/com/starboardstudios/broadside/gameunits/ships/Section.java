@@ -14,9 +14,7 @@ public class Section {
 
 	// properties
 	private float x, y;
-	int health, maxHealth;
-	private int maxHealthBars, maxBarHealth;
-	private int numHealthBars;
+	private int maxHealthBars, maxBarHealth, numHealthBars, health, maxHealth, damageLevel;
 	private float currentBarHealth;
 	private ArrayList<Fire> fires = new ArrayList<Fire>();
 	private Model model;
@@ -27,33 +25,41 @@ public class Section {
 		this.model = model;
 		this.x = x;
 		this.y = y;
+		damageLevel = 0;
 		this.health = maxHealth = health;
-		numHealthBars = maxHealthBars = 3;
-		currentBarHealth = maxBarHealth = health / 3;
+		numHealthBars = maxHealthBars = 5;
+		currentBarHealth = maxBarHealth = maxHealth / maxHealthBars;
 		damaged = false;
 	}
 
 	// methods
 	public void damage(Projectile p) {
 		int damage = p.getDamage();
-		damaged = true;
-		health -= damage;
-		//System.out.println("Section Health: " + health);
-
-		// surplus damage discounted, next healthbar started
-		if (currentBarHealth - damage < 0) { 
-			if (numHealthBars - 1 == 0) {
-				// section is basically destroyed; either more vulnerable, bleeding damage, or both
-			} else {
-				numHealthBars--;
-				spawnFires();
-				currentBarHealth = maxBarHealth;
-				health = numHealthBars*maxBarHealth;
-			}
-		} else {
-			currentBarHealth -= damage;
+		if (!damaged) {
+			damaged = true;
+			damageLevel = 1;
+			spawnFires(damageLevel);
 		}
-
+		// surplus damage discounted, next healthbar started
+		if (health > 0) {
+			health -= damage;
+			if (currentBarHealth - damage <= 0) { //healthbar gone
+				if (numHealthBars - 1 == 0) { //section all but destroyed
+					//do nothing
+				} else { //damageLevel increased, update visuals
+					numHealthBars--;
+					damageLevel = maxHealthBars - numHealthBars+1;
+					//System.out.println("spawnFires damageLevel: " + damageLevel);
+					spawnFires(damageLevel);
+					currentBarHealth = maxBarHealth;
+					health = numHealthBars*maxBarHealth;
+				}
+			} else { //healthbar chipped at
+				currentBarHealth -= damage;
+			}
+		} else { //health depleted
+			health = 0;
+		}
 	}
 
 	public void repair(float repair) {
@@ -63,29 +69,31 @@ public class Section {
 				currentBarHealth = maxBarHealth;
 				numHealthBars = maxHealthBars;
 				despawnAllFires();
+				damageLevel = 0;
 				damaged = false;
-			} else {
+				health = maxHealth;
+			} else { //decrease damageLevel, update visuals
+				//System.out.println("despawnFires damageLevel: " + damageLevel);
+				despawnFires(damageLevel);
 				numHealthBars++;
-				// All fires for that level of damage should be removed
+				damageLevel = maxHealthBars - numHealthBars+1;
 				float overflow = repair - (maxBarHealth - currentBarHealth);
 				currentBarHealth = overflow; 
+				addHealth(maxBarHealth);
 			}
-			despawnFires();
-			addHealth(maxBarHealth);
-			model.getMainShip().addHealth(maxBarHealth); //give the mainship an installment of health
-		} else {
+			model.getMainShip().updateHealth();
+		} else { //add health to healthbar
 			currentBarHealth += repair;
 		}
 	}
 
-	public void spawnFires() {
+	public void spawnFires(int numFiresToSpawn) {
 		// determine fire spawns
 		float x, y;
 		Fire fire;
 		int range = 100;
 		int r1, r2;
 		// spawn maxHealthBars - numHealthBars Fires in section
-		int numFiresToSpawn = maxHealthBars - numHealthBars;
 		for (int i = 0; i < numFiresToSpawn; i++) {
 			// TODO if needed make values relative
 			r1 = rand(range);
@@ -118,15 +126,10 @@ public class Section {
 		fires.add(fire);
 	}
 	
-	private void despawnFires() {
-		/*
-		if (fires.size()>0) {
-			int numFiresToDespawn = maxHealthBars - numHealthBars + 1; //TODO: Can cause array out of bounds errors
-			for (int i= numFiresToDespawn - 1; i >= 0; i--) {
-				model.removeUnit(fires.get(i));
-			}
+	private void despawnFires(int numFiresToDespawn) {
+		for (int i= 0; i < numFiresToDespawn && i < fires.size(); i++) {
+			model.removeUnit(fires.get(i));
 		}
-		*/
 	}
 	
 	private void despawnAllFires() {
@@ -171,6 +174,7 @@ public class Section {
 		} else {
 			health+=repairAmount;
 		}
+		printStatus();
 	}
 	
 	public boolean isDamaged() {
@@ -186,6 +190,11 @@ public class Section {
 	
 	public void removeFire(Fire fire) {
 		fires.remove(fire);
+	}
+	
+	public void printStatus() {
+		String name = model.getMainShip().determineSectionName(y);
+		System.out.println(name + " at: " + health + " health after repair cycle.");
 	}
 
 }

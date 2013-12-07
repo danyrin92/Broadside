@@ -23,17 +23,15 @@ import android.widget.LinearLayout;
 public class Crew extends BaseUnit {
 	// properties
 	private ImageView imageView;
-	private float x, y;
-	private float xStation, yStation;
-	private float xTarget, yTarget;
-	private float moveSpeed, xSpeed, ySpeed;
-	private float repairRate;
+	private float x, y, xStation, yStation, xTarget, yTarget, moveSpeed,
+			xSpeed, ySpeed, repairRate;
 	private double angle;
-	boolean repairTrip, repairing, busy, patrolling; // patrolling doesn't mean
-														// busy...
+	boolean repairTrip, repairing, busy, patrolling;
+	// patrolling does not mean busy...
 	private Context context;
 	private Model model;
-	private Section sect;
+	private Section currentSect, firstSection, secondSection, thirdSection;
+	private int defaultSectNum;
 
 	// constructors
 	public Crew(Context c, Model model) {
@@ -48,78 +46,64 @@ public class Crew extends BaseUnit {
 		imageView.setVisibility(View.VISIBLE);
 		// initialize other stuff
 		x = y = xSpeed = ySpeed = 0;
-		/** vital stats */
-		moveSpeed = (float) 1;
-		repairRate = (float) .5;
-		/**			*/
 		repairTrip = repairing = busy = false;
-		patrolling = false; // still debugging
+		moveSpeed = (float) 1;
+		repairRate = (float) .1; //.25 good for testing
+		patrolling = true; // still debugging
+		setDefaultSect();
+		setSectionOrder();
 	}
 
 	// methods
 	public void update() {
-		// System.out.println("Crew updating...");
-
+		//Actual movement/repair stuff (micro)
 		if (!repairing) {
 			// move
 			x = x + xSpeed;
 			y = y + ySpeed;
 			// TODO play move animation
 		} else if (repairing) {
-			if (sect.getHealth() < sect.getMaxHealth()) { // if damage left to
-															// fix
+			if (currentSect.isDamaged()) {
 				// TODO play repair animation
-				// increase health
-				sect.repair(repairRate); // change all to floats and ints if
-											// weird stuff happens...
-			} else {
+				currentSect.repair(repairRate);
+			} else { // no stuff to fix
 				repairing = busy = false;
 				// sect = null;
 			}
 		}
-
+		//Behavior logic (macro)
 		if (repairTrip) {
-			// System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed
-			// + " ySpeed: " + ySpeed);
-			// System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget
-			// + " angle: " + angle);
+			//printMovementInfo();
 			boolean closeEnough = Math.sqrt(Math.pow((xTarget - x), 2)
 					+ Math.pow((yTarget - y), 2)) < 2 * moveSpeed;
 			if (closeEnough) {
-				if (xTarget == xStation && yTarget == yStation) {
-					// repair complete
+				if (xTarget == xStation && yTarget == yStation) { //At station
+					// repair complete, so reset
 					repairTrip = busy = false;
 					angle = xSpeed = ySpeed = 0;
 				} else {
 					// Stop and commence repair
 					repairing = busy = true;
-					// Return to station
-					xTarget = xStation;
-					yTarget = yStation;
-					goTo(xTarget,yTarget);
+					// Return to station once done
+					returnToStation();
 				}
 			}
 		} else if (patrolling) {
-			// repair bow->stern in sequence then revert to station in cycle
-			MainShip ms = model.getMainShip();
-			Section bow = ms.getBow();
-			Section midShip = ms.getMidship();
-			Section stern = ms.getStern();
+			//repair in one of 3 sequences (e.g. bow->stern) then returnToStation
 			Fire fire = null;
-			if (bow.isDamaged()) {
-				fire = bow.getAFire();
-			} else if (midShip.isDamaged()) {
-				fire = midShip.getAFire();
-			} else if (stern.isDamaged()) {
-				fire = stern.getAFire();
+			if (firstSection.isDamaged()) { 
+				fire = firstSection.getAFire();
+			} else if (secondSection.isDamaged()) { 
+				fire = secondSection.getAFire();
+			} else if (thirdSection.isDamaged()) { 
+				fire = thirdSection.getAFire();
 			} else { // return to station
-				xTarget = xStation;
-				yTarget = yStation;
-				repairTrip = true;
+				repairing = false;
+				returnToStation();
 			}
 			fightFire(fire);
 		}
-
+		//standard update imageview
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
@@ -157,9 +141,9 @@ public class Crew extends BaseUnit {
 	}
 
 	public void repairAt(float xTarget, float yTarget) {
-		goTo(xTarget,yTarget);
+		goTo(xTarget, yTarget);
 		// determine section
-		this.sect = model.getMainShip().determineSection(yTarget);
+		this.currentSect = model.getMainShip().determineSection(yTarget);
 		// repair
 		repairTrip = busy = true;
 		// System.out.println("RepairAt X: " + xTarget + " Y: " + yTarget);
@@ -186,15 +170,7 @@ public class Crew extends BaseUnit {
 		xSpeed = (float) Math.cos(angle) * moveSpeed;
 		// convert angle from radians to degrees for rotations
 		angle = (angle * 180) / (Math.PI);
-		if (xDifference > 0 && yDifference > 0) { // x+,y+
-			angle = 180 - angle;
-		} else if (xDifference < 0 && yDifference > 0) { // x-,y+
-			angle = 360 - angle;
-		} else if (xDifference > 0 && yDifference < 0) { // x+, y-
-			angle = 360 - angle;
-		} else { // x-, y-
-			angle = 180 - angle;
-		}
+		angle+=90; //corrects visual offset
 	}
 
 	public void setStations(float X, float Y) {
@@ -227,7 +203,7 @@ public class Crew extends BaseUnit {
 	}
 
 	public void setSection(Section sect) {
-		this.sect = sect;
+		this.currentSect = sect;
 	}
 
 	public void fightFire(Fire fire) {
@@ -240,6 +216,61 @@ public class Crew extends BaseUnit {
 
 	public void patrol() {
 		patrolling = true;
+	}
+
+	public void returnToStation() {
+		xTarget = xStation;
+		yTarget = yStation;
+		boolean closeEnough = Math.sqrt(Math.pow((xTarget - x), 2)
+				+ Math.pow((yTarget - y), 2)) < 2 * moveSpeed;
+		if (!closeEnough) {
+			goTo(xTarget, yTarget);
+			repairTrip = true;
+		}
+	}
+
+	public void setDefaultSect() {
+		MainShip ms = model.getMainShip(); // 0 -> Bow
+		int sectNum = ms.getNumCrew(); // 1 -> Midship
+		defaultSectNum = sectNum % 3; // 2 -> Stern
+	}
+	
+	//determine starting section and path of repair patrol
+	public void setSectionOrder() {
+		MainShip ms = model.getMainShip();
+		Section Bow = ms.getBow();
+		Section Midship = ms.getMidship();
+		Section Stern = ms.getStern();
+		switch (defaultSectNum) {
+		case 0:
+			firstSection = Bow;
+			secondSection = Midship;
+			thirdSection = Stern;
+			break;
+		case 1:
+			firstSection = Midship;
+			secondSection = Stern;
+			thirdSection = Bow;
+			break;
+		case 2:
+			firstSection = Stern;
+			secondSection = Bow;
+			thirdSection = Midship;
+			break;
+		default:
+			System.out.println("Patrol error, defaultSectNum: "
+					+ defaultSectNum);
+			firstSection = Bow;
+			secondSection = Midship;
+			thirdSection = Stern;
+		}
+	}
+
+	public void printMovementInfo() {
+		System.out.println("X: " + x + " Y: " + y + " xSpeed: " + xSpeed
+				+ " ySpeed: " + ySpeed);
+		System.out.println("xTarget: " + xTarget + " yTarget: " + yTarget
+				+ " angle: " + angle);
 	}
 
 }
