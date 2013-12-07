@@ -62,7 +62,7 @@ public class UpgradeController extends BaseController {
 	    manageTurretsTextView.setTypeface(myTypeface);
 	    manageCrewTextView.setTypeface(myTypeface);
 
-		// ((BroadsideApplication) this.getApplication()).saveModel(context);
+		((BroadsideApplication) this.getApplication()).saveModel(context);
 		((BroadsideApplication) this.getApplication()).load = false;
 
 		try {
@@ -100,7 +100,7 @@ public class UpgradeController extends BaseController {
 	}
 
 	public void nextLevel(View view) {
-		// ((BroadsideApplication) this.getApplication()).saveModel(context);
+		((BroadsideApplication) this.getApplication()).saveModel(context);
 		Intent plaIntent = new Intent(this, PlayController.class);
 		startActivity(plaIntent);
 	}
