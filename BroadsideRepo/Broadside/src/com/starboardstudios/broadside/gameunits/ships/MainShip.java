@@ -148,6 +148,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 	
 	protected void damage(Projectile p) {
+<<<<<<< ef7520e3f028c341ee2400aee20a04dfd8e001f5
 		if (!invulnerable) {
 			if (health > 0) {
 				health -= p.getDamage();
@@ -157,6 +158,15 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 				//TODO implement destroy();
 				destroy();
 			}
+=======
+		//Manage section
+		determineSection(p.getY()).damage(p);
+			health -= p.getDamage();
+			//TODO: Add animation to the damage method
+		if (health <= 0) {
+			//TODO implement destroy();
+			destroy();
+>>>>>>> 618034328e5d141b28706b68528164c5bbc17fc3
 		}
 	}
 	
@@ -315,4 +325,22 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		health = bow.getHealth() + midship.getHealth() + stern.getHealth();
 	}
 
+	/** For getting images to appear above the MainShip 
+	public void reset() {
+		ArrayList<Crew> tempCrews = crews;
+		MainCannon tempCannon = mainCannon;
+		ArrayList<Turret> tempTurrets = turrets;
+		
+		crews = null;
+		mainCannon = null;
+		turrets = null;
+		
+		
+		mainCannon = new MainCannon(model,
+				(float) (this.x + ((model.getScreenX() * .325))),
+				(float) (this.y + ((model.getScreenX() * .3))));
+		
+		
+	}
+	*/
 }

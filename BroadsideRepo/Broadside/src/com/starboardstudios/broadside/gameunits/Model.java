@@ -76,6 +76,7 @@ public class Model extends Thread {
 	// Crew is property of mainship
 
 	private int booty; // currency
+	private int prevBooty;
 
 	/** Below will contain all units in the game. All units extend BaseUnit. */
 	private ArrayList<BaseUnit> units = new ArrayList<BaseUnit>();
@@ -612,6 +613,7 @@ public class Model extends Thread {
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
 				getMainShip().getCrew().remove((Crew) unit);
+				numCrew--;
 			} else if (unit instanceof Fire) {
 				((Fire)unit).getSect().removeFire((Fire)unit);
 			}
@@ -670,7 +672,20 @@ public class Model extends Thread {
 	public void removeAllEnemiesAndProjectile() {
 		/** Remove all enemy ships */
 		for (int x = units.size() - 1; x >= 0; x--) {
-			if (!(units.get(x) instanceof MainShip) && (units.get(x) instanceof CombatUnit)) {
+			if (!(units.get(x) instanceof MainShip) && (units.get(x) instanceof CombatUnit) && !(units.get(x) instanceof MainCannon)) {
+				removeUnit(units.get(x));
+			}
+		}
+		for (int x = projectiles.size() - 1; x >= 0; x--) {
+			removeUnit(projectiles.get(x));
+		}
+
+	}
+	
+	public void removeAll() {
+		/** Remove all enemy ships */
+		for (int x = units.size() - 1; x >= 0; x--) {
+			if (units.get(x) instanceof CombatUnit || units.get(x) instanceof MainCannon) {
 				removeUnit(units.get(x));
 			}
 		}
@@ -829,6 +844,13 @@ public class Model extends Thread {
 
 	public ArrayList<BaseUnit> getUnits() {
 		return units;
+	}
+	
+	public void loadPrev() {
+		addUnit(prevMainShip);
+		addUnit(prevMainShip.getMainCannon());
+		//getMainShip().reset();
+		booty = prevBooty;
 	}
 	
 

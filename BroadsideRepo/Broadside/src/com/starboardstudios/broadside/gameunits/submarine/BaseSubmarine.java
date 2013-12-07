@@ -49,7 +49,7 @@ import java.util.Random;
 	public void damage(int damage) {
 		health -= damage;
 		//TODO: Add animation to the damage method
-		if (health < 0) {
+		if (health <= 0) {
 			destroy();
 		}
 	}
