@@ -11,6 +11,7 @@ public class MediumShip extends BaseShip {
 
 	public MediumShip(Model model) {
 		super(model);
+		plunder = 20;
 
 		/** Unique variables for an MediumShip */
 		health = 50;

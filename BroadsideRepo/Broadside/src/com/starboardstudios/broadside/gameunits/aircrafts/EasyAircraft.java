@@ -12,6 +12,7 @@ public class EasyAircraft extends BaseAircraft {
 
 	public EasyAircraft(Model model) {
 		super(model);
+		plunder = 10;
 
 		/** Unique variables for an EasyAircraft */
 		health = 10;

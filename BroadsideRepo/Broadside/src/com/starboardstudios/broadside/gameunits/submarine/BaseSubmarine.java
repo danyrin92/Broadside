@@ -57,6 +57,7 @@ import java.util.Random;
 	public void destroy() {
 		//TODO: Add animations to the destroy method
 		model.removeUnit(this);
+		model.addBooty(plunder);
 	}
 
 }

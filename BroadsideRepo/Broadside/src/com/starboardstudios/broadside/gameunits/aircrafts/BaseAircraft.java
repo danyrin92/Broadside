@@ -55,6 +55,7 @@ public abstract class BaseAircraft extends CombatUnit {
 	public void destroy() {
 		//TODO: Add animations to the destroy method
 		model.removeUnit(this);
+		model.addBooty(plunder);
 	}
 	
 }

@@ -28,6 +28,8 @@ public abstract class CombatUnit extends BaseUnit {
 			eighteenn = false, nineteenn = false, twentyn = false;
 	protected Context context;
 	protected Model model;
+	/** Reward for giving when destroyed */
+	protected int plunder;
 
 	
 	public CombatUnit(Context c) {

@@ -12,6 +12,7 @@ public class EasyShip extends BaseShip {
 
 	public EasyShip(Model model) {
 		super(model);
+		plunder = 10;
 
 		/** Unique variables for an EasyShip */
 		health = 10;

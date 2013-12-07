@@ -11,6 +11,7 @@ public class HardShip extends BaseShip {
 
 	public HardShip(Model model) {
 		super(model);
+		plunder = 30;
 
 		/** Unique variables for a HardShip */
 		health = 100;

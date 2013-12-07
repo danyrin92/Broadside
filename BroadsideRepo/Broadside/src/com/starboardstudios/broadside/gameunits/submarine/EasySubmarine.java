@@ -11,6 +11,7 @@ public class EasySubmarine extends BaseSubmarine {
 
 	public EasySubmarine(Model model) {
 		super(model);
+		plunder = 10;
 
 		/** Unique variables for an EasySubmarine */
 		health = 10;
