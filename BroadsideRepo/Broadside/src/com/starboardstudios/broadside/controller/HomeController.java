@@ -117,4 +117,9 @@ public class HomeController extends BaseController {
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}
+	
+	public void gotoCredits(View view) {
+		Intent playIntent = new Intent(this, CreditsController.class);
+		startActivity(playIntent);
+	}
 }

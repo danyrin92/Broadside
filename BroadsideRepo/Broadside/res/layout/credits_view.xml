@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
 
-</AbsoluteLayout>
+    <Button
+        android:id="@+id/ExitButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Exit" />
+
+    <TextView
+        android:id="@+id/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:typeface = "sans"
+        android:textStyle = "bold"
+        android:textAllCaps = "true"
+        android:text="ERROR 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20" />
+
+    <Button
+        android:id="@+id/NextButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/CreditsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ExitButton"
+        android:layout_below="@+id/TitleText"
+        android:layout_toLeftOf="@+id/NextButton"
+        android:layout_toRightOf="@+id/ExitButton"
+        android:gravity="center"
+        android:text="error" />
+
+</RelativeLayout>
