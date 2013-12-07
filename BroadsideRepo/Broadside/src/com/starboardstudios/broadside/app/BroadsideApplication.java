@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.app;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
+import java.util.ArrayList;
 
 import android.app.Application;
 import android.content.Context;
@@ -17,6 +20,13 @@ import android.widget.Toast;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
+import com.starboardstudios.broadside.gameunits.turrets.Cannon;
+import com.starboardstudios.broadside.gameunits.turrets.LaserCannon;
+import com.starboardstudios.broadside.gameunits.turrets.MineLauncher;
+import com.starboardstudios.broadside.gameunits.turrets.MissileLauncher;
+import com.starboardstudios.broadside.gameunits.turrets.Swivel;
+import com.starboardstudios.broadside.gameunits.turrets.TorpedoLauncher;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 import com.starboardstudios.broadside.util.LevelManager;
 
 /**
@@ -49,8 +59,17 @@ public class BroadsideApplication extends Application {
 			osw.write(globalModel.getLevel());
 			osw.write(globalModel.getBooty());
 			osw.write(globalModel.numCrew);
+			osw.write(globalModel.getNumTurrets());
 			osw.flush();
 			osw.close();
+			
+			ArrayList <Float> turrets = globalModel.getTurretPos();
+			DataOutputStream out = 
+					new DataOutputStream(openFileOutput("savedTurrets.bin", Context.MODE_PRIVATE));
+			for(int i = 0; i < turrets.size(); i++)
+				out.writeFloat(turrets.get(i));
+			out.flush();
+			out.close();
 			
 			Toast.makeText(context, "Data Saved", Toast.LENGTH_LONG).show();
 		}  catch (IOException e) {
@@ -67,6 +86,7 @@ public class BroadsideApplication extends Application {
 			int level = isr.read();
 			int booty = isr.read();
 			int numCrew = isr.read();
+			int numTurrets = isr.read();
 			isr.close();
 			
 			LevelManager.loadLevel(globalModel);
@@ -89,6 +109,37 @@ public class BroadsideApplication extends Application {
 			globalModel.setLevel(level);
 			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			globalModel.setBooty(booty);
+			
+			fin = openFileInput("savedTurrets.bin");
+			DataInputStream in = new DataInputStream(fin);
+			Turret turret = null;
+			for(int i = numTurrets; i > 0; i--) {
+				int turretNum = (int) in.readFloat();
+				int x = (int) in.readFloat();
+				int y = (int) in.readFloat();
+				switch (turretNum) {
+				case 1:
+					turret = new Cannon(globalModel, x, y);
+					break;
+				case 2:
+					turret = new Swivel(globalModel);
+					break;
+				case 3:
+					turret = new TorpedoLauncher(globalModel);
+					break;
+				case 4:
+					turret = new MineLauncher(globalModel);
+					break;
+				case 5:
+					turret = new MissileLauncher(globalModel);
+					break;
+				case 6:
+					turret = new LaserCannon(globalModel);
+					break;
+				}
+				globalModel.addUnit(turret);
+			}
+			in.close();
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

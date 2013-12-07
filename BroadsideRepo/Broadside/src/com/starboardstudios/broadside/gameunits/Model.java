@@ -680,38 +680,38 @@ public class Model extends Thread {
 
 	}
 	
-	/*
-	public static boolean saveModel(Context context, Model model) {
-	    try {
-	        FileOutputStream fos = context.openFileOutput("model.txt", Context.MODE_PRIVATE);
-	        ObjectOutputStream oos = new ObjectOutputStream(fos);
-	        oos.writeObject(model);
-	        oos.close();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	        return false;
-	    }
-	    return true;
+	/** RETURNS THE TURRET NUMBER FOLLOWED BY ITS X
+	 ** AND Y COORDINATES (ie. [1st turret #, 1st turret
+	 ** x coordinate, 1st turret y coordinate, 1st turret #,
+	 ** 2nd turret x coordinate, 2nd turret y coordinate, 
+	 * @return ArrayList w/ turret# and coordinates
+	 */
+	public ArrayList<Float> getTurretPos(){
+		ArrayList<Float> turrets = new ArrayList<Float>();
+		for (int i = units.size() - 1; i >= 0; i--) {
+			if (units.get(i) instanceof Cannon) {
+				turrets.add((float) 1);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
+			//else if (units.get(i) instanceof Cannon) {
+				
+			//}
+		}
+		return turrets;
 	}
-
-	public static Model getModel(Context context) {
-	    try {
-	        FileInputStream fis = context.openFileInput("model.txt");
-	        ObjectInputStream is = new ObjectInputStream(fis);
-	        Object readObject = is.readObject();
-	        is.close();
-
-	        if(readObject != null && readObject instanceof Model) {
-	            return (Model) readObject;
-	        }
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    }
-	    return null;
+	
+	/** GETS THE AMOUNT OF TURRETS ON THE SHIP
+	 * @return Amount of Turrets Purchased
+	 */
+	public int getNumTurrets() {
+		int numTurrets = 0;
+		for (int i = units.size() - 1; i >= 0; i--)
+			if (units.get(i) instanceof Turret) {
+				numTurrets++;
+			}
+		return numTurrets;
 	}
-	*/
 	
 	public int getLevel() {
 		return level;

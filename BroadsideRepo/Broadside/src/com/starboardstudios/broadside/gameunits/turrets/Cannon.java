@@ -51,6 +51,27 @@ public class Cannon extends Turret {
 		});
 		System.out.println("Cannon is Created");
 	}
+	
+	public Cannon(Model model, int x, int y) {
+		super(model);
+		turretNum = 1;
+		me = this;
+		/* ARBITRARY VALUES */
+		this.fireSpeed = 3;
+		this.cooldown = 180;
+		spendSetCost(50);	
+		this.projectile = new CannonBall(model, 20);
+		size = (float) .125;
+		
+		this.x = x;
+		this.y = y;
+		
+		/* Image */
+		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
+	}
 
 	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {
