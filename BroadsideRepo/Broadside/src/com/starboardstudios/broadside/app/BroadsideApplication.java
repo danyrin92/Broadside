@@ -122,19 +122,19 @@ public class BroadsideApplication extends Application {
 					turret = new Cannon(globalModel, x, y);
 					break;
 				case 2:
-					turret = new Swivel(globalModel);
+					turret = new Swivel(globalModel, x, y);
 					break;
 				case 3:
-					turret = new TorpedoLauncher(globalModel);
+					turret = new TorpedoLauncher(globalModel, x, y);
 					break;
 				case 4:
-					turret = new MineLauncher(globalModel);
+					turret = new MineLauncher(globalModel, x, y);
 					break;
 				case 5:
-					turret = new MissileLauncher(globalModel);
+					turret = new MissileLauncher(globalModel, x, y);
 					break;
 				case 6:
-					turret = new LaserCannon(globalModel);
+					turret = new LaserCannon(globalModel, x, y);
 					break;
 				}
 				globalModel.addUnit(turret);

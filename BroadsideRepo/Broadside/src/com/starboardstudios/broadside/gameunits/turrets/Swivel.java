@@ -52,6 +52,28 @@ public class Swivel extends Turret {
 		});
 		System.out.println("Turret1 is Created");
 	}
+	
+	public Swivel(Model model, int x, int y) {
+		super(model);
+		turretNum = 2;
+		me = this;
+		/* ARBITRARY VALUES */
+		this.fireSpeed = 3;
+		this.cooldown = 60;
+		setCost(25);	
+		range = 300;
+		this.projectile = new CannonBall(model, 5);
+		size = (float) .125;
+		
+		this.x = x;
+		this.y = y;
+		
+		/* Image */
+		imageView.setImageResource(drawable.turret2); // Set to image
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
+	}
 
 	public void update() {
 		// System.out.println("Updating Turret1");

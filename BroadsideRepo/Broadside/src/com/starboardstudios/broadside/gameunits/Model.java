@@ -694,9 +694,31 @@ public class Model extends Thread {
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
 			}
-			//else if (units.get(i) instanceof Cannon) {
-				
-			//}
+			else if (units.get(i) instanceof Swivel) {
+				turrets.add((float) 2);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
+			else if (units.get(i) instanceof TorpedoLauncher) {
+				turrets.add((float) 3);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
+			else if (units.get(i) instanceof MineLauncher) {
+				turrets.add((float) 4);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
+			else if (units.get(i) instanceof MissileLauncher) {
+				turrets.add((float) 5);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
+			else if (units.get(i) instanceof LaserCannon) {
+				turrets.add((float) 6);
+				turrets.add(units.get(i).getX());
+				turrets.add(units.get(i).getY());
+			}
 		}
 		return turrets;
 	}

@@ -176,6 +176,10 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		model.spendBooty(cost);
 	}
 	
+	public void setCost (int cost) {
+		this.cost = cost;
+	}
+	
 	public void printXY() {
 		System.out.println(" X: " + this.x + " Y: " + this.y);
 	}

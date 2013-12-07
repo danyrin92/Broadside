@@ -59,6 +59,27 @@ public class MissileLauncher extends Turret {
 		});
 		System.out.println("MissileLauncher is Created");
 	}
+	
+	public MissileLauncher(Model model, int x, int y) {
+		super(model);
+		turretNum = 5;
+		me = this;
+		this.projectile = new Missile(model, 20);
+		/* ARBITRARY VALUES */
+		this.fireSpeed = 5;
+		this.cooldown = currentCooldown = 180;
+		setCost(100);	
+		size = (float) .125;
+		
+		this.x = x;
+		this.y = y;
+		
+		/* Image */
+		imageView.setImageResource(drawable.turret5); // Set to image
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
+	}
 
 	public void update() {
 		model.runOnMain(new Runnable() {

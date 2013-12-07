@@ -63,6 +63,32 @@ public class MineLauncher extends Turret {
 		});
 		System.out.println("Turret4 is Created");
 	}
+	
+	public MineLauncher(Model model, int x, int y) {
+		super(model);
+		me = this;
+		turretNum = 4;
+		/* ARBITRARY VALUES */
+		this.fireSpeed = 3;
+		currentCooldown = cooldown = 240;
+		maxMines = 9;
+		minesDeployed = 0;
+		setCost(75);	
+		this.projectile = new Mine(model, -1, -1);
+		size = (float) .125;
+		determineNumRowsAndCollumns();
+		determineMinePositions();
+		determineSpacing();
+		
+		this.x = x;
+		this.y = y;
+		
+		/* Image */
+		imageView.setImageResource(drawable.turret4); // Set to image
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
+	}
 
 	public void update() {
 		// System.out.println("Updating Turret4");

@@ -53,6 +53,28 @@ public class LaserCannon extends Turret {
 		});
 		System.out.println("Laser Cannon is Created");
 	}
+	
+	public LaserCannon(Model model, int x, int y) {
+		super(model);
+		turretNum = 6;
+		me = this;
+		/* ARBITRARY VALUES */
+		shotsPerBurst = numShotsLeftInBurst = 3;
+		this.fireSpeed = 15;
+		this.cooldown = 300;
+		setCost(200);	
+		this.projectile = new Laser(model, -1);
+		size = (float) .125;
+		
+		this.x = x;
+		this.y = y;
+		
+		/* Image */
+		imageView.setImageResource(drawable.turret6); // Set to image
+		imageView.setAdjustViewBounds(true);
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
+	}
 
 	/*Fired from playcontroller in same spot as maincannon via fireBroadside method in mainship*/
 	public void update() {

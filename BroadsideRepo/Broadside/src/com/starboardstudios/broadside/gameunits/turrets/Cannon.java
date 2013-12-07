@@ -59,7 +59,7 @@ public class Cannon extends Turret {
 		/* ARBITRARY VALUES */
 		this.fireSpeed = 3;
 		this.cooldown = 180;
-		spendSetCost(50);	
+		setCost(50);
 		this.projectile = new CannonBall(model, 20);
 		size = (float) .125;
 		
