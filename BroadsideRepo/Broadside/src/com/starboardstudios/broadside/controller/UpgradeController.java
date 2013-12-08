@@ -52,15 +52,8 @@ public class UpgradeController extends BaseController {
 		model.setCurrentActivity(this);
 		mainShip = model.getMainShip();
 		
-		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
-		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
-		TextView LevelTextView = (TextView)findViewById(R.id.LevelView); 
-		TextView manageTurretsTextView = (TextView)findViewById(R.id.textView2); //textView3
-		TextView manageCrewTextView = (TextView)findViewById(R.id.textView3);
-	    BootyTextView.setTypeface(myTypeface);
-	    LevelTextView.setTypeface(myTypeface);
-	    manageTurretsTextView.setTypeface(myTypeface);
-	    manageCrewTextView.setTypeface(myTypeface);
+		handleTypeface();
+		playMusic();
 
 		((BroadsideApplication) this.getApplication()).saveModel(context);
 		((BroadsideApplication) this.getApplication()).load = false;
@@ -100,6 +93,7 @@ public class UpgradeController extends BaseController {
 	}
 
 	public void nextLevel(View view) {
+		wipeMP();
 		((BroadsideApplication) this.getApplication()).saveModel(context);
 		Intent plaIntent = new Intent(this, PlayController.class);
 		startActivity(plaIntent);
@@ -204,6 +198,24 @@ public class UpgradeController extends BaseController {
 		} else {
 			model.addBooty(turret.getCost()); //refund if needed
 		}
+	}
+	
+	public void handleTypeface() {
+		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
+		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
+		TextView LevelTextView = (TextView)findViewById(R.id.LevelView); 
+		TextView manageTurretsTextView = (TextView)findViewById(R.id.textView2); //textView3
+		TextView manageCrewTextView = (TextView)findViewById(R.id.textView3);
+	    BootyTextView.setTypeface(myTypeface);
+	    LevelTextView.setTypeface(myTypeface);
+	    manageTurretsTextView.setTypeface(myTypeface);
+	    manageCrewTextView.setTypeface(myTypeface);
+	}
+
+	@Override
+	public void playMusic() { //
+		theme = R.raw.captain_blood_theme;
+		playTheme();
 	}
 
 }
