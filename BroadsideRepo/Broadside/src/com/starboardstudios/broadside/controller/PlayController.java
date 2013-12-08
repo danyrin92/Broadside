@@ -66,8 +66,13 @@ public class PlayController extends BaseController {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(screen);
 		
-		handleTypeface();
-		playMusic();
+		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
+		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
+		TextView LevelTextView = (TextView)findViewById(R.id.LevelView);
+		TextView HealthTextView = (TextView)findViewById(R.id.HealthView);
+	    BootyTextView.setTypeface(myTypeface);
+	    LevelTextView.setTypeface(myTypeface);
+	    HealthTextView.setTypeface(myTypeface);
 	    
 		pauseButton = (ImageView) findViewById(R.id.pause);
 		
@@ -78,7 +83,7 @@ public class PlayController extends BaseController {
 
 			@Override
 			public void onClick(View arg0) {
-				pauseMusic();
+
 				model.setPaused(true);
 				final Dialog pauseDialog = new Dialog(context,android.R.style.Theme_WallpaperSettings);
 				pauseDialog.setContentView(R.layout.pause_dialog);
@@ -90,7 +95,6 @@ public class PlayController extends BaseController {
 				resumeButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						resumeMusic();
 						pauseDialog.dismiss();
 						model.setPaused(false);
 					}
@@ -102,7 +106,6 @@ public class PlayController extends BaseController {
 				restartButton.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						wipeMP();
 						pauseDialog.dismiss();
 						LevelManager.restartLevel(model);
 						model.setPaused(false);
@@ -225,7 +228,6 @@ public class PlayController extends BaseController {
 	}
 
 	public void gotoUpgrades() {
-		wipeMP();
 		Intent gotoUpgrades = new Intent(
 				this,
 				com.starboardstudios.broadside.controller.UpgradeController.class);
@@ -238,7 +240,6 @@ public class PlayController extends BaseController {
 	}
 	
 	public void gotoMMenu() {
-		wipeMP();
 		Intent optionsIntent = new Intent(this, HomeController.class);
 		startActivity(optionsIntent);
 	}
@@ -529,22 +530,6 @@ public class PlayController extends BaseController {
 	
 	public void restartLevel() {
 		LevelManager.restartLevel(model);
-	}
-	
-	public void handleTypeface() {
-		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
-		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
-		TextView LevelTextView = (TextView)findViewById(R.id.LevelView);
-		TextView HealthTextView = (TextView)findViewById(R.id.HealthView);
-	    BootyTextView.setTypeface(myTypeface);
-	    LevelTextView.setTypeface(myTypeface);
-	    HealthTextView.setTypeface(myTypeface);
-	}
-
-	@Override
-	public void playMusic() {
-		theme = R.raw.into_the_pirate_bay;
-		playTheme();
 	}
 
 }
