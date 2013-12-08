@@ -148,25 +148,15 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 	
 	protected void damage(Projectile p) {
-<<<<<<< ef7520e3f028c341ee2400aee20a04dfd8e001f5
 		if (!invulnerable) {
-			if (health > 0) {
-				health -= p.getDamage();
-				//Manage section
-				determineSection(p.getY()).damage(p);
-			} else {
+			health -= p.getDamage();
+			if (health <= 0) {
 				//TODO implement destroy();
 				destroy();
+			} else {
+				//Manage section
+				determineSection(p.getY()).damage(p);
 			}
-=======
-		//Manage section
-		determineSection(p.getY()).damage(p);
-			health -= p.getDamage();
-			//TODO: Add animation to the damage method
-		if (health <= 0) {
-			//TODO implement destroy();
-			destroy();
->>>>>>> 618034328e5d141b28706b68528164c5bbc17fc3
 		}
 	}
 	
