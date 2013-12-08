@@ -15,4 +15,10 @@ public class LeaderBoardController extends BaseController {
 		setContentView(R.layout.leaderboard_view);
 		
 	}
+
+	@Override
+	public void playMusic() {
+		// TODO Auto-generated method stub
+		
+	}
 }

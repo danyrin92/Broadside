@@ -15,4 +15,10 @@ public class CreditsController extends BaseController {
 		setContentView(R.layout.credits_view);
 		
 	}
+
+	@Override
+	public void playMusic() {
+		// TODO Auto-generated method stub
+		
+	}
 }

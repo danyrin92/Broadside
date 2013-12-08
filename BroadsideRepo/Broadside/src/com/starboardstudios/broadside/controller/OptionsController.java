@@ -49,6 +49,12 @@ public class OptionsController extends BaseController {
 		});
 		
 	}
+
+	@Override
+	public void playMusic() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
