@@ -108,6 +108,12 @@ public class HomeController extends BaseController {
 		startActivity(playIntent);
 	}
 	
+	public void gotoLeaderboards(View view)
+	{
+		Intent leaderBoardIntent = new Intent(this, LeaderBoardController.class);
+		startActivity(leaderBoardIntent);
+	}
+	
 	public void loadGame(View view)
 	{
 		((BroadsideApplication) this.getApplication()).load = true;
