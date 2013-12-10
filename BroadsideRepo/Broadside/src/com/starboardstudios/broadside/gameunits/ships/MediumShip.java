@@ -41,27 +41,27 @@ public class MediumShip extends BaseShip {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-
+		lifetime++;
 		if (random == 1)
 			pathOne();
 
 		if (random == 0)
 			pathTwo();
 
-		if (random == 2)
-			pathThree();
-
-		moveCount += Math.abs(xSpeed);
-		moveCount += Math.abs(ySpeed);
+		if (random == 2) {
+			random = rand.nextInt(2);
+		}
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				if (moveCount >= 250) {
+
+				if (lifetime > 150) {
 					fire();
-					moveCount = 0;
+					lifetime = 0;
 				}
+
 			}
 
 		});
