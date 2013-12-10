@@ -45,30 +45,28 @@ public class EasyAircraft extends BaseAircraft {
 	 */
 	public void update() {
 
+		xSpeed *= 2;
+		ySpeed *= 2;
+		lifetime++;
 		x = x + xSpeed;
 		y = y + ySpeed;
 
 		if (random == 1)
-			pathOne();
+			pathFive();
 
 		if (random == 0)
-			pathTwo();
-
-		if (random == 2)
-			pathThree();
-
-		moveCount += Math.abs(xSpeed);
-		moveCount += Math.abs(ySpeed);
+			pathFive();
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 
-				if (moveCount >= 250) {
+				if (lifetime > 100) {
 					fire();
-					moveCount = 0;
+					lifetime = 0;
 				}
+
 			}
 
 		});
