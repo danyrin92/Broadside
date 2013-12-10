@@ -74,7 +74,10 @@ public class Model extends Thread {
 	private MainShip prevMainShip;
 
 	// Crew is property of mainship
-
+	
+	/** For leaderboard score. Total ammount gained over all levels */
+	private int score;
+	/** Currency gained during a level */
 	private int booty; // currency
 	private int prevBooty;
 
@@ -90,6 +93,7 @@ public class Model extends Thread {
 	public Model(Context context) {
 		this.context = context;
 		this.booty = 200;
+		prevBooty = booty;
 		this.difficulty = 1;
 		this.level = 1;
 		this.timer = new Timer();
@@ -824,6 +828,7 @@ public class Model extends Thread {
 	 */
 	public void goToFailState() {
 		paused = true;
+		score += booty - prevBooty;
 		if(currentActivity instanceof PlayController) {
 			runOnMain( new Runnable() {
 				@Override
@@ -851,6 +856,22 @@ public class Model extends Thread {
 		addUnit(prevMainShip.getMainCannon());
 		//getMainShip().reset();
 		booty = prevBooty;
+	}
+
+	public int getPrevBooty() {
+		return prevBooty;
+	}
+
+	public void setPrevBooty(int x) {
+		prevBooty = x;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 

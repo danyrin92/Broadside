@@ -100,40 +100,7 @@ public abstract class LevelManager {
 	
 		model.setNumOfEnemies(difficulty*(levelArray[row][0] + levelArray[row][2] + levelArray[row][4]+ levelArray[row][6] + levelArray[row][8]));
 		System.out.println("Total number of enemies that will spawn is " + model.getNumOfEnemies());
-		/*
-		TimerTask waitForSuccess = new TimerTask() {
-			@Override
-			public void run() {	
-				if (model.getCurrentActivity().name.equalsIgnoreCase("PlayController")) {	
-					/**Start timers for spawning enemies 
-					 if (model.getNumOfEnemies() <= 0) {
-						/** When all enemies have been defeated go to the next level 
-						 int level = model.getLevel();
-						 
-						 /** Manages infinite level by increasing difficulty in the model 
-						 if ((level % (MAXLEVEL)) == 0) {
-								 model.setDifficulty(model.getDifficulty() + 1);
-						 }
-						 
-						 model.setLevel(++level);
-						/** Go to Upgrade then end program
-						try {
-							PlayController currentActivity = (PlayController)model.getCurrentActivity();
-							currentActivity.gotoUpgrades();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						
-						this.cancel();
-						return;
-					}
-				}
-			}
-		};
 		
-		/** Check that the player has beaten the game every two second 
-		model.getTimer().schedule(waitForSuccess,0,2000);
-		*/
 	}
 	
 	/**
@@ -158,8 +125,8 @@ public abstract class LevelManager {
 	
 	public static void loadLevel(Model model) {
 		model.getTimer().cancel();
-		model.removeAll();
-		model.loadPrev();
+		model.removeAll(); //remove if able to load in the middle of the a level
+		model.loadPrev(); //remove if able to load in the middle of the a level
 			try {
 				PlayController currentActivity = (PlayController)model.getCurrentActivity();
 				currentActivity.gotoUpgrades();
@@ -177,7 +144,9 @@ public abstract class LevelManager {
 					 model.setDifficulty(model.getDifficulty() + 1);
 			 }
 			 
+			 model.setScore(model.getScore() + model.getBooty() - model.getPrevBooty()); //Add point gained to the score.
 			 model.setPrevMainShip(model.getMainShip());
+			 model.setPrevBooty(model.getBooty());
 			 
 			 //TODO remove this line after testing mineLauncher
 			 model.removeAllEnemiesAndProjectile();
