@@ -41,7 +41,7 @@ public class HardShip extends BaseShip {
 	public void update() {
 		x = x + xSpeed;
 		y = y + ySpeed;
-
+		lifetime++;
 		if (random == 1)
 			pathOne();
 
@@ -51,18 +51,16 @@ public class HardShip extends BaseShip {
 		if (random == 2)
 			pathThree();
 
-		moveCount += Math.abs(xSpeed);
-		moveCount += Math.abs(ySpeed);
-
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 
-				if (moveCount >= 250) {
+				if (lifetime > 250) {
 					fire();
-					moveCount = 0;
+					lifetime = 0;
 				}
+
 			}
 
 		});
