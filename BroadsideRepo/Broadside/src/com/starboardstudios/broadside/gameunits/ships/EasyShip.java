@@ -1,12 +1,13 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
+import java.util.TimerTask;
+
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public class EasyShip extends BaseShip {
 
@@ -16,7 +17,7 @@ public class EasyShip extends BaseShip {
 
 		/** Unique variables for an EasyShip */
 		health = 10;
-		projectile = new CannonBall(model, -1); //default damage
+		projectile = new CannonBall(model, -1); // default damage
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);
@@ -48,44 +49,36 @@ public class EasyShip extends BaseShip {
 	 */
 	public void update() {
 		int speed = (int) (Math.abs(xSpeed) + Math.abs(ySpeed));
-		//sSystem.out.println("Speed: " + speed);
-		
+		lifetime++;
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (random == 1)
+		if (random == 0)
 			pathOne();
 
-		if (random == 0)
+		if (random == 1)
 			pathTwo();
 
-		if (random == 2)
-			pathThree();
-
-		moveCount += Math.abs(xSpeed);
-		moveCount += Math.abs(ySpeed);
+		if (random == 2) {
+			random = rand.nextInt(2);
+		}
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 
-				if (moveCount >= 250) {
+				if (lifetime > 150) {
 					fire();
-					moveCount = 0;
+					lifetime = 0;
 				}
 			}
 
 		});
-		
-		
+
 		double num1 = Math.pow(xSpeed, 2);
 		double num2 = Math.pow(ySpeed, 2);
-		double toSqrt = num2+num1;
-		double currspeed = Math.sqrt(toSqrt);
-		//System.out.println("XSpeed is: " + xSpeed);
-		//System.out.println("Yspeed is: " + ySpeed);
-		//System.out.println("Current speed is..." + currspeed);
+		double toSqrt = num2 + num1;
 
 	}
 

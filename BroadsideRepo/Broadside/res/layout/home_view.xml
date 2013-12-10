@@ -23,7 +23,9 @@
                 android:id="@+id/ImageView03"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="gotoLeaderboards"
                 android:src="@drawable/leaders_cloud" />
+
         </FrameLayout>
 
         <TextView

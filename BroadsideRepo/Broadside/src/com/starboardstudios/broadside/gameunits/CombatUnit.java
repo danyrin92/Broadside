@@ -1,19 +1,22 @@
 package com.starboardstudios.broadside.gameunits;
 
+import java.util.Timer;
+
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 public abstract class CombatUnit extends BaseUnit {
 
-	
 	public ImageView imageView;
 	/** Variables intrinsic to combat units */
 	protected Projectile projectile;
 	protected float xSpeed, ySpeed, fireSpeed;
 	protected int health;
+	public int lifetime = 0;
 	/**
 	 * Boolean values used in pathing to see if a node has been visited. It
 	 * looks crazy, but I promise it will make sense
@@ -31,7 +34,6 @@ public abstract class CombatUnit extends BaseUnit {
 	/** Reward for giving when destroyed */
 	protected int plunder;
 
-	
 	public CombatUnit(Context c) {
 		this.context = c;
 
@@ -40,7 +42,7 @@ public abstract class CombatUnit extends BaseUnit {
 		imageView.setImageResource(drawable.error);
 
 	}
-	
+
 	public void destroy() {
 		model.removeUnit(this);
 	}
@@ -194,21 +196,8 @@ public abstract class CombatUnit extends BaseUnit {
 	 * group and make as many as you want Just call these in an objects update
 	 * method and it should path accordingly
 	 */
+	/** PathOne should be a triangular figure 8 */
 	protected void pathOne() {
-		if (!fourn)
-			goFour();
-		else if (!onen)
-			goOne();
-		else if (!seventeenn)
-			goSeventeen();
-		else if (!twentyn)
-			goTwenty();
-		else
-			cleanNodes();
-	}
-
-	/** PathTwo should be a triangular figure 8 */
-	protected void pathTwo() {
 		if (!fourn)
 			goFour();
 		else if (!onen)
@@ -222,54 +211,98 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	/**
-	 * Crazy ass path. testing all nodes.
+	 * Swoop around
+	 * 
 	 */
-	protected void pathThree() {
-		if (!threen)
-			goThree();
-		else if (!ninen)
-			goNine();
-		else if (!fourteenn)
-			goFourteen();
-
-		else if (!twelven)
-			goTwelve();
-		else if (!seventeenn)
-			goSeventeen();
-		else if (!thirteenn) 
-			goThirteen();
-		else if (!sevenn)
-			goSeven();
+	protected void pathTwo() {
+		if (!fourn)
+			goFour();
 		else if (!sixteenn)
 			goSixteen();
-
-		else if (!eighteenn)
-			goEighteen();
-
-		else if (!fourn)
-			goFour();
-		else if (!fiven)
-			goFive();
-		else if (!twentyn)
-			goTwenty();
-		else if (!eightn)
-			goEight();
-		else if (!twon)
-			goTwo();
 		else if (!nineteenn)
 			goNineteen();
-		else if (!fifteenn)
-			goFifteen();
+		else if (!threen)
+			goThree();
+		else if (!twon)
+			goTwo();
+		else if (!fourteenn)
+			goFourteen();
+		else if (!seventeenn)
+			goSeventeen();
 		else if (!onen)
 			goOne();
 		else if (!sixn)
 			goSix();
-		else if (!elevenn)
-			goEleven();
-		else if (!tenn)
-			goTen();
+		else if (!eighteenn)
+			goEighteen();
+		else if (!fifteenn)
+			goFifteen();
+		else if (!sevenn)
+			goSeven();
 		else
 			cleanNodes();
+
+	}
+
+	/**
+	 * go to center and chill
+	 */
+
+	protected void pathThree() {
+
+		if (!tenn)
+			goTen();
+		else {
+			xSpeed = 0;
+			ySpeed = 0;
+		}
+
+	}
+
+	/**
+	 * Chill around perimeter
+	 * 
+	 */
+	protected void pathFour() {
+
+		if (!fourn)
+			goFour();
+		else if (!onen)
+			goOne();
+		else if (!seventeenn)
+			goSeventeen();
+		else if (!twentyn)
+			goTwenty();
+		else
+			cleanNodes();
+
+	}
+
+	/**
+	 * Fly around perimeter quickly
+	 */
+	protected void pathFive() {
+		if (!fourn)
+			goFour();
+		else if (!onen)
+			goOne();
+		else if (!seventeenn)
+			goSeventeen();
+		else if (!twentyn)
+			goTwenty();
+		else
+			cleanNodes();
+	}
+
+	/**
+	 * Strafing run
+	 * 
+	 * /**
+	 * 
+	 * 
+	 */
+
+	protected void pathSix() {
 
 	}
 
@@ -281,8 +314,9 @@ public abstract class CombatUnit extends BaseUnit {
 	 * @param y
 	 * @return
 	 */
+
 	boolean setPath(int x, int y) {
-		float speed = (float)(model.getScreenX() * .0015);
+		float speed = (float) (model.getScreenX() * .0015);
 
 		if (this.x < x)
 			xSpeed = speed;
@@ -297,8 +331,8 @@ public abstract class CombatUnit extends BaseUnit {
 			ySpeed = -speed;
 		else
 			ySpeed = 0;
-		
-		if(xSpeed !=0 && ySpeed != 0){
+
+		if (xSpeed != 0 && ySpeed != 0) {
 			xSpeed /= 1.41;
 			ySpeed /= 1.41;
 		}
@@ -346,11 +380,12 @@ public abstract class CombatUnit extends BaseUnit {
 		num = (int) (num * percent);
 		return num;
 	}
-	
+
 	protected void fire() {
-        Projectile temp = projectile.create(model, projectile.getDamage(), x, y, fireSpeed, 0);
+		Projectile temp = projectile.create(model, projectile.getDamage(), x,
+				y, fireSpeed, 0);
 		temp.creator = this;
 		model.addUnit(temp);
 	}
-	
+
 }

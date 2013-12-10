@@ -41,10 +41,7 @@ public class HomeController extends BaseController {
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		
-		/**play music*/
-		MediaPlayer mp = MediaPlayer.create(this,R.raw.fighting_the_storm);
-		//http://www.newgrounds.com/audio/listen/556463
-        mp.start();
+		playMusic();
         
         /**LOAD PLAYER USER NAME**/
         FileInputStream fin;
@@ -104,10 +101,17 @@ public class HomeController extends BaseController {
 	}
 	
 	public void playGame(View view)
-	{
+	{	
+		wipeMP();
 		((BroadsideApplication) this.getApplication()).clearModel();
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
+	}
+	
+	public void gotoLeaderboards(View view)
+	{
+		Intent leaderBoardIntent = new Intent(this, LeaderBoardController.class);
+		startActivity(leaderBoardIntent);
 	}
 	
 	public void loadGame(View view)
@@ -117,9 +121,11 @@ public class HomeController extends BaseController {
 		Intent playIntent = new Intent(this, PlayController.class);
 		startActivity(playIntent);
 	}
-	
-	public void gotoCredits(View view) {
-		Intent playIntent = new Intent(this, CreditsController.class);
-		startActivity(playIntent);
+
+	@Override
+	public void playMusic() { //
+		theme = R.raw.fighting_the_storm;
+		playTheme();
 	}
+	
 }

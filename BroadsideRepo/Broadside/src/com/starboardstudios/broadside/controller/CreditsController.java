@@ -91,4 +91,9 @@ public class CreditsController extends BaseController {
 		credits.setText(Html.fromHtml("StarBoard Studios"));
 		credits.setTextSize(1,20);
 	}
+
+	@Override
+	public void playMusic() {
+		//
+	}
 }

@@ -44,30 +44,26 @@ public class EasySubmarine extends BaseSubmarine {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
+
+		xSpeed /= 2;
+		ySpeed /= 2;
+		lifetime++;
 		x = x + xSpeed;
 		y = y + ySpeed;
 
-		if (random == 1)
-			pathOne();
-
 		if (random == 0)
-			pathTwo();
-
-		if (random == 2)
-			pathThree();
-
-		moveCount += Math.abs(xSpeed);
-		moveCount += Math.abs(ySpeed);
+			pathFour();
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 
-				if (moveCount >= 250) {
+				if (lifetime > 350) {
 					fire();
-					moveCount = 0;
+					lifetime = 0;
 				}
+
 			}
 
 		});
