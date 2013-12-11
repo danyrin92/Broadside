@@ -80,7 +80,7 @@ public class UpgradeController extends BaseController {
 					//
 				} else if (event.getAction() == DragEvent.ACTION_DROP) {
 					System.out.println("Dropped");
-					if (!((Draggable) event.getLocalState()).endDrag(event.getX(),
+					if (!((Draggable)event.getLocalState()).endDrag(event.getX(),
 							event.getY())) { //invalid placement off mainship
 						removeRefundLastTurret();
 					}

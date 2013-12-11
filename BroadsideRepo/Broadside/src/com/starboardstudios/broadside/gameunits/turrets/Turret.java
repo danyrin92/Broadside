@@ -203,4 +203,28 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		return Math.sqrt(Math.pow((targetX - x), 2) + Math.pow((targetY - y), 2)) <= range;
 	}
 
+    @Override
+    public void dragStarted() {
+
+
+        //
+    }
+
+    @Override
+    public void midDrag(float x, float y) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public boolean endDrag(float x, float y) {
+        if (turretCheck(x,y)) {
+            this.setPosition((int)( x-(imageView.getDrawable().getBounds().right + imageView.getDrawable().getBounds().left)/2), (int) (y-(imageView.getDrawable().getBounds().top + imageView.getDrawable().getBounds().bottom)/2-1));
+            this.update();
+            this.imageView.setVisibility(View.VISIBLE);
+            return true;
+        }
+        return false;
+    }
+
+
 }

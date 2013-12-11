@@ -108,26 +108,7 @@ public class LaserCannon extends Turret {
 		this.y = y;
 	}
 
-	@Override
-	public void dragStarted() {
-		//
-	}
 
-	@Override
-	public void midDrag(float x, float y) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public boolean endDrag(float x, float y) {
-		if (turretCheck(x,y)) {
-			this.setPosition((int) x, (int) y);
-			this.update();
-			this.imageView.setVisibility(View.VISIBLE);
-			return true;
-		}
-		return false;
-	}
 
 	@Override
 	public void setImageView(ImageView image) {
