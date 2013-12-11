@@ -1,37 +1,16 @@
 package com.starboardstudios.broadside.controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
@@ -43,8 +22,10 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
+import com.starboardstudios.broadside.interfaces.GifPlayer;
 import com.starboardstudios.broadside.util.LevelManager;
+
+import java.util.ArrayList;
 
 public class PlayController extends BaseController {
 
@@ -65,8 +46,10 @@ public class PlayController extends BaseController {
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(screen);
-		
-		handleTypeface();
+        GifPlayer player = new GifPlayer(this.context,R.drawable.testgif);
+        ((FrameLayout)findViewById(R.id.play_frame)).addView(player);
+
+        handleTypeface();
 		playMusic();
 	    
 		pauseButton = (ImageView) findViewById(R.id.pause);

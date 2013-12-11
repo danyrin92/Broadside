@@ -1,29 +1,19 @@
 package com.starboardstudios.broadside.controller;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.util.LevelManager;
+import com.starboardstudios.broadside.interfaces.GifPlayer;
+
+import java.io.*;
 
 //COMMENT YO SHIT
 public class HomeController extends BaseController {
@@ -40,8 +30,8 @@ public class HomeController extends BaseController {
 		setContentView(R.layout.home_view);
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
-		
-		playMusic();
+
+        playMusic();
         
         /**LOAD PLAYER USER NAME**/
         FileInputStream fin;
