@@ -16,7 +16,7 @@ public abstract class Projectile extends BaseUnit {
     public BaseUnit creator;
     protected Turret turret;
 	protected int damage, defaultDamage;
-	protected float speed, angle, xSpeed, ySpeed, xTarget, yTarget, startX, startY, startZ, height, width;
+	protected float speed, angle, xSpeed, ySpeed, xTarget, yTarget, startX, startY, startZ, height, width, size;
 	protected float range = -1;
 	protected double distanceToTarget = -1;
 	protected double r2; //radius squared
@@ -180,5 +180,9 @@ public abstract class Projectile extends BaseUnit {
 	
 	//for avoiding instanceof checks when using fire methods
 	public abstract Projectile create(Projectile projectile, float x,	float y, float fireSpeed, float angle);
+
+	public boolean getDrop() {
+		return drop;
+	}
 
 }

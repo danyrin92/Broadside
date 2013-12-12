@@ -12,7 +12,6 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 //MUHUHAHAHA!!!!!!! The fluff is gone!
 public class CannonBall extends Projectile {
-	private int scaleFactor = (int) (model.getScreenY() * .03);
 
 	/*Used to create cannonball that stores data for other constructor*/
 	public CannonBall(Model model, int damage) {
@@ -27,16 +26,17 @@ public class CannonBall extends Projectile {
 	public CannonBall(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
 		super(projectile, x, y, fireSpeed, angle);
+		size = (float) .03;
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), scaleFactor));
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
 		height = imageView.getLayoutParams().height;
 		width = imageView.getLayoutParams().width;
 		if (projectile.turret instanceof Swivel || projectile.turret == null) {
 			drop = false;
 		} else {
-			drop = true;
+			drop = false; //false for testing
 		}
 	}
 

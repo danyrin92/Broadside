@@ -12,7 +12,6 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public class Torpedo extends Projectile {
 	private int defaultDamage;
-	private int scaleFactor = (int) (model.getScreenY() * .08);
 
 	public Torpedo(Model model, int damage) {
 		super(model);
@@ -24,10 +23,11 @@ public class Torpedo extends Projectile {
 
 	public Torpedo(Projectile projectile, float x, float y, float fireSpeed, float angle) {
 		super(projectile, x, y, fireSpeed, 0);
+		size = (float) .05;
 		imageView.setImageResource(drawable.torpedo);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .05), scaleFactor));
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
 		imageView.setScaleType(ScaleType.CENTER_CROP);
 		if (xSpeed>0) {
 			imageView.setRotation(180); //spin to face enemy...

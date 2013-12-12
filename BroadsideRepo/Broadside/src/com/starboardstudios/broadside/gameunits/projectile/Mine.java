@@ -10,7 +10,6 @@ import com.starboardstudios.broadside.gameunits.turrets.MineLauncher;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 public class Mine extends Projectile {
-	private int scaleFactor = (int) (model.getScreenY() * .03);
 	private int mineNumber;
 	private boolean deployed;
 	private MineLauncher mineLauncher;
@@ -37,10 +36,11 @@ public class Mine extends Projectile {
 	public Mine(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
 		super(projectile, x, y, fireSpeed, angle);
-		imageView.setImageResource(drawable.viking_ship);
+		size = (float) .1;
+		imageView.setImageResource(drawable.mine);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), scaleFactor));
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
 		System.out.println("mine created");
 	}
 
@@ -75,10 +75,6 @@ public class Mine extends Projectile {
 
 	public MineLauncher getMineLauncher() {
 		return mineLauncher;
-	}
-	
-	public int getScaleFactor() {
-		return scaleFactor;
 	}
 
 }

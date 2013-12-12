@@ -511,8 +511,10 @@ public class Model extends Thread {
 					if (isFilled(sprite1Pixel) && isFilled(sprite2Pixel)) {
 						// System.out.println("successful: "+total);
 						//perform height check for cannonballs
-						if (unit1 instanceof CannonBall && unit1.getZ()>unit2.getZ()) {
-							return false;
+						if (unit1 instanceof Projectile) {
+							if (((Projectile)unit1).getDrop()==true && unit1.getZ()>unit2.getZ()) {
+								return false;
+							}
 						}
 						return true;
 					}

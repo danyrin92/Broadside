@@ -12,7 +12,6 @@ import com.starboardstudios.broadside.gameunits.turrets.Turret;
 public class Missile extends Projectile {
 	private BaseUnit target;
 	private int defaultDamage = 20;
-	private int scaleFactor = (int) (model.getScreenY() * .08);
 
 	public Missile(Model model, int damage) {
 		super(model);
@@ -20,17 +19,15 @@ public class Missile extends Projectile {
 		if (damage != -1) {
 			this.damage = damage;
 		}
-		imageView.setImageResource(drawable.missile);
-		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model.getScreenX() * .7), scaleFactor));
-
 	}
 
 	public Missile(Projectile projectile, float x, float y, float speed, float angle) {
 		super(projectile, x, y, speed, angle);
+		size = (float) .1;
 		imageView.setImageResource(drawable.missile);
 		imageView.setAdjustViewBounds(true);
-		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model.getScreenX() * .05), scaleFactor)); 
+		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
 		if (xSpeed>0) {
 			imageView.setRotation(180); //spin to face enemy...
 		}
