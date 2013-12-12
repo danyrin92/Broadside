@@ -21,7 +21,7 @@ public class EasyShip extends BaseShip {
 		projectile.creator = this;
 
 		/** Projectile speed */
-		fireSpeed = -(float) (model.getScreenX() * .005);
+		fireSpeed = -(float) (model.getScreenX() * .004);
 
 		/** Art asset assigned to EasyShip */
 		imageView.setImageResource(drawable.easyship);
@@ -38,7 +38,7 @@ public class EasyShip extends BaseShip {
 		imageView.setVisibility(View.VISIBLE);
 
 		/** Starting speed of the ship */
-		xSpeed = -(int) (model.getScreenX() * .003);
+		xSpeed = -(int) (model.getScreenX() * .001);
 
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);

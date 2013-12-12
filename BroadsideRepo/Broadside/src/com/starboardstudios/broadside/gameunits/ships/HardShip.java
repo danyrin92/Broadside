@@ -19,7 +19,7 @@ public class HardShip extends BaseShip {
 		projectile.creator = this;
 
 		/** Projectile speed */
-		fireSpeed = -(float) (model.getScreenX() * .005);
+		fireSpeed = -(float) (model.getScreenX() * .004);
 
 		/** Art asset assigned to HardShip */
 		imageView.setImageResource(drawable.hardship);
@@ -31,7 +31,7 @@ public class HardShip extends BaseShip {
 		imageView.setVisibility(View.VISIBLE);
 
 		/** Starting speed of the ship */
-		xSpeed = -(int) (model.getScreenX() * .003);
+		xSpeed = -(int) (model.getScreenX() * .001);
 
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
