@@ -59,20 +59,21 @@ public final class R {
         public static final int startgame_button=0x7f02002d;
         public static final int startgame_button_selected=0x7f02002e;
         public static final int swivel_gun=0x7f02002f;
-        public static final int title=0x7f020030;
-        public static final int title_pause=0x7f020031;
-        public static final int torpedo=0x7f020032;
-        public static final int turret=0x7f020033;
-        public static final int turret1=0x7f020034;
-        public static final int turret2=0x7f020035;
-        public static final int turret3=0x7f020036;
-        public static final int turret4=0x7f020037;
-        public static final int turret5=0x7f020038;
-        public static final int turret6=0x7f020039;
-        public static final int tutorial_cloud=0x7f02003a;
-        public static final int upgrade_screen=0x7f02003b;
-        public static final int viking_ship=0x7f02003c;
-        public static final int waves=0x7f02003d;
+        public static final int testgif=0x7f020030;
+        public static final int title=0x7f020031;
+        public static final int title_pause=0x7f020032;
+        public static final int torpedo=0x7f020033;
+        public static final int turret=0x7f020034;
+        public static final int turret1=0x7f020035;
+        public static final int turret2=0x7f020036;
+        public static final int turret3=0x7f020037;
+        public static final int turret4=0x7f020038;
+        public static final int turret5=0x7f020039;
+        public static final int turret6=0x7f02003a;
+        public static final int tutorial_cloud=0x7f02003b;
+        public static final int upgrade_screen=0x7f02003c;
+        public static final int viking_ship=0x7f02003d;
+        public static final int waves=0x7f02003e;
     }
     public static final class id {
         public static final int BootyView=0x7f050066;
