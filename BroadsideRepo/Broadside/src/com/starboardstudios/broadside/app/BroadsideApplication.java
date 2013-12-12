@@ -245,7 +245,6 @@ public class BroadsideApplication extends Application {
 			int currentScore = globalModel.getScore();
 			if(currentScore > highScore){
 				saveHighScore(currentScore);
-				Toast.makeText(context, "UPDATE TABLE ROW", Toast.LENGTH_LONG).show();
 				
 				//ROW UPDATED IN THE LEADER BOARD
 				userlevel = Integer.toString(globalModel.getLevel() - 1);

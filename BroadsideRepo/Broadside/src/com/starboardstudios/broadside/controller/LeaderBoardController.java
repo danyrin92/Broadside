@@ -14,11 +14,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -242,6 +244,11 @@ public class LeaderBoardController extends BaseController {
 		score7.setTextSize(TypedValue.COMPLEX_UNIT_SP, txtSize);
 		score8.setTextSize(TypedValue.COMPLEX_UNIT_SP, txtSize);
 		score9.setTextSize(TypedValue.COMPLEX_UNIT_SP, txtSize);
+	}
+	
+	public void backtoMain(View view)
+	{
+		finish();
 	}
 	
 	public void playMusic() {
