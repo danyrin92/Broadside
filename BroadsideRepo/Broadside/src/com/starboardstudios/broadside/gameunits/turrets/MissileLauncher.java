@@ -25,6 +25,7 @@ public class MissileLauncher extends Turret {
 		turretNum = 5;
 		me = this;
 		this.projectile = new Missile(model, 20);
+		projectile.setTurret(this);
 		/* ARBITRARY VALUES */
 		this.fireSpeed = 5;
 		this.cooldown = currentCooldown = 180;

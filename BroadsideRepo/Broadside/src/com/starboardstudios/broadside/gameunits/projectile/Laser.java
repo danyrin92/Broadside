@@ -24,9 +24,9 @@ public class Laser extends Projectile {
 	}
 
 	/* Used by turrets and units */
-	public Laser(Model model, int damage, float x, float y,
+	public Laser(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
-		super(model, damage, x, y, fireSpeed, angle);
+		super(projectile, x, y, fireSpeed, angle);
 		imageView.setImageResource(drawable.laser);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
@@ -36,9 +36,9 @@ public class Laser extends Projectile {
 	}
 
 	@Override
-	public Projectile create(Model model, int damage, float x, float y,
+	public Projectile create(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
-		return new Laser(model, damage, x, y, fireSpeed, angle);
+		return new Laser(projectile, x, y, fireSpeed, angle);
 	}
 
 }

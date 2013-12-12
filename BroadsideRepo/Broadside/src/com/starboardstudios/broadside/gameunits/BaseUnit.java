@@ -45,5 +45,9 @@ public abstract class BaseUnit {
 	public float getY() {
 		return y;
 	}
+	
+	public float getZ() {
+		return z;
+	}
 
 }

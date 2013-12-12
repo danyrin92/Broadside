@@ -21,6 +21,7 @@ public class TorpedoLauncher extends Turret {
 		turretNum = 3;
 		me = this;
 		this.projectile = new Torpedo(model, -1);
+		projectile.setTurret(this);
 		/* ARBITRARY VALUES */
 		this.fireSpeed = 5;
 		this.cooldown = currentCooldown = 180;

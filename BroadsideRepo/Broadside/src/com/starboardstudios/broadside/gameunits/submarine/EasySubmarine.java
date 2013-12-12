@@ -16,6 +16,8 @@ public class EasySubmarine extends BaseSubmarine {
 		/** Unique variables for an EasySubmarine */
 		health = 10;
 		projectile = new Torpedo(model, 20);
+		projectile.creator = this;
+		
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasySubmarine */

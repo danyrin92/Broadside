@@ -17,6 +17,7 @@ public class EasyAircraft extends BaseAircraft {
 		/** Unique variables for an EasyAircraft */
 		health = 10;
 		projectile = new Missile(model, 30);
+		projectile.creator = this;
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyAircraft */

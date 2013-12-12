@@ -28,6 +28,7 @@ public class MainCannon extends Turret {
 		this.currentCooldown = 0;
 		size = (float) .15;
 		this.projectile = new CannonBall(model, 40);
+		projectile.setTurret(this);
 		fireSpeed = 5;
 		//handle image
 		imageView.setImageResource(drawable.main_cannon); // Set to image

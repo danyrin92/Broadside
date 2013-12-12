@@ -33,6 +33,7 @@ public class MineLauncher extends Turret {
 		minesDeployed = 0;
 		spendSetCost(75);	
 		this.projectile = new Mine(model, -1, -1);
+		projectile.setTurret(this);
 		size = (float) .125;
 		determineNumRowsAndCollumns();
 		determineMinePositions();

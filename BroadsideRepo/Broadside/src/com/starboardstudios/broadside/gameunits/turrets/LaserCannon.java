@@ -26,6 +26,7 @@ public class LaserCannon extends Turret {
 		this.cooldown = 300;
 		spendSetCost(200);	
 		this.projectile = new Laser(model, -1);
+		projectile.setTurret(this);
 		size = (float) .125;
 		
 		/* Image */

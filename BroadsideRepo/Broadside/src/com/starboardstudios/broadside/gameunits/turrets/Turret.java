@@ -77,8 +77,9 @@ public abstract class Turret extends BaseUnit implements Draggable {
 			float startY = centerY+yOffset;
 			imageView.setRotation((float)(angle*(180/Math.PI)));
 			//spawn projectile
-			Projectile tempProj = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
-			tempProj.creator = this;
+			Projectile tempProj = projectile.create(projectile, startX, startY, fireSpeed, angle);
+			tempProj.creator = model.getMainShip();
+			tempProj.setTarget(xTarget, yTarget);
 			tempProj.setTurret(this);
 			model.addUnit(tempProj);
 			tempProj.getImage().setRotation((float)(angle*(180/Math.PI)));
@@ -96,8 +97,8 @@ public abstract class Turret extends BaseUnit implements Draggable {
 		float startX = this.x;
 		float startY = this.y;
 		float angle = 0;
-		Projectile temp = projectile.create(model, projectile.getDamage(), startX, startY, fireSpeed, angle);
-		temp.creator = this;
+		Projectile temp = projectile.create(projectile, startX, startY, fireSpeed, angle);
+		temp.creator = model.getMainShip();
 		temp.setTurret(this);
 		model.addUnit(temp);
 		//imageView.setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
@@ -132,7 +133,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
 			if (withinRange(target)) {
 				float targetX = target.getX();
 				float targetY = target.getY();
-				fire(targetX, targetY);
+				fire(targetX, targetY).drop(false);
 			}
 		}
 	}
@@ -198,9 +199,13 @@ public abstract class Turret extends BaseUnit implements Draggable {
 	}
 	
 	public boolean withinRange(BaseUnit target) {
-		float targetX = target.getX();
-		float targetY = target.getY();
-		return Math.sqrt(Math.pow((targetX - x), 2) + Math.pow((targetY - y), 2)) <= range;
+		if (range == -1) {
+			return true;
+		} else {
+			float targetX = target.getX();
+			float targetY = target.getY();
+			return Math.sqrt(Math.pow((targetX - x), 2) + Math.pow((targetY - y), 2)) <= range;
+		}
 	}
 
     @Override

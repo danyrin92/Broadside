@@ -16,6 +16,7 @@ public class MediumShip extends BaseShip {
 		/** Unique variables for an MediumShip */
 		health = 50;
 		projectile = new CannonBall(model, -1);
+		projectile.creator = this;
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);

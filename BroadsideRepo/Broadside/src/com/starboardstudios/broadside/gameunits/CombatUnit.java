@@ -40,6 +40,9 @@ public abstract class CombatUnit extends BaseUnit {
 		imageView = new ImageView(context);
 		imageView.setVisibility(View.GONE);
 		imageView.setImageResource(drawable.error);
+		
+		//set default z
+		z = 20;
 
 	}
 
@@ -382,7 +385,7 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	protected void fire() {
-		Projectile temp = projectile.create(model, projectile.getDamage(), x,
+		Projectile temp = projectile.create(projectile, x,
 				y, fireSpeed, 0);
 		temp.creator = this;
 		model.addUnit(temp);

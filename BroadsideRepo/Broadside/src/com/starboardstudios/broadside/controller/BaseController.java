@@ -27,7 +27,6 @@ public abstract class BaseController extends Activity {
     
     public void playBattleMusic() {
     	int[] battleMusic = {R.raw.fighting_the_storm, 
-    			R.raw.captain_blood_theme,
     			R.raw.freedom_of_the_seas,
     			R.raw.hes_a_pirate_rock}; 
     	int randomPick = rand(0, battleMusic.length-1);

@@ -11,6 +11,7 @@ import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
+
 //Turret 2
 public class Swivel extends Turret {
 	Swivel me;
@@ -23,8 +24,9 @@ public class Swivel extends Turret {
 		this.fireSpeed = 3;
 		this.cooldown = 60;
 		spendSetCost(25);	
-		range = 300;
+		range = -1; //-1 for testing
 		this.projectile = new CannonBall(model, 5);
+		projectile.setTurret(this);
 		size = (float) .125;
 		
 		/* Image */
@@ -61,8 +63,9 @@ public class Swivel extends Turret {
 		this.fireSpeed = 3;
 		this.cooldown = 60;
 		setCost(25);	
-		range = 300;
+		range = 500;
 		this.projectile = new CannonBall(model, 5);
+		projectile.setTurret(this);
 		size = (float) .125;
 		
 		this.x = x;

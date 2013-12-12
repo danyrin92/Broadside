@@ -24,6 +24,7 @@ public class Cannon extends Turret {
 		this.cooldown = 180;
 		spendSetCost(50);	
 		this.projectile = new CannonBall(model, 20);
+		projectile.setTurret(this);
 		size = (float) .125;
 		
 		/* Image */

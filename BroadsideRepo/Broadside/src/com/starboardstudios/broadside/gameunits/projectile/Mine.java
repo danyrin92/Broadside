@@ -34,9 +34,9 @@ public class Mine extends Projectile {
 	}
 
 	/* Used by turrets and units */
-	public Mine(Model model, int damage, float x, float y,
+	public Mine(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
-		super(model, damage, x, y, fireSpeed, angle);
+		super(projectile, x, y, fireSpeed, angle);
 		imageView.setImageResource(drawable.viking_ship);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
@@ -45,9 +45,9 @@ public class Mine extends Projectile {
 	}
 
 	@Override
-	public Projectile create(Model model, int damage, float x, float y,
+	public Projectile create(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
-		return new Mine(model, damage, x, y, fireSpeed, angle);
+		return new Mine(projectile, x, y, fireSpeed, angle);
 	}
 	
 	public void update() {

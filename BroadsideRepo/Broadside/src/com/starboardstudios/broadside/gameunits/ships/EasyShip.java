@@ -18,6 +18,7 @@ public class EasyShip extends BaseShip {
 		/** Unique variables for an EasyShip */
 		health = 10;
 		projectile = new CannonBall(model, -1); // default damage
+		projectile.creator = this;
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);

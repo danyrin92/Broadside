@@ -14,6 +14,7 @@ import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
+import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Mine;
 import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
@@ -498,6 +499,10 @@ public class Model extends Thread {
 					int sprite2Pixel = getBitmapPixel(unit2, i, j);
 					if (isFilled(sprite1Pixel) && isFilled(sprite2Pixel)) {
 						// System.out.println("successful: "+total);
+						//perform height check for cannonballs
+						if (unit1 instanceof CannonBall && unit1.getZ()>unit2.getZ()) {
+							return false;
+						}
 						return true;
 					}
 					j = j + yOffset;

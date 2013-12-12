@@ -26,8 +26,8 @@ public class Missile extends Projectile {
 
 	}
 
-	public Missile(Model model, int damage, float x, float y, float speed, float angle) {
-		super(model, damage, x, y, speed, angle);
+	public Missile(Projectile projectile, float x, float y, float speed, float angle) {
+		super(projectile, x, y, speed, angle);
 		imageView.setImageResource(drawable.missile);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model.getScreenX() * .05), scaleFactor)); 
@@ -41,8 +41,8 @@ public class Missile extends Projectile {
 	}
 	
 	@Override
-	public Projectile create(Model model, int damage, float x, float y, float fireSpeed, float angle) {
-		return new Missile(model, damage, x, y, fireSpeed, angle);
+	public Projectile create(Projectile projectile, float x, float y, float fireSpeed, float angle) {
+		return new Missile(projectile, x, y, fireSpeed, angle);
 	}
 	
 	private BaseUnit selectTarget() {

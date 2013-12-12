@@ -16,6 +16,7 @@ public class HardShip extends BaseShip {
 		/** Unique variables for a HardShip */
 		health = 100;
 		projectile = new CannonBall(model, 40);
+		projectile.creator = this;
 
 		/** Projectile speed */
 		fireSpeed = -(float) (model.getScreenX() * .005);
