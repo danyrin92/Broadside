@@ -1,19 +1,17 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.CombatUnit;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.interfaces.Draggable;
+
+import java.util.ArrayList;
 
 public abstract class Turret extends BaseUnit implements Draggable {
 	
@@ -222,13 +220,19 @@ public abstract class Turret extends BaseUnit implements Draggable {
 
     @Override
     public boolean endDrag(float x, float y) {
-        if (turretCheck(x,y)) {
-            this.setPosition((int)( x-(imageView.getDrawable().getBounds().right + imageView.getDrawable().getBounds().left)/2), (int) (y-(imageView.getDrawable().getBounds().top + imageView.getDrawable().getBounds().bottom)/2-1));
+        boolean test = turretCheck(x,y);
+        System.out.println("Turet check is "+ test);
+        //if (turretCheck(x,y))
+        {
+           // this.setPosition((int)x,(int)y);
+
+            System.out.println("Right: " + imageView.getDrawable().getBounds().right + "Left: " + imageView.getDrawable().getBounds().left + " Top:" +imageView.getDrawable().getBounds().top + " Bottom: "+imageView.getDrawable().getBounds().bottom);
+            this.setPosition((int) (x-((imageView.getDrawable().getBounds().right - imageView.getDrawable().getBounds().left)/2)+90), (int)y-50);
             this.update();
             this.imageView.setVisibility(View.VISIBLE);
             return true;
         }
-        return false;
+        //return false;
     }
 
 

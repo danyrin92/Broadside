@@ -9,7 +9,6 @@ import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
 //Turret 1
 public class Cannon extends Turret {
@@ -28,7 +27,7 @@ public class Cannon extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.cannon_upgrade2); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -68,7 +67,7 @@ public class Cannon extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret1); // Set to image
+		imageView.setImageResource(drawable.cannon_upgrade2); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
