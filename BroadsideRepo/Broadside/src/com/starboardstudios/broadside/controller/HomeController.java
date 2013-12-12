@@ -21,6 +21,8 @@ public class HomeController extends BaseController {
 	private Model model;
 	final Context context = this;
 	private EditText edittext;
+	private boolean save = false;
+	private String user;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -67,9 +69,10 @@ public class HomeController extends BaseController {
 					try {
 						DataOutputStream out = 
 						new DataOutputStream(openFileOutput("username.bin", Context.MODE_PRIVATE));
-						String user = edittext.getText().toString();
+						user = edittext.getText().toString();
 						out.writeUTF(user);
 						out.close();
+						save = true;
 						Toast.makeText(context, "Welcome " + user, Toast.LENGTH_LONG).show();
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
@@ -91,7 +94,10 @@ public class HomeController extends BaseController {
 	}
 	
 	public void playGame(View view)
-	{	
+	{
+		if(save == true){
+			((BroadsideApplication) this.getApplication()).username = user;
+		}
 		wipeMP();
 		((BroadsideApplication) this.getApplication()).clearModel();
 		Intent playIntent = new Intent(this, PlayController.class);
@@ -106,6 +112,9 @@ public class HomeController extends BaseController {
 	
 	public void loadGame(View view)
 	{
+		if(save == true){
+			((BroadsideApplication) this.getApplication()).username = user;
+		}
 		((BroadsideApplication) this.getApplication()).load = true;
 		((BroadsideApplication) this.getApplication()).clearModel();
 		Intent playIntent = new Intent(this, PlayController.class);

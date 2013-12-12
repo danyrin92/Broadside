@@ -53,8 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -68,8 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                    	android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -83,8 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                    	android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -98,8 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -113,8 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -128,8 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -143,8 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -158,8 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -173,8 +165,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -188,8 +179,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level"
-                        android:textColor="#000000"
-                        android:textSize="22sp" />
+                        android:textColor="#000000" />
 
                 </TableRow>
 
@@ -352,7 +342,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="33dp"
+                android:layout_marginRight="90dp"
                 android:gravity="center" >
 
                  <TableRow

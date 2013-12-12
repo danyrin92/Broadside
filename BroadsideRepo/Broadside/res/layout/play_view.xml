@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="false" >
+    android:clickable="false" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
         android:id="@id/play_frame"
@@ -84,7 +83,18 @@
                 android:textSize="30sp"
                 android:typeface="monospace" />
 
+            <TextView
+                android:id="@+id/ScoreView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/BootyView"
+                android:layout_below="@+id/BootyView"
+                android:text="Score: "
+                android:textColor="#6F4242"
+                android:textSize="30sp" />
+                />
         </RelativeLayout>
+
     </FrameLayout>
 
 </RelativeLayout>

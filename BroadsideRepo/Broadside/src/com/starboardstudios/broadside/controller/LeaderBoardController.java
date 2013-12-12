@@ -20,6 +20,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,6 @@ import com.starboardstudios.broadside.gameunits.Model;
 public class LeaderBoardController extends BaseController {
 	
 	public Model model;
-	private String url = "http://broadsideserver.rileinc.com/LeaderBoard2.php";
 	TextView user0, user1, user2, user3, user4, 
 			 user5, user6, user7, user8, user9;
 	TextView level0, level1, level2, level3, level4, 
@@ -49,7 +49,6 @@ public class LeaderBoardController extends BaseController {
 		setContentView(R.layout.leaderboard_view);
 		StrictMode.enableDefaults(); //STRICT MODE ENABLED
 		
-		RelativeLayout rlayout = (RelativeLayout) findViewById(R.id.RelativeLayout2);
 		model = ((BroadsideApplication) this.getApplication()).getModel();
 		model.setCurrentActivity(this);
 		
@@ -95,7 +94,7 @@ public class LeaderBoardController extends BaseController {
     	try {
     		   JSONArray jArray = new JSONArray(result);
     		   
-    		   for(int i=0; i<jArray.length();i++){
+    		   for(int i=0; i<jArray.length() && i<10 ;i++){
     			   JSONObject json = jArray.getJSONObject(i);
     			   
     			   users[i] = json.getString("username");
@@ -148,8 +147,8 @@ public class LeaderBoardController extends BaseController {
 	
 	public void setTxtAttributes(){
 		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
-		
 		int txtSize = (int) (model.getScreenY() * .02721);
+		
 		Toast.makeText(getApplicationContext(), Integer.toString(txtSize), Toast.LENGTH_LONG).show();
 		user0 = (TextView) findViewById(R.id.user0);
 		user0.setTypeface(myTypeface);

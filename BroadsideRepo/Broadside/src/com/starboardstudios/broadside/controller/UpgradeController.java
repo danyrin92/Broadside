@@ -90,11 +90,12 @@ public class UpgradeController extends BaseController {
 
 			}
 		});
+		
+		((BroadsideApplication) this.getApplication()).saveUser(context);
 	}
 
 	public void nextLevel(View view) {
 		wipeMP();
-		((BroadsideApplication) this.getApplication()).saveModel(context);
 		Intent plaIntent = new Intent(this, PlayController.class);
 		startActivity(plaIntent);
 	}

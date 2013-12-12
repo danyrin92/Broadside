@@ -171,6 +171,17 @@ public class Model extends Thread {
 					}
 				};
 				runOnMain(updateHealthTask);
+				
+				/** HANDLES SCORE UPDATE */
+				final TextView score = (TextView) currentActivity
+						.findViewById(R.id.ScoreView);
+				Runnable updateScoreTask = new Runnable() {
+					@Override
+					public void run() {
+						score.setText("Score: " + getScore());
+					}
+				};
+				runOnMain(updateScoreTask);
 
 			}
 

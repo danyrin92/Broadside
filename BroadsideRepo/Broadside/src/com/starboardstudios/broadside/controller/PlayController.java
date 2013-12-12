@@ -519,9 +519,11 @@ public class PlayController extends BaseController {
 		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
 		TextView LevelTextView = (TextView)findViewById(R.id.LevelView);
 		TextView HealthTextView = (TextView)findViewById(R.id.HealthView);
+		TextView ScoreTextView = (TextView)findViewById(R.id.ScoreView);
 	    BootyTextView.setTypeface(myTypeface);
 	    LevelTextView.setTypeface(myTypeface);
 	    HealthTextView.setTypeface(myTypeface);
+	    ScoreTextView.setTypeface(myTypeface);
 	}
 
 	@Override

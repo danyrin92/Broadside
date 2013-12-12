@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,8 +14,19 @@ import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import android.app.Application;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.starboardstudios.broadside.gameunits.Crew;
@@ -37,6 +49,8 @@ public class BroadsideApplication extends Application {
     private Model globalModel;
     public Boolean load = false;
     public String username;
+    public String userlevel;
+    public String userscore;
     
     public BroadsideApplication()
     {
@@ -51,6 +65,12 @@ public class BroadsideApplication extends Application {
     {
            globalModel= new Model(this.getBaseContext());
     }
+    
+    /**
+     * SAVES ALL GAME UNITS CONTAINED IN THE MODEL
+     * INSIDE THE PHONE MEMORY.
+     * @param context
+     */
     public void saveModel(Context context)
     {
     	try {
@@ -65,7 +85,7 @@ public class BroadsideApplication extends Application {
 			
 			ArrayList <Float> turrets = globalModel.getTurretPos();
 			DataOutputStream out = 
-					new DataOutputStream(openFileOutput("savedTurrets.bin", Context.MODE_PRIVATE));
+			new DataOutputStream(openFileOutput("savedTurrets.bin", Context.MODE_PRIVATE));
 			for(int i = 0; i < turrets.size(); i++)
 				out.writeFloat(turrets.get(i));
 			out.flush();
@@ -78,6 +98,12 @@ public class BroadsideApplication extends Application {
 			Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
 		}
     }
+    
+    /**
+     * LOADS ALL OF THE SAVED GAME UNITS FROM THE PHONE MEMORY AND
+     * SAVES THEM INSIDE THE MODEL.
+     * @param context
+     */
     public void loadModel(Context context)
     {
     	try {
@@ -157,6 +183,147 @@ public class BroadsideApplication extends Application {
 			Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
 		}
     }
+    
+    /**
+     * SAVES THE USER'S HIGHEST SCORE INTO THE PHONE MEMORY
+     * @param highScore
+     */
+    public void saveHighScore(int highScore) {
+    	try {
+    		FileOutputStream out = openFileOutput("highScore.bin", MODE_PRIVATE);
+			OutputStreamWriter osw = new OutputStreamWriter(out);
+			osw.write(highScore);
+			osw.flush();
+			osw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    /**
+     * RETRIEVES THE USER'S HIGHEST SCORE FROM THE PHONE MEMORY
+     * @return
+     */
+    public int loadHighScore() {
+    	int highScore = -1;
+    	try {
+    		FileInputStream in = openFileInput("highScore.bin");
+			InputStreamReader isr = new InputStreamReader(in);
+			highScore = isr.read();
+			isr.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return highScore;
+    }
+    
+    /**
+     * SAVES THE USERS'S NAME, HIGHEST LEVEL, AND HIGHEST SCORE TO THE DATABASE
+     */
+    public void saveUser(Context context) {
+    	boolean firstSave = true;
+		try {
+			FileInputStream fin = openFileInput("firstSave.bin");
+			DataInputStream in = new DataInputStream(fin);
+			firstSave = in.readBoolean();
+		} catch (FileNotFoundException e) {
+			
+			//ROW INSERTED INTO THE LEADER BOARD
+			userlevel = Integer.toString(globalModel.getLevel() - 1);
+			userscore = Integer.toString(globalModel.getScore());
+			new InsertAsyncTask().execute((Void) null);
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(firstSave == false){
+			int highScore = loadHighScore();
+			int currentScore = globalModel.getScore();
+			if(currentScore > highScore){
+				saveHighScore(currentScore);
+				Toast.makeText(context, "UPDATE TABLE ROW", Toast.LENGTH_LONG).show();
+				
+				//ROW UPDATED IN THE LEADER BOARD
+				userlevel = Integer.toString(globalModel.getLevel() - 1);
+				userscore = Integer.toString(globalModel.getScore());
+				new UpdateAsyncTask().execute((Void) null);
+				
+			}
+		}
+		
+		try {
+			DataOutputStream out;
+			out = new DataOutputStream(openFileOutput("firstSave.bin", Context.MODE_PRIVATE));
+			out.writeBoolean(false);
+			out.flush();
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    }
+    
+    class InsertAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
+        private void postData(String name, String level, String score) {
+    	
+        	HttpClient httpclient = new DefaultHttpClient();
+        	HttpPost httppost = new HttpPost("http://ec2-54-211-251-187.compute-1.amazonaws.com/LeaderBoardInsert.php");
 
+        	try {
+        		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+        		nameValuePairs.add(new BasicNameValuePair("user_name", name));
+        		nameValuePairs.add(new BasicNameValuePair("user_level", level));
+        		nameValuePairs.add(new BasicNameValuePair("user_score", score));
+        		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        		HttpResponse response = httpclient.execute(httppost);
+        	}
+        	catch(Exception e)
+        	{
+        		Log.e("log_tag", "Error:  "+e.toString());
+        	}
+        }
+        
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            postData(username, userlevel, userscore);
+            return null;
+        }
+    }
+    
+    class UpdateAsyncTask extends AsyncTask<Void, Void, Boolean> {
+
+        private void postData(String name, String level, String score) {
+    	
+        	HttpClient httpclient = new DefaultHttpClient();
+        	HttpPost httppost = new HttpPost("http://ec2-54-211-251-187.compute-1.amazonaws.com/LeaderBoardUpdate.php");
+
+        	try {
+        		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+        		nameValuePairs.add(new BasicNameValuePair("user_name", name));
+        		nameValuePairs.add(new BasicNameValuePair("user_level", level));
+        		nameValuePairs.add(new BasicNameValuePair("user_score", score));
+        		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        		HttpResponse response = httpclient.execute(httppost);
+        	}
+        	catch(Exception e)
+        	{
+        		Log.e("log_tag", "Error:  "+e.toString());
+        	}
+        }
+        
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            postData(username, userlevel, userscore);
+            return null;
+        }
+    }
 }	
