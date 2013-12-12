@@ -99,7 +99,8 @@ public class LeaderBoardController extends BaseController {
     		   for(int i=0; i<jArray.length() && i<10 ;i++){
     			   JSONObject json = jArray.getJSONObject(i);
     			   
-    			   users[i] = json.getString("username");
+    			   users[i] = Integer.toString(i+1) + ". " +
+    					   		json.getString("username");
     			   levels[i] = Integer.toString(json.getInt("userlevel"));
     			   scores[i] = Integer.toString(json.getInt("userscore"));
     		   }
