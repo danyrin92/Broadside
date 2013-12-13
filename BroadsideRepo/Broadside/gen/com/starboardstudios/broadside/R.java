@@ -99,7 +99,7 @@ public final class R {
         public static final int LevelTable=0x7f05001e;
         public static final int LevelView=0x7f050066;
         public static final int LinearLayout1=0x7f050062;
-        public static final int LinearLayout2=0x7f050076;
+        public static final int LinearLayout2=0x7f050075;
         public static final int NameTable=0x7f050033;
         public static final int NextButton=0x7f050005;
         public static final int RelativeLayout1=0x7f050002;
@@ -119,7 +119,6 @@ public final class R {
         public static final int frameLayout2=0x7f050011;
         public static final int imageView1=0x7f05005d;
         public static final int imageView10=0x7f050072;
-        public static final int imageView11=0x7f050075;
         public static final int imageView2=0x7f050012;
         public static final int imageView3=0x7f05000f;
         public static final int imageView4=0x7f050010;

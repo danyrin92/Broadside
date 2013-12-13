@@ -159,15 +159,6 @@
                 android:onClick="hire"
                 android:src="@drawable/upgrade_hire_crew" />
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:layout_alignLeft="@+id/imageView10"
-                android:layout_below="@+id/imageView10"
-                android:onClick="removeTurret"
-                android:src="@drawable/upgrade_remove_turret" />
-
         </RelativeLayout>
 
     </FrameLayout>
