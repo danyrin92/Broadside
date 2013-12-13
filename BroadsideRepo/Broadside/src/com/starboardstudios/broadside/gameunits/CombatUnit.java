@@ -402,6 +402,7 @@ public abstract class CombatUnit extends BaseUnit {
 		}
 
 		if (unit instanceof CombatUnit) {
+
 			xSpeed = 0;
 			ySpeed = 0;
 			System.out.println("Set xSpeed and ySpeed to 0");
@@ -410,7 +411,7 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	public void checkShipCollisions() {
-		/*for (int j = 0; j < model.getUnits().size(); j++) {
+		for (int j = 0; j < model.getUnits().size(); j++) {
 			if (model.getUnits().get(j) == this)
 				j++;
 
@@ -418,13 +419,18 @@ public abstract class CombatUnit extends BaseUnit {
 				break;
 
 			if (model.getUnits().get(j) instanceof CombatUnit) {
-				BaseUnit temp = model.getUnits().get(j);
-				if (model.checkCollision(this, temp)) {
-					this.collide(temp);
-					temp.collide(this);
+				float absx = Math.abs(this.x - model.getUnits().get(j).x);
+				float absy = Math.abs(this.y - model.getUnits().get(j).y);
+
+				if (absx < 50 && absy < 75) {
+					if (j % 2 == 0) {
+						xSpeed = 0;
+						ySpeed = 0;
+					}
 				}
 			}
-		}*/
+
+		}
 	}
 
 }
