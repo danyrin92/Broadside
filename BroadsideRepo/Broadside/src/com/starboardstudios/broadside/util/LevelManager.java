@@ -1,5 +1,6 @@
 package com.starboardstudios.broadside.util;
 
+import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.gameunits.Model;
@@ -108,6 +109,14 @@ public abstract class LevelManager {
 	 * Then restart the level.
 	 */
 	public static void restartLevel(Model model) {
+		PlayController currentActivity;
+		try {
+			currentActivity = (PlayController) model.getCurrentActivity();
+			((BroadsideApplication) currentActivity.getApplication()).loadModel(currentActivity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		/*
 		model.getTimer().cancel();
 		model.removeAll();
 		model.loadPrev();
@@ -121,6 +130,7 @@ public abstract class LevelManager {
 		} else {
 			startLevel(model);
 		}
+		*/
 	}
 	
 	public static void loadLevel(Model model) {

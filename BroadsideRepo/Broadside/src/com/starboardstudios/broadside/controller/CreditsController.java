@@ -74,8 +74,14 @@ public class CreditsController extends BaseController {
 	public void setCreditsToMusic() {
 		title.setText("Music and Sounds:");
 		title.setTextSize(1, 30);
-		credits.setText(Html.fromHtml("<p>Credits to the music and sounds we use need to be entered</p>"));
-		credits.setTextSize(1,20);
+		credits.setText(Html.fromHtml(
+				"<p>Absentcrisis95 \"Freedom of the seas\" Recorded 3 3 2012. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/474398.</p><p></p><p></p>" +
+				"<p>CAPTAIN BLOOD trailer., Creative Commons license: Public Domain Mark 1.0, <p></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://archive.org/details/CaptainBloodTrailer.</p><p></p><p></p>" +
+				"<p>EagleGuard \"Fighting the Storm\" Posted 11 14 2013. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/556463.</p><p></p><p></p>" +
+				"SoundReaper \" Into the Pirate Bay\" Posted 3 3 2011. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/412882. </p><p></p><p></p>" +
+				"<p>TheSoulScream \"Sid Meiers Pirates! Tavern Rmk\" Posted 3 25 2011. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/408846.</p>"));
+		credits.setTextSize(1,15);
+		credits.setGravity(0x70); //fill_vertical
 	}
 	
 	public void setCreditsToDevelopers() {
