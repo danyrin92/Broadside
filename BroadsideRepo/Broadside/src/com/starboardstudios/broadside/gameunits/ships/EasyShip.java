@@ -1,34 +1,31 @@
-package com.starboardstudios.broadside.gameunits.ships;
-
-import java.util.TimerTask;
+package com.starboardstudios.broadside.gameunits.submarine;
 
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
+import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
-public class EasyShip extends BaseShip {
+public class EasySubmarine extends BaseSubmarine {
 
-	public EasyShip(Model model) {
+	public EasySubmarine(Model model) {
 		super(model);
 		plunder = 10;
 
-		/** Unique variables for an EasyShip */
+		/** Unique variables for an EasySubmarine */
 		health = 10;
-		projectile = new CannonBall(model, -1); // default damage
+		projectile = new Torpedo(model, 20);
 		projectile.creator = this;
 
-		/** Projectile speed */
-		fireSpeed = -(float) (model.getScreenX() * .004);
+		fireSpeed = -(float) (model.getScreenX() * .005);
 
-		/** Art asset assigned to EasyShip */
-		imageView.setImageResource(drawable.enemyship1);
+		/** Art asset assigned to EasySubmarine */
+		imageView.setImageResource(drawable.easysubmarine);
 
 		/** Scale of the EasyShip type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .20), (int) (model.getScreenY() * .20)));
+				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
 
 		/**
 		 * Current onClick listener for testing firing. TODO: Delete and
@@ -36,9 +33,6 @@ public class EasyShip extends BaseShip {
 		 */
 
 		imageView.setVisibility(View.VISIBLE);
-
-		/** Starting speed of the ship */
-		xSpeed = -(int) (model.getScreenX() * .001);
 
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
@@ -49,37 +43,29 @@ public class EasyShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-		int speed = (int) (Math.abs(xSpeed) + Math.abs(ySpeed));
+		checkShipCollisions();
+		xSpeed /= 2;
+		ySpeed /= 2;
 		lifetime++;
 		x = x + xSpeed;
 		y = y + ySpeed;
 
 		if (random == 0)
-			pathOne();
-
-		if (random == 1)
-			pathTwo();
-
-		if (random == 2) {
-			random = rand.nextInt(2);
-		}
+			pathFour();
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
 
-				if (lifetime > 150) {
+				if (lifetime > 350) {
 					fire();
 					lifetime = 0;
 				}
+
 			}
 
 		});
-
-		double num1 = Math.pow(xSpeed, 2);
-		double num2 = Math.pow(ySpeed, 2);
-		double toSqrt = num2 + num1;
 
 	}
 
