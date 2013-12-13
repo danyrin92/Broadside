@@ -55,12 +55,14 @@ public class EasyAircraft extends BaseAircraft {
 			pathFive();
 
 		if (random == 0)
-			pathFive();
+			pathTwo();
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				
+				imageView.setRotation((float)angle);
 
 				if (lifetime > 100) {
 					fire();
