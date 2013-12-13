@@ -1,12 +1,8 @@
 package com.starboardstudios.broadside.gameunits;
 
-import java.util.Timer;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
-
-import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
@@ -41,7 +37,7 @@ public abstract class CombatUnit extends BaseUnit {
 
 		imageView = new ImageView(context);
 		imageView.setVisibility(View.GONE);
-		imageView.setImageResource(drawable.error);
+	//	imageView.setImageResource(drawable.error);
 
 		// set default z
 		z = 20;
