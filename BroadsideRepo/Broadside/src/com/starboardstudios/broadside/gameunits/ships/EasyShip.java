@@ -58,14 +58,15 @@ public class EasyShip extends BaseShip {
 			pathTwo();
 
 		if (random == 2) {
-			random = rand.nextInt(2);
+			pathSix();
 		}
 
 		model.runOnMain(new Runnable() {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setRotation((float) angle++);
+
+				imageView.setRotation((float) angle);
 
 				if (lifetime > 150) {
 					fire();
