@@ -114,6 +114,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/frameLayout4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_above="@+id/nxtLvl"
@@ -129,40 +130,13 @@
             </FrameLayout>
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView8"
                 android:layout_width="75dp"
                 android:layout_height="50dp"
-                android:layout_alignLeft="@+id/imageView4"
-                android:layout_alignTop="@+id/BootyView"
-                android:onClick="addTurret1"
-                android:src="@drawable/upgrade_swivel" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:layout_alignTop="@+id/frameLayout3"
-                android:layout_centerHorizontal="true"
-                android:onClick="addTurret2"
-                android:src="@drawable/upgrade_cannon" />
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/imageView4"
-                android:layout_below="@+id/imageView4"
-                android:onClick="addTurret3"
-                android:src="@drawable/upgrade_torpedo_launcher" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/imageView6"
-                android:layout_below="@+id/imageView6"
-                android:onClick="addTurret4"
-                android:src="@drawable/upgrade_mine_launcher" />
+                android:layout_above="@+id/imageView9"
+                android:layout_alignLeft="@+id/imageView7"
+                android:onClick="addTurret5"
+                android:src="@drawable/upgrade_missile_launcher" />
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -174,13 +148,40 @@
                 android:src="@drawable/upgrade_lasor_cannon" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/imageView6"
                 android:layout_width="75dp"
                 android:layout_height="50dp"
-                android:layout_above="@+id/imageView9"
-                android:layout_alignLeft="@+id/imageView7"
-                android:onClick="addTurret5"
-                android:src="@drawable/upgrade_missile_launcher" />
+                android:layout_above="@+id/imageView7"
+                android:layout_alignLeft="@+id/imageView4"
+                android:onClick="addTurret3"
+                android:src="@drawable/upgrade_torpedo_launcher" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/imageView6"
+                android:layout_centerHorizontal="true"
+                android:onClick="addTurret1"
+                android:src="@drawable/upgrade_cannon" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/imageView4"
+                android:layout_alignLeft="@+id/imageView4"
+                android:onClick="addTurret2"
+                android:src="@drawable/upgrade_swivel" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/imageView8"
+                android:layout_alignLeft="@+id/imageView6"
+                android:onClick="addTurret4"
+                android:src="@drawable/upgrade_mine_launcher" />
 
         </RelativeLayout>
 
