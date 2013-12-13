@@ -37,9 +37,6 @@ public class EasyShip extends BaseShip {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
-		xSpeed = -(int) (model.getScreenX() * .001);
-
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
 
@@ -49,8 +46,8 @@ public class EasyShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-		int speed = (int) (Math.abs(xSpeed) + Math.abs(ySpeed));
 		lifetime++;
+		checkShipCollisions();
 		x = x + xSpeed;
 		y = y + ySpeed;
 
