@@ -17,7 +17,7 @@ public class EasySubmarine extends BaseSubmarine {
 		health = 10;
 		projectile = new Torpedo(model, 20);
 		projectile.creator = this;
-		
+
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasySubmarine */
@@ -34,9 +34,6 @@ public class EasySubmarine extends BaseSubmarine {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the submarine */
-		xSpeed = -(int) (model.getScreenX() * .002);
-
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
 
@@ -46,7 +43,7 @@ public class EasySubmarine extends BaseSubmarine {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-
+		checkShipCollisions();
 		xSpeed /= 2;
 		ySpeed /= 2;
 		lifetime++;

@@ -30,9 +30,7 @@ public class MediumShip extends BaseShip {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the ship */
-		xSpeed = -(int) (model.getScreenX() * .001);
-
+		
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
 	}
@@ -41,6 +39,7 @@ public class MediumShip extends BaseShip {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
+		checkShipCollisions();
 		x = x + xSpeed;
 		y = y + ySpeed;
 		lifetime++;

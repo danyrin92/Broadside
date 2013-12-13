@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 public abstract class CombatUnit extends BaseUnit {
 
@@ -40,14 +41,15 @@ public abstract class CombatUnit extends BaseUnit {
 		imageView = new ImageView(context);
 		imageView.setVisibility(View.GONE);
 		imageView.setImageResource(drawable.error);
-		
-		//set default z
+
+		// set default z
 		z = 20;
 
 	}
 
 	public void destroy() {
 		model.removeUnit(this);
+		model.addBooty(plunder);
 	}
 
 	void GoTo(int x, int y) {
@@ -58,8 +60,10 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	/** Pass in projectile that collides, take damage */
-	protected void Damage(Projectile p) {
-		health = health - p.getDamage();
+	protected void damage(int x) {
+		health -= x;
+		if (health <= 0)
+			destroy();
 	}
 
 	public int getHealth() {
@@ -385,10 +389,42 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	protected void fire() {
-		Projectile temp = projectile.create(projectile, x,
-				y, fireSpeed, 0);
+		Projectile temp = projectile.create(projectile, x, y, fireSpeed, 0);
 		temp.creator = this;
 		model.addUnit(temp);
+	}
+
+	public void collide(BaseUnit unit) {
+		if (unit instanceof Projectile) {
+			if (((Projectile) unit).creator instanceof MainShip) {
+				damage(((Projectile) unit).getDamage());
+			}
+		}
+
+		if (unit instanceof CombatUnit) {
+			xSpeed = 0;
+			ySpeed = 0;
+			System.out.println("Set xSpeed and ySpeed to 0");
+
+		}
+	}
+
+	public void checkShipCollisions() {
+		/*for (int j = 0; j < model.getUnits().size(); j++) {
+			if (model.getUnits().get(j) == this)
+				j++;
+
+			if (j >= model.getUnits().size())
+				break;
+
+			if (model.getUnits().get(j) instanceof CombatUnit) {
+				BaseUnit temp = model.getUnits().get(j);
+				if (model.checkCollision(this, temp)) {
+					this.collide(temp);
+					temp.collide(this);
+				}
+			}
+		}*/
 	}
 
 }
