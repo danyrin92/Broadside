@@ -23,6 +23,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	private boolean invulnerable = false;
 	private Section bow,midship,stern;
 	private int maxHealth;
+	private float xKey = .1125f;
 
 	public MainShip(Model model, boolean b) {
 		super(model.context);
@@ -30,7 +31,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		imageView = new ImageView(model.context);
 
 		/** PNG to be used as image */
-		imageView.setImageResource(drawable.mainship);
+		imageView.setImageResource(drawable.main_ship_final_trimmed);
 		imageView.setAdjustViewBounds(true);
 
 		/** Determines rendering size of object */
@@ -41,14 +42,14 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		x = -((int) (model.getScreenX() * .225));
 		y = (float) -(model.getScreenY() * .2);
 
-		health = 100;
+		xKey = .1125f;
 		mainCannon = new MainCannon(model,
-				(float) (this.x + ((model.getScreenX() * .325))),
+				(float) (this.x + ((model.getScreenX() * xKey))),
 				(float) (this.y + ((model.getScreenX() * .3))));
 		
 		/** Sections... As of now just to localize visuals 
 		 * (get shot in stern a lot, fires appear in stern, etc.*/
-		float x = (float) (model.getScreenX() * .325 *.4);
+		float x = (float) (model.getScreenX() * xKey *.4);
 		float y = (float) model.getScreenY();
 		health = maxHealth = 1000;
 		bow = new Section(model,x,y*(float).1, health/2);
@@ -60,7 +61,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		float crewY;
 		for (int i = 0; i < crews.size(); i++) {
 			offset = ((float) i) / 50;
-			crewX = (float) (this.x + ((model.getScreenX() * .345)));
+			crewX = (float) (this.x + ((model.getScreenX() * (xKey+.05))));
 			crewY = (float) (this.y + ((model.getScreenX() * (.3 - offset))));
 			crews.get(i).setPosition(crewX, crewY);
 			crews.get(i).setStations(crewX, crewY);
@@ -72,7 +73,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		this.model = model;
 		//Image
 		imageView = new ImageView(model.context);
-		imageView.setImageResource(drawable.mainship);
+		imageView.setImageResource(drawable.main_ship_final_trimmed);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
@@ -80,7 +81,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		y = ((int) (model.getScreenY() * .7));
 		//MainCannon added here
 		mainCannon = new MainCannon(model,
-				(float) (this.x + ((model.getScreenX() * .325))),
+				(float) (this.x + ((model.getScreenX() * (xKey+.2)))),
 				(float) (this.y + ((model.getScreenX() * .3))));
 		//Sections (health and centers set here)
 		health = maxHealth = 1000;
@@ -106,14 +107,14 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 			
 			// update turrets and crew
 			mainCannon.setPosition(
-					(float) (this.x + ((model.getScreenX() * .325))),
+					(float) (this.x + ((model.getScreenX() * (xKey+.1)))),
 					(float) (this.y + ((model.getScreenX() * .3))));
 			float offset = 0; // for crew
 			float crewX;
 			float crewY;
 			for (int i = 0; i < crews.size(); i++) {
 				offset = ((float) i) / 50;
-				crewX = (float) (this.x + ((model.getScreenX() * .345)));
+				crewX = (float) (this.x + ((model.getScreenX() * (xKey+.1))));
 				crewY = (float) (this.y + ((model.getScreenX() * (.3 - offset))));
 				crews.get(i).setPosition(crewX, crewY);
 				crews.get(i).setStations(crewX, crewY);
@@ -126,7 +127,6 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
-				imageView.setImageResource(drawable.mainship);
 			}
 
 		});
@@ -304,7 +304,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	}
 	
 	public void setupSections() {
-		float x = (float) (model.getScreenX() * .325 *.4);
+		float x = (float) (model.getScreenX() * xKey *.4);
 		float y = (float) model.getScreenY();
 		bow = new Section(model,x,y*(float).1, health/3);
 		midship = new Section(model,x,y*(float).4, health/3+1);
