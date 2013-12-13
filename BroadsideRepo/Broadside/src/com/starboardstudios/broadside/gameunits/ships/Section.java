@@ -1,14 +1,11 @@
 package com.starboardstudios.broadside.gameunits.ships;
 
-import android.app.Activity;
-
-import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.controller.PlayController;
-import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.Fire;
+import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Section {
 
@@ -91,7 +88,7 @@ public class Section {
 		// determine fire spawns
 		float x, y;
 		Fire fire;
-		int range = 100;
+		int range = 75;
 		int r1, r2;
 		// spawn maxHealthBars - numHealthBars Fires in section
 		for (int i = 0; i < numFiresToSpawn; i++) {

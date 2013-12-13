@@ -25,7 +25,8 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	private boolean invulnerable = false;
 	private Section bow,midship,stern;
 	private int maxHealth;
-	private float xKey = .1025f;
+    private float xKey = .1f;
+    private float xOff = (float) (.225*1.08);
 
 	public MainShip(Model model, boolean b) {
 		super(model.context);
@@ -41,8 +42,8 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
 
 		/** Starting position. As for now on the left. */
-		x = -((int) (model.getScreenX() * .0125));
-		y = (float) -(model.getScreenY() * .2);
+        x = -((int) (model.getScreenX() * xOff));
+        y = (float) -(model.getScreenY() * .2);
 
 		//xKey = .1125f;
 		mainCannon = new MainCannon(model,
@@ -79,7 +80,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
-		x = -((int) (model.getScreenX() * .225));
+        x = -((int) (model.getScreenX() * xOff));
 		y = ((int) (model.getScreenY() * .7));
 		//MainCannon added here
 		mainCannon = new MainCannon(model,

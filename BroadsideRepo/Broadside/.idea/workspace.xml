@@ -40,14 +40,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6880b715-420e-4ec9-ab9a-517f436a09eb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Explosion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/aircrafts/BaseAircraft.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/aircrafts/BaseAircraft.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Fire.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Fire.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java" afterPath="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Broadside.iws" />
@@ -116,7 +111,7 @@
       <file leaf-file-name="Fire.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Fire.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="34" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1275">
+            <state line="20" column="34" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -142,7 +137,25 @@
       <file leaf-file-name="MainShip.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="30" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4665">
+            <state line="74" column="41" selection-start="2875" selection-end="2875" vertical-scroll-proportion="0.0" vertical-offset="4057" max-vertical-offset="4680">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Handler.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar:///Applications/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-19/android.jar!/android/os/Handler.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="0" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1245">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Timer.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar:///Applications/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-19/android.jar!/java/util/Timer.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -169,34 +182,18 @@
       <file leaf-file-name="Section.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="27" selection-start="5028" selection-end="5455" vertical-scroll-proportion="0.0" vertical-offset="2467" max-vertical-offset="3090">
+            <state line="165" column="66" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.0" vertical-offset="2002" max-vertical-offset="3090">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GifPlayer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java">
+      <file leaf-file-name="Model.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="87" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.42215088" vertical-offset="307" max-vertical-offset="1035">
+            <state line="324" column="0" selection-start="8800" selection-end="8800" vertical-scroll-proportion="0.33226323" vertical-offset="3948" max-vertical-offset="12855">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="26" selection-start="6897" selection-end="6901" vertical-scroll-proportion="-6.5" vertical-offset="2561" max-vertical-offset="7155">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="explosion.gif" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/drawable/explosion.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -247,13 +244,14 @@
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/turrets/Turret1.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/UpgradeController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/aircrafts/BaseAircraft.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Explosion.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Fire.java" />
-        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
         <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java" />
+        <option value="$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java" />
       </list>
     </option>
   </component>
@@ -1197,7 +1195,7 @@
       <workItem from="1384234951798" duration="1304000" />
       <workItem from="1386929412016" duration="106000" />
       <workItem from="1386929524553" duration="1188000" />
-      <workItem from="1386930814587" duration="3411000" />
+      <workItem from="1386930814587" duration="4808000" />
     </task>
     <task id="LOCAL-00001" summary="Tap to double speed,">
       <created>1380085751634</created>
@@ -1335,11 +1333,15 @@
       <created>1386929434870</created>
       <updated>1386929434870</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Explosions Word">
+      <created>1386934241428</created>
+      <updated>1386934241428</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114462000" />
+    <option name="totallyTimeSpent" value="115859000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1429,7 +1431,8 @@
     <MESSAGE value="Updated file&#10;" />
     <MESSAGE value="FIXED SHIT.... Night...." />
     <MESSAGE value="Collisions Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Collisions Update" />
+    <MESSAGE value="Explosions Word" />
+    <option name="LAST_COMMIT_MESSAGE" value="Explosions Word" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1439,20 +1442,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="42" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Torpedo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="46" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/CannonBall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="31" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="825">
@@ -1690,13 +1679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="0" selection-start="3213" selection-end="3213" vertical-scroll-proportion="0.0" vertical-offset="1143" max-vertical-offset="2760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/projectile/Torpedo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="46" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1020">
@@ -1723,13 +1705,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="30" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/app/BroadsideApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="13" selection-start="1751" selection-end="1751" vertical-scroll-proportion="0.0" vertical-offset="3847" max-vertical-offset="4470">
@@ -1747,20 +1722,6 @@
     <entry file="jar:///Applications/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="423" column="150" selection-start="18852" selection-end="18852" vertical-scroll-proportion="0.0" vertical-offset="5857" max-vertical-offset="6675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="27" selection-start="5028" selection-end="5455" vertical-scroll-proportion="0.0" vertical-offset="2467" max-vertical-offset="3090">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="26" selection-start="6897" selection-end="6901" vertical-scroll-proportion="-6.5" vertical-offset="2561" max-vertical-offset="7155">
           <folding />
         </state>
       </provider>
@@ -1794,16 +1755,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="436" column="64" selection-start="12089" selection-end="12098" vertical-scroll-proportion="0.54895663" vertical-offset="5463" max-vertical-offset="12840">
+        <state line="54" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.49438202" vertical-offset="412" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/interfaces/GifPlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/controller/PlayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="87" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.42215088" vertical-offset="307" max-vertical-offset="1035">
+        <state line="121" column="0" selection-start="3705" selection-end="3705" vertical-scroll-proportion="-7.6538463" vertical-offset="926" max-vertical-offset="7155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/MainShip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="41" selection-start="2875" selection-end="2875" vertical-scroll-proportion="0.0" vertical-offset="4057" max-vertical-offset="4680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/ships/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="66" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.0" vertical-offset="2002" max-vertical-offset="3090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/util/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="0" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.33226323" vertical-offset="1158" max-vertical-offset="2760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-19/android.jar!/android/os/Handler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="0" selection-start="3379" selection-end="3379" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/adt-bundle-mac-x86_64-20131030/sdk/platforms/android-19/android.jar!/java/util/Timer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/starboardstudios/broadside/gameunits/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="324" column="0" selection-start="8800" selection-end="8800" vertical-scroll-proportion="0.33226323" vertical-offset="3948" max-vertical-offset="12855">
           <folding />
         </state>
       </provider>

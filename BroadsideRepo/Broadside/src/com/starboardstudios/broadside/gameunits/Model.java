@@ -344,7 +344,7 @@ public class Model extends Thread {
 
 			for (int x = 0; x < units.size(); x++) {
 				System.out.println(units.get(x).toString());
-				if(units.get(x) instanceof Fire)
+				if(units.get(x) instanceof Fire || units.get(x) instanceof Explosion)
                 {
 
                 }
@@ -544,6 +544,7 @@ public class Model extends Thread {
 				}
 				i = i + xOffset;
 			}
+
 			/**
 			 * The problem with missiles/turrets can be traced to their wonky
 			 * imageView padding and rects. This work around seems to works
