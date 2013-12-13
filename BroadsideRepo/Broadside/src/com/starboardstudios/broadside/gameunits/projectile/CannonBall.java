@@ -36,7 +36,7 @@ public class CannonBall extends Projectile {
 		if (projectile.turret instanceof Swivel || projectile.turret == null) {
 			drop = false;
 		} else {
-			drop = false; //false for testing
+			drop = true; //false for testing
 		}
 	}
 
