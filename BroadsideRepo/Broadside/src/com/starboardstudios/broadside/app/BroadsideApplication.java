@@ -121,9 +121,9 @@ public class BroadsideApplication extends Application {
 			isr.close();
 			
 			LevelManager.loadLevel(globalModel);
-			Toast.makeText(context, Integer.toString(level) 
-					+ " " + Integer.toString(booty)
-					+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
+			//Toast.makeText(context, Integer.toString(level) 
+				//	+ " " + Integer.toString(booty)
+					//+ " " + Integer.toString(numCrew), Toast.LENGTH_LONG).show();
 			MainShip mainShip = new MainShip(globalModel, true);
 			globalModel.addUnit(mainShip);
 			globalModel.setPrevMainShip(mainShip);
@@ -187,7 +187,7 @@ public class BroadsideApplication extends Application {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
+			//Toast.makeText(context, "IOException", Toast.LENGTH_LONG).show();
 		}
     }
     

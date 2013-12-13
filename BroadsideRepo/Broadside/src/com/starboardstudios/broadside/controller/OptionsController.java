@@ -24,7 +24,7 @@ public class OptionsController extends BaseController {
 	private String cheat;
 	private boolean soundOn;
 	private ImageView soundButton;
-	private ImageView nameChangeButton;
+	private ImageView TwoXSpeedButton;
 	
 	@SuppressLint("NewApi")
 	@Override
@@ -42,34 +42,16 @@ public class OptionsController extends BaseController {
 	    //cheat = editText.getText().toString();
 	    
 	    soundButton = (ImageView)findViewById(R.id.soundView);
-	    nameChangeButton = (ImageView)findViewById(R.id.changeNameView);
-	    /*
-	    if(soundOn){
-			soundButton.setImageResource(R.drawable.sound_on_cloud);
-		}
-		if(!soundOn)
-		{
-			soundButton.setImageResource(R.drawable.sound_off_cloud);
-		}
-		*/
+	    TwoXSpeedButton = (ImageView)findViewById(R.id.changeNameView);
 	    
 	    soundButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(soundOn == true){
-					soundOn = false;
-					soundButton.setImageResource(R.drawable.sound_off_cloud);
-				}
-				if(soundOn == false)
-				{
-					soundOn = true;
-					soundButton.setImageResource(R.drawable.sound_on_cloud);
-				}
-				saveSoundOn();
+				wipeMP();
 			}
 		});
 	    
-	    nameChangeButton.setOnClickListener(new OnClickListener() {
+	    TwoXSpeedButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				
@@ -77,10 +59,6 @@ public class OptionsController extends BaseController {
 		});
 	}
 
-	public void saveSoundOn(){
-		((BroadsideApplication) this.getApplication()).soundOn = soundOn;
-    }
-	
 	@Override
 	public void playMusic() {
 		//
