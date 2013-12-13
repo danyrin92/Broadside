@@ -18,6 +18,7 @@ public abstract class CombatUnit extends BaseUnit {
 	protected float xSpeed, ySpeed, fireSpeed;
 	protected int health;
 	public int lifetime = 0;
+	protected double angle=0;
 	/**
 	 * Boolean values used in pathing to see if a node has been visited. It
 	 * looks crazy, but I promise it will make sense
