@@ -110,7 +110,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
+                    android:onClick="hire"
                     android:src="@drawable/upgrade_hire_crew" />
+
             </FrameLayout>
 
             <FrameLayout
@@ -124,7 +126,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
+                    android:onClick="heave"
                     android:src="@drawable/upgrade_fire_crew" />
+
             </FrameLayout>
 
             <ImageView
@@ -133,6 +137,7 @@
                 android:layout_height="50dp"
                 android:layout_alignTop="@+id/frameLayout3"
                 android:layout_centerHorizontal="true"
+                android:onClick="addTurret2"
                 android:src="@drawable/upgrade_cannon" />
 
             <ImageView
@@ -141,6 +146,7 @@
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/imageView4"
                 android:layout_below="@+id/LevelView"
+                android:onClick="addTurret1"
                 android:src="@drawable/upgrade_swivel" />
 
             <ImageView
@@ -149,6 +155,7 @@
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/imageView4"
                 android:layout_below="@+id/imageView4"
+                android:onClick="addTurret3"
                 android:src="@drawable/upgrade_torpedo_launcher" />
 
             <ImageView
@@ -157,6 +164,7 @@
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/imageView6"
                 android:layout_below="@+id/imageView6"
+                android:onClick="addTurret4"
                 android:src="@drawable/upgrade_mine_launcher" />
 
             <ImageView
@@ -165,6 +173,7 @@
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/imageView7"
                 android:layout_below="@+id/imageView7"
+                android:onClick="addTurret5"
                 android:src="@drawable/upgrade_missile_launcher" />
 
             <ImageView
@@ -173,6 +182,7 @@
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/imageView8"
                 android:layout_below="@+id/imageView8"
+                android:onClick="addTurret6"
                 android:src="@drawable/upgrade_lasor_cannon" />
 
         </RelativeLayout>

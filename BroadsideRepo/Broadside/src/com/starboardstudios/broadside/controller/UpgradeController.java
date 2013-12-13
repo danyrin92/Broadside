@@ -205,12 +205,12 @@ public class UpgradeController extends BaseController {
 		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Pieces of Eight.ttf");
 		TextView BootyTextView = (TextView)findViewById(R.id.BootyView);
 		TextView LevelTextView = (TextView)findViewById(R.id.LevelView); 
-		TextView manageTurretsTextView = (TextView)findViewById(R.id.level0); //textView3
-		TextView manageCrewTextView = (TextView)findViewById(R.id.textView3);
+		//TextView manageTurretsTextView = (TextView)findViewById(R.id.level0); //textView3
+		//TextView manageCrewTextView = (TextView)findViewById(R.id.textView3);
 	    BootyTextView.setTypeface(myTypeface);
 	    LevelTextView.setTypeface(myTypeface);
-	    manageTurretsTextView.setTypeface(myTypeface);
-	    manageCrewTextView.setTypeface(myTypeface);
+	    //manageTurretsTextView.setTypeface(myTypeface);
+	    //manageCrewTextView.setTypeface(myTypeface);
 	}
 
 	@Override
