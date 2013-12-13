@@ -21,7 +21,7 @@ public class EasyAircraft extends BaseAircraft {
 		fireSpeed = -(float) (model.getScreenX() * .005);
 
 		/** Art asset assigned to EasyAircraft */
-		imageView.setImageResource(drawable.easyaircraft);
+		imageView.setImageResource(drawable.airplane);
 
 		/** Scale of the EasyAircraft type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
