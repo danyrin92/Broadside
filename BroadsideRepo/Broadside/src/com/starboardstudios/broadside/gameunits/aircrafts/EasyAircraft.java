@@ -34,9 +34,7 @@ public class EasyAircraft extends BaseAircraft {
 
 		imageView.setVisibility(View.VISIBLE);
 
-		/** Starting speed of the submarine */
-		xSpeed = -(int) (model.getScreenX() * .003);
-
+	
 		x = (int) (model.getScreenX() + 75);
 		y = (int) (model.getScreenY() * .4);
 
@@ -46,7 +44,7 @@ public class EasyAircraft extends BaseAircraft {
 	 * Features current basic pathing TODO: Implement advanced pathing
 	 */
 	public void update() {
-
+		checkShipCollisions();
 		xSpeed *= 2;
 		ySpeed *= 2;
 		lifetime++;
