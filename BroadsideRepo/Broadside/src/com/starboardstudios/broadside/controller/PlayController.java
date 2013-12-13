@@ -100,7 +100,7 @@ public class PlayController extends BaseController {
 						gotoMMenu();
 					}
 				});
-				
+				/*
 				//Options Button
 				ImageView optionsButton = (ImageView) pauseDialog
 						.findViewById(R.id.imageView5);
@@ -110,7 +110,7 @@ public class PlayController extends BaseController {
 						gotoOptions();
 					}
 				});
-
+					*/
 				pauseDialog.show();
 			}
 

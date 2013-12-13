@@ -87,7 +87,7 @@ public final class R {
         public static final int waves=0x7f020049;
     }
     public static final class id {
-        public static final int BootyView=0x7f050066;
+        public static final int BootyView=0x7f050065;
         public static final int CreditsText=0x7f050006;
         public static final int ExitButton=0x7f050003;
         public static final int FrameLayout01=0x7f050017;
@@ -97,7 +97,7 @@ public final class R {
         public static final int ImageView02=0x7f050016;
         public static final int ImageView03=0x7f05000e;
         public static final int LevelTable=0x7f05001e;
-        public static final int LevelView=0x7f050067;
+        public static final int LevelView=0x7f050066;
         public static final int LinearLayout1=0x7f050062;
         public static final int LinearLayout2=0x7f050076;
         public static final int NameTable=0x7f050033;
@@ -105,11 +105,11 @@ public final class R {
         public static final int RelativeLayout1=0x7f050002;
         public static final int RelativeLayout2=0x7f05001d;
         public static final int ScoreTable=0x7f050048;
-        public static final int ScoreView=0x7f050069;
+        public static final int ScoreView=0x7f050068;
         public static final int TitleText=0x7f050004;
-        public static final int UpgradeScreen=0x7f050065;
-        public static final int addShip=0x7f05006b;
-        public static final int addTurret=0x7f05006c;
+        public static final int UpgradeScreen=0x7f050064;
+        public static final int addShip=0x7f05006a;
+        public static final int addTurret=0x7f05006b;
         public static final int changeNameView=0x7f050060;
         public static final int creditsButton=0x7f050018;
         public static final int descView=0x7f050008;
@@ -123,12 +123,12 @@ public final class R {
         public static final int imageView2=0x7f050012;
         public static final int imageView3=0x7f05000f;
         public static final int imageView4=0x7f050010;
-        public static final int imageView5=0x7f050064;
+        public static final int imageView5=0x7f050070;
         public static final int imageView6=0x7f050071;
         public static final int imageView7=0x7f050074;
         public static final int imageView8=0x7f050073;
-        public static final int imageView9=0x7f050070;
-        public static final int inner_frame=0x7f05006a;
+        public static final int imageView9=0x7f05006f;
+        public static final int inner_frame=0x7f050069;
         public static final int leaderboardView=0x7f05001c;
         public static final int level=0x7f05001b;
         public static final int level0=0x7f050020;
@@ -154,7 +154,7 @@ public final class R {
         public static final int linearLayout1=0x7f05005e;
         public static final int mainMenu=0x7f050009;
         public static final int name=0x7f050019;
-        public static final int nxtLvl=0x7f05006e;
+        public static final int nxtLvl=0x7f05006d;
         public static final int pause=0x7f050063;
         public static final int pauseButton=0x7f050014;
         public static final int play_frame=0x7f050000;
@@ -182,10 +182,10 @@ public final class R {
         public static final int scoreRow8=0x7f050059;
         public static final int scoreRow9=0x7f05005b;
         public static final int soundView=0x7f05005f;
-        public static final int tableLayout1=0x7f05006f;
-        public static final int test=0x7f050068;
+        public static final int tableLayout1=0x7f05006e;
+        public static final int test=0x7f050067;
         public static final int upgrade=0x7f050001;
-        public static final int upgrade_frame=0x7f05006d;
+        public static final int upgrade_frame=0x7f05006c;
         public static final int user0=0x7f050035;
         public static final int user1=0x7f050037;
         public static final int user2=0x7f050039;
