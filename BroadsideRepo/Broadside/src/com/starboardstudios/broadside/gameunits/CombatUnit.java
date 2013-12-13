@@ -1,8 +1,12 @@
 package com.starboardstudios.broadside.gameunits;
 
+import java.util.Timer;
+
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
@@ -14,7 +18,7 @@ public abstract class CombatUnit extends BaseUnit {
 	protected float xSpeed, ySpeed, fireSpeed;
 	protected int health;
 	public int lifetime = 0;
-	protected double angle=0;
+	protected double angle = 0;
 	/**
 	 * Boolean values used in pathing to see if a node has been visited. It
 	 * looks crazy, but I promise it will make sense
@@ -27,6 +31,9 @@ public abstract class CombatUnit extends BaseUnit {
 			twelven = false, thirteenn = false, fourteenn = false,
 			fifteenn = false, sixteenn = false, seventeenn = false,
 			eighteenn = false, nineteenn = false, twentyn = false;
+
+	float up = 0, upright = 45, right = 90, downright = 135, down = 180,
+			downleft = 225, left = 270, upleft = 315;
 	protected Context context;
 	protected Model model;
 	/** Reward for giving when destroyed */
@@ -37,7 +44,7 @@ public abstract class CombatUnit extends BaseUnit {
 
 		imageView = new ImageView(context);
 		imageView.setVisibility(View.GONE);
-	//	imageView.setImageResource(drawable.error);
+		imageView.setImageResource(drawable.error);
 
 		// set default z
 		z = 20;
@@ -201,17 +208,29 @@ public abstract class CombatUnit extends BaseUnit {
 	 * method and it should path accordingly
 	 */
 	/** PathOne should be a triangular figure 8 */
+	boolean swap = false;
+
 	protected void pathOne() {
-		if (!fourn)
+		if (!fourn) {
+			if (swap)
+				angle = upright;
+			else
+				angle = left;
 			goFour();
-		else if (!onen)
+		} else if (!onen) {
+			angle = left;
 			goOne();
-		else if (!twentyn)
+		} else if (!twentyn) {
 			goTwenty();
-		else if (!seventeenn)
+			angle = downright;
+		} else if (!seventeenn) {
 			goSeventeen();
-		else
+			angle = left;
+		} else {
+			swap = true;
 			cleanNodes();
+
+		}
 	}
 
 	/**
@@ -219,32 +238,50 @@ public abstract class CombatUnit extends BaseUnit {
 	 * 
 	 */
 	protected void pathTwo() {
-		if (!fourn)
+		if (!fourn) {
+			if (swap)
+				angle = up;
+			else
+				angle = left;
 			goFour();
-		else if (!sixteenn)
+
+		} else if (!sixteenn) {
 			goSixteen();
-		else if (!nineteenn)
+			angle = down;
+		} else if (!nineteenn) {
 			goNineteen();
-		else if (!threen)
+			angle = left;
+		} else if (!threen) {
 			goThree();
-		else if (!twon)
+			angle = up;
+		} else if (!twon) {
 			goTwo();
-		else if (!fourteenn)
+			angle = left;
+		} else if (!fourteenn) {
 			goFourteen();
-		else if (!seventeenn)
+			angle = down;
+		} else if (!seventeenn) {
 			goSeventeen();
-		else if (!onen)
+			angle = downleft;
+		} else if (!onen) {
 			goOne();
-		else if (!sixn)
+			angle = up;
+		} else if (!sixn) {
 			goSix();
-		else if (!eighteenn)
+			angle = downright;
+		} else if (!eighteenn) {
 			goEighteen();
-		else if (!fifteenn)
+			angle = down;
+		} else if (!fifteenn) {
 			goFifteen();
-		else if (!sevenn)
+			angle = upright;
+		} else if (!sevenn) {
 			goSeven();
-		else
+			angle = up;
+		} else {
 			cleanNodes();
+			swap = true;
+		}
 
 	}
 
@@ -254,9 +291,10 @@ public abstract class CombatUnit extends BaseUnit {
 
 	protected void pathThree() {
 
-		if (!tenn)
+		if (!tenn) {
+			angle = left;
 			goTen();
-		else {
+		} else {
 			xSpeed = 0;
 			ySpeed = 0;
 		}
@@ -269,44 +307,87 @@ public abstract class CombatUnit extends BaseUnit {
 	 */
 	protected void pathFour() {
 
-		if (!fourn)
+		if (!fourn) {
+			if (swap)
+				angle = up;
+			else
+				angle = left;
 			goFour();
-		else if (!onen)
+		} else if (!onen) {
+			angle = left;
 			goOne();
-		else if (!seventeenn)
+
+		} else if (!seventeenn) {
 			goSeventeen();
-		else if (!twentyn)
+			angle = down;
+		} else if (!twentyn) {
+			angle = right;
 			goTwenty();
-		else
+		} else {
 			cleanNodes();
+			swap = true;
+		}
 
 	}
 
 	/**
 	 * Fly around perimeter quickly
 	 */
+
 	protected void pathFive() {
-		if (!fourn)
+		if (!fourn) {
+			if (swap)
+				angle = left;
 			goFour();
-		else if (!onen)
+		} else if (!onen) {
 			goOne();
-		else if (!seventeenn)
+
+		} else if (!seventeenn) {
 			goSeventeen();
-		else if (!twentyn)
+			angle = down;
+		} else if (!twentyn) {
+			angle = right;
 			goTwenty();
-		else
+		} else
 			cleanNodes();
 	}
 
 	/**
-	 * Strafing run
-	 * 
-	 * /**
-	 * 
-	 * 
+	 * Extra path
 	 */
 
 	protected void pathSix() {
+		if (!twentyn) {
+			goTwenty();
+			if (swap)
+				angle = down;
+			else
+				angle = left;
+		} else if (!seventeenn) {
+			goSeventeen();
+			angle = left;
+		} else if (!thirteenn) {
+			goThirteen();
+			angle = up;
+		} else if (!fifteenn) {
+			goFifteen();
+			angle = right;
+		} else if (!sevenn) {
+			goSeven();
+			angle = up;
+		} else if (!fiven) {
+			goFive();
+			angle = left;
+		} else if (!onen) {
+			goOne();
+			angle = up;
+		} else if (!fourn) {
+			goFour();
+			angle = right;
+		} else {
+			swap = true;
+			cleanNodes();
+		}
 
 	}
 
@@ -425,7 +506,7 @@ public abstract class CombatUnit extends BaseUnit {
 				float absy = Math.abs(this.y - model.getUnits().get(j).y);
 
 				if (absx < 100 && absy < 130) {
-					if (i < j) {
+					if (i > j) {
 						xSpeed = 0;
 						ySpeed = 0;
 					}
