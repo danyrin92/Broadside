@@ -1,4 +1,4 @@
-package com.starboardstudios.broadside.gameunits.aircrafts;
+package com.starboardstudios.broadside.gameunits.submarine;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -10,19 +10,19 @@ import com.starboardstudios.broadside.gameunits.ships.MainShip;
 
 import java.util.Random;
 
-public abstract class BaseAircraft extends CombatUnit {
+public abstract class BaseSubmarine extends
+		com.starboardstudios.broadside.gameunits.CombatUnit {
 
 	/** Random value for choosing pathing track */
 	Random rand = new Random();
-	int random = rand.nextInt(3);
+	int random = rand.nextInt(1);
 
-	public BaseAircraft(Model model) {
+	public BaseSubmarine(Model model) {
 		super(model.context);
 		this.model = model;
 
 		imageView.setVisibility(View.INVISIBLE);
 		imageView.setAdjustViewBounds(true);
-
 	}
 
 	@Override
