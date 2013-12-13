@@ -3,7 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/broadside_logo"
+    android:background="@drawable/ocean"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
@@ -22,8 +22,7 @@
             android:id="@id/upgrade"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center"
-            android:background="@drawable/background" >
+            android:layout_gravity="right|center" >
 
             <Button
                 android:id="@+id/nxtLvl"
@@ -34,189 +33,150 @@
                 android:onClick="nextLevel"
                 android:text="Continue" />
 
-            <TableLayout
-                android:id="@+id/tableLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true" >
+            <FrameLayout
+                android:id="@+id/frameLayout1"
+                android:layout_width="200dp"
+                android:layout_height="400dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="22dp"
+                android:layout_marginRight="143dp"
+                android:layout_toLeftOf="@+id/nxtLvl" >
 
-                <TableRow
-                    android:id="@+id/tableRow1"
+                <ImageView
+                    android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/upgrade_crew" />
+            </FrameLayout>
 
-                    <TextView
-                        android:id="@+id/level0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Manage Turrets:"
-                        android:textColor="#6F4242"
-                        android:textSize="30sp" />
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="200dp"
+                android:layout_height="480dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/frameLayout1" >
 
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow2"
+                <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/Button01"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret1"
-                        android:text="Cannon (50)"
-                        android:textSize="12sp" />
-
-                    <Button
-                        android:id="@+id/button2"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret2"
-                        android:text="Swivel (25)"
-                        android:textSize="12sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/Button02"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret3"
-                        android:text="Torpedo Launcher (50)"
-                        android:textSize="12sp" />
-
-                    <Button
-                        android:id="@+id/Button04"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret4"
-                        android:text="Mine Launcher (75)"
-                        android:textSize="12sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/Button03"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret5"
-                        android:text="Missile Launcher (100)"
-                        android:textSize="12sp" />
-
-                    <Button
-                        android:id="@+id/Button05"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="addTurret6"
-                        android:text="Laser Cannon (200)"
-                        android:textSize="12sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/NextButton"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="removeTurret"
-                        android:text="Remove Turret (+Half Cost)"
-                        android:textSize="12sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Manage Crew:"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#6F4242"
-                        android:textSize="30sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/button7"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="hire"
-                        android:text="Hire (25)"
-                        android:textSize="12sp" />
-
-                    <Button
-                        android:id="@+id/button8"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="heave"
-                        android:text="Heave (+10)"
-                        android:textSize="12sp" />
-
-                </TableRow>
-
-            </TableLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="69dp"
+                    android:src="@drawable/upgrade_weps" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/LevelView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/BootyView"
-                android:layout_marginRight="44dp"
-                android:layout_toLeftOf="@+id/tableLayout1"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/frameLayout1"
+                android:layout_marginRight="55dp"
+                android:layout_marginTop="44dp"
                 android:text="Level: "
                 android:textColor="#6F4242"
-                android:typeface="monospace" 
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:typeface="monospace" />
 
             <TextView
                 android:id="@+id/BootyView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@+id/LevelView"
+                android:layout_alignLeft="@+id/LevelView"
+                android:layout_below="@+id/LevelView"
                 android:text="Booty: "
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#6F4242"
                 android:textSize="30sp" />
 
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/upgrade_title" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignRight="@+id/frameLayout1"
+                android:layout_below="@+id/BootyView"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="21dp" >
+
+                <ImageView
+                    android:id="@+id/hireView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:src="@drawable/upgrade_hire_crew" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_above="@+id/nxtLvl"
+                android:layout_alignLeft="@+id/frameLayout3" >
+
+                <ImageView
+                    android:id="@+id/fireView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:src="@drawable/upgrade_fire_crew" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/frameLayout3"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/upgrade_cannon" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView4"
+                android:layout_below="@+id/LevelView"
+                android:src="@drawable/upgrade_swivel" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView4"
+                android:layout_below="@+id/imageView4"
+                android:src="@drawable/upgrade_torpedo_launcher" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView6"
+                android:layout_below="@+id/imageView6"
+                android:src="@drawable/upgrade_mine_launcher" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView7"
+                android:layout_below="@+id/imageView7"
+                android:src="@drawable/upgrade_missile_launcher" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView8"
+                android:layout_below="@+id/imageView8"
+                android:src="@drawable/upgrade_lasor_cannon" />
+
         </RelativeLayout>
+
     </FrameLayout>
 
 </RelativeLayout>
