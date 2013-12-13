@@ -11,37 +11,9 @@
         android:clickable="false"
         android:scrollbarAlwaysDrawVerticalTrack="false" >
 
-        <TextView
-            android:id="@+id/HealthView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:text="Health: "
-            android:textColor="#6F4242"
-            android:textSize="30sp"
-            android:typeface="monospace" />
-
-        <Button
-            android:id="@+id/UpgradeScreen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|right"
-            android:onClick="gotoUpgrades"
-            android:text="Upgrade Screen" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/BootyView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/LevelView"
-                android:layout_below="@+id/LevelView"
-                android:text="Booty: "
-                android:textColor="#6F4242"
-                android:textSize="30sp" />
 
             <RelativeLayout
                 android:id="@+id/RelativeLayout1"
@@ -60,29 +32,6 @@
                     android:src="@drawable/pausemenu" />
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/test"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:onClick="testDeath"
-                android:text="Test Death" />
-
-            <TextView
-                android:id="@+id/LevelView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
-                android:gravity="center_vertical|center_horizontal|right"
-                android:text="Level: "
-                android:textColor="#6F4242"
-                android:textSize="30sp"
-                android:typeface="monospace" />
-
             <TextView
                 android:id="@+id/ScoreView"
                 android:layout_width="wrap_content"
@@ -92,7 +41,42 @@
                 android:text="Score: "
                 android:textColor="#6F4242"
                 android:textSize="30sp" />
-                />
+
+            <TextView
+                android:id="@+id/LevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/HealthView"
+                android:layout_below="@+id/HealthView"
+                android:gravity="center_vertical|center_horizontal|right"
+                android:text="Level: "
+                android:textColor="#6F4242"
+                android:textSize="30sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/HealthView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="34dp"
+                android:layout_toLeftOf="@+id/ScoreView"
+                android:text="Health: "
+                android:textColor="#6F4242"
+                android:textSize="30sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/BootyView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="61dp"
+                android:layout_toLeftOf="@+id/RelativeLayout1"
+                android:text="Booty: "
+                android:textColor="#6F4242"
+                android:textSize="30sp" />
+
         </RelativeLayout>
 
     </FrameLayout>
