@@ -22,7 +22,6 @@ import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.interfaces.GifPlayer;
 import com.starboardstudios.broadside.util.LevelManager;
 
 import java.util.ArrayList;
@@ -46,8 +45,7 @@ public class PlayController extends BaseController {
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(screen);
-        //GifPlayer player = new GifPlayer(this.context,R.drawable.testgif);
-        //((FrameLayout)findViewById(R.id.play_frame)).addView(player);
+
 
         handleTypeface();
 		playMusic();
@@ -230,7 +228,9 @@ public class PlayController extends BaseController {
 	public void addFire(Fire fire,float x,float y) {
 		model.addUnit(fire);
 		fire.setPosition(x,y);
-		model.update();
+        //fire.setX(x);
+        //fire.setY(y);
+
 	}
 
 	public void init() {

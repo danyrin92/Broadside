@@ -1,7 +1,5 @@
 package com.starboardstudios.broadside.gameunits.turrets;
 
-import java.util.ArrayList;
-
 import android.content.ClipData;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,12 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.BaseUnit;
-import com.starboardstudios.broadside.gameunits.CombatUnit;
 import com.starboardstudios.broadside.gameunits.Model;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Missile;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
 
 //Turret 5
 public class MissileLauncher extends Turret {
@@ -33,7 +27,7 @@ public class MissileLauncher extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.missile_launcher); // Set to image
+		imageView.setImageResource(drawable.missle_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -76,7 +70,7 @@ public class MissileLauncher extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.missile_launcher); // Set to image
+		imageView.setImageResource(drawable.missle_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size

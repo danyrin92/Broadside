@@ -7,10 +7,11 @@ import android.widget.LinearLayout;
 
 import com.starboardstudios.broadside.R.drawable;
 import com.starboardstudios.broadside.gameunits.ships.Section;
+import com.starboardstudios.broadside.interfaces.GifPlayer;
 
 public class Fire extends BaseUnit{
 	// properties
-	private ImageView imageView;
+	public GifPlayer fireImage;
 	private Context context;
 	private Model model;
 	private Section sect;
@@ -20,13 +21,11 @@ public class Fire extends BaseUnit{
 		this.context = model.context;
 		this.model = model;
 		// create image
-		imageView = new ImageView(context);
-		imageView.setAdjustViewBounds(true);
-		imageView.setImageResource(drawable.fire_image);
+		fireImage = new GifPlayer(context,drawable.fire_cartoon);
 		float size = (float) .1;
-		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
+		fireImage.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size)));
-		imageView.setVisibility(View.VISIBLE);
+		fireImage.setVisibility(View.VISIBLE);
 		// initialize other stuff
 		x = y = 0;
 	}
@@ -37,14 +36,15 @@ public class Fire extends BaseUnit{
 
 		model.runOnMain(new Runnable() {
 			public void run() {
-				imageView.setX(x);
-				imageView.setY(y);
+				fireImage.setX(x);
+				fireImage.setY(y);
 			}
 		});
 	}
 
+
 	public ImageView getImage() {
-		return imageView;
+		return null;
 	}
 
 	//required...
@@ -67,7 +67,7 @@ public class Fire extends BaseUnit{
 	}
 
 	public void setImageView(ImageView image) {
-		imageView = image;
+
 	}
 
 	public float getX() {

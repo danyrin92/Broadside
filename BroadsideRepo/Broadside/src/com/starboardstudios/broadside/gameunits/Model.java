@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,36 +11,19 @@ import android.widget.TextView;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.controller.PlayController;
-import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
-import com.starboardstudios.broadside.gameunits.projectile.CannonBall;
 import com.starboardstudios.broadside.gameunits.projectile.Mine;
 import com.starboardstudios.broadside.gameunits.projectile.Missile;
 import com.starboardstudios.broadside.gameunits.projectile.Projectile;
 import com.starboardstudios.broadside.gameunits.projectile.Torpedo;
-import com.starboardstudios.broadside.gameunits.ships.BaseShip;
 import com.starboardstudios.broadside.gameunits.ships.EasyShip;
 import com.starboardstudios.broadside.gameunits.ships.HardShip;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.ships.MediumShip;
-import com.starboardstudios.broadside.gameunits.submarine.BaseSubmarine;
 import com.starboardstudios.broadside.gameunits.submarine.EasySubmarine;
-import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
-import com.starboardstudios.broadside.gameunits.turrets.Turret;
-import com.starboardstudios.broadside.util.LevelManager;
-import com.starboardstudios.broadside.R;
-import com.starboardstudios.broadside.controller.BaseController;
 import com.starboardstudios.broadside.gameunits.turrets.*;
+import com.starboardstudios.broadside.util.LevelManager;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -432,8 +414,18 @@ public class Model extends Thread {
 				unit.update();
 				// System.out.println("Original Location" +
 				// unit.getImage().getX()+unit.getImage().getY() );
-				((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+				if(unit instanceof Fire )
+                {
+                    ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+                            .addView(((Fire)unit).fireImage);
+
+
+
+                }
+                else
+                {((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 						.addView(unit.getImage());
+                }
 			}
 			// this makes addTurret# in upgrade screen work
 			else if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
