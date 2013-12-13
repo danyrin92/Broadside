@@ -69,6 +69,23 @@ public class Missile extends Projectile {
 
 	@Override
 	public void update() {
+		x = x + xSpeed;
+		y = y + ySpeed;
+		
+		double distanceFromStart = Math.sqrt(Math.pow((startX - x), 2) + Math.pow((startY - y), 2));
+		
+		boolean maxRange = distanceFromStart > range;
+		if (range !=-1 && maxRange) {
+			destroy();
+		} 
+
+		model.runOnMain(new Runnable() {
+			public void run() {
+                    imageView.setX(x);
+				    imageView.setY(y);
+			}
+		});
+	}/*
 		if (target == null) {
 			selectTarget();
 			return;
@@ -101,5 +118,5 @@ public class Missile extends Projectile {
 						    imageView.setY(y);
 					}
 				});
-	}
+	*/
 }

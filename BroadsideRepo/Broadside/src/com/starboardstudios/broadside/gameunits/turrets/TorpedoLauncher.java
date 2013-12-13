@@ -29,7 +29,7 @@ public class TorpedoLauncher extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret3); // Set to image
+		imageView.setImageResource(drawable.torpedo_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -69,7 +69,7 @@ public class TorpedoLauncher extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret3); // Set to image
+		imageView.setImageResource(drawable.torpedo_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size

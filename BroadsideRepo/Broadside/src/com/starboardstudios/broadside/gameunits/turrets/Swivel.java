@@ -30,7 +30,7 @@ public class Swivel extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret2); // Set to image
+		imageView.setImageResource(drawable.swivel_gun); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -72,7 +72,7 @@ public class Swivel extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret2); // Set to image
+		imageView.setImageResource(drawable.swivel_gun); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size

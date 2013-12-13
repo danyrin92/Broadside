@@ -30,7 +30,7 @@ public class LaserCannon extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret6); // Set to image
+		imageView.setImageResource(drawable.laser_cannon); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -71,7 +71,7 @@ public class LaserCannon extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret6); // Set to image
+		imageView.setImageResource(drawable.laser_cannon); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size

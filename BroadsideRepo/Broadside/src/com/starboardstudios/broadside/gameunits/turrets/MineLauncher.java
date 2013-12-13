@@ -40,7 +40,7 @@ public class MineLauncher extends Turret {
 		determineSpacing();
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret4); // Set to image
+		imageView.setImageResource(drawable.mine_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -85,7 +85,7 @@ public class MineLauncher extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret4); // Set to image
+		imageView.setImageResource(drawable.mine_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size

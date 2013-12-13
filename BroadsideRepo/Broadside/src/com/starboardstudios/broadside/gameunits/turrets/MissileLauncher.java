@@ -33,7 +33,7 @@ public class MissileLauncher extends Turret {
 		size = (float) .125;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret5); // Set to image
+		imageView.setImageResource(drawable.missile_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
@@ -76,7 +76,7 @@ public class MissileLauncher extends Turret {
 		this.y = y;
 		
 		/* Image */
-		imageView.setImageResource(drawable.turret5); // Set to image
+		imageView.setImageResource(drawable.missile_launcher); // Set to image
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size))); // Set size
