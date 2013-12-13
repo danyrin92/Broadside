@@ -46,7 +46,7 @@ public class PlayController extends BaseController {
 				R.layout.play_view, null);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(screen);
-        GifPlayer player = new GifPlayer(this.context,R.drawable.testgif);
+        //GifPlayer player = new GifPlayer(this.context,R.drawable.testgif);
         //((FrameLayout)findViewById(R.id.play_frame)).addView(player);
 
         handleTypeface();
