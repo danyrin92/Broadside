@@ -618,6 +618,10 @@ public class Model extends Thread {
 		int health = getMainShip().getHealth();
 		return health;
 	}
+	
+	public void setShipHealth(int shipHealth) {
+		getMainShip().setHealth(shipHealth);
+	}
 
 	public MainShip getMainShip() {
 		for (int i = 0; i < units.size(); i++) {

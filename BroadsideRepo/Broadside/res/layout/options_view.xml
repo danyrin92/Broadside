@@ -1,69 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/RelativeLayout1"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <TextView
-        android:id="@+id/descView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Options"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    android:layout_height="wrap_content"
+    android:background="@drawable/ocean" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
-        android:layout_below="@+id/descView"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical" >
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+        <ImageView
+            android:id="@+id/soundView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/sound_off_cloud" />
 
-            <TextView
-                android:id="@+id/level0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Double Speed" />
-
-            <ToggleButton
-                android:id="@+id/speedToggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ToggleButton" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="another option"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <ToggleButton
-                android:id="@+id/toggleButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ToggleButton" />
-
-        </LinearLayout>
-
+        <ImageView
+            android:id="@+id/changeNameView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/change_name" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Back" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/descView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Cheats"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="492dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="#000000" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -314,6 +314,12 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	public void updateHealth() {
 		health = bow.getHealth() + midship.getHealth() + stern.getHealth();
 	}
+	
+	public void setHealth(int shipHealth) {
+		bow.setHealth(shipHealth/3);
+		midship.setHealth(shipHealth/3 + 1);
+		stern.setHealth(shipHealth/3);
+	}
 
 	/** For getting images to appear above the MainShip 
 	public void reset() {
