@@ -55,7 +55,7 @@ public class Model extends Thread {
 	public Context context;
 	public int numCrew = 0;
 	public boolean load;
-	
+
 	/**
 	 * Starting difficulty is 1.<br>
 	 * Modifier that indicates the number of times the player has made it past
@@ -75,7 +75,7 @@ public class Model extends Thread {
 	private MainShip prevMainShip;
 
 	// Crew is property of mainship
-	
+
 	/** For leaderboard score. Total ammount gained over all levels */
 	private int score;
 	/** Currency gained during a level */
@@ -166,12 +166,12 @@ public class Model extends Thread {
 					@Override
 					public void run() {
 						int x = getShipHealth();
-						x = (x > 0) ? x : 0;		
+						x = (x > 0) ? x : 0;
 						health.setText("Health: " + x);
 					}
 				};
 				runOnMain(updateHealthTask);
-				
+
 				/** HANDLES SCORE UPDATE */
 				final TextView score = (TextView) currentActivity
 						.findViewById(R.id.ScoreView);
@@ -372,7 +372,9 @@ public class Model extends Thread {
 			System.out.println("Updating Upgrade Controller" + units.size());
 			for (int x = 0; x < units.size(); x++) {
 				System.out.println(units.get(x).toString());
-				if ((units.get(x) instanceof Turret)||(units.get(x) instanceof MainShip)||(units.get(x) instanceof Crew)) {
+				if ((units.get(x) instanceof Turret)
+						|| (units.get(x) instanceof MainShip)
+						|| (units.get(x) instanceof Crew)) {
 					((ViewGroup) units.get(x).getImage().getParent())
 							.removeView(units.get(x).getImage());
 					((FrameLayout) currentActivity
@@ -400,7 +402,7 @@ public class Model extends Thread {
 	public void runOnMain(Runnable x) {
 		currentActivity.runOnUiThread(x);
 	}
-	
+
 	/**
 	 * Adds the passed unit to the model.
 	 * 
@@ -446,6 +448,7 @@ public class Model extends Thread {
 	 * redefining if necessary. Calls objects' collide methods if found.
 	 */
 	public void checkCollisions() throws Exception {
+
 		for (int x = 0; x < projectiles.size(); x++) {
 			Projectile tempProjectile = projectiles.get(x);
 			ImageView projectileImage = tempProjectile.getImage();
@@ -465,9 +468,14 @@ public class Model extends Thread {
 					tempProjectile.creator = getMainShip();
 				}
 				if (tempProjectile.creator != tempUnit) {
+
 					if (checkCollision(tempProjectile, tempUnit)) {
-						/*System.out.println("Collision Detected between " + tempUnit.toString() + " and "
-								+ tempProjectile.toString());*/
+						/*
+						 * System.out.println("Collision Detected between " +
+						 * tempUnit.toString() + " and " +
+						 * tempProjectile.toString());
+						 */
+
 						tempUnit.collide(tempProjectile);
 						tempProjectile.collide(tempUnit);
 					}
@@ -476,6 +484,8 @@ public class Model extends Thread {
 		}
 
 	}
+
+	
 
 	/**
 	 * Checks two objects for pixel by pixel collisions.
@@ -510,9 +520,10 @@ public class Model extends Thread {
 					int sprite2Pixel = getBitmapPixel(unit2, i, j);
 					if (isFilled(sprite1Pixel) && isFilled(sprite2Pixel)) {
 						// System.out.println("successful: "+total);
-						//perform height check for cannonballs
+						// perform height check for cannonballs
 						if (unit1 instanceof Projectile) {
-							if (((Projectile)unit1).getDrop()==true && unit1.getZ()>unit2.getZ()) {
+							if (((Projectile) unit1).getDrop() == true
+									&& unit1.getZ() > unit2.getZ()) {
 								return false;
 							}
 						}
@@ -522,13 +533,16 @@ public class Model extends Thread {
 				}
 				i = i + xOffset;
 			}
-			/**The problem with missiles/turrets can be traced to their wonky imageView padding and rects. 
-			 * This work around seems to works well.*/
-			if (unit1 instanceof Torpedo && total==25) {
-				//System.out.println("Torpedo collision unsuccessful: "+total);
+			/**
+			 * The problem with missiles/turrets can be traced to their wonky
+			 * imageView padding and rects. This work around seems to works
+			 * well.
+			 */
+			if (unit1 instanceof Torpedo && total == 25) {
+				// System.out.println("Torpedo collision unsuccessful: "+total);
 				return true;
-			} else if (unit1 instanceof Missile && total==25) {
-				//System.out.println("Missile collision unsuccessful: "+total);
+			} else if (unit1 instanceof Missile && total == 25) {
+				// System.out.println("Missile collision unsuccessful: "+total);
 				return true;
 			} else if (unit1 instanceof Mine && total == 25) {
 				return true;
@@ -625,25 +639,26 @@ public class Model extends Thread {
 			units.remove(unit);
 			if ((unit instanceof CombatUnit) && !(unit instanceof MainShip)) {
 				numOfEnemies--;
-				System.out.println("Enemy " + unit.toString() + " removed. Current numOfEnemies = " + numOfEnemies) ;
+				System.out.println("Enemy " + unit.toString()
+						+ " removed. Current numOfEnemies = " + numOfEnemies);
 				if (numOfEnemies <= 0) {
 					LevelManager.nextLevel(this);
 				}
 			}
-			//handle mainShip lists
+			// handle mainShip lists
 			if (unit instanceof Turret) {
 				getMainShip().getTurrets().remove((Turret) unit);
 			} else if (unit instanceof Crew) {
 				getMainShip().getCrew().remove((Crew) unit);
 				numCrew--;
 			} else if (unit instanceof Fire) {
-				((Fire)unit).getSect().removeFire((Fire)unit);
+				((Fire) unit).getSect().removeFire((Fire) unit);
 			}
 		} catch (Exception e) {
 		}
 		try {
 			projectiles.remove(unit);
-			//handle minelauncher list
+			// handle minelauncher list
 			if (unit instanceof Mine) {
 				(((Mine) unit).getMineLauncher()).removeMine((Mine) unit);
 			}
@@ -694,7 +709,9 @@ public class Model extends Thread {
 	public void removeAllEnemiesAndProjectile() {
 		/** Remove all enemy ships */
 		for (int x = units.size() - 1; x >= 0; x--) {
-			if (!(units.get(x) instanceof MainShip) && (units.get(x) instanceof CombatUnit) && !(units.get(x) instanceof MainCannon)) {
+			if (!(units.get(x) instanceof MainShip)
+					&& (units.get(x) instanceof CombatUnit)
+					&& !(units.get(x) instanceof MainCannon)) {
 				removeUnit(units.get(x));
 			}
 		}
@@ -703,11 +720,12 @@ public class Model extends Thread {
 		}
 
 	}
-	
+
 	public void removeAll() {
 		/** Remove all enemy ships */
 		for (int x = units.size() - 1; x >= 0; x--) {
-			if (units.get(x) instanceof CombatUnit || units.get(x) instanceof MainCannon) {
+			if (units.get(x) instanceof CombatUnit
+					|| units.get(x) instanceof MainCannon) {
 				removeUnit(units.get(x));
 			}
 		}
@@ -716,42 +734,38 @@ public class Model extends Thread {
 		}
 
 	}
-	
-	/** RETURNS THE TURRET NUMBER FOLLOWED BY ITS X
-	 ** AND Y COORDINATES (ie. [1st turret #, 1st turret
-	 ** x coordinate, 1st turret y coordinate, 1st turret #,
-	 ** 2nd turret x coordinate, 2nd turret y coordinate, 
+
+	/**
+	 * RETURNS THE TURRET NUMBER FOLLOWED BY ITS X AND Y COORDINATES (ie. [1st
+	 * turret #, 1st turret x coordinate, 1st turret y coordinate, 1st turret #,
+	 * 2nd turret x coordinate, 2nd turret y coordinate,
+	 * 
 	 * @return ArrayList w/ turret# and coordinates
 	 */
-	public ArrayList<Float> getTurretPos(){
+	public ArrayList<Float> getTurretPos() {
 		ArrayList<Float> turrets = new ArrayList<Float>();
 		for (int i = units.size() - 1; i >= 0; i--) {
 			if (units.get(i) instanceof Cannon) {
 				turrets.add((float) 1);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
-			}
-			else if (units.get(i) instanceof Swivel) {
+			} else if (units.get(i) instanceof Swivel) {
 				turrets.add((float) 2);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
-			}
-			else if (units.get(i) instanceof TorpedoLauncher) {
+			} else if (units.get(i) instanceof TorpedoLauncher) {
 				turrets.add((float) 3);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
-			}
-			else if (units.get(i) instanceof MineLauncher) {
+			} else if (units.get(i) instanceof MineLauncher) {
 				turrets.add((float) 4);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
-			}
-			else if (units.get(i) instanceof MissileLauncher) {
+			} else if (units.get(i) instanceof MissileLauncher) {
 				turrets.add((float) 5);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
-			}
-			else if (units.get(i) instanceof LaserCannon) {
+			} else if (units.get(i) instanceof LaserCannon) {
 				turrets.add((float) 6);
 				turrets.add(units.get(i).getX());
 				turrets.add(units.get(i).getY());
@@ -759,8 +773,10 @@ public class Model extends Thread {
 		}
 		return turrets;
 	}
-	
-	/** GETS THE AMOUNT OF TURRETS ON THE SHIP
+
+	/**
+	 * GETS THE AMOUNT OF TURRETS ON THE SHIP
+	 * 
 	 * @return Amount of Turrets Purchased
 	 */
 	public int getNumTurrets() {
@@ -771,7 +787,7 @@ public class Model extends Thread {
 			}
 		return numTurrets;
 	}
-	
+
 	public int getLevel() {
 		return level;
 	}
@@ -808,8 +824,9 @@ public class Model extends Thread {
 	public void addBooty(int plunder) {
 		this.booty += plunder;
 	}
-	
-	public boolean enoughBooty(Turret turret) { //paid before check, undone if needed
+
+	public boolean enoughBooty(Turret turret) { // paid before check, undone if
+												// needed
 		if (turret != null && booty >= 0) {
 			return true;
 		}
@@ -827,8 +844,8 @@ public class Model extends Thread {
 	public void setNumOfEnemies(int numOfEnemies) {
 		this.numOfEnemies = numOfEnemies;
 	}
-	
-	public void setFPS(int rate){
+
+	public void setFPS(int rate) {
 		this.modFPS = rate;
 	}
 
@@ -841,17 +858,18 @@ public class Model extends Thread {
 
 	}
 
-	/** To be called from MainShip when MainShip's health is below zero.
-	 * Gets Playcontroller to trigger FailState Dialog.
+	/**
+	 * To be called from MainShip when MainShip's health is below zero. Gets
+	 * Playcontroller to trigger FailState Dialog.
 	 */
 	public void goToFailState() {
 		paused = true;
 		score += booty - prevBooty;
-		if(currentActivity instanceof PlayController) {
-			runOnMain( new Runnable() {
+		if (currentActivity instanceof PlayController) {
+			runOnMain(new Runnable() {
 				@Override
 				public void run() {
-					((PlayController)currentActivity).failState();
+					((PlayController) currentActivity).failState();
 				}
 			});
 		}
@@ -868,11 +886,11 @@ public class Model extends Thread {
 	public ArrayList<BaseUnit> getUnits() {
 		return units;
 	}
-	
+
 	public void loadPrev() {
 		addUnit(prevMainShip);
 		addUnit(prevMainShip.getMainCannon());
-		//getMainShip().reset();
+		// getMainShip().reset();
 		booty = prevBooty;
 	}
 
@@ -891,6 +909,5 @@ public class Model extends Thread {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
 
 }
