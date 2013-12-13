@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/Main"
+        android:layout_alignRight="@+id/mainMenu"
         android:gravity="center"
-        android:text="Fail State Window" />
+        android:text="Your Ship has SUNK!"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/restart"
@@ -31,7 +31,7 @@
         android:layout_alignBaseline="@+id/restart"
         android:layout_alignBottom="@+id/restart"
         android:layout_toRightOf="@+id/restart"
-        android:text="Save Model" />
+        android:text="Save" />
 
     <Button
         android:id="@+id/mainMenu"
