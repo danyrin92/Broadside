@@ -227,7 +227,7 @@ public abstract class Turret extends BaseUnit implements Draggable {
            // this.setPosition((int)x,(int)y);
 
             System.out.println("Right: " + imageView.getDrawable().getBounds().right + "Left: " + imageView.getDrawable().getBounds().left + " Top:" +imageView.getDrawable().getBounds().top + " Bottom: "+imageView.getDrawable().getBounds().bottom);
-            this.setPosition((int) (x-((imageView.getDrawable().getBounds().right - imageView.getDrawable().getBounds().left)/2)+90), (int)y-50);
+            this.setPosition((int) (x-((imageView.getDrawable().getBounds().right - imageView.getDrawable().getBounds().left)/2)+50), (int)y-50);
             this.update();
             this.imageView.setVisibility(View.VISIBLE);
             return true;

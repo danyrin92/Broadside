@@ -344,11 +344,20 @@ public class Model extends Thread {
 
 			for (int x = 0; x < units.size(); x++) {
 				System.out.println(units.get(x).toString());
-				((ViewGroup) units.get(x).getImage().getParent())
+				if(units.get(x) instanceof Fire)
+                {
+
+                }
+                else
+                {
+                ((ViewGroup) units.get(x).getImage().getParent())
 						.removeView(units.get(x).getImage());
+
+
 				((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 						.addView(units.get(x).getImage());
-			}
+			    }
+            }
 
 		} else if (currentActivity.name.equalsIgnoreCase("UpgradeController")) {
 			System.out.println("Updating Upgrade Controller" + units.size());
@@ -649,10 +658,12 @@ public class Model extends Thread {
 				numCrew--;
 			} else if (unit instanceof Fire) {
 				((Fire) unit).getSect().removeFire((Fire) unit);
+
 			}
 		} catch (Exception e) {
 		}
 		try {
+
 			projectiles.remove(unit);
 			// handle minelauncher list
 			if (unit instanceof Mine) {
@@ -663,6 +674,30 @@ public class Model extends Thread {
 				System.out.println("remove mine failed...");
 			}
 		}
+
+        if(unit instanceof Fire)
+        {
+            try{
+
+                runOnMain(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        try {
+                            ViewGroup vg = (ViewGroup) ((Fire)unit).fireImage.getParent();
+                            vg.removeView(((Fire)unit).fireImage);
+                        } catch (Exception e) {
+                        }
+
+                        // System.out.println("Removing Image from view: " +
+                        // unit.toString() + " Remaining Images: " + ((FrameLayout)
+                        // currentActivity.findViewById(R.id.play_frame)).getChildCount());
+                    }
+                });
+
+            }   catch (Exception e){}
+        }
+
 
 		try {
 
