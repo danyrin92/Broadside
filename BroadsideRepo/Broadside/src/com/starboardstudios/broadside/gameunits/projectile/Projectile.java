@@ -78,7 +78,7 @@ public abstract class Projectile extends BaseUnit {
 	@Override
 	public void collide(BaseUnit collidedWith) {
 		if (creator instanceof MainShip) {
-			if (!((MainShip) collidedWith instanceof MainShip)&& !((Turret) collidedWith instanceof Turret)) {
+			if (!((MainShip) collidedWith instanceof MainShip) && !((Turret) collidedWith instanceof Turret)) {
 				destroy();
 			}
 		} else if ((creator instanceof CombatUnit)&& !(creator instanceof MainShip)) {

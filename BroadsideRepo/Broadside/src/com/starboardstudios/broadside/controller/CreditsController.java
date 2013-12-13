@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -51,6 +52,7 @@ public class CreditsController extends BaseController {
 						
 					case 1:
 						slide++;
+						nextButton.setVisibility(View.GONE);
 						setCreditsToMusic();
 						break;
 						
@@ -81,7 +83,7 @@ public class CreditsController extends BaseController {
 				"SoundReaper \" Into the Pirate Bay\" Posted 3 3 2011. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/412882. </p><p></p><p></p>" +
 				"<p>TheSoulScream \"Sid Meiers Pirates! Tavern Rmk\" Posted 3 25 2011. <p></p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://www.newgrounds.com/audio/listen/408846.</p>"));
 		credits.setTextSize(1,15);
-		credits.setGravity(0x70); //fill_vertical
+		credits.setGravity(Gravity.FILL_VERTICAL);
 	}
 	
 	public void setCreditsToDevelopers() {

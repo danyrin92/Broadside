@@ -707,7 +707,7 @@ public class Model extends Thread {
 	public void removeAll() {
 		/** Remove all enemy ships */
 		for (int x = units.size() - 1; x >= 0; x--) {
-			if (units.get(x) instanceof CombatUnit || units.get(x) instanceof MainCannon) {
+			if (units.get(x) instanceof CombatUnit || units.get(x) instanceof Turret) {
 				removeUnit(units.get(x));
 			}
 		}

@@ -1,5 +1,7 @@
 package com.starboardstudios.broadside.util;
 
+import android.content.Intent;
+
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.controller.PlayController;
 import com.starboardstudios.broadside.R;
@@ -109,13 +111,24 @@ public abstract class LevelManager {
 	 * Then restart the level.
 	 */
 	public static void restartLevel(Model model) {
+		
 		PlayController currentActivity;
 		try {
 			currentActivity = (PlayController) model.getCurrentActivity();
-			((BroadsideApplication) currentActivity.getApplication()).loadModel(currentActivity);
+			if (!(model.getLevel() == 1)) {
+				((BroadsideApplication) currentActivity.getApplication()).load = true;
+				((BroadsideApplication) currentActivity.getApplication()).clearModel();
+				Intent playIntent = new Intent(currentActivity, PlayController.class);
+				currentActivity.startActivity(playIntent);
+			} else {
+				((BroadsideApplication) currentActivity.getApplication()).clearModel();
+				Intent playIntent = new Intent(currentActivity, PlayController.class);
+				currentActivity.startActivity(playIntent);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		/*
 		model.getTimer().cancel();
 		model.removeAll();
