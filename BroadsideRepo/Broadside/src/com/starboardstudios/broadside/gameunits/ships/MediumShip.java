@@ -57,6 +57,8 @@ public class MediumShip extends BaseShip {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				
+				imageView.setRotation((float)angle);
 
 				if (lifetime > 150) {
 					fire();
