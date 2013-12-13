@@ -26,7 +26,7 @@ public class CannonBall extends Projectile {
 	public CannonBall(Projectile projectile, float x, float y,
 			float fireSpeed, float angle) {
 		super(projectile, x, y, fireSpeed, angle);
-		size = (float) .03;
+		size = (float) .04;
 		imageView.setImageResource(drawable.cannon_ball);
 		imageView.setAdjustViewBounds(true);
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model

@@ -132,6 +132,7 @@ public class PlayController extends BaseController {
 		if (model.getLevel() == 1) {
 			if (((BroadsideApplication) this.getApplication()).load) {
 				((BroadsideApplication) this.getApplication()).loadModel(context);
+				gotoUpgrades();
 			}
 			else {
 				model.addUnit(new MainShip(model));

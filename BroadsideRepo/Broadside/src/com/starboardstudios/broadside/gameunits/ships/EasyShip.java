@@ -24,11 +24,11 @@ public class EasyShip extends BaseShip {
 		fireSpeed = -(float) (model.getScreenX() * .004);
 
 		/** Art asset assigned to EasyShip */
-		imageView.setImageResource(drawable.enemyship1);
+		imageView.setImageResource(drawable.easyship);
 
 		/** Scale of the EasyShip type */
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
-				.getScreenX() * .15), (int) (model.getScreenY() * .15)));
+				.getScreenX() * .25), (int) (model.getScreenY() * .25)));
 
 		/**
 		 * Current onClick listener for testing firing. TODO: Delete and

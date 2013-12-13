@@ -80,6 +80,7 @@ public class BroadsideApplication extends Application {
 			osw.write(globalModel.getBooty());
 			osw.write(globalModel.numCrew);
 			osw.write(globalModel.getNumTurrets());
+			osw.write(globalModel.getScore());
 			osw.flush();
 			osw.close();
 			
@@ -113,6 +114,7 @@ public class BroadsideApplication extends Application {
 			int booty = isr.read();
 			int numCrew = isr.read();
 			int numTurrets = isr.read();
+			int score = isr.read();
 			isr.close();
 			
 			LevelManager.loadLevel(globalModel);
@@ -135,6 +137,7 @@ public class BroadsideApplication extends Application {
 			globalModel.setLevel(level);
 			globalModel.addUnit(globalModel.getMainShip().getMainCannon());
 			globalModel.setBooty(booty);
+			globalModel.setScore(score);
 			
 			fin = openFileInput("savedTurrets.bin");
 			DataInputStream in = new DataInputStream(fin);

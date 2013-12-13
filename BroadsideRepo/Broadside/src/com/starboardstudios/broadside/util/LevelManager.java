@@ -126,13 +126,6 @@ public abstract class LevelManager {
 	public static void loadLevel(Model model) {
 		model.getTimer().cancel();
 		model.removeAll(); //remove if able to load in the middle of the a level
-		model.loadPrev(); //remove if able to load in the middle of the a level
-			try {
-				PlayController currentActivity = (PlayController)model.getCurrentActivity();
-				currentActivity.gotoUpgrades();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 	}
 	
 	/** go to the next level */
