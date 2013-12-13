@@ -56,6 +56,8 @@ public class HardShip extends BaseShip {
 			public void run() {
 				imageView.setX(x);
 				imageView.setY(y);
+				
+				imageView.setRotation((float)angle);
 
 				if (lifetime > 250) {
 					fire();
