@@ -58,6 +58,8 @@ public class EasySubmarine extends BaseSubmarine {
 				imageView.setX(x);
 				imageView.setY(y);
 
+				imageView.setRotation((float) angle);
+
 				if (lifetime > 350) {
 					fire();
 					lifetime = 0;
