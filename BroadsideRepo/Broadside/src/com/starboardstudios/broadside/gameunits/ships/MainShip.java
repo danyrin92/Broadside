@@ -2,14 +2,16 @@ package com.starboardstudios.broadside.gameunits.ships;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.starboardstudios.broadside.gameunits.BaseUnit;
-import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
-import com.starboardstudios.broadside.gameunits.projectile.Projectile;
-import com.starboardstudios.broadside.gameunits.turrets.*;
 import com.starboardstudios.broadside.R.drawable;
-import com.starboardstudios.broadside.gameunits.CombatUnit;
+import com.starboardstudios.broadside.gameunits.BaseUnit;
 import com.starboardstudios.broadside.gameunits.Crew;
 import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.gameunits.aircrafts.BaseAircraft;
+import com.starboardstudios.broadside.gameunits.projectile.Projectile;
+import com.starboardstudios.broadside.gameunits.turrets.Cannon;
+import com.starboardstudios.broadside.gameunits.turrets.LaserCannon;
+import com.starboardstudios.broadside.gameunits.turrets.MainCannon;
+import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 	private boolean invulnerable = false;
 	private Section bow,midship,stern;
 	private int maxHealth;
-	private float xKey = .1125f;
+	private float xKey = .1025f;
 
 	public MainShip(Model model, boolean b) {
 		super(model.context);
@@ -39,10 +41,10 @@ public class MainShip extends com.starboardstudios.broadside.gameunits.CombatUni
 				.getScreenX() * .75), (int) (model.getScreenY() * 1.2)));
 
 		/** Starting position. As for now on the left. */
-		x = -((int) (model.getScreenX() * .225));
+		x = -((int) (model.getScreenX() * .0125));
 		y = (float) -(model.getScreenY() * .2);
 
-		xKey = .1125f;
+		//xKey = .1125f;
 		mainCannon = new MainCannon(model,
 				(float) (this.x + ((model.getScreenX() * xKey))),
 				(float) (this.y + ((model.getScreenX() * .3))));

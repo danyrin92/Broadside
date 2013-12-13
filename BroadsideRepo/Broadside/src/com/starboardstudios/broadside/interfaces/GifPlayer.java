@@ -16,18 +16,23 @@ public class GifPlayer extends View {
 
         private Movie mMovie;
         private long movieStart;
-
-        public GifPlayer(Context context,  int resource ) {
+        private boolean forever = true;
+        public GifPlayer(Context context,  int resource, boolean forever ) {
             super(context);
+            this.forever = forever;
             initializeView(resource);
         }
 
-
+         public void setForeverFalse()
+         {
+             forever = false;
+         }
 
         private void initializeView(int resource) {
             InputStream i = getContext().getResources().openRawResource(resource);
             mMovie = Movie.decodeStream(i);
         }
+
 
 
 
@@ -45,7 +50,20 @@ public class GifPlayer extends View {
                 mMovie.draw(canvas, getWidth() - mMovie.width(), getHeight()
                         - mMovie.height());
                 this.invalidate();
+
             }
+
+            try{
+                if(!forever&& (now-movieStart)>mMovie.duration())
+                {
+                    mMovie = null;
+
+                }
+            }catch (Exception e) {}
+
+
+
+
         }
 
 }

@@ -38,14 +38,15 @@ public abstract class BaseAircraft extends CombatUnit {
 	public void collide(BaseUnit unit) {
 		if (unit instanceof Projectile) {
 			if (((Projectile)unit).creator instanceof MainShip) {
+
 				damage(((Projectile) unit).getDamage());
 			}
 		}
 	}
 	
 	public void damage(int damage) {
-		health -= damage;
-		//TODO: Add animation to the damage method
+
+        health -= damage;
 		if (health <= 0) {
 			destroy();
 		}

@@ -21,7 +21,7 @@ public class Fire extends BaseUnit{
 		this.context = model.context;
 		this.model = model;
 		// create image
-		fireImage = new GifPlayer(context,drawable.fire_cartoon);
+		fireImage = new GifPlayer(context,drawable.fire_cartoon, true);
 		float size = (float) .1;
 		fireImage.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size)));
@@ -29,6 +29,9 @@ public class Fire extends BaseUnit{
 		// initialize other stuff
 		x = y = 0;
 	}
+
+
+
 
 	// methods
 	public void update() {

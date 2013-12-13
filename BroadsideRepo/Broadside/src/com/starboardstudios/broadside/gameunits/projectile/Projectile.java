@@ -2,10 +2,8 @@ package com.starboardstudios.broadside.gameunits.projectile;
 
 import android.content.Context;
 import android.widget.ImageView;
-
-import com.starboardstudios.broadside.gameunits.BaseUnit;
-import com.starboardstudios.broadside.gameunits.CombatUnit;
-import com.starboardstudios.broadside.gameunits.Model;
+import com.starboardstudios.broadside.controller.PlayController;
+import com.starboardstudios.broadside.gameunits.*;
 import com.starboardstudios.broadside.gameunits.ships.MainShip;
 import com.starboardstudios.broadside.gameunits.turrets.Turret;
 
@@ -57,7 +55,7 @@ public abstract class Projectile extends BaseUnit {
 		float offset = (float) ((startZ*distanceFromStart)/distanceToTarget);
 		z = (float) Math.sqrt(r2 - Math.pow((distanceFromStart - .5*distanceToTarget), 2)) - offset;
 		if (turret != null) {
-			System.out.println(drop);
+			//System.out.println(drop);
 		}
 		boolean maxRange = distanceFromStart > range;
 		if (range !=-1 && maxRange) {
@@ -76,7 +74,14 @@ public abstract class Projectile extends BaseUnit {
 	}
 	
 	@Override
-	public void collide(BaseUnit collidedWith) {
+	public void collide(final BaseUnit collidedWith) {
+
+
+        addExplosion(new Explosion(model), collidedWith.getX(), collidedWith.getY());
+
+
+
+
 		if (creator instanceof MainShip) {
 			if (!((MainShip) collidedWith instanceof MainShip) && !((Turret) collidedWith instanceof Turret)) {
 				destroy();
@@ -184,5 +189,38 @@ public abstract class Projectile extends BaseUnit {
 	public boolean getDrop() {
 		return drop;
 	}
+ 
+    public void addExplosion(Explosion fire, float x, float y) {
+        try {
+            //System.out.println("Add fire...");
+            PlayController currentActivity = (PlayController) model
+                    .getCurrentActivity();
+            currentActivity
+                    .runOnUiThread(new MyRunnable(fire, x, y, this.model));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+class MyRunnable implements Runnable {
+    private Explosion fire;
+    private float x;
+    private float y;
+    private PlayController currentActivity;
+    private Model model;
+
+    public MyRunnable(Explosion fire, float x, float y, Model model) {
+        this.fire = fire;
+        this.x = x;
+        this.y = y;
+        this.model = model;
+        currentActivity = (PlayController) model.getCurrentActivity();
+    }
+
+    public void run() {
+        currentActivity.addExplosion(fire, x, y);
+    }
 
 }

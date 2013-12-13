@@ -14,6 +14,7 @@ import android.widget.*;
 import com.starboardstudios.broadside.R;
 import com.starboardstudios.broadside.app.BroadsideApplication;
 import com.starboardstudios.broadside.gameunits.Crew;
+import com.starboardstudios.broadside.gameunits.Explosion;
 import com.starboardstudios.broadside.gameunits.Fire;
 import com.starboardstudios.broadside.gameunits.Model;
 import com.starboardstudios.broadside.gameunits.aircrafts.EasyAircraft;
@@ -232,6 +233,13 @@ public class PlayController extends BaseController {
         //fire.setY(y);
 
 	}
+    public void addExplosion(Explosion fire,float x,float y) {
+        model.addUnit(fire);
+        fire.setPosition(x,y);
+        //fire.setX(x);
+        //fire.setY(y);
+
+    }
 
 	public void init() {
 

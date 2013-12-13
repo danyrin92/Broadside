@@ -431,6 +431,14 @@ public class Model extends Thread {
 
 
                 }
+                else if(unit instanceof Explosion )
+                {
+                    ((FrameLayout) currentActivity.findViewById(R.id.play_frame))
+                            .addView(((Explosion)unit).fireImage);
+
+
+
+                }
                 else
                 {((FrameLayout) currentActivity.findViewById(R.id.play_frame))
 						.addView(unit.getImage());
@@ -476,6 +484,8 @@ public class Model extends Thread {
 						 * tempUnit.toString() + " and " +
 						 * tempProjectile.toString());
 						 */
+
+
 
 						tempUnit.collide(tempProjectile);
 						tempProjectile.collide(tempUnit);
