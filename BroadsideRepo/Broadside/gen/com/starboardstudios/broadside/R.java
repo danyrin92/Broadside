@@ -77,13 +77,14 @@ public final class R {
         public static final int upgrade_lasor_cannon=0x7f02003f;
         public static final int upgrade_mine_launcher=0x7f020040;
         public static final int upgrade_missile_launcher=0x7f020041;
-        public static final int upgrade_screen=0x7f020042;
-        public static final int upgrade_swivel=0x7f020043;
-        public static final int upgrade_title=0x7f020044;
-        public static final int upgrade_torpedo_launcher=0x7f020045;
-        public static final int upgrade_weps=0x7f020046;
-        public static final int viking_ship=0x7f020047;
-        public static final int waves=0x7f020048;
+        public static final int upgrade_remove_turret=0x7f020042;
+        public static final int upgrade_screen=0x7f020043;
+        public static final int upgrade_swivel=0x7f020044;
+        public static final int upgrade_title=0x7f020045;
+        public static final int upgrade_torpedo_launcher=0x7f020046;
+        public static final int upgrade_weps=0x7f020047;
+        public static final int viking_ship=0x7f020048;
+        public static final int waves=0x7f020049;
     }
     public static final class id {
         public static final int BootyView=0x7f050066;

@@ -42,6 +42,30 @@
 
                 
             </TableLayout>
+
+            <TextView
+                android:id="@+id/LevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/BootyView"
+                android:layout_marginRight="44dp"
+                android:layout_toLeftOf="@+id/tableLayout1"
+                android:text="Level: "
+                android:textColor="#6F4242"
+                android:textSize="30sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/BootyView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/LevelView"
+                android:text="Booty: "
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#6F4242"
+                android:textSize="30sp" />
             
             <ImageView
                 android:id="@+id/imageView9"
@@ -49,7 +73,7 @@
                 android:layout_height="380dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="31dp"
-                android:layout_marginRight="205dp"
+                android:layout_marginRight="140dp"
                 android:layout_toLeftOf="@+id/BootyView"
                 android:src="@drawable/upgrade_weps" />
 
@@ -135,35 +159,14 @@
                 android:onClick="hire"
                 android:src="@drawable/upgrade_hire_crew" />
 
-            <TextView
-                android:id="@+id/BootyView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/imageView1"
-                android:layout_alignLeft="@+id/LevelView"
-                android:text="Booty: "
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#6F4242"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/LevelView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/BootyView"
-                android:layout_toLeftOf="@+id/nxtLvl"
-                android:text="Level: "
-                android:textColor="#6F4242"
-                android:textSize="30sp"
-                android:typeface="monospace" />
-
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/upgrade_title" />
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_alignLeft="@+id/imageView10"
+                android:layout_below="@+id/imageView10"
+                android:onClick="removeTurret"
+                android:src="@drawable/upgrade_remove_turret" />
 
         </RelativeLayout>
 
