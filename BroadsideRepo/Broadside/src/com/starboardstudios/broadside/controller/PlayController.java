@@ -530,7 +530,7 @@ public class PlayController extends BaseController {
 	@Override
 	public void playMusic() { //
 		theme = R.raw.into_the_pirate_bay;
-		playTheme();
+		playBattleMusic();
 	}
 
 }

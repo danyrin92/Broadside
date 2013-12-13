@@ -75,7 +75,7 @@ public class Crew extends BaseUnit {
 		if (repairTrip) {
 			//printMovementInfo();
 			boolean closeEnough = Math.sqrt(Math.pow((xTarget - x), 2)
-					+ Math.pow((yTarget - y), 2)) < 2 * moveSpeed;
+					+ Math.pow((yTarget - y), 2)) < 10 * moveSpeed;
 			if (closeEnough) {
 				if (xTarget == xStation && yTarget == yStation) { //At station
 					// repair complete, so reset
@@ -222,7 +222,7 @@ public class Crew extends BaseUnit {
 		xTarget = xStation;
 		yTarget = yStation;
 		boolean closeEnough = Math.sqrt(Math.pow((xTarget - x), 2)
-				+ Math.pow((yTarget - y), 2)) < 2 * moveSpeed;
+				+ Math.pow((yTarget - y), 2)) < 10 * moveSpeed;
 		if (!closeEnough) {
 			goTo(xTarget, yTarget);
 			repairTrip = true;

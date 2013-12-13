@@ -22,8 +22,8 @@ public class Fire extends BaseUnit{
 		// create image
 		imageView = new ImageView(context);
 		imageView.setAdjustViewBounds(true);
-		imageView.setImageResource(drawable.error);
-		float size = (float) .05;
+		imageView.setImageResource(drawable.fire_image);
+		float size = (float) .1;
 		imageView.setLayoutParams(new LinearLayout.LayoutParams((int) (model
 				.getScreenX() * size), (int) (model.getScreenY() * size)));
 		imageView.setVisibility(View.VISIBLE);
