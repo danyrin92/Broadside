@@ -411,6 +411,11 @@ public abstract class CombatUnit extends BaseUnit {
 	}
 
 	public void checkShipCollisions() {
+		int i;
+		for (i = 0; i < model.getUnits().size(); i++) {
+			if (model.getUnits().get(i) == this)
+				break;
+		}
 		for (int j = 0; j < model.getUnits().size(); j++) {
 			if (model.getUnits().get(j) == this)
 				j++;
@@ -422,8 +427,8 @@ public abstract class CombatUnit extends BaseUnit {
 				float absx = Math.abs(this.x - model.getUnits().get(j).x);
 				float absy = Math.abs(this.y - model.getUnits().get(j).y);
 
-				if (absx < 50 && absy < 75) {
-					if (j % 2 == 0) {
+				if (absx < 100 && absy < 130) {
+					if (i < j) {
 						xSpeed = 0;
 						ySpeed = 0;
 					}
